@@ -13,6 +13,7 @@
 		92B7B52E1C9EC231001BB572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52C1C9EC231001BB572 /* Main.storyboard */; };
 		92B7B5301C9EC231001BB572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52F1C9EC231001BB572 /* Assets.xcassets */; };
 		92B7B5331C9EC231001BB572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B5311C9EC231001BB572 /* LaunchScreen.storyboard */; };
+		92B7B53C1C9ED3CA001BB572 /* MSRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B53B1C9ED3CA001BB572 /* MSRandom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		92B7B52F1C9EC231001BB572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92B7B5321C9EC231001BB572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92B7B5341C9EC231001BB572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92B7B53A1C9ED3CA001BB572 /* MSRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRandom.h; sourceTree = "<group>"; };
+		92B7B53B1C9ED3CA001BB572 /* MSRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRandom.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				92B7B5271C9EC231001BB572 /* AppDelegate.m */,
 				92B7B5291C9EC231001BB572 /* ViewController.h */,
 				92B7B52A1C9EC231001BB572 /* ViewController.m */,
+				92B7B53A1C9ED3CA001BB572 /* MSRandom.h */,
+				92B7B53B1C9ED3CA001BB572 /* MSRandom.m */,
 				92B7B52C1C9EC231001BB572 /* Main.storyboard */,
 				92B7B52F1C9EC231001BB572 /* Assets.xcassets */,
 				92B7B5311C9EC231001BB572 /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 			files = (
 				92B7B52B1C9EC231001BB572 /* ViewController.m in Sources */,
 				92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */,
+				92B7B53C1C9ED3CA001BB572 /* MSRandom.m in Sources */,
 				92B7B5251C9EC231001BB572 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +311,7 @@
 				92B7B5391C9EC231001BB572 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

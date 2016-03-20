@@ -8,7 +8,12 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+#import "MSRandom.h"
+
+@interface ViewController () <NSURLSessionDelegate, NSURLSessionTaskDelegate>
+@property (nonatomic, strong) NSURLSession *session;
+@property (nonatomic, strong) NSArray * response;
+
 
 @end
 
@@ -17,6 +22,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    //Create an object of generation
+    //======================================================================================================
+    __unused MSRandom * requestGenerationInteger = [[MSRandom alloc]initWithNumberOfIntegers:10 minBoundaryValue:1 maxBoundaryValue:10 andReplacement:NO forBase:10];
+    
+    MSRandom * requestGenerationDecimal = [[MSRandom alloc]initWithNumberOfDecimalFractions:10 DecimalPlaces:10 andReplacement:NO];
+    
+    
+    
+    //Config session
+    //======================================================================================================
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    configuration.HTTPMaximumConnectionsPerHost = 3;
+    self.session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    
+    //Make Request
+    //======================================================================================================
+    NSURL * url = [NSURL URLWithString:@"https://api.random.org/json-rpc/1/invoke"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request addValue:@"application/json-rpc" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"application/json-rpc" forHTTPHeaderField:@"Accept"];
+    [request setHTTPMethod:@"POST"];
+    
+    //Convert NSDictionary to NSData
+    //======================================================================================================
+    NSLog(@"Dictionary Request: %@", requestGenerationDecimal.dictionaryData);
+    NSError *error = nil;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestGenerationDecimal.dictionaryData options:0 error:&error];
+    [request setHTTPBody:postData];
+    
+    //Make task
+    //======================================================================================================
+    NSURLSessionDataTask * task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //Converting NSData to NSDictionary
+        NSError *jsonError = nil;
+        NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data
+                                                                 options:0ul
+                                                                   error:&jsonError];
+        self.response = jsonData[@"result"][@"random"][@"data"];
+        //NSLog(@"Result: %@", jsonData);
+        NSLog(@"Result: %@", self.response);
+    }];
+    [task resume];
 }
 
 - (void)didReceiveMemoryWarning {
