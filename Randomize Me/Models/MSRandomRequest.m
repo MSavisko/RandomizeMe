@@ -6,16 +6,15 @@
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSRandom.h"
+#import "MSRandomRequest.h"
 
-@interface MSRandom ()
+@interface MSRandomRequest ()
 @end
 
-#warning change MY_API
-static NSString *const apiKey = @"MY_API";
-static NSString *const hashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
+#warning change MY_API_KEY
+static NSString *const apiKey = @"MY_API_KEY";
 
-@implementation MSRandom
+@implementation MSRandomRequest
 
 - (instancetype) initWithNumberOfIntegers:(NSInteger)n
                     minBoundaryValue:(NSInteger)minValue
@@ -89,6 +88,18 @@ static NSString *const hashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9Zy
         self.n = n;
         self.length = length;
         self.characters = characters;
+        NSDictionary * paramData = @{
+                                     @"apiKey" : apiKey,
+                                     @"n" : [NSNumber numberWithInteger:n],
+                                     @"length" : [NSNumber numberWithInteger:length],
+                                     @"characters" : characters,
+                                     };
+        self.dictionaryData = @{
+                                @"id" : [NSNumber numberWithInteger:self.requestId],
+                                @"jsonrpc" : @"2.0",
+                                @"method" : self.methodName,
+                                @"params" : paramData
+                                };
     }
     return self;
 }

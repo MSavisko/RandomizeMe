@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import "MSRandom.h"
+#import "MSRandomRequest.h"
 
 @interface ViewController () <NSURLSessionDelegate, NSURLSessionTaskDelegate>
 @property (nonatomic, strong) NSURLSession *session;
@@ -25,9 +25,9 @@
     
     //Create an object of generation
     //======================================================================================================
-    __unused MSRandom * requestGenerationInteger = [[MSRandom alloc]initWithNumberOfIntegers:10 minBoundaryValue:1 maxBoundaryValue:10 andReplacement:NO forBase:10];
+    MSRandomRequest * requestGenerationInteger = [[MSRandomRequest alloc]initWithNumberOfIntegers:10 minBoundaryValue:1 maxBoundaryValue:10 andReplacement:NO forBase:10];
     
-    MSRandom * requestGenerationDecimal = [[MSRandom alloc]initWithNumberOfDecimalFractions:10 DecimalPlaces:10 andReplacement:NO];
+    MSRandomRequest * requestGenerationDecimal = [[MSRandomRequest alloc]initWithNumberOfDecimalFractions:10 DecimalPlaces:10 andReplacement:NO];
     
     
     
@@ -49,9 +49,9 @@
     
     //Convert NSDictionary to NSData
     //======================================================================================================
-    NSLog(@"Dictionary Request: %@", requestGenerationDecimal.dictionaryData);
+    NSLog(@"Dictionary Request: %@", requestGenerationInteger.dictionaryData);
     NSError *error = nil;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestGenerationDecimal.dictionaryData options:0 error:&error];
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestGenerationInteger.dictionaryData options:0 error:&error];
     [request setHTTPBody:postData];
     
     //Make task
