@@ -10,10 +10,15 @@
 
 @interface MSRandomResponse : NSObject
 
-@property (nonatomic, strong) NSString * hashedApiKey;
-@property (nonatomic, strong) NSArray * data;
-@property (nonatomic, strong) NSString * completionTime;
-@property (nonatomic) NSInteger serialNumber;
-@property (nonatomic, strong) NSString * signature;
+@property (nonatomic, strong) NSString * methodName; //For ALL response
+@property (nonatomic, strong) NSString * hashedApiKey; //For ALL response
+@property (nonatomic, strong) NSArray * data; //For ALL response
+@property (nonatomic, strong) NSString * completionTime; //For ALL response
+@property (nonatomic) NSInteger serialNumber; //For ALL response
+@property (nonatomic, strong) NSString * signature; //For ALL response
+@property (nonatomic) NSInteger requestId; //For ALL response
+@property (nonatomic, strong) NSDictionary * dictionaryData; //Use for ALL requests
+
++ (MSRandomResponse*) parseFromData:(NSDictionary*)data;
 
 @end

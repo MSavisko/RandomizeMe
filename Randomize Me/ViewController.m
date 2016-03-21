@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 #import "MSRandomRequest.h"
+#import "MSRandomResponse.h"
 
 @interface ViewController () <NSURLSessionDelegate, NSURLSessionTaskDelegate>
 @property (nonatomic, strong) NSURLSession *session;
@@ -27,9 +28,7 @@
     //======================================================================================================
     MSRandomRequest * requestGenerationInteger = [[MSRandomRequest alloc]initWithNumberOfIntegers:10 minBoundaryValue:1 maxBoundaryValue:10 andReplacement:NO forBase:10];
     
-    MSRandomRequest * requestGenerationDecimal = [[MSRandomRequest alloc]initWithNumberOfDecimalFractions:10 DecimalPlaces:10 andReplacement:NO];
-    
-    
+    __unused MSRandomRequest * requestGenerationDecimal = [[MSRandomRequest alloc]initWithNumberOfDecimalFractions:10 DecimalPlaces:10 andReplacement:NO];
     
     //Config session
     //======================================================================================================
@@ -64,7 +63,10 @@
                                                                    error:&jsonError];
         self.response = jsonData[@"result"][@"random"][@"data"];
         //NSLog(@"Result: %@", jsonData);
-        NSLog(@"Result: %@", self.response);
+        //NSLog(@"Method: %@", jsonData[@"result"][@"random"][@"method"]);
+        NSLog(@"Result:%@", self.response);
+        NSLog(@"Method: %@", [MSRandomResponse parseFromData:jsonData].methodName);
+        
     }];
     [task resume];
 }
