@@ -24,8 +24,10 @@
 
 //Initialization for Integers generation
 - (instancetype) initWithNumberOfIntegers:(NSInteger)n minBoundaryValue:(NSInteger)minValue maxBoundaryValue:(NSInteger)maxValue andReplacement:(BOOL)replacemet forBase:(NSInteger)base;
+
 //Initialization for Decimals generation
 - (instancetype) initWithNumberOfDecimalFractions:(NSInteger)n DecimalPlaces:(NSInteger)decimalPlaces andReplacement:(BOOL)replacemet;
+
 //Initialization for String generation
 - (instancetype) initWithNumberOfStrings:(NSInteger)n andLength:(NSInteger)length forCharacters:(NSString*)characters;
 

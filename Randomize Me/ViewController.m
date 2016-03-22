@@ -26,9 +26,13 @@
     
     //Create an object of generation
     //======================================================================================================
-    MSRandomRequest * requestGenerationInteger = [[MSRandomRequest alloc]initWithNumberOfIntegers:10 minBoundaryValue:1 maxBoundaryValue:10 andReplacement:NO forBase:10];
+    __unused MSRandomRequest * requestGenerationInteger = [[MSRandomRequest alloc]initWithNumberOfIntegers:10 minBoundaryValue:1 maxBoundaryValue:10 andReplacement:NO forBase:10];
     
     __unused MSRandomRequest * requestGenerationDecimal = [[MSRandomRequest alloc]initWithNumberOfDecimalFractions:10 DecimalPlaces:10 andReplacement:NO];
+    
+    MSRandomRequest * requestGenerationStrings = [[MSRandomRequest alloc]initWithNumberOfStrings:10 andLength:4 forCharacters:@"abcdefjhigklmnop"];
+    
+    
     
     //Config session
     //======================================================================================================
@@ -48,9 +52,9 @@
     
     //Convert NSDictionary to NSData
     //======================================================================================================
-    NSLog(@"Dictionary Request: %@", requestGenerationInteger.dictionaryData);
+    NSLog(@"Request: %@", requestGenerationStrings.dictionaryData);
     NSError *error = nil;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestGenerationInteger.dictionaryData options:0 error:&error];
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestGenerationStrings.dictionaryData options:0 error:&error];
     [request setHTTPBody:postData];
     
     //Make task
@@ -61,11 +65,14 @@
         NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data
                                                                  options:0ul
                                                                    error:&jsonError];
-        self.response = jsonData[@"result"][@"random"][@"data"];
-        //NSLog(@"Result: %@", jsonData);
-        //NSLog(@"Method: %@", jsonData[@"result"][@"random"][@"method"]);
-        NSLog(@"Result:%@", self.response);
-        NSLog(@"Method: %@", [MSRandomResponse parseFromData:jsonData].methodName);
+        
+        MSRandomResponse * randomResponse = [MSRandomResponse parseResponseFromData:jsonData];
+        if (!randomResponse.error) {
+            NSLog(@"Data of Response: %@", randomResponse.data);
+        } else {
+            NSLog(@"Error exist. %@", randomResponse.dictionaryData[@"error"][@"message"]);
+        }
+        
         
     }];
     [task resume];

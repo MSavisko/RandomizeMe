@@ -15,13 +15,24 @@ static NSString *const hashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9Zy
 
 @implementation MSRandomResponse
 
-+ (MSRandomResponse*) parseFromData:(NSDictionary*)data {
++ (MSRandomResponse*) parseResponseFromData:(NSDictionary*)data {
     MSRandomResponse * response = [[MSRandomResponse alloc]init];
-    response.methodName = data[@"result"][@"random"][@"method"];
-    if ([response.methodName isEqualToString:@"generateSignedIntegers"]) {
-        NSLog(@"This method is:%@", response.methodName);
+    if ([data valueForKey:@"error"] != nil) {
+        response.error = YES;
+        response.dictionaryData = data;
+        return response;
     }
-    return response;
+    else {
+        response.error = NO;
+        response.methodName = data[@"result"][@"random"][@"method"];
+        response.hashedApiKey = data[@"result"][@"random"][@"hashedApiKey"];
+        response.data = data[@"result"][@"random"][@"data"];
+        response.completionTime = data[@"result"][@"random"][@"completionTime"];
+        response.serialNumber = [data[@"result"][@"random"][@"serialNumber"] integerValue];
+        response.signature = data[@"result"][@"signature"];
+        response.dictionaryData = data;
+        return response;
+    }
 }
 
 @end

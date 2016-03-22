@@ -10,7 +10,6 @@
 
 @interface MSRandomRequest ()
 @end
-
 #warning change MY_API_KEY
 static NSString *const apiKey = @"MY_API_KEY";
 

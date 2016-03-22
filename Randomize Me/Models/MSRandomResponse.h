@@ -17,8 +17,9 @@
 @property (nonatomic) NSInteger serialNumber; //For ALL response
 @property (nonatomic, strong) NSString * signature; //For ALL response
 @property (nonatomic) NSInteger requestId; //For ALL response
-@property (nonatomic, strong) NSDictionary * dictionaryData; //Use for ALL requests
+@property (nonatomic, strong) NSDictionary * dictionaryData; //Use for ALL response
+@property (nonatomic) BOOL error; //Use for ALL response
 
-+ (MSRandomResponse*) parseFromData:(NSDictionary*)data;
++ (MSRandomResponse*) parseResponseFromData:(NSDictionary*)data;
 
 @end
