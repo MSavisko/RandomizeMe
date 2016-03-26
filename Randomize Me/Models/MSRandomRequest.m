@@ -11,15 +11,15 @@
 @interface MSRandomRequest ()
 @end
 #warning change MY_API_KEY
-static NSString *const apiKey = @"MY_API_KEY";
+static NSString *const MSApiKey = @"MY_API_KEY";
 
 @implementation MSRandomRequest
 
 - (instancetype) initWithNumberOfIntegers:(NSInteger)n
-                    minBoundaryValue:(NSInteger)minValue
-                    maxBoundaryValue:(NSInteger)maxValue
-                 andReplacement:(BOOL)replacemet
-                        forBase:(NSInteger)base {
+                         minBoundaryValue:(NSInteger)minValue
+                         maxBoundaryValue:(NSInteger)maxValue
+                           andReplacement:(BOOL)replacemet
+                                  forBase:(NSInteger)base {
     self = [super init];
     if (self) {
         self.requestId = arc4random_uniform(32767);
@@ -30,22 +30,20 @@ static NSString *const apiKey = @"MY_API_KEY";
         self.replacement = replacemet;
         self.base = base;
         NSDictionary * paramData = @{
-                                @"apiKey" : apiKey,
-                                @"n" : [NSNumber numberWithInteger:n],
-                                @"min" : [NSNumber numberWithInteger:minValue],
-                                @"max" : [NSNumber numberWithInteger:maxValue],
-                                @"replacement" : [NSNumber numberWithBool:replacemet],
-                                @"base": [NSNumber numberWithInteger:base]
-                                };
+                                     @"apiKey" : MSApiKey,
+                                     @"n" : [NSNumber numberWithInteger:n],
+                                     @"min" : [NSNumber numberWithInteger:minValue],
+                                     @"max" : [NSNumber numberWithInteger:maxValue],
+                                     @"replacement" : [NSNumber numberWithBool:replacemet],
+                                     @"base": [NSNumber numberWithInteger:base]
+                                     };
         
         self.dictionaryData = @{
-                                  @"id" : [NSNumber numberWithInteger:self.requestId],
-                                  @"jsonrpc" : @"2.0",
-                                  @"method" : self.methodName,
-                                  @"params" : paramData
-                                  };
-        
-        
+                                @"id" : [NSNumber numberWithInteger:self.requestId],
+                                @"jsonrpc" : @"2.0",
+                                @"method" : @"generateSignedIntegers",
+                                @"params" : paramData
+                                };
     }
     return self;
 }
@@ -61,7 +59,7 @@ static NSString *const apiKey = @"MY_API_KEY";
         self.decimalPlaces = decimalPlaces;
         self.replacement = replacemet;
         NSDictionary * paramData = @{
-                                     @"apiKey" : apiKey,
+                                     @"apiKey" : MSApiKey,
                                      @"n" : [NSNumber numberWithInteger:n],
                                      @"decimalPlaces" : [NSNumber numberWithInteger:decimalPlaces],
                                      @"replacement" : [NSNumber numberWithBool:replacemet],
@@ -70,7 +68,7 @@ static NSString *const apiKey = @"MY_API_KEY";
         self.dictionaryData = @{
                                 @"id" : [NSNumber numberWithInteger:self.requestId],
                                 @"jsonrpc" : @"2.0",
-                                @"method" : self.methodName,
+                                @"method" : @"generateSignedDecimalFractions",
                                 @"params" : paramData
                                 };
     }
@@ -88,7 +86,7 @@ static NSString *const apiKey = @"MY_API_KEY";
         self.length = length;
         self.characters = characters;
         NSDictionary * paramData = @{
-                                     @"apiKey" : apiKey,
+                                     @"apiKey" : MSApiKey,
                                      @"n" : [NSNumber numberWithInteger:n],
                                      @"length" : [NSNumber numberWithInteger:length],
                                      @"characters" : characters,
@@ -96,7 +94,7 @@ static NSString *const apiKey = @"MY_API_KEY";
         self.dictionaryData = @{
                                 @"id" : [NSNumber numberWithInteger:self.requestId],
                                 @"jsonrpc" : @"2.0",
-                                @"method" : self.methodName,
+                                @"method" : @"generateSignedStrings",
                                 @"params" : paramData
                                 };
     }

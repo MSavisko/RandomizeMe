@@ -6,16 +6,13 @@
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "ViewController.h"
-
 #import "MSRandomRequest.h"
 #import "MSRandomResponse.h"
 
+#import "ViewController.h"
+
 @interface ViewController () <NSURLSessionDelegate, NSURLSessionTaskDelegate>
-@property (nonatomic, strong) NSURLSession *session;
-@property (nonatomic, strong) NSArray * response;
-
-
+@property (strong, nonatomic) NSURLSession *session;
 @end
 
 @implementation ViewController
@@ -26,11 +23,11 @@
     
     //Create an object of generation
     //======================================================================================================
-    __unused MSRandomRequest * requestGenerationInteger = [[MSRandomRequest alloc]initWithNumberOfIntegers:10 minBoundaryValue:1 maxBoundaryValue:10 andReplacement:NO forBase:10];
+    MSRandomRequest * requestGenerationInteger = [[MSRandomRequest alloc]initWithNumberOfIntegers:10 minBoundaryValue:1 maxBoundaryValue:10 andReplacement:NO forBase:10];
     
     __unused MSRandomRequest * requestGenerationDecimal = [[MSRandomRequest alloc]initWithNumberOfDecimalFractions:10 DecimalPlaces:10 andReplacement:NO];
     
-    MSRandomRequest * requestGenerationStrings = [[MSRandomRequest alloc]initWithNumberOfStrings:10 andLength:4 forCharacters:@"abcdefjhigklmnop"];
+    __unused MSRandomRequest * requestGenerationStrings = [[MSRandomRequest alloc]initWithNumberOfStrings:10 andLength:4 forCharacters:@"abcdefjhigklmnop"];
     
     
     
@@ -52,9 +49,9 @@
     
     //Convert NSDictionary to NSData
     //======================================================================================================
-    NSLog(@"Request: %@", requestGenerationStrings.dictionaryData);
+    NSLog(@"Request: %@", requestGenerationInteger.dictionaryData);
     NSError *error = nil;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestGenerationStrings.dictionaryData options:0 error:&error];
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestGenerationInteger.dictionaryData options:0 error:&error];
     [request setHTTPBody:postData];
     
     //Make task

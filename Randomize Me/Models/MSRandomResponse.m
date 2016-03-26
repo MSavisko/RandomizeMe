@@ -11,11 +11,11 @@
 @interface MSRandomResponse ()
 @end
 
-static NSString *const hashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
+static NSString *const MSHashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
 
 @implementation MSRandomResponse
 
-+ (MSRandomResponse*) parseResponseFromData:(NSDictionary*)data {
++ (instancetype) parseResponseFromData:(NSDictionary*)data {
     MSRandomResponse * response = [[MSRandomResponse alloc]init];
     if ([data valueForKey:@"error"] != nil) {
         response.error = YES;
