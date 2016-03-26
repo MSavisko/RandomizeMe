@@ -11,28 +11,24 @@
 @interface MSRandomResponse ()
 @end
 
-static NSString *const MSHashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
-
 @implementation MSRandomResponse
 
-+ (instancetype) parseResponseFromData:(NSDictionary*)data {
-    MSRandomResponse * response = [[MSRandomResponse alloc]init];
+- (void) parseResponseFromData:(NSDictionary*)data {
     if ([data valueForKey:@"error"] != nil) {
-        response.error = YES;
-        response.dictionaryData = data;
-        return response;
+        self.error = YES;
+        self.responseBody = data;
     }
     else {
-        response.error = NO;
-        response.methodName = data[@"result"][@"random"][@"method"];
-        response.hashedApiKey = data[@"result"][@"random"][@"hashedApiKey"];
-        response.data = data[@"result"][@"random"][@"data"];
-        response.completionTime = data[@"result"][@"random"][@"completionTime"];
-        response.serialNumber = [data[@"result"][@"random"][@"serialNumber"] integerValue];
-        response.signature = data[@"result"][@"signature"];
-        response.dictionaryData = data;
-        return response;
+        self.error = NO;
+        self.methodName = data[@"result"][@"random"][@"method"];
+        self.hashedApiKey = data[@"result"][@"random"][@"hashedApiKey"];
+        self.data = data[@"result"][@"random"][@"data"];
+        self.completionTime = data[@"result"][@"random"][@"completionTime"];
+        self.serialNumber = [data[@"result"][@"random"][@"serialNumber"] integerValue];
+        self.signature = data[@"result"][@"signature"];
+        self.responseBody = data;
     }
 }
+
 
 @end

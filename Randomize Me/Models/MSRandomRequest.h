@@ -13,7 +13,6 @@
 @property (nonatomic) NSInteger requestId; //Use for ALL requests
 @property (strong, nonatomic) NSString *methodName; //Use for ALL requests
 @property (nonatomic) BOOL replacement; //Use for ALL requests
-@property (strong, nonatomic) NSDictionary *dictionaryData; //Use for ALL requests
 @property (nonatomic) NSInteger n; //Use for generateSignedIntegers and generateSignedDecimalFractions requests
 @property (nonatomic) NSInteger minValue; //Use for generateSignedIntegers request
 @property (nonatomic) NSInteger maxValue; //Use for generateSignedIntegers request
@@ -29,6 +28,11 @@
 - (instancetype) initWithNumberOfDecimalFractions:(NSInteger)n DecimalPlaces:(NSInteger)decimalPlaces andReplacement:(BOOL)replacemet;
 
 //Initialization for String generation
-- (instancetype) initWithNumberOfStrings:(NSInteger)n andLength:(NSInteger)length forCharacters:(NSString*)characters;
+- (instancetype) initWithNumberOfStrings:(NSInteger)n andLength:(NSInteger)length forCharacters:(NSString*)characters andReplacement:(BOOL)replacemet;
+
+//Because request must be in dictionary
+- (NSDictionary*) makeRequestBody;
+- (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature atCompletionTime:(NSString*)completionTime Serial:(NSInteger)serialNumber andDataArray:(NSArray*)array;
+
 
 @end
