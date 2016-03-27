@@ -126,7 +126,7 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
                         @"characters" : self.characters,
                         };
     }
-    NSMutableDictionary *random = [NSMutableDictionary
+    NSMutableDictionary *randomPartOfDict = [NSMutableDictionary
                                    dictionaryWithDictionary: @{
                                                                @"method" : self.methodName,
                                                                @"hashedApiKey" : MShashedApiKey,
@@ -136,11 +136,11 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
                                                                @"completionTime" : completionTime,
                                                                @"serialNumber" : [NSNumber numberWithInteger:serialNumber],
                                                                }];
-    [random addEntriesFromDictionary: uniqueParam];
+    [randomPartOfDict addEntriesFromDictionary: uniqueParam];
     NSDictionary * requestBody = @{
                                    @"jsonrpc": @"2.0",
                                    @"method": @"verifySignature",
-                                   @"params" : @{@"random" : random, @"signature" : signature,},
+                                   @"params" : @{@"random" : randomPartOfDict, @"signature" : signature,},
                                    @"id" : [NSNumber numberWithInteger:self.requestId],
                                    };
     

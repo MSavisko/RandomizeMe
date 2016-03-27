@@ -56,7 +56,7 @@
     NSString *completionTime = @"2016-03-27 09:39:14Z";
     NSInteger serial = 111;
     NSArray *dataArray = @[@10, @8, @2, @4, @5, @3, @6, @1, @7, @9];
-    NSDictionary * postDictionary = [requestGenerationInteger makeRequestBodyWithSignature:signature atCompletionTime:completionTime serial:serial andDataArray:dataArray];
+    __unused NSDictionary * postDictionary = [requestGenerationInteger makeRequestBodyWithSignature:signature atCompletionTime:completionTime serial:serial andDataArray:dataArray];
     //======================================================================================================
     
     NSError *error = nil;
