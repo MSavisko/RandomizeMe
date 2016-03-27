@@ -12,7 +12,7 @@
 @end
 
 #warning change MY_API_KEY
-static NSString *const MSApiKey = @"MY_API_KEY";
+static NSString *const MSApiKey = @"639f95dd-e37c-46df-8f9f-1d2b2e9c1c77";
 static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
 
 @implementation MSRandomRequest
@@ -24,13 +24,13 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
                                   forBase:(NSInteger)base {
     self = [super init];
     if (self) {
-        self.requestId = arc4random_uniform(32767);
-        self.methodName = @"generateSignedIntegers";
-        self.n = n;
-        self.minValue = minValue;
-        self.maxValue = maxValue;
-        self.replacement = replacemet;
-        self.base = base;
+        _requestId = arc4random_uniform(32767);
+        _methodName = @"generateSignedIntegers";
+        _n = n;
+        _minValue = minValue;
+        _maxValue = maxValue;
+        _replacement = replacemet;
+        _base = base;
     }
     return self;
 }
@@ -40,11 +40,11 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
                                    andReplacement:(BOOL)replacemet {
     self = [super init];
     if (self) {
-        self.requestId = arc4random_uniform(32767);
-        self.methodName = @"generateSignedDecimalFractions";
-        self.n = n;
-        self.decimalPlaces = decimalPlaces;
-        self.replacement = replacemet;
+        _requestId = arc4random_uniform(32767);
+        _methodName = @"generateSignedDecimalFractions";
+        _n = n;
+        _decimalPlaces = decimalPlaces;
+        _replacement = replacemet;
     }
     return self;
 }
@@ -55,12 +55,12 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
                           andReplacement:(BOOL)replacemet {
     self = [super init];
     if (self) {
-        self.requestId = arc4random_uniform(32767);
-        self.methodName = @"generateSignedStrings";
-        self.n = n;
-        self.length = length;
-        self.characters = characters;
-        self.replacement = replacemet;
+        _requestId = arc4random_uniform(32767);
+        _methodName = @"generateSignedStrings";
+        _n = n;
+        _length = length;
+        _characters = characters;
+        _replacement = replacemet;
     }
     return self;
 }
