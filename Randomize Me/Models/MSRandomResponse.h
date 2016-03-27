@@ -21,5 +21,7 @@
 @property (nonatomic) BOOL error; //Use for ALL response
 
 - (void) parseResponseFromData:(NSDictionary*)data;
+- (BOOL) parseVerifyResponseFromData:(NSDictionary*)data;
+- (NSString*) parseError;
 
 @end

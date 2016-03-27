@@ -66,7 +66,7 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
 }
 
 - (NSDictionary*) makeRequestBody {
-    NSDictionary * paramOfRequest = [[NSDictionary alloc]init];
+    NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     if ([self.methodName isEqualToString:@"generateSignedIntegers"]) {
         paramOfRequest = @{
                       @"apiKey" : MSApiKey,
@@ -94,7 +94,7 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
                       @"replacement" : [NSNumber numberWithBool:self.replacement],
                       };
     }
-    NSDictionary * requestBody = @{
+    NSDictionary *requestBody = @{
                                   @"id" : [NSNumber numberWithInteger:self.requestId],
                                   @"jsonrpc" : @"2.0",
                                   @"method" : self.methodName,
@@ -104,13 +104,47 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
 }
 
 - (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature
-                               atCompletionTime:(NSString*)completionTime
-                                         Serial:(NSInteger)serialNumber
-                                   andDataArray:(NSArray*)array {
+                              atCompletionTime:(NSString*)completionTime
+                                        serial:(NSInteger)serialNumber
+                                  andDataArray:(NSArray*)array {
+    NSDictionary * uniqueParam = [[NSDictionary alloc]init];
     if ([self.methodName isEqualToString:@"generateSignedIntegers"]) {
-        return self;
+        uniqueParam = @{
+                        @"min" : [NSNumber numberWithInteger:self.minValue],
+                        @"max" : [NSNumber numberWithInteger:self.maxValue],
+                        @"base" : [NSNumber numberWithInteger:self.base],
+                        };
     };
-    return self;
+    if ([self.methodName isEqualToString:@"generateSignedDecimalFractions"]) {
+        uniqueParam = @{
+                        @"decimalPlaces" : [NSNumber numberWithInteger:self.decimalPlaces],
+                        };
+    }
+    if ([self.methodName isEqualToString:@"generateSignedStrings"]) {
+        uniqueParam = @{
+                        @"length" : [NSNumber numberWithInteger:self.length],
+                        @"characters" : self.characters,
+                        };
+    }
+    NSMutableDictionary *random = [NSMutableDictionary
+                                   dictionaryWithDictionary: @{
+                                                               @"method" : self.methodName,
+                                                               @"hashedApiKey" : MShashedApiKey,
+                                                               @"n" : [NSNumber numberWithInteger:self.n],
+                                                               @"replacement" : [NSNumber numberWithBool:self.replacement],
+                                                               @"data" : array,
+                                                               @"completionTime" : completionTime,
+                                                               @"serialNumber" : [NSNumber numberWithInteger:serialNumber],
+                                                               }];
+    [random addEntriesFromDictionary: uniqueParam];
+    NSDictionary * requestBody = @{
+                                   @"jsonrpc": @"2.0",
+                                   @"method": @"verifySignature",
+                                   @"params" : @{@"random" : random, @"signature" : signature,},
+                                   @"id" : [NSNumber numberWithInteger:self.requestId],
+                                   };
+    
+    return requestBody;
 }
 
 @end

@@ -30,9 +30,10 @@
 //Initialization for String generation
 - (instancetype) initWithNumberOfStrings:(NSInteger)n andLength:(NSInteger)length forCharacters:(NSString*)characters andReplacement:(BOOL)replacemet;
 
-//Because request must be in dictionary
+//Make Random Request Body
 - (NSDictionary*) makeRequestBody;
-- (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature atCompletionTime:(NSString*)completionTime Serial:(NSInteger)serialNumber andDataArray:(NSArray*)array;
+//Make Verify Request Body
+- (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature atCompletionTime:(NSString*)completionTime serial:(NSInteger)serialNumber andDataArray:(NSArray*)array;
 
 
 @end
