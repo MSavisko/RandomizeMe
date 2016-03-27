@@ -15,6 +15,7 @@
 		92B7B5331C9EC231001BB572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B5311C9EC231001BB572 /* LaunchScreen.storyboard */; };
 		92B7B5431CA08007001BB572 /* MSRandomResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5421CA08007001BB572 /* MSRandomResponse.m */; };
 		92B7B5461CA08048001BB572 /* MSRandomRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5451CA08048001BB572 /* MSRandomRequest.m */; };
+		92DA2B0C1CA85501001BAC53 /* RandomNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DA2B0B1CA85501001BAC53 /* RandomNumberViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		92B7B5421CA08007001BB572 /* MSRandomResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomResponse.m; path = Models/MSRandomResponse.m; sourceTree = "<group>"; };
 		92B7B5441CA08048001BB572 /* MSRandomRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSRandomRequest.h; path = Models/MSRandomRequest.h; sourceTree = "<group>"; };
 		92B7B5451CA08048001BB572 /* MSRandomRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomRequest.m; path = Models/MSRandomRequest.m; sourceTree = "<group>"; };
+		92DA2B0A1CA85501001BAC53 /* RandomNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomNumberViewController.h; path = ViewController/RandomNumberViewController.h; sourceTree = "<group>"; };
+		92DA2B0B1CA85501001BAC53 /* RandomNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RandomNumberViewController.m; path = ViewController/RandomNumberViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 		92B7B53F1CA07AA6001BB572 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				92DA2B0A1CA85501001BAC53 /* RandomNumberViewController.h */,
+				92DA2B0B1CA85501001BAC53 /* RandomNumberViewController.m */,
 				92B7B5291C9EC231001BB572 /* ViewController.h */,
 				92B7B52A1C9EC231001BB572 /* ViewController.m */,
 			);
@@ -186,6 +191,7 @@
 			files = (
 				92B7B52B1C9EC231001BB572 /* ViewController.m in Sources */,
 				92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */,
+				92DA2B0C1CA85501001BAC53 /* RandomNumberViewController.m in Sources */,
 				92B7B5431CA08007001BB572 /* MSRandomResponse.m in Sources */,
 				92B7B5251C9EC231001BB572 /* main.m in Sources */,
 				92B7B5461CA08048001BB572 /* MSRandomRequest.m in Sources */,
@@ -306,6 +312,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Maksym-Savisko.Randomize-Me";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,6 +326,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Maksym-Savisko.Randomize-Me";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

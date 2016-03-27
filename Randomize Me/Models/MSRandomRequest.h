@@ -1,5 +1,5 @@
 //
-//  MSRandom.h
+//  MSRandomRequest.h
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 3/20/16.

@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Random Number View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RandomNumberViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +16,81 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9Z-aE-7PX">
+                                <rect key="frame" x="262" y="550" width="76" height="30"/>
+                                <state key="normal" title="Randomize"/>
+                                <connections>
+                                    <action selector="randomizeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGV-qJ-JZX"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of Integer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ie9-la-U4f">
+                                <rect key="frame" x="230" y="145" width="140" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bij-Qc-k0r">
+                                <rect key="frame" x="285" y="205" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2Uj-td-jHd"/>
+                                    <constraint firstAttribute="width" constant="30" id="eXV-rX-i4S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VdJ-QA-BeJ">
+                                <rect key="frame" x="180" y="205" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Aia-db-Oi6"/>
+                                    <constraint firstAttribute="width" constant="100" id="Ox0-ce-AwS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjX-hw-h28">
+                                <rect key="frame" x="320" y="205" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BeG-po-7an"/>
+                                    <constraint firstAttribute="width" constant="100" id="x7C-pP-OD2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VdJ-QA-BeJ" firstAttribute="top" secondItem="Bij-Qc-k0r" secondAttribute="top" id="HhK-AF-Fzo"/>
+                            <constraint firstItem="i9Z-aE-7PX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LO6-Ug-jZB"/>
+                            <constraint firstItem="ie9-la-U4f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ls9-xo-rJR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="i9Z-aE-7PX" secondAttribute="bottom" constant="20" id="Znd-rF-u9k"/>
+                            <constraint firstItem="ie9-la-U4f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="125" id="ggg-qH-soV"/>
+                            <constraint firstItem="Bij-Qc-k0r" firstAttribute="leading" secondItem="VdJ-QA-BeJ" secondAttribute="trailing" constant="5" id="hFl-r8-gDO"/>
+                            <constraint firstItem="Bij-Qc-k0r" firstAttribute="top" secondItem="ie9-la-U4f" secondAttribute="bottom" constant="30" id="lHw-AH-mNB"/>
+                            <constraint firstItem="KjX-hw-h28" firstAttribute="leading" secondItem="Bij-Qc-k0r" secondAttribute="trailing" constant="5" id="ljZ-hW-7rk"/>
+                            <constraint firstItem="Bij-Qc-k0r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qsM-kt-bel"/>
+                            <constraint firstItem="KjX-hw-h28" firstAttribute="baseline" secondItem="VdJ-QA-BeJ" secondAttribute="baseline" id="sag-cQ-S79"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="maxValue" destination="KjX-hw-h28" id="hXw-mn-x11"/>
+                        <outlet property="minValue" destination="VdJ-QA-BeJ" id="hHL-ar-2q3"/>
+                        <outlet property="numberOfInteger" destination="ie9-la-U4f" id="VX0-xp-TrU"/>
+                        <outlet property="randomizeButton" destination="i9Z-aE-7PX" id="6QJ-Ks-tj7"/>
+                        <outlet property="searchDisplayController" destination="rOS-h7-byr" id="jFN-Zw-FIm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="rOS-h7-byr">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="4j9-Oz-b8D"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="IQv-vM-WnZ"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="z6O-Av-e7u"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="FZO-xA-M08"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="250" y="240"/>
         </scene>
     </scenes>
 </document>
