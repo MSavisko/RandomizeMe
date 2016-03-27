@@ -10,16 +10,16 @@
 
 @interface MSRandomRequest : NSObject
 
-@property (readonly, nonatomic) NSInteger requestId; //Use for ALL requests
-@property (readonly, strong, nonatomic) NSString *methodName; //Use for ALL requests
-@property (readonly, nonatomic) BOOL replacement; //Use for ALL requests
-@property (readonly, nonatomic) NSInteger n; //Use for generateSignedIntegers and generateSignedDecimalFractions requests
-@property (readonly, nonatomic) NSInteger minValue; //Use for generateSignedIntegers request
-@property (readonly, nonatomic) NSInteger maxValue; //Use for generateSignedIntegers request
-@property (readonly, nonatomic) NSInteger base; //Use for generateSignedIntegers request
-@property (readonly, nonatomic) NSInteger decimalPlaces; //Use for generateSignedDecimalFractions request
-@property (readonly, nonatomic) NSInteger length; //Use for generateSignedStrings request
-@property (readonly, nonatomic) NSString *characters; //Use for generateSignedStrings request
+@property (nonatomic) NSInteger requestId; //Use for ALL requests
+@property (strong, nonatomic) NSString *methodName; //Use for ALL requests
+@property (nonatomic) BOOL replacement; //Use for ALL requests
+@property (nonatomic) NSInteger n; //Use for generateSignedIntegers and generateSignedDecimalFractions requests
+@property (nonatomic) NSInteger minValue; //Use for generateSignedIntegers request
+@property (nonatomic) NSInteger maxValue; //Use for generateSignedIntegers request
+@property (nonatomic) NSInteger base; //Use for generateSignedIntegers request
+@property (nonatomic) NSInteger decimalPlaces; //Use for generateSignedDecimalFractions request
+@property (nonatomic) NSInteger length; //Use for generateSignedStrings request
+@property (nonatomic) NSString *characters; //Use for generateSignedStrings request
 
 //Initialization for Integers generation
 - (instancetype) initWithNumberOfIntegers:(NSInteger)n minBoundaryValue:(NSInteger)minValue maxBoundaryValue:(NSInteger)maxValue andReplacement:(BOOL)replacemet forBase:(NSInteger)base;
