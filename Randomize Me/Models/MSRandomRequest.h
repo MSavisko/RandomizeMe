@@ -36,5 +36,8 @@
 //Make Verify Request Body
 - (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature atCompletionTime:(NSString*)completionTime serial:(NSInteger)serialNumber andDataArray:(NSArray*)array;
 
+//Because of changing state switch need
+- (void) setReplacement:(BOOL)replacement;
+
 
 @end

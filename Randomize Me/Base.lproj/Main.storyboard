@@ -57,12 +57,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-oB-hco">
+                                <rect key="frame" x="276" y="275" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VdJ-QA-BeJ" firstAttribute="top" secondItem="Bij-Qc-k0r" secondAttribute="top" id="HhK-AF-Fzo"/>
                             <constraint firstItem="i9Z-aE-7PX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LO6-Ug-jZB"/>
                             <constraint firstItem="ie9-la-U4f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ls9-xo-rJR"/>
+                            <constraint firstItem="hCu-oB-hco" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UPE-GP-dC2"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="i9Z-aE-7PX" secondAttribute="bottom" constant="20" id="Znd-rF-u9k"/>
                             <constraint firstItem="ie9-la-U4f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="125" id="ggg-qH-soV"/>
                             <constraint firstItem="Bij-Qc-k0r" firstAttribute="leading" secondItem="VdJ-QA-BeJ" secondAttribute="trailing" constant="5" id="hFl-r8-gDO"/>
@@ -70,9 +74,11 @@
                             <constraint firstItem="KjX-hw-h28" firstAttribute="leading" secondItem="Bij-Qc-k0r" secondAttribute="trailing" constant="5" id="ljZ-hW-7rk"/>
                             <constraint firstItem="Bij-Qc-k0r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qsM-kt-bel"/>
                             <constraint firstItem="KjX-hw-h28" firstAttribute="baseline" secondItem="VdJ-QA-BeJ" secondAttribute="baseline" id="sag-cQ-S79"/>
+                            <constraint firstItem="hCu-oB-hco" firstAttribute="top" secondItem="KjX-hw-h28" secondAttribute="bottom" constant="40" id="x27-YE-RIJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="baseSwitch" destination="hCu-oB-hco" id="oNu-M2-yuS"/>
                         <outlet property="maxValue" destination="KjX-hw-h28" id="hXw-mn-x11"/>
                         <outlet property="minValue" destination="VdJ-QA-BeJ" id="hHL-ar-2q3"/>
                         <outlet property="numberOfInteger" destination="ie9-la-U4f" id="VX0-xp-TrU"/>

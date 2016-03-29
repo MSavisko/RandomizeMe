@@ -65,6 +65,10 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
     return self;
 }
 
+- (void) setReplacement:(BOOL)replacement {
+    _replacement = replacement;
+};
+
 - (NSDictionary*) makeRequestBody {
     NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     if ([self.methodName isEqualToString:@"generateSignedIntegers"]) {
