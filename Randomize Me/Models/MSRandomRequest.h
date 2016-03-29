@@ -19,7 +19,7 @@
 @property (readonly, nonatomic) NSInteger base; //Use for generateSignedIntegers request
 @property (readonly, nonatomic) NSInteger decimalPlaces; //Use for generateSignedDecimalFractions request
 @property (readonly, nonatomic) NSInteger length; //Use for generateSignedStrings request
-@property (readonly, nonatomic) NSString *characters; //Use for generateSignedStrings request
+@property (readonly, strong, nonatomic) NSString *characters; //Use for generateSignedStrings request
 
 //Initialization for Integers generation
 - (instancetype) initWithNumberOfIntegers:(NSInteger)n minBoundaryValue:(NSInteger)minValue maxBoundaryValue:(NSInteger)maxValue andReplacement:(BOOL)replacemet forBase:(NSInteger)base;
@@ -32,6 +32,7 @@
 
 //Make Random Request Body
 - (NSDictionary*) makeRequestBody;
+
 //Make Verify Request Body
 - (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature atCompletionTime:(NSString*)completionTime serial:(NSInteger)serialNumber andDataArray:(NSArray*)array;
 
