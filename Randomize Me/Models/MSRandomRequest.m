@@ -13,7 +13,7 @@
 
 #warning change MY_API_KEY
 static NSString *const MSApiKey = @"MY_API_KEY";
-static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
+static NSString *const MSHashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
 
 @implementation MSRandomRequest
 
@@ -133,7 +133,7 @@ static NSString *const MShashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9
     NSMutableDictionary *randomPartOfDict = [NSMutableDictionary
                                    dictionaryWithDictionary: @{
                                                                @"method" : self.methodName,
-                                                               @"hashedApiKey" : MShashedApiKey,
+                                                               @"hashedApiKey" : MSHashedApiKey,
                                                                @"n" : [NSNumber numberWithInteger:self.n],
                                                                @"replacement" : [NSNumber numberWithBool:self.replacement],
                                                                @"data" : array,
