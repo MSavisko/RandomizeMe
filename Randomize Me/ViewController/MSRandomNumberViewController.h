@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RandomNumberViewController : UIViewController
+@interface MSRandomNumberViewController : UIViewController
 
 @end

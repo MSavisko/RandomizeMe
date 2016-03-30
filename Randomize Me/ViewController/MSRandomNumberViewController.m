@@ -6,12 +6,12 @@
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "RandomNumberViewController.h"
+#import "MSRandomNumberViewController.h"
 #import "MSRandomRequest.h"
 #import "MSRandomResponse.h"
 #import "AFNetworking.h"
 
-@interface RandomNumberViewController () <UITextFieldDelegate>
+@interface MSRandomNumberViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *randomizeButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfInteger;
 @property (weak, nonatomic) IBOutlet UITextField *minValue;
@@ -20,7 +20,7 @@
 @property (strong, nonatomic) MSRandomRequest *request;
 @end
 
-@implementation RandomNumberViewController
+@implementation MSRandomNumberViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
