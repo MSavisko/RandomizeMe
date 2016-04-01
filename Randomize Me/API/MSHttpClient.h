@@ -11,4 +11,6 @@
 
 @interface MSHTTPClient : AFHTTPSessionManager
 
++ (instancetype)sharedClient;
+
 @end

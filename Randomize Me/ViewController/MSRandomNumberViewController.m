@@ -9,7 +9,7 @@
 #import "MSRandomNumberViewController.h"
 #import "MSRandomRequest.h"
 #import "MSRandomResponse.h"
-#import "AFNetworking.h"
+#import "MSHTTPClient.h"
 
 @interface MSRandomNumberViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *randomizeButton;
@@ -41,16 +41,12 @@
     };
     NSLog(@"Request Body: %@", [self.request makeRequestBody]);
     
-    //Init AFManager and Serializer
-    //======================================================================================
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json-rpc" forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setValue:@"application/json-rpc" forHTTPHeaderField:@"Accept"];
+    MSHTTPClient *client = [MSHTTPClient sharedClient];
+    
+    
     //Make POST Request
     //=======================================================================================
-    [manager POST:@"https://api.random.org/json-rpc/1/invoke" parameters:[self.request makeRequestBody] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [client POST:@"https://api.random.org/json-rpc/1/invoke" parameters:[self.request makeRequestBody] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"Post Sucsess!");
         MSRandomResponse * randomResponse = [[MSRandomResponse alloc]init];
         [randomResponse parseResponseFromData:responseObject];
