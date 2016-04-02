@@ -84,6 +84,7 @@
                         <outlet property="numberOfInteger" destination="ie9-la-U4f" id="VX0-xp-TrU"/>
                         <outlet property="randomizeButton" destination="i9Z-aE-7PX" id="6QJ-Ks-tj7"/>
                         <outlet property="searchDisplayController" destination="rOS-h7-byr" id="jFN-Zw-FIm"/>
+                        <segue destination="wW4-yt-RqK" kind="presentation" identifier="PushRandomResult" id="SLJ-By-Ztq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -97,6 +98,37 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="250" y="240"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="ji7-g4-JR5">
+            <objects>
+                <viewController id="wW4-yt-RqK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x65-pt-cva"/>
+                        <viewControllerLayoutGuide type="bottom" id="ntK-t2-0YJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ync-io-2bp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generation Finished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Y-JE-AUN">
+                                <rect key="frame" x="223.5" y="289.5" width="153" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K9Y-JE-AUN" firstAttribute="centerX" secondItem="Ync-io-2bp" secondAttribute="centerX" id="j34-sJ-36o"/>
+                            <constraint firstItem="K9Y-JE-AUN" firstAttribute="centerY" secondItem="Ync-io-2bp" secondAttribute="centerY" id="zCR-Wr-162"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="168-AQ-0tx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o5g-nG-x1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="240"/>
         </scene>
     </scenes>
 </document>

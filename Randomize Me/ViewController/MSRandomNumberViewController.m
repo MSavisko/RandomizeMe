@@ -55,6 +55,7 @@
     [randomResponse parseResponseFromData:responseObject];
     if (!randomResponse.error) {
         NSLog(@"Response data: %@", randomResponse.data);
+        [self performSegueWithIdentifier:@"PushRandomResult" sender:randomResponse];
     } else {
         NSLog(@"Error exist. %@", [randomResponse parseError]);
     }
