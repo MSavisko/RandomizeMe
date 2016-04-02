@@ -14,7 +14,7 @@
 		92B7B5331C9EC231001BB572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B5311C9EC231001BB572 /* LaunchScreen.storyboard */; };
 		92B7B5431CA08007001BB572 /* MSRandomResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5421CA08007001BB572 /* MSRandomResponse.m */; };
 		92B7B5461CA08048001BB572 /* MSRandomRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5451CA08048001BB572 /* MSRandomRequest.m */; };
-		92DA2B0C1CA85501001BAC53 /* MSRandomNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DA2B0B1CA85501001BAC53 /* MSRandomNumberViewController.m */; };
+		92DA2B0C1CA85501001BAC53 /* MSRandomNumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DA2B0B1CA85501001BAC53 /* MSRandomNumberVC.m */; };
 		92ED36CE1CAC5F3D00816AFD /* MSHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED36CD1CAC5F3D00816AFD /* MSHTTPClient.m */; };
 		DC4FFCAA57D37472FBA50DF6 /* libPods-Randomize Me.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A78DE2EA6F0405467FF221 /* libPods-Randomize Me.a */; };
 /* End PBXBuildFile section */
@@ -33,8 +33,8 @@
 		92B7B5421CA08007001BB572 /* MSRandomResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomResponse.m; path = Models/MSRandomResponse.m; sourceTree = "<group>"; };
 		92B7B5441CA08048001BB572 /* MSRandomRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSRandomRequest.h; path = Models/MSRandomRequest.h; sourceTree = "<group>"; };
 		92B7B5451CA08048001BB572 /* MSRandomRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomRequest.m; path = Models/MSRandomRequest.m; sourceTree = "<group>"; };
-		92DA2B0A1CA85501001BAC53 /* MSRandomNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSRandomNumberViewController.h; path = ViewController/MSRandomNumberViewController.h; sourceTree = "<group>"; };
-		92DA2B0B1CA85501001BAC53 /* MSRandomNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomNumberViewController.m; path = ViewController/MSRandomNumberViewController.m; sourceTree = "<group>"; };
+		92DA2B0A1CA85501001BAC53 /* MSRandomNumberVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSRandomNumberVC.h; path = ViewController/MSRandomNumberVC.h; sourceTree = "<group>"; };
+		92DA2B0B1CA85501001BAC53 /* MSRandomNumberVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomNumberVC.m; path = ViewController/MSRandomNumberVC.m; sourceTree = "<group>"; };
 		92ED36CC1CAC5F3D00816AFD /* MSHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSHTTPClient.h; path = API/MSHTTPClient.h; sourceTree = "<group>"; };
 		92ED36CD1CAC5F3D00816AFD /* MSHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSHTTPClient.m; path = API/MSHTTPClient.m; sourceTree = "<group>"; };
 		9C12F349D8F49B26B506527E /* Pods-Randomize Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Randomize Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Randomize Me/Pods-Randomize Me.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 		92B7B53F1CA07AA6001BB572 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				92DA2B0A1CA85501001BAC53 /* MSRandomNumberViewController.h */,
-				92DA2B0B1CA85501001BAC53 /* MSRandomNumberViewController.m */,
+				92DA2B0A1CA85501001BAC53 /* MSRandomNumberVC.h */,
+				92DA2B0B1CA85501001BAC53 /* MSRandomNumberVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -273,7 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */,
-				92DA2B0C1CA85501001BAC53 /* MSRandomNumberViewController.m in Sources */,
+				92DA2B0C1CA85501001BAC53 /* MSRandomNumberVC.m in Sources */,
 				92ED36CE1CAC5F3D00816AFD /* MSHTTPClient.m in Sources */,
 				92B7B5431CA08007001BB572 /* MSRandomResponse.m in Sources */,
 				92B7B5251C9EC231001BB572 /* main.m in Sources */,
