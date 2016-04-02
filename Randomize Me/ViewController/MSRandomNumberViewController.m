@@ -11,7 +11,7 @@
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
 
-@interface MSRandomNumberViewController () <UITextFieldDelegate>
+@interface MSRandomNumberViewController () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *randomizeButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfInteger;
 @property (weak, nonatomic) IBOutlet UITextField *minValue;
@@ -31,10 +31,13 @@
     [self.view addGestureRecognizer:tap];
     
 }
-    
+
+-(void)dismissKeyboard {
+    [self.view endEditing:YES];
+}
+
+#pragma mark - Action
 - (IBAction)randomizeButton:(UIButton *)sender {
-    //Make Request
-    //======================================================================================
     self.request = [[MSRandomRequest alloc]initWithNumberOfIntegers:[self.numberOfInteger.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:NO forBase:10];
     if (self.baseSwitch.isOn) {
         [self.request setReplacement:YES];
@@ -42,27 +45,23 @@
     NSLog(@"Request Body: %@", [self.request makeRequestBody]);
     
     MSHTTPClient *client = [MSHTTPClient sharedClient];
-    
-    
-    //Make POST Request
-    //=======================================================================================
-    [client POST:@"https://api.random.org/json-rpc/1/invoke" parameters:[self.request makeRequestBody] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"Post Sucsess!");
-        MSRandomResponse * randomResponse = [[MSRandomResponse alloc]init];
-        [randomResponse parseResponseFromData:responseObject];
-        if (!randomResponse.error) {
-            NSLog(@"Response data: %@", randomResponse.data);
-        } else {
-            NSLog(@"Error exist. %@", [randomResponse parseError]);
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"Post failed");
-    }];
+    [client setDelegate:self];
+    [client sendRequest:self.request];
 };
 
--(void)dismissKeyboard {
-    [self.view endEditing:YES];
+#pragma mark - MSHTTPClient Delegate
+- (void)MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
+    MSRandomResponse * randomResponse = [[MSRandomResponse alloc]init];
+    [randomResponse parseResponseFromData:responseObject];
+    if (!randomResponse.error) {
+        NSLog(@"Response data: %@", randomResponse.data);
+    } else {
+        NSLog(@"Error exist. %@", [randomResponse parseError]);
+    }
 }
 
+- (void)MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
+    NSLog(@"Post failed");
+}
 
 @end
