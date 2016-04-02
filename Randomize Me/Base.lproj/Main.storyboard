@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="O1V-zA-c32">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Random NumberVC-->
+        <!--Navigation Controller-->
+        <scene sceneID="UYn-Hi-DVc">
+            <objects>
+                <navigationController id="O1V-zA-c32" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8tr-oX-Xiw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="k99-I7-pb6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XzQ-5J-SGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-526" y="240"/>
+        </scene>
+        <!--Random Number Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MSRandomNumberVC" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Random Number Main" customClass="MSRandomNumberVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -25,12 +41,12 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of Integer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ie9-la-U4f">
-                                <rect key="frame" x="230" y="145" width="140" height="30"/>
+                                <rect key="frame" x="230" y="189" width="140" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bij-Qc-k0r">
-                                <rect key="frame" x="285" y="205" width="30" height="30"/>
+                                <rect key="frame" x="285" y="249" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2Uj-td-jHd"/>
                                     <constraint firstAttribute="width" constant="30" id="eXV-rX-i4S"/>
@@ -40,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VdJ-QA-BeJ">
-                                <rect key="frame" x="180" y="205" width="100" height="30"/>
+                                <rect key="frame" x="180" y="249" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Aia-db-Oi6"/>
                                     <constraint firstAttribute="width" constant="100" id="Ox0-ce-AwS"/>
@@ -49,7 +65,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjX-hw-h28">
-                                <rect key="frame" x="320" y="205" width="100" height="30"/>
+                                <rect key="frame" x="320" y="249" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BeG-po-7an"/>
                                     <constraint firstAttribute="width" constant="100" id="x7C-pP-OD2"/>
@@ -58,7 +74,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-oB-hco">
-                                <rect key="frame" x="276" y="275" width="51" height="31"/>
+                                <rect key="frame" x="276" y="319" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -77,6 +93,7 @@
                             <constraint firstItem="hCu-oB-hco" firstAttribute="top" secondItem="KjX-hw-h28" secondAttribute="bottom" constant="40" id="x27-YE-RIJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="uQU-5J-hiR"/>
                     <connections>
                         <outlet property="baseSwitch" destination="hCu-oB-hco" id="oNu-M2-yuS"/>
                         <outlet property="maxValue" destination="KjX-hw-h28" id="hXw-mn-x11"/>
@@ -99,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="250" y="240"/>
         </scene>
-        <!--Title-->
+        <!--Random Number Result-->
         <scene sceneID="ji7-g4-JR5">
             <objects>
-                <viewController id="wW4-yt-RqK" sceneMemberID="viewController">
+                <viewController id="wW4-yt-RqK" userLabel="Random Number Result" customClass="MSRandomResultVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x65-pt-cva"/>
                         <viewControllerLayoutGuide type="bottom" id="ntK-t2-0YJ"/>
@@ -114,7 +131,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generation Finished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Y-JE-AUN">
                                 <rect key="frame" x="223.5" y="289.5" width="153" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -124,7 +141,6 @@
                             <constraint firstItem="K9Y-JE-AUN" firstAttribute="centerY" secondItem="Ync-io-2bp" secondAttribute="centerY" id="zCR-Wr-162"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="168-AQ-0tx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5g-nG-x1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
