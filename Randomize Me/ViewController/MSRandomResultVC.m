@@ -8,6 +8,14 @@
 
 #import "MSRandomResultVC.h"
 
+@interface MSRandomResultVC ()
+@property (weak, nonatomic) IBOutlet UILabel *result;
+@end
+
 @implementation MSRandomResultVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
 
 @end

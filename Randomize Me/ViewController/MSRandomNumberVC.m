@@ -1,5 +1,5 @@
 //
-//  ListViewController.m
+//  MSRandomNumberVC.m
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 3/27/16.
@@ -29,7 +29,6 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
 }
 
 -(void)dismissKeyboard {
@@ -55,14 +54,14 @@
     [randomResponse parseResponseFromData:responseObject];
     if (!randomResponse.error) {
         NSLog(@"Response data: %@", randomResponse.data);
-        [self performSegueWithIdentifier:@"PushRandomResult" sender:randomResponse];
+        [self performSegueWithIdentifier:@"ShowRandomResult" sender:randomResponse];
     } else {
         NSLog(@"Error exist. %@", [randomResponse parseError]);
     }
 }
 
 - (void)MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
-    NSLog(@"Post failed");
+    NSLog(@"%@", error);
 }
 
 @end

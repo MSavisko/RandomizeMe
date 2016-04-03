@@ -1,5 +1,5 @@
 //
-//  MSHttpClient.m
+//  MSHTTPClient.m
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 3/30/16.

@@ -1,5 +1,5 @@
 //
-//  MSHttpClient.h
+//  MSHTTPClient.h
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 3/30/16.
@@ -25,8 +25,6 @@
 @protocol MSHTTPClientDelegate <NSObject>
 
 @optional
-
-//MSRandomViewController
 - (void)MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject;
 - (void)MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error;
 

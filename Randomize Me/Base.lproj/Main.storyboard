@@ -101,7 +101,7 @@
                         <outlet property="numberOfInteger" destination="ie9-la-U4f" id="VX0-xp-TrU"/>
                         <outlet property="randomizeButton" destination="i9Z-aE-7PX" id="6QJ-Ks-tj7"/>
                         <outlet property="searchDisplayController" destination="rOS-h7-byr" id="jFN-Zw-FIm"/>
-                        <segue destination="wW4-yt-RqK" kind="presentation" identifier="PushRandomResult" id="SLJ-By-Ztq"/>
+                        <segue destination="wW4-yt-RqK" kind="show" identifier="ShowRandomResult" id="SLJ-By-Ztq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -141,6 +141,9 @@
                             <constraint firstItem="K9Y-JE-AUN" firstAttribute="centerY" secondItem="Ync-io-2bp" secondAttribute="centerY" id="zCR-Wr-162"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="result" destination="K9Y-JE-AUN" id="i3u-E3-voj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5g-nG-x1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
