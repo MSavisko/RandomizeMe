@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="O1V-zA-c32">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -20,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-526" y="240"/>
         </scene>
-        <!--Random Number Main-->
+        <!--Integer Generator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Random Number Main" customClass="MSIntegerGeneratorVC" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Integer Generator" customClass="MSIntegerGeneratorVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -115,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="250" y="240"/>
         </scene>
-        <!--Random Number Result-->
+        <!--Result-->
         <scene sceneID="ji7-g4-JR5">
             <objects>
-                <viewController id="wW4-yt-RqK" userLabel="Random Number Result" customClass="MSResultVC" sceneMemberID="viewController">
+                <viewController id="wW4-yt-RqK" userLabel="Result" customClass="MSResultVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x65-pt-cva"/>
                         <viewControllerLayoutGuide type="bottom" id="ntK-t2-0YJ"/>
@@ -127,21 +128,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generation Finished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Y-JE-AUN">
-                                <rect key="frame" x="223.5" y="289.5" width="153" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fUY-lJ-iLd">
+                                <rect key="frame" x="180" y="164" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Fm3-qX-qZW"/>
+                                    <constraint firstAttribute="height" constant="128" id="iMS-Fs-13H"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="K9Y-JE-AUN" firstAttribute="centerX" secondItem="Ync-io-2bp" secondAttribute="centerX" id="j34-sJ-36o"/>
-                            <constraint firstItem="K9Y-JE-AUN" firstAttribute="centerY" secondItem="Ync-io-2bp" secondAttribute="centerY" id="zCR-Wr-162"/>
+                            <constraint firstItem="fUY-lJ-iLd" firstAttribute="top" secondItem="x65-pt-cva" secondAttribute="bottom" constant="100" id="Xjo-AT-wQI"/>
+                            <constraint firstItem="fUY-lJ-iLd" firstAttribute="centerX" secondItem="Ync-io-2bp" secondAttribute="centerX" id="wX7-sq-2XH"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="result" destination="K9Y-JE-AUN" id="i3u-E3-voj"/>
+                        <outlet property="resultTextView" destination="fUY-lJ-iLd" id="uuU-nw-GCF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5g-nG-x1A" userLabel="First Responder" sceneMemberID="firstResponder"/>

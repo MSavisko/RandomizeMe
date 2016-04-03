@@ -8,14 +8,26 @@
 
 #import "MSResultVC.h"
 
-@interface MSResultVC ()
-@property (weak, nonatomic) IBOutlet UILabel *result;
+@interface MSResultVC () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @end
 
 @implementation MSResultVC
 
+#pragma mark - UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.resultTextView.text = [self.response makeStringFromData];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+#pragma mark - Helper Methods
+-(void)dismissKeyboard {
+    [self.view endEditing:YES];
 }
 
 @end
