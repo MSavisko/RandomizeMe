@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSRandomResultVC : UIViewController
+@interface MSResultVC : UIViewController
 
 @end

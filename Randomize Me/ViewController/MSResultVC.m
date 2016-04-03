@@ -6,13 +6,13 @@
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSRandomResultVC.h"
+#import "MSResultVC.h"
 
-@interface MSRandomResultVC ()
+@interface MSResultVC ()
 @property (weak, nonatomic) IBOutlet UILabel *result;
 @end
 
-@implementation MSRandomResultVC
+@implementation MSResultVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

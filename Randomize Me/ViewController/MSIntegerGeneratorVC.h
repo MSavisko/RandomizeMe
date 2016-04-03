@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSRandomNumberVC : UIViewController
+@interface MSIntegerGeneratorVC : UIViewController
 
 @end
