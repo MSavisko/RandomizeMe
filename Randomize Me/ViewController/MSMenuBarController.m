@@ -7,6 +7,7 @@
 //
 
 #import "MSMenuBarController.h"
+#import "SWRevealViewController.h"
 
 @interface MSMenuBarController ()
 @property (nonatomic, strong) NSArray *menuItems;
@@ -26,6 +27,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    self.menuItems = @[@"integer", @"decimal", @"string", @"list", @"password", @"dice", @"lottery", @"card", @"verify", @"history", @"settings", @"about"];
 }
 
 - (void) didReceiveMemoryWarning {
@@ -41,11 +43,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return self.menuItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    NSString *CellIdentifier = [self.menuItems objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     return cell;

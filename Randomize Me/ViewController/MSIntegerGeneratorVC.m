@@ -11,8 +11,10 @@
 #import "MSRandomRequest.h"
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
+#import "SWRevealViewController.h"
 
 @interface MSIntegerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
 @property (weak, nonatomic) IBOutlet UIButton *randomizeButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfInteger;
 @property (weak, nonatomic) IBOutlet UITextField *minValue;
@@ -27,11 +29,8 @@
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
+    [self hideKeyboardByTap];
+    [self setupMenuBar];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -69,9 +68,27 @@
 }
 
 #pragma mark - Helper Methods
--(void)dismissKeyboard {
+- (void) hideKeyboardByTap {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void) dismissKeyboard {
     [self.view endEditing:YES];
 }
 
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.menuButtonItem setTarget: self.revealViewController];
+        [self.menuButtonItem setAction: @selector(revealToggle:)];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+}
 
 @end
