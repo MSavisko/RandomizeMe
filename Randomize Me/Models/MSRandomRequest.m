@@ -12,7 +12,7 @@
 @end
 
 #warning replace MY_API_KEY
-static NSString *const MSApiKey = @"639f95dd-e37c-46df-8f9f-1d2b2e9c1c77";
+static NSString *const MSApiKey = @"MY_API_KEY";
 static NSString *const MSHashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
 
 @implementation MSRandomRequest
