@@ -15,7 +15,7 @@
 @implementation MSResultVC
 
 #pragma mark - UIViewController
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
     self.resultTextView.text = [self.response makeStringFromData];
     
@@ -26,7 +26,7 @@
 }
 
 #pragma mark - Helper Methods
--(void)dismissKeyboard {
+-(void) dismissKeyboard {
     [self.view endEditing:YES];
 }
 

@@ -25,7 +25,7 @@
 @implementation MSIntegerGeneratorVC
 
 #pragma mark - UIViewController
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -34,13 +34,13 @@
     [self.view addGestureRecognizer:tap];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MSResultVC *resultVC = segue.destinationViewController;
     resultVC.response = self.response;
 }
 
 #pragma mark - IBAction
-- (IBAction)randomizeButton:(UIButton *)sender {
+- (IBAction) randomizeButton:(UIButton *)sender {
     self.request = [[MSRandomRequest alloc]initWithNumberOfIntegers:[self.numberOfInteger.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:NO forBase:10];
     if (self.baseSwitch.isOn) {
         [self.request setReplacement:YES];
@@ -53,7 +53,7 @@
 };
 
 #pragma mark - MSHTTPClient Delegate
-- (void)MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
     self.response = [[MSRandomResponse alloc]init];
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
@@ -64,7 +64,7 @@
     }
 }
 
-- (void)MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
     NSLog(@"%@", error);
 }
 

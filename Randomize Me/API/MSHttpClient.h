@@ -25,7 +25,7 @@
 @protocol MSHTTPClientDelegate <NSObject>
 
 @optional
-- (void)MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject;
-- (void)MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error;
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject;
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error;
 
 @end
