@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		922CFA921CB0199F0056A6A2 /* MSResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 922CFA911CB0199F0056A6A2 /* MSResultVC.m */; };
+		927BD3F61CB2681D00378F49 /* MSListRandomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 927BD3F51CB2681D00378F49 /* MSListRandomizer.m */; };
+		927BD3FA1CB26CE500378F49 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 927BD3F91CB26CE500378F49 /* SWRevealViewController.m */; };
 		92B7B5251C9EC231001BB572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5241C9EC231001BB572 /* main.m */; };
 		92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5271C9EC231001BB572 /* AppDelegate.m */; };
 		92B7B52E1C9EC231001BB572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52C1C9EC231001BB572 /* Main.storyboard */; };
@@ -24,6 +26,10 @@
 		4387789B997E65E0109B624F /* Pods-Randomize Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Randomize Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Randomize Me/Pods-Randomize Me.debug.xcconfig"; sourceTree = "<group>"; };
 		922CFA901CB0199F0056A6A2 /* MSResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSResultVC.h; path = ViewController/MSResultVC.h; sourceTree = "<group>"; };
 		922CFA911CB0199F0056A6A2 /* MSResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSResultVC.m; path = ViewController/MSResultVC.m; sourceTree = "<group>"; };
+		927BD3F41CB2681D00378F49 /* MSListRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSListRandomizer.h; path = ViewController/MSListRandomizer.h; sourceTree = "<group>"; };
+		927BD3F51CB2681D00378F49 /* MSListRandomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSListRandomizer.m; path = ViewController/MSListRandomizer.m; sourceTree = "<group>"; };
+		927BD3F81CB26CE500378F49 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ViewController/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		927BD3F91CB26CE500378F49 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ViewController/SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		92B7B5201C9EC231001BB572 /* Randomize Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomize Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B7B5241C9EC231001BB572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92B7B5261C9EC231001BB572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,6 +69,15 @@
 				9C12F349D8F49B26B506527E /* Pods-Randomize Me.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		927BD3F71CB26C2A00378F49 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				927BD3F81CB26CE500378F49 /* SWRevealViewController.h */,
+				927BD3F91CB26CE500378F49 /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		92B7B5171C9EC231001BB572 = {
@@ -123,6 +138,9 @@
 				922CFA911CB0199F0056A6A2 /* MSResultVC.m */,
 				92DA2B0A1CA85501001BAC53 /* MSIntegerGeneratorVC.h */,
 				92DA2B0B1CA85501001BAC53 /* MSIntegerGeneratorVC.m */,
+				927BD3F41CB2681D00378F49 /* MSListRandomizer.h */,
+				927BD3F51CB2681D00378F49 /* MSListRandomizer.m */,
+				927BD3F71CB26C2A00378F49 /* SWRevealViewController */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -281,6 +299,8 @@
 				92DA2B0C1CA85501001BAC53 /* MSIntegerGeneratorVC.m in Sources */,
 				92ED36CE1CAC5F3D00816AFD /* MSHTTPClient.m in Sources */,
 				92B7B5431CA08007001BB572 /* MSRandomResponse.m in Sources */,
+				927BD3F61CB2681D00378F49 /* MSListRandomizer.m in Sources */,
+				927BD3FA1CB26CE500378F49 /* SWRevealViewController.m in Sources */,
 				92B7B5251C9EC231001BB572 /* main.m in Sources */,
 				92B7B5461CA08048001BB572 /* MSRandomRequest.m in Sources */,
 				922CFA921CB0199F0056A6A2 /* MSResultVC.m in Sources */,
