@@ -17,7 +17,7 @@
 @property (weak, nonatomic) id<MSHTTPClientDelegate>delegate;
 
 + (instancetype) sharedClient;
-- (void) sendRequest:(MSRandomRequest*)request;
+- (void) sendRequest:(NSDictionary*)request;
 
 @end
 

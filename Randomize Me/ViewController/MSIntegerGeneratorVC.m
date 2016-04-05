@@ -8,7 +8,7 @@
 
 #import "MSIntegerGeneratorVC.h"
 #import "MSResultVC.h"
-#import "MSRandomRequest.h"
+#import "MSIntegerRequest.h"
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
 #import "SWRevealViewController.h"
@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *minValue;
 @property (weak, nonatomic) IBOutlet UITextField *maxValue;
 @property (weak, nonatomic) IBOutlet UISwitch *baseSwitch;
-@property (strong, nonatomic) MSRandomRequest *request;
+@property (strong, nonatomic) MSIntegerRequest *integerRequest;
 @property (strong, nonatomic) MSRandomResponse *response;
 @end
 
@@ -40,18 +40,16 @@
 
 #pragma mark - IBAction
 - (IBAction) randomizeButton:(UIButton *)sender {
-    self.request = [[MSRandomRequest alloc]initWithNumberOfIntegers:[self.numberOfInteger.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:NO forBase:10];
+    self.integerRequest = [[MSIntegerRequest alloc]initWithNumberOfIntegers:[self.numberOfInteger.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:NO forBase:10];
     if (self.baseSwitch.isOn) {
-        [self.request setReplacement:YES];
+        [self.integerRequest setReplacement:YES];
     };
-    NSLog(@"Request Body: %@", [self.request makeRequestBody]);
+    NSLog(@"Request Body: %@", [self.integerRequest makeRequestBody]);
     
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
-    [client sendRequest:self.request];
+    [client sendRequest:[self.integerRequest makeRequestBody]];
 }
-
-
 
 #pragma mark - MSHTTPClient Delegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {

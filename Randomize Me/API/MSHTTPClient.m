@@ -7,7 +7,6 @@
 //
 
 #import "MSHTTPClient.h"
-#import "MSRandomRequest.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
 
@@ -41,10 +40,10 @@ static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/
     return  self;
 }
 
-- (void) sendRequest:(MSRandomRequest*)request {
+- (void) sendRequest:(NSDictionary*)request {
     UIView *progressBackground = [(UIViewController *)self.delegate view];
     [MBProgressHUD showHUDAddedTo:progressBackground animated:YES];
-    [self POST:MSRandomInvokeApiURL parameters:[request makeRequestBody] progress:nil success:[self successBlock:progressBackground] failure:[self failBlock:progressBackground]];
+    [self POST:MSRandomInvokeApiURL parameters:request progress:nil success:[self successBlock:progressBackground] failure:[self failBlock:progressBackground]];
 }
 
 #pragma mark - Blocks
