@@ -17,12 +17,8 @@
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
+    [self hideKeyboardByTap];
     self.resultTextView.text = [self.response makeStringFromData];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -30,6 +26,13 @@
 }
 
 #pragma mark - Helper Methods
+- (void) hideKeyboardByTap {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
 }

@@ -1,52 +1,45 @@
 //
-//  MSIntegerRequest.m
+//  MSDecimalRequest.m
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 4/5/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSIntegerRequest.h"
+#import "MSDecimalRequest.h"
 #import "MSRandomApiKey.h"
 
-@interface MSIntegerRequest ()
+@interface MSDecimalRequest ()
 @end
 
-@implementation MSIntegerRequest
+@implementation MSDecimalRequest
 
-- (instancetype) initWithNumberOfIntegers:(NSInteger)number
-                         minBoundaryValue:(NSInteger)minValue
-                         maxBoundaryValue:(NSInteger)maxValue
-                           andReplacement:(BOOL)replacemet
-                                  forBase:(NSInteger)base {
+- (instancetype) initWithNumberOfDecimalFractions:(NSInteger)number
+                                    DecimalPlaces:(NSInteger)decimalPlaces
+                                   andReplacement:(BOOL)replacemet {
     self = [super init];
     if (self) {
         _requestId = arc4random_uniform(32767);
-        _methodName = @"generateSignedIntegers";
+        _methodName = @"generateSignedDecimalFractions";
         _number = number;
-        _minValue = minValue;
-        _maxValue = maxValue;
+        _decimalPlaces = decimalPlaces;
         _replacement = replacemet;
-        _base = base;
     }
     return self;
 }
 
 - (void) setReplacement:(BOOL)replacement {
     _replacement = replacement;
-};
+}
 
 - (NSDictionary*) makeRequestBody {
     NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     paramOfRequest = @{
                        @"apiKey" : MSApiKey,
                        @"n" : [NSNumber numberWithInteger:self.number],
-                       @"min" : [NSNumber numberWithInteger:self.minValue],
-                       @"max" : [NSNumber numberWithInteger:self.maxValue],
+                       @"decimalPlaces" : [NSNumber numberWithInteger:self.decimalPlaces],
                        @"replacement" : [NSNumber numberWithBool:self.replacement],
-                       @"base": [NSNumber numberWithInteger:self.base]
                        };
-    
     NSDictionary *requestBody = @{
                                   @"id" : [NSNumber numberWithInteger:self.requestId],
                                   @"jsonrpc" : @"2.0",
@@ -62,9 +55,7 @@
                                   andDataArray:(NSArray*)array {
     NSDictionary * uniqueParam = [[NSDictionary alloc]init];
     uniqueParam = @{
-                    @"min" : [NSNumber numberWithInteger:self.minValue],
-                    @"max" : [NSNumber numberWithInteger:self.maxValue],
-                    @"base" : [NSNumber numberWithInteger:self.base],
+                    @"decimalPlaces" : [NSNumber numberWithInteger:self.decimalPlaces],
                     };
     NSMutableDictionary *randomPartOfDict = [NSMutableDictionary
                                              dictionaryWithDictionary: @{
@@ -86,5 +77,7 @@
     
     return requestBody;
 }
+
+
 
 @end

@@ -40,10 +40,10 @@ static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/
     return  self;
 }
 
-- (void) sendRequest:(NSDictionary*)request {
+- (void) sendRequestWithParameters:(NSDictionary*)parameters {
     UIView *progressBackground = [(UIViewController *)self.delegate view];
     [MBProgressHUD showHUDAddedTo:progressBackground animated:YES];
-    [self POST:MSRandomInvokeApiURL parameters:request progress:nil success:[self successBlock:progressBackground] failure:[self failBlock:progressBackground]];
+    [self POST:MSRandomInvokeApiURL parameters:parameters progress:nil success:[self successBlock:progressBackground] failure:[self failBlock:progressBackground]];
 }
 
 #pragma mark - Blocks

@@ -48,7 +48,7 @@
     
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
-    [client sendRequest:[self.integerRequest makeRequestBody]];
+    [client sendRequestWithParameters:[self.integerRequest makeRequestBody]];
 }
 
 #pragma mark - MSHTTPClient Delegate
