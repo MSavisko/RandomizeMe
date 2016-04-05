@@ -14,7 +14,7 @@
 
 @interface MSHTTPClient : AFHTTPSessionManager
 
-@property (nonatomic, weak) id<MSHTTPClientDelegate>delegate;
+@property (weak, nonatomic) id<MSHTTPClientDelegate>delegate;
 
 + (instancetype) sharedClient;
 - (void) sendRequest:(MSRandomRequest*)request;

@@ -25,6 +25,10 @@
     [self.view addGestureRecognizer:tap];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 #pragma mark - Helper Methods
 -(void) dismissKeyboard {
     [self.view endEditing:YES];

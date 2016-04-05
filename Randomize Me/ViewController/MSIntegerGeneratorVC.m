@@ -49,7 +49,9 @@
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
     [client sendRequest:self.request];
-};
+}
+
+
 
 #pragma mark - MSHTTPClient Delegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
