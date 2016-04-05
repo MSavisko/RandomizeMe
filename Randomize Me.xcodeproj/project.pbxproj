@@ -21,7 +21,6 @@
 		92B7B5301C9EC231001BB572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52F1C9EC231001BB572 /* Assets.xcassets */; };
 		92B7B5331C9EC231001BB572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B5311C9EC231001BB572 /* LaunchScreen.storyboard */; };
 		92B7B5431CA08007001BB572 /* MSRandomResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5421CA08007001BB572 /* MSRandomResponse.m */; };
-		92B7B5461CA08048001BB572 /* MSRandomRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5451CA08048001BB572 /* MSRandomRequest.m */; };
 		92DA2B0C1CA85501001BAC53 /* MSIntegerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DA2B0B1CA85501001BAC53 /* MSIntegerGeneratorVC.m */; };
 		92ED36CE1CAC5F3D00816AFD /* MSHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED36CD1CAC5F3D00816AFD /* MSHTTPClient.m */; };
 		DC4FFCAA57D37472FBA50DF6 /* libPods-Randomize Me.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A78DE2EA6F0405467FF221 /* libPods-Randomize Me.a */; };
@@ -55,8 +54,6 @@
 		92B7B5341C9EC231001BB572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92B7B5411CA08007001BB572 /* MSRandomResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSRandomResponse.h; path = Models/MSRandomResponse.h; sourceTree = "<group>"; };
 		92B7B5421CA08007001BB572 /* MSRandomResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomResponse.m; path = Models/MSRandomResponse.m; sourceTree = "<group>"; };
-		92B7B5441CA08048001BB572 /* MSRandomRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSRandomRequest.h; path = Models/MSRandomRequest.h; sourceTree = "<group>"; };
-		92B7B5451CA08048001BB572 /* MSRandomRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomRequest.m; path = Models/MSRandomRequest.m; sourceTree = "<group>"; };
 		92DA2B0A1CA85501001BAC53 /* MSIntegerGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSIntegerGeneratorVC.h; path = ViewController/MSIntegerGeneratorVC.h; sourceTree = "<group>"; };
 		92DA2B0B1CA85501001BAC53 /* MSIntegerGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSIntegerGeneratorVC.m; path = ViewController/MSIntegerGeneratorVC.m; sourceTree = "<group>"; };
 		92ED36CC1CAC5F3D00816AFD /* MSHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSHTTPClient.h; path = API/MSHTTPClient.h; sourceTree = "<group>"; };
@@ -179,8 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				925B47991CB3B76B00747B72 /* Requests */,
-				92B7B5441CA08048001BB572 /* MSRandomRequest.h */,
-				92B7B5451CA08048001BB572 /* MSRandomRequest.m */,
 				92B7B5411CA08007001BB572 /* MSRandomResponse.h */,
 				92B7B5421CA08007001BB572 /* MSRandomResponse.m */,
 			);
@@ -340,7 +335,6 @@
 				925B479F1CB3B78000747B72 /* MSIntegerRequest.m in Sources */,
 				927BD3FA1CB26CE500378F49 /* SWRevealViewController.m in Sources */,
 				92B7B5251C9EC231001BB572 /* main.m in Sources */,
-				92B7B5461CA08048001BB572 /* MSRandomRequest.m in Sources */,
 				922CFA921CB0199F0056A6A2 /* MSResultVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

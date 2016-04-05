@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
-#import "MSRandomRequest.h"
 
 @protocol MSHTTPClientDelegate;
 
