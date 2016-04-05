@@ -10,15 +10,15 @@
 
 @interface MSRandomResponse : NSObject
 
-@property (readonly, strong, nonatomic) NSString *methodName; //For ALL response
-@property (readonly, strong, nonatomic) NSString *hashedApiKey; //For ALL response
-@property (readonly, strong, nonatomic) NSArray *data; //For ALL response
-@property (readonly, strong, nonatomic) NSString *completionTime; //For ALL response
-@property (readonly, nonatomic) NSInteger serialNumber; //For ALL response
-@property (readonly, strong, nonatomic) NSString *signature; //For ALL response
-@property (readonly, nonatomic) NSInteger requestId; //For ALL response
-@property (readonly, strong, nonatomic) NSDictionary *responseBody; //Use for ALL response
-@property (readonly, nonatomic) BOOL error; //Use for ALL response
+@property (readonly, strong, nonatomic) NSString *methodName;
+@property (readonly, strong, nonatomic) NSString *hashedApiKey;
+@property (readonly, strong, nonatomic) NSArray *data;
+@property (readonly, strong, nonatomic) NSString *completionTime;
+@property (readonly, nonatomic) NSInteger serialNumber;
+@property (readonly, strong, nonatomic) NSString *signature;
+@property (readonly, nonatomic) NSInteger requestId;
+@property (readonly, strong, nonatomic) NSDictionary *responseBody;
+@property (readonly, nonatomic) BOOL error;
 
 - (void) parseResponseFromData:(NSDictionary*)data;
 - (BOOL) parseVerifyResponseFromData:(NSDictionary*)data;

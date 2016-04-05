@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *minValue;
 @property (weak, nonatomic) IBOutlet UITextField *maxValue;
 @property (weak, nonatomic) IBOutlet UISwitch *baseSwitch;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (strong, nonatomic) MSIntegerRequest *integerRequest;
 @property (strong, nonatomic) MSRandomResponse *response;
 @end
@@ -49,6 +50,13 @@
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
     [client sendRequestWithParameters:[self.integerRequest makeRequestBody]];
+}
+- (IBAction)clearButton:(id)sender {
+    self.numberOfInteger.text = @"";
+    self.minValue.text = @"";
+    self.maxValue.text = @"";
+    [self.baseSwitch setOn:NO animated:YES];
+    
 }
 
 #pragma mark - MSHTTPClient Delegate

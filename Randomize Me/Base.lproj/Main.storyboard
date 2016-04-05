@@ -63,7 +63,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VdJ-QA-BeJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="min value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VdJ-QA-BeJ">
                                 <rect key="frame" x="180" y="249" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Aia-db-Oi6"/>
@@ -73,7 +73,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjX-hw-h28">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" placeholder="max value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjX-hw-h28">
                                 <rect key="frame" x="320" y="249" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BeG-po-7an"/>
@@ -105,9 +105,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="Integer Generator" id="uQU-5J-hiR">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="hwb-kj-8Kw"/>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="5Ss-UV-mXq">
+                            <connections>
+                                <action selector="clearButton:" destination="BYZ-38-t0r" id="C2b-Xg-dUz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="baseSwitch" destination="hCu-oB-hco" id="oNu-M2-yuS"/>
+                        <outlet property="clearButton" destination="5Ss-UV-mXq" id="Vx5-b5-QBB"/>
                         <outlet property="maxValue" destination="KjX-hw-h28" id="hXw-mn-x11"/>
                         <outlet property="menuButtonItem" destination="hwb-kj-8Kw" id="qMP-1s-Xum"/>
                         <outlet property="minValue" destination="VdJ-QA-BeJ" id="hHL-ar-2q3"/>
