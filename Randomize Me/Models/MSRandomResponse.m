@@ -61,7 +61,7 @@
 }
 
 - (NSString*) makeStringFromData {
-    NSString *result = [[self.data valueForKey:@"description"] componentsJoinedByString:@", "];
+    NSString *result = [[self.data valueForKey:@"description"] componentsJoinedByString:@" "];
     return result;
 }
 
