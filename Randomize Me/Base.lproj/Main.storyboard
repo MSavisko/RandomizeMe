@@ -51,7 +51,7 @@
                                 <rect key="frame" x="216" y="189" width="169.5" height="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bij-Qc-k0r">
                                 <rect key="frame" x="285" y="249" width="30" height="30"/>
@@ -71,7 +71,7 @@
                                 </constraints>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" placeholder="max value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjX-hw-h28">
                                 <rect key="frame" x="320" y="249" width="100" height="30"/>
@@ -81,7 +81,7 @@
                                 </constraints>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-oB-hco">
                                 <rect key="frame" x="276" y="319" width="51" height="31"/>
@@ -113,7 +113,7 @@
                             <constraint firstItem="hCu-oB-hco" firstAttribute="top" secondItem="KjX-hw-h28" secondAttribute="bottom" constant="40" id="x27-YE-RIJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QQg-fE-0RT">
+                    <navigationItem key="navigationItem" title="Integer Generator" id="QQg-fE-0RT">
                         <barButtonItem key="backBarButtonItem" title=" " id="WFN-E5-78v"/>
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="RMK-k5-9Gp"/>
                         <barButtonItem key="rightBarButtonItem" image="clear button" id="meI-UY-eJk">
@@ -158,7 +158,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fUY-lJ-iLd">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ku1-DW-TYK">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="cgQ-1t-Ocv"/>
+                                    <barButtonItem image="trash button" id="QTU-QB-yf4"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sah-eK-Rvt"/>
+                                    <barButtonItem image="save button" id="Wil-Tf-HZu"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Qc0-66-6Aq"/>
+                                    <barButtonItem image="info button" id="rpi-Ds-Btp"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="fbk-SC-Cev"/>
+                                </items>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fUY-lJ-iLd">
                                 <rect key="frame" x="180" y="84" width="240" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -168,25 +180,15 @@
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ku1-DW-TYK">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem image="trash button" id="yrH-Fv-j3a"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sah-eK-Rvt"/>
-                                    <barButtonItem image="save button" id="Wil-Tf-HZu"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Qc0-66-6Aq"/>
-                                    <barButtonItem image="info button" id="rpi-Ds-Btp"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ntK-t2-0YJ" firstAttribute="top" secondItem="ku1-DW-TYK" secondAttribute="bottom" id="BAW-NG-i5q"/>
-                            <constraint firstAttribute="trailing" secondItem="ku1-DW-TYK" secondAttribute="trailing" id="Jmm-6B-Ynk"/>
+                            <constraint firstItem="ku1-DW-TYK" firstAttribute="leading" secondItem="Ync-io-2bp" secondAttribute="leading" id="CSw-SL-wAk"/>
+                            <constraint firstAttribute="trailing" secondItem="ku1-DW-TYK" secondAttribute="trailing" id="Gw3-eg-pvP"/>
                             <constraint firstItem="fUY-lJ-iLd" firstAttribute="top" secondItem="x65-pt-cva" secondAttribute="bottom" constant="20" id="Xjo-AT-wQI"/>
-                            <constraint firstItem="ku1-DW-TYK" firstAttribute="leading" secondItem="Ync-io-2bp" secondAttribute="leading" id="iwy-oU-4l3"/>
+                            <constraint firstItem="ntK-t2-0YJ" firstAttribute="top" secondItem="ku1-DW-TYK" secondAttribute="bottom" id="YZJ-Il-uzM"/>
                             <constraint firstItem="fUY-lJ-iLd" firstAttribute="centerX" secondItem="Ync-io-2bp" secondAttribute="centerX" id="wX7-sq-2XH"/>
                         </constraints>
                     </view>
@@ -195,7 +197,11 @@
                         <barButtonItem key="rightBarButtonItem" image="share button" id="dh3-3g-6Fy"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="copyingButton" destination="Wil-Tf-HZu" id="ahG-7r-GUl"/>
+                        <outlet property="infoButton" destination="rpi-Ds-Btp" id="aDi-Ur-wOG"/>
                         <outlet property="resultTextView" destination="fUY-lJ-iLd" id="uuU-nw-GCF"/>
+                        <outlet property="shareButton" destination="dh3-3g-6Fy" id="orl-wh-rIf"/>
+                        <outlet property="trashButton" destination="QTU-QB-yf4" id="whB-to-NL3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5g-nG-x1A" userLabel="First Responder" sceneMemberID="firstResponder"/>

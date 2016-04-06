@@ -10,6 +10,10 @@
 
 @interface MSResultVC () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *copyingButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @end
 
 @implementation MSResultVC
