@@ -144,7 +144,32 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-470" y="4"/>
+            <point key="canvasLocation" x="1152" y="4"/>
+        </scene>
+        <!--Decimal Fraction Generator-->
+        <scene sceneID="etw-bl-0g5">
+            <objects>
+                <viewController id="ceK-Q3-dMD" customClass="MSDecimalGeneratorVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qL0-Cf-iOp"/>
+                        <viewControllerLayoutGuide type="bottom" id="rQn-4L-oYb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kXw-qm-2qN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Decimal Fraction Generator" id="2Gb-Af-xZc">
+                        <barButtonItem key="backBarButtonItem" title=" " id="4RX-dO-mK0"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="2RK-CA-D4e"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButtonItem" destination="2RK-CA-D4e" id="jE3-Hj-cV9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcx-f8-0eH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152" y="-765"/>
         </scene>
         <!--Result-->
         <scene sceneID="ji7-g4-JR5">
@@ -206,12 +231,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5g-nG-x1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352" y="4"/>
+            <point key="canvasLocation" x="2144" y="4"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Integer Navigator Controller-->
         <scene sceneID="Yfa-rf-Hyf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o7z-ku-MHm" sceneMemberID="viewController">
+                <navigationController title="Integer Navigator Controller" automaticallyAdjustsScrollViewInsets="NO" id="o7z-ku-MHm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X9r-ZB-qq7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -224,7 +249,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Pz-ox-Cqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1352" y="4"/>
+            <point key="canvasLocation" x="340" y="4"/>
         </scene>
         <!--Menu Bar-->
         <scene sceneID="UG7-25-Yi9">
@@ -253,6 +278,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="o7z-ku-MHm" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="s9U-xP-mxe"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="decimal" id="vzV-nn-Sbb">
                                 <rect key="frame" x="0.0" y="66" width="600" height="44"/>
@@ -272,6 +300,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="I7Y-SO-7AE" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="tfZ-ie-oPD"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="string" id="3fx-oo-WaE">
                                 <rect key="frame" x="0.0" y="110" width="600" height="44"/>
@@ -474,6 +505,24 @@
             </objects>
             <point key="canvasLocation" x="-470" y="-765"/>
         </scene>
+        <!--Decimal Navigator Controller-->
+        <scene sceneID="AUA-fg-BJ3">
+            <objects>
+                <navigationController title="Decimal Navigator Controller" automaticallyAdjustsScrollViewInsets="NO" id="I7Y-SO-7AE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eny-L3-RRy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ceK-Q3-dMD" kind="relationship" relationship="rootViewController" id="rDl-HC-fH9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lKl-PM-QAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="-765"/>
+        </scene>
     </scenes>
     <resources>
         <image name="about menu color " width="29" height="29"/>
@@ -495,4 +544,7 @@
         <image name="trash button" width="22" height="22"/>
         <image name="verify menu color" width="29" height="29"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="s9U-xP-mxe"/>
+    </inferredMetricsTieBreakers>
 </document>
