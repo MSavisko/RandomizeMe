@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MSRandomResponse.h"
 
-@interface MSResultVC : UIViewController
+@interface MSIntegerResultVC : UIViewController
 @property (strong, nonatomic) MSRandomResponse *response;
 
 @end

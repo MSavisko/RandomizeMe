@@ -7,7 +7,7 @@
 //
 
 #import "MSIntegerGeneratorVC.h"
-#import "MSResultVC.h"
+#import "MSIntegerResultVC.h"
 #import "MSIntegerRequest.h"
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
@@ -35,7 +35,7 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    MSResultVC *resultVC = segue.destinationViewController;
+    MSIntegerResultVC *resultVC = segue.destinationViewController;
     resultVC.response = self.response;
 }
 

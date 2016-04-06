@@ -6,9 +6,9 @@
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSResultVC.h"
+#import "MSIntegerResultVC.h"
 
-@interface MSResultVC () <UITextFieldDelegate>
+@interface MSIntegerResultVC () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @end
 
-@implementation MSResultVC
+@implementation MSIntegerResultVC
 
 #pragma mark - UIViewController
 - (void) viewDidLoad {
