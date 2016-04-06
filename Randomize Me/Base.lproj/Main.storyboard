@@ -64,7 +64,7 @@
                                         <rect key="frame" x="156" y="1" width="64" height="30"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of integers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tue-rQ-Bec">
                                         <rect key="frame" x="0.0" y="5" width="148" height="21"/>
@@ -84,7 +84,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-oB-hco">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-oB-hco">
                                         <rect key="frame" x="171" y="113" width="51" height="31"/>
                                     </switch>
                                 </subviews>
@@ -204,25 +204,49 @@
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fUY-lJ-iLd">
-                                <rect key="frame" x="180" y="84" width="240" height="300"/>
+                                <rect key="frame" x="155" y="84" width="290" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Fm3-qX-qZW"/>
-                                    <constraint firstAttribute="height" constant="300" id="iMS-Fs-13H"/>
+                                    <constraint firstAttribute="width" constant="290" id="Fm3-qX-qZW"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRu-fA-c7O" userLabel="time content view">
+                                <rect key="frame" x="154.5" y="515" width="290" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-v9-6ZJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJe-Jp-K0y">
+                                        <rect key="frame" x="99" y="0.0" width="191" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="DC7-Q8-qO6"/>
+                                    <constraint firstAttribute="height" constant="21" id="e0L-nN-B5g"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ku1-DW-TYK" firstAttribute="leading" secondItem="Ync-io-2bp" secondAttribute="leading" id="CSw-SL-wAk"/>
+                            <constraint firstItem="LRu-fA-c7O" firstAttribute="top" secondItem="fUY-lJ-iLd" secondAttribute="bottom" constant="10" id="GP9-Ja-jxT"/>
                             <constraint firstAttribute="trailing" secondItem="ku1-DW-TYK" secondAttribute="trailing" id="Gw3-eg-pvP"/>
+                            <constraint firstItem="LRu-fA-c7O" firstAttribute="centerX" secondItem="Ync-io-2bp" secondAttribute="centerX" id="RNS-ug-19g"/>
                             <constraint firstItem="fUY-lJ-iLd" firstAttribute="top" secondItem="x65-pt-cva" secondAttribute="bottom" constant="20" id="Xjo-AT-wQI"/>
                             <constraint firstItem="ntK-t2-0YJ" firstAttribute="top" secondItem="ku1-DW-TYK" secondAttribute="bottom" id="YZJ-Il-uzM"/>
                             <constraint firstItem="fUY-lJ-iLd" firstAttribute="centerX" secondItem="Ync-io-2bp" secondAttribute="centerX" id="wX7-sq-2XH"/>
+                            <constraint firstItem="ku1-DW-TYK" firstAttribute="top" secondItem="LRu-fA-c7O" secondAttribute="bottom" constant="20" id="x8x-de-xYl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="YZu-x4-7r3">
@@ -234,6 +258,7 @@
                         <outlet property="infoButton" destination="rpi-Ds-Btp" id="aDi-Ur-wOG"/>
                         <outlet property="resultTextView" destination="fUY-lJ-iLd" id="uuU-nw-GCF"/>
                         <outlet property="shareButton" destination="dh3-3g-6Fy" id="orl-wh-rIf"/>
+                        <outlet property="timestampLabel" destination="BJe-Jp-K0y" id="Vmh-Ul-0zE"/>
                         <outlet property="trashButton" destination="QTU-QB-yf4" id="whB-to-NL3"/>
                     </connections>
                 </viewController>
