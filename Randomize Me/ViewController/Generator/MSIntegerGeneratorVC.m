@@ -41,9 +41,9 @@
 
 #pragma mark - IBAction
 - (IBAction) randomizeButton:(UIButton *)sender {
-    self.integerRequest = [[MSIntegerRequest alloc]initWithNumberOfIntegers:[self.numberOfInteger.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:NO forBase:10];
+    self.integerRequest = [[MSIntegerRequest alloc]initWithNumberOfIntegers:[self.numberOfInteger.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:YES forBase:10];
     if (self.baseSwitch.isOn) {
-        [self.integerRequest setReplacement:YES];
+        [self.integerRequest setReplacement:NO];
     };
     NSLog(@"Request Body: %@", [self.integerRequest makeRequestBody]);
     

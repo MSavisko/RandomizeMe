@@ -10,6 +10,7 @@
 
 @interface MSIntegerResultVC () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
+@property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *copyingButton;
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     [self hideKeyboardByTap];
     self.resultTextView.text = [self.response makeStringFromData];
+    self.timestampLabel.text = self.response.completionTime;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
