@@ -33,8 +33,10 @@ static int MSGenerateButtonHeight = 30;
 
 #pragma mark - IBAction
 - (IBAction)generateButtonPressed:(UIButton *)sender {
+    [self dismissKeyboard];
     NSLog(@"Decimal Generator Button Pressed!");
 }
+
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
     self.numberOfDecimals.text = @"";
     self.decimalPlaces.text = @"";
@@ -43,13 +45,11 @@ static int MSGenerateButtonHeight = 30;
 
 
 #pragma mark - UITextFiled Delegate
-- (void)textFieldDidBeginEditing:(UITextField *)sender
-{
+- (void)textFieldDidBeginEditing:(UITextField *)sender {
     self.activeField = sender;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)sender
-{
+- (void)textFieldDidEndEditing:(UITextField *)sender {
     self.activeField = nil;
 }
 
@@ -58,8 +58,7 @@ static int MSGenerateButtonHeight = 30;
     [self.view endEditing:YES];
 }
 
-- (void)keyboardDidShow:(NSNotification *)notification
-{
+- (void)keyboardDidShow:(NSNotification *)notification {
     NSDictionary* info = [notification userInfo];
     CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
 
@@ -74,8 +73,7 @@ static int MSGenerateButtonHeight = 30;
     }
 }
 
-- (void)keyboardWillBeHidden:(NSNotification *)notification
-{
+- (void)keyboardWillBeHidden:(NSNotification *)notification {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;

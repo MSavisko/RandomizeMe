@@ -31,6 +31,13 @@
     [super viewWillAppear:animated];
 }
 
+#pragma mark - IBAction
+- (IBAction)trashButtonPressed:(id)sender {
+    NSLog(@"Trash button pressed!");
+}
+
+
+
 #pragma mark - Helper Methods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]

@@ -47,6 +47,7 @@ static int MSGenerateButtonHeight = 40;
 
 #pragma mark - IBAction
 - (IBAction) generateButtonPressed:(id)sender {
+    [self dismissKeyboard];
     self.integerRequest = [[MSIntegerRequest alloc]initWithNumberOfIntegers:[self.numberOfIntegers.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:YES forBase:10];
     if (self.baseSwitch.isOn) {
         [self.integerRequest setReplacement:NO];
