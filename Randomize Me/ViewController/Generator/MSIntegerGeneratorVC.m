@@ -14,6 +14,7 @@
 #import "SWRevealViewController.h"
 
 @interface MSIntegerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
 @property (weak, nonatomic) IBOutlet UIButton *generateButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfIntegers;
@@ -27,6 +28,8 @@
 @end
 
 @implementation MSIntegerGeneratorVC
+
+static int MSGenerateButtonHeight = 40;
 
 #pragma mark - UIViewController
 - (void) viewDidLoad {
@@ -93,28 +96,28 @@
     [self.view endEditing:YES];
 }
 
-//- (void)keyboardDidShow:(NSNotification *)notification
-//{
-//    NSDictionary* info = [notification userInfo];
-//    CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-//    
-//    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + MSGenerateButtonHeight, 0.0);
-//    self.scrollView.contentInset = contentInsets;
-//    self.scrollView.scrollIndicatorInsets = contentInsets;
-//    
-//    CGRect aRect = self.view.frame;
-//    aRect.size.height -= kbRect.size.height;
-//    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin) ) {
-//        [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
-//    }
-//}
-//
-//- (void)keyboardWillBeHidden:(NSNotification *)notification
-//{
-//    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-//    self.scrollView.contentInset = contentInsets;
-//    self.scrollView.scrollIndicatorInsets = contentInsets;
-//}
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    NSDictionary* info = [notification userInfo];
+    CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + MSGenerateButtonHeight, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbRect.size.height;
+    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin) ) {
+        [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
+    }
+}
+
+- (void)keyboardWillBeHidden:(NSNotification *)notification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+}
 
 #pragma mark - Setup Methods
 - (void) hideKeyboardByTap {
