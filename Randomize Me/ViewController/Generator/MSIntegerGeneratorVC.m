@@ -15,8 +15,8 @@
 
 @interface MSIntegerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
-@property (weak, nonatomic) IBOutlet UIButton *randomizeButton;
-@property (weak, nonatomic) IBOutlet UITextField *numberOfInteger;
+@property (weak, nonatomic) IBOutlet UIButton *generateButton;
+@property (weak, nonatomic) IBOutlet UITextField *numberOfIntegers;
 @property (weak, nonatomic) IBOutlet UITextField *minValue;
 @property (weak, nonatomic) IBOutlet UITextField *maxValue;
 @property (weak, nonatomic) IBOutlet UISwitch *baseSwitch;
@@ -40,8 +40,8 @@
 }
 
 #pragma mark - IBAction
-- (IBAction) randomizeButton:(UIButton *)sender {
-    self.integerRequest = [[MSIntegerRequest alloc]initWithNumberOfIntegers:[self.numberOfInteger.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:YES forBase:10];
+- (IBAction) generateButtonPressed:(id)sender {
+    self.integerRequest = [[MSIntegerRequest alloc]initWithNumberOfIntegers:[self.numberOfIntegers.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:YES forBase:10];
     if (self.baseSwitch.isOn) {
         [self.integerRequest setReplacement:NO];
     };
@@ -52,7 +52,7 @@
     [client sendRequestWithParameters:[self.integerRequest makeRequestBody]];
 }
 - (IBAction)clearButton:(id)sender {
-    self.numberOfInteger.text = @"";
+    self.numberOfIntegers.text = @"";
     self.minValue.text = @"";
     self.maxValue.text = @"";
     [self.baseSwitch setOn:NO animated:YES];

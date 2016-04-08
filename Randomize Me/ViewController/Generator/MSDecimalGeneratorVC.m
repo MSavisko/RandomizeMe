@@ -11,6 +11,9 @@
 
 @interface MSDecimalGeneratorVC ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UIButton *generateButton;
+@property (weak, nonatomic) IBOutlet UITextField *numberOfDecimals;
+@property (weak, nonatomic) IBOutlet UITextField *decimalPlaces;
 @end
 
 @implementation MSDecimalGeneratorVC
@@ -21,6 +24,13 @@
     [self hideKeyboardByTap];
     [self setupMenuBar];
 }
+
+#pragma mark - IBAction
+- (IBAction)generateButtonPressed:(UIButton *)sender {
+    NSLog(@"Decimal Generator Button Pressed!");
+}
+
+
 
 #pragma mark - Helper Methods
 - (void) hideKeyboardByTap {

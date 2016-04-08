@@ -106,7 +106,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Generate!"/>
                                 <connections>
-                                    <action selector="randomizeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGV-qJ-JZX"/>
+                                    <action selector="generateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MT-20-owj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -133,11 +133,11 @@
                     <connections>
                         <outlet property="baseSwitch" destination="hCu-oB-hco" id="oNu-M2-yuS"/>
                         <outlet property="clearButton" destination="meI-UY-eJk" id="RTb-nd-MB7"/>
+                        <outlet property="generateButton" destination="i9Z-aE-7PX" id="hn0-Df-Ass"/>
                         <outlet property="maxValue" destination="KjX-hw-h28" id="hXw-mn-x11"/>
                         <outlet property="menuButtonItem" destination="RMK-k5-9Gp" id="WRf-32-480"/>
                         <outlet property="minValue" destination="VdJ-QA-BeJ" id="hHL-ar-2q3"/>
-                        <outlet property="numberOfInteger" destination="ie9-la-U4f" id="VX0-xp-TrU"/>
-                        <outlet property="randomizeButton" destination="i9Z-aE-7PX" id="6QJ-Ks-tj7"/>
+                        <outlet property="numberOfIntegers" destination="ie9-la-U4f" id="wrA-p1-A35"/>
                         <outlet property="searchDisplayController" destination="rOS-h7-byr" id="jFN-Zw-FIm"/>
                         <segue destination="wW4-yt-RqK" kind="show" identifier="ShowRandomResult" id="SLJ-By-Ztq"/>
                     </connections>
@@ -166,20 +166,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ui-7Z-89G">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ui-7Z-89G">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="Hvg-F9-UzB"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WxF-cM-Hci"/>
+                                    <barButtonItem image="info button" id="Hvg-F9-UzB"/>
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-01-zvl">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWA-ln-oSJ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="285"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="44j-AS-EnR">
-                                                <rect key="frame" x="180" y="204" width="240" height="128"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44j-AS-EnR">
+                                                <rect key="frame" x="180" y="80" width="240" height="128"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Decimals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKn-Id-d4N">
                                                         <rect key="frame" x="0.0" y="4" width="156" height="21"/>
@@ -191,13 +192,13 @@
                                                         <rect key="frame" x="164" y="0.0" width="63" height="30"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0aQ-xF-Sci">
                                                         <rect key="frame" x="164" y="38" width="63" height="30"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Decimal places" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6t6-ES-keb">
                                                         <rect key="frame" x="0.0" y="42" width="116" height="21"/>
@@ -205,42 +206,65 @@
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-vI-ZZv">
-                                                        <rect key="frame" x="86" y="83" width="68" height="30"/>
-                                                        <state key="normal" title="Generate!"/>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="aSj-F2-YfB"/>
+                                                    <constraint firstAttribute="height" constant="128" id="uRw-yr-ad9"/>
+                                                </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-vI-ZZv">
+                                                <rect key="frame" x="262" y="248" width="76" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Generate!">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="generateButtonPressed:" destination="ceK-Q3-dMD" eventType="touchUpInside" id="06D-G3-S4k"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="RTp-vI-ZZv" firstAttribute="top" secondItem="44j-AS-EnR" secondAttribute="bottom" constant="40" id="6wY-AA-SBU"/>
+                                            <constraint firstAttribute="height" constant="285" id="Z3u-W4-z0P"/>
+                                            <constraint firstItem="44j-AS-EnR" firstAttribute="top" secondItem="qWA-ln-oSJ" secondAttribute="top" constant="80" id="b1Y-iN-Qm6"/>
+                                            <constraint firstItem="44j-AS-EnR" firstAttribute="centerX" secondItem="qWA-ln-oSJ" secondAttribute="centerX" id="c9r-aT-bkm"/>
+                                            <constraint firstItem="RTp-vI-ZZv" firstAttribute="centerX" secondItem="qWA-ln-oSJ" secondAttribute="centerX" id="xdt-sg-H2s"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="qWA-ln-oSJ" firstAttribute="top" secondItem="1zc-01-zvl" secondAttribute="top" id="Cbp-Tj-zlc"/>
-                                    <constraint firstItem="qWA-ln-oSJ" firstAttribute="leading" secondItem="1zc-01-zvl" secondAttribute="leading" id="DZJ-Id-dvH"/>
-                                    <constraint firstItem="qWA-ln-oSJ" firstAttribute="centerY" secondItem="1zc-01-zvl" secondAttribute="centerY" id="PCN-Js-J5G"/>
-                                    <constraint firstAttribute="trailing" secondItem="qWA-ln-oSJ" secondAttribute="trailing" id="dB6-nb-dtI"/>
-                                    <constraint firstAttribute="bottom" secondItem="qWA-ln-oSJ" secondAttribute="bottom" id="fX8-hu-Yiw"/>
+                                    <constraint firstItem="qWA-ln-oSJ" firstAttribute="leading" secondItem="1zc-01-zvl" secondAttribute="leading" id="619-rI-hbg"/>
+                                    <constraint firstItem="qWA-ln-oSJ" firstAttribute="top" secondItem="1zc-01-zvl" secondAttribute="top" id="96i-MA-FBC"/>
+                                    <constraint firstAttribute="trailing" secondItem="qWA-ln-oSJ" secondAttribute="trailing" id="DQ3-fN-zIu"/>
+                                    <constraint firstAttribute="bottom" secondItem="qWA-ln-oSJ" secondAttribute="bottom" id="kvY-lk-HNp"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qWA-ln-oSJ" firstAttribute="width" secondItem="kXw-qm-2qN" secondAttribute="width" id="Gcy-9g-HPq"/>
-                            <constraint firstItem="1zc-01-zvl" firstAttribute="top" secondItem="qL0-Cf-iOp" secondAttribute="bottom" id="Mgf-yn-2uy"/>
-                            <constraint firstItem="1zc-01-zvl" firstAttribute="leading" secondItem="kXw-qm-2qN" secondAttribute="leading" id="UeE-KR-nzI"/>
-                            <constraint firstItem="rQn-4L-oYb" firstAttribute="top" secondItem="1zc-01-zvl" secondAttribute="bottom" constant="44" id="gbb-K7-5NF"/>
-                            <constraint firstAttribute="trailing" secondItem="1zc-01-zvl" secondAttribute="trailing" id="vcq-S8-yJG"/>
+                            <constraint firstItem="1zc-01-zvl" firstAttribute="top" secondItem="qL0-Cf-iOp" secondAttribute="bottom" id="4qd-uY-F5m"/>
+                            <constraint firstItem="rQn-4L-oYb" firstAttribute="top" secondItem="3Ui-7Z-89G" secondAttribute="bottom" id="IjH-Bd-iyw"/>
+                            <constraint firstAttribute="trailing" secondItem="3Ui-7Z-89G" secondAttribute="trailing" id="P6e-8E-DmI"/>
+                            <constraint firstItem="3Ui-7Z-89G" firstAttribute="top" secondItem="1zc-01-zvl" secondAttribute="bottom" id="e8o-cQ-Ljd"/>
+                            <constraint firstItem="1zc-01-zvl" firstAttribute="leading" secondItem="kXw-qm-2qN" secondAttribute="leading" id="ee7-9v-ymc"/>
+                            <constraint firstItem="qWA-ln-oSJ" firstAttribute="width" secondItem="kXw-qm-2qN" secondAttribute="width" id="ibi-gc-ewM"/>
+                            <constraint firstItem="3Ui-7Z-89G" firstAttribute="leading" secondItem="kXw-qm-2qN" secondAttribute="leading" id="lAt-ge-Ii2"/>
+                            <constraint firstAttribute="trailing" secondItem="1zc-01-zvl" secondAttribute="trailing" id="v1l-LU-xcG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Decimal Fraction Generator" id="2Gb-Af-xZc">
                         <barButtonItem key="backBarButtonItem" title=" " id="4RX-dO-mK0"/>
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="2RK-CA-D4e"/>
+                        <barButtonItem key="rightBarButtonItem" image="clear button" id="csH-Zi-MDO"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="decimalPlaces" destination="0aQ-xF-Sci" id="9xC-Wq-jki"/>
+                        <outlet property="generateButton" destination="RTp-vI-ZZv" id="KjE-MW-k42"/>
                         <outlet property="menuButtonItem" destination="2RK-CA-D4e" id="jE3-Hj-cV9"/>
+                        <outlet property="numberOfDecimals" destination="kOX-Sb-tz1" id="tRR-uy-hfR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcx-f8-0eH" userLabel="First Responder" sceneMemberID="firstResponder"/>
