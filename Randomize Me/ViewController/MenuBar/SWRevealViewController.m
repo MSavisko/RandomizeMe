@@ -946,6 +946,7 @@ const int FrontViewPositionNone = 0xff;
 - (IBAction)revealToggle:(id)sender
 {    
     [self revealToggleAnimated:YES];
+    [self.view endEditing:YES]; //because keyboard must be hidden!
 }
 
 
