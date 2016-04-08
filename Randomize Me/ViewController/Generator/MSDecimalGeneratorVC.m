@@ -20,6 +20,8 @@
 
 @implementation MSDecimalGeneratorVC
 
+static int MSGenerateButtonHeight = 30;
+
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -38,12 +40,12 @@
 }
 
 #pragma mark - UITextFiled Delegate
-- (IBAction)textFieldDidBeginEditing:(UITextField *)sender
+- (void)textFieldDidBeginEditing:(UITextField *)sender
 {
     self.activeField = sender;
 }
 
-- (IBAction)textFieldDidEndEditing:(UITextField *)sender
+- (void)textFieldDidEndEditing:(UITextField *)sender
 {
     self.activeField = nil;
 }
@@ -58,7 +60,7 @@
     NSDictionary* info = [notification userInfo];
     CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
 
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + 20, 0.0);
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + MSGenerateButtonHeight, 0.0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
     
