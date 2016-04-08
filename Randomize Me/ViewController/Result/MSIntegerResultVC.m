@@ -8,7 +8,7 @@
 
 #import "MSIntegerResultVC.h"
 
-@interface MSIntegerResultVC () <UITextFieldDelegate>
+@interface MSIntegerResultVC ()
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
@@ -23,8 +23,8 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
-    self.resultTextView.text = [self.response makeStringFromData];
-    self.timestampLabel.text = self.response.completionTime;
+    self.resultTextView.text = [self.response makeStringFromIntegerData];
+    self.timestampLabel.text = [self.response.completionTime substringToIndex:self.response.completionTime.length-1];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -36,9 +36,7 @@
     NSLog(@"Trash button pressed!");
 }
 
-
-
-#pragma mark - Helper Methods
+#pragma mark - Keyboard Methods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self

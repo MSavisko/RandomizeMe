@@ -46,7 +46,6 @@
     return cell;
 }
 
-#pragma mark - Table View Cell
 //**Because of warning in 8.1
 //**"Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
 

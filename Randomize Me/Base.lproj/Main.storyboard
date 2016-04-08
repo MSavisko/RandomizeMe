@@ -298,10 +298,10 @@
             </objects>
             <point key="canvasLocation" x="1152" y="-765"/>
         </scene>
-        <!--Decimal ResultVC-->
+        <!--Decimal Result-->
         <scene sceneID="loz-YO-6ks">
             <objects>
-                <viewController id="PYh-b3-nL4" customClass="MSDecimalResultVC" sceneMemberID="viewController">
+                <viewController title="Decimal Result" id="PYh-b3-nL4" customClass="MSDecimalResultVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cbd-vH-kpJ"/>
                         <viewControllerLayoutGuide type="bottom" id="NEY-jT-oOT"/>
@@ -309,8 +309,76 @@
                     <view key="view" contentMode="scaleToFill" id="XSY-ES-4Ck">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOm-Zq-jjv">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="2G6-ht-aG2"/>
+                                    <barButtonItem image="trash button" id="fNv-OO-z9j"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5C8-ni-dv8"/>
+                                    <barButtonItem image="save button" id="RD1-vW-5hl"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XrI-DQ-18S"/>
+                                    <barButtonItem image="info button" id="67i-Qg-pK3"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="fJh-A8-8uB"/>
+                                </items>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="cS5-oK-bBc">
+                                <rect key="frame" x="155" y="84" width="290" height="421"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="0pN-Wx-Afd"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zx-qE-Hr4" userLabel="time content view">
+                                <rect key="frame" x="155" y="515" width="290" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5y-et-iqX">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8je-wZ-jh5">
+                                        <rect key="frame" x="99" y="0.0" width="191" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="Ztk-ic-4qs"/>
+                                    <constraint firstAttribute="height" constant="21" id="zMG-Ej-HXg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tOm-Zq-jjv" secondAttribute="trailing" id="6Fi-Hu-Nct"/>
+                            <constraint firstItem="cS5-oK-bBc" firstAttribute="top" secondItem="cbd-vH-kpJ" secondAttribute="bottom" constant="20" id="Jgh-Gt-Jde"/>
+                            <constraint firstItem="6Zx-qE-Hr4" firstAttribute="top" secondItem="cS5-oK-bBc" secondAttribute="bottom" constant="10" id="KRx-tf-fGU"/>
+                            <constraint firstItem="6Zx-qE-Hr4" firstAttribute="centerX" secondItem="XSY-ES-4Ck" secondAttribute="centerX" id="Rrb-CA-Qki"/>
+                            <constraint firstItem="cS5-oK-bBc" firstAttribute="centerX" secondItem="XSY-ES-4Ck" secondAttribute="centerX" id="Ubc-nD-EGi"/>
+                            <constraint firstItem="tOm-Zq-jjv" firstAttribute="top" secondItem="6Zx-qE-Hr4" secondAttribute="bottom" constant="20" id="XZA-Tb-dpG"/>
+                            <constraint firstItem="tOm-Zq-jjv" firstAttribute="leading" secondItem="XSY-ES-4Ck" secondAttribute="leading" id="nad-gB-rf6"/>
+                            <constraint firstItem="NEY-jT-oOT" firstAttribute="top" secondItem="tOm-Zq-jjv" secondAttribute="bottom" id="yh9-Y1-I2f"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Result" id="uPW-QK-pe7">
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="Px3-YU-HBp"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="copyingButton" destination="RD1-vW-5hl" id="jdc-kw-cBh"/>
+                        <outlet property="infoButton" destination="67i-Qg-pK3" id="3QV-Ig-10l"/>
+                        <outlet property="resultTextView" destination="cS5-oK-bBc" id="OfP-F8-hY0"/>
+                        <outlet property="shareButton" destination="Px3-YU-HBp" id="8y5-cm-hRX"/>
+                        <outlet property="timestampLabel" destination="8je-wZ-jh5" id="xUh-uZ-InX"/>
+                        <outlet property="trashButton" destination="fNv-OO-z9j" id="0dQ-me-udi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUI-Yr-pCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -319,7 +387,7 @@
         <!--Result-->
         <scene sceneID="ji7-g4-JR5">
             <objects>
-                <viewController id="wW4-yt-RqK" userLabel="Result" customClass="MSIntegerResultVC" sceneMemberID="viewController">
+                <viewController title="Integer Result" id="wW4-yt-RqK" userLabel="Result" customClass="MSIntegerResultVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x65-pt-cva"/>
                         <viewControllerLayoutGuide type="bottom" id="ntK-t2-0YJ"/>
@@ -719,6 +787,6 @@
         <image name="verify menu color" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s9U-xP-mxe"/>
+        <segue reference="AGh-qr-MhJ"/>
     </inferredMetricsTieBreakers>
 </document>

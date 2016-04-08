@@ -40,6 +40,7 @@ static int MSGenerateButtonHeight = 30;
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MSDecimalResultVC *resultVC = segue.destinationViewController;
     resultVC.response = self.response;
+    resultVC.decimalPlaces = self.decimalRequest.decimalPlaces;
 }
 
 #pragma mark - IBAction

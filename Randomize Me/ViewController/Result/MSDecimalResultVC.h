@@ -11,5 +11,6 @@
 
 @interface MSDecimalResultVC : UIViewController
 @property (strong, nonatomic) MSRandomResponse *response;
+@property (nonatomic) NSInteger decimalPlaces;
 
 @end
