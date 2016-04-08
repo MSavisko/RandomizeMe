@@ -10,7 +10,7 @@
 
 @implementation MSRandomApiKey
 #warning replace API_KEY
-NSString *const MSApiKey = @"API_KEY";
+NSString *const MSApiKey = @"";
 NSString *const MSHashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
 
 @end

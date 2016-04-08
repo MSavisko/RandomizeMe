@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *numberOfIntegers;
 @property (weak, nonatomic) IBOutlet UITextField *minValue;
 @property (weak, nonatomic) IBOutlet UITextField *maxValue;
-@property (weak, nonatomic) IBOutlet UISwitch *baseSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *replacementSwitch;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (weak, nonatomic) UITextField *activeField;
 @property (strong, nonatomic) MSIntegerRequest *integerRequest;
@@ -49,7 +49,7 @@ static int MSGenerateButtonHeight = 40;
 - (IBAction) generateButtonPressed:(id)sender {
     [self dismissKeyboard];
     self.integerRequest = [[MSIntegerRequest alloc]initWithNumberOfIntegers:[self.numberOfIntegers.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:YES forBase:10];
-    if (self.baseSwitch.isOn) {
+    if (self.replacementSwitch.isOn) {
         [self.integerRequest setReplacement:NO];
     };
     NSLog(@"Request Body: %@", [self.integerRequest makeRequestBody]);
@@ -62,7 +62,7 @@ static int MSGenerateButtonHeight = 40;
     self.numberOfIntegers.text = @"";
     self.minValue.text = @"";
     self.maxValue.text = @"";
-    [self.baseSwitch setOn:NO animated:YES];
+    [self.replacementSwitch setOn:NO animated:YES];
 }
 
 #pragma mark - MSHTTPClient Delegate

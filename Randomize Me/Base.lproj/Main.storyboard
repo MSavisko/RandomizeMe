@@ -154,13 +154,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="baseSwitch" destination="hCu-oB-hco" id="oNu-M2-yuS"/>
                         <outlet property="clearButton" destination="meI-UY-eJk" id="RTb-nd-MB7"/>
                         <outlet property="generateButton" destination="i9Z-aE-7PX" id="hn0-Df-Ass"/>
                         <outlet property="maxValue" destination="KjX-hw-h28" id="hXw-mn-x11"/>
                         <outlet property="menuButtonItem" destination="RMK-k5-9Gp" id="WRf-32-480"/>
                         <outlet property="minValue" destination="VdJ-QA-BeJ" id="hHL-ar-2q3"/>
                         <outlet property="numberOfIntegers" destination="ie9-la-U4f" id="wrA-p1-A35"/>
+                        <outlet property="replacementSwitch" destination="hCu-oB-hco" id="lSC-Gp-hzh"/>
                         <outlet property="scrollView" destination="pbe-XU-pXd" id="rHC-Ih-Ved"/>
                         <outlet property="searchDisplayController" destination="rOS-h7-byr" id="jFN-Zw-FIm"/>
                         <segue destination="wW4-yt-RqK" kind="show" identifier="ShowRandomResult" id="SLJ-By-Ztq"/>
