@@ -209,9 +209,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-vI-ZZv">
                                                         <rect key="frame" x="82" y="87" width="76" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <state key="normal" title="Generate!">
-                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
+                                                        <state key="normal" title="Generate!"/>
                                                         <connections>
                                                             <action selector="generateButtonPressed:" destination="ceK-Q3-dMD" eventType="touchUpInside" id="06D-G3-S4k"/>
                                                         </connections>
@@ -255,7 +253,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Decimal Fraction Generator" id="2Gb-Af-xZc">
                         <barButtonItem key="backBarButtonItem" title=" " id="4RX-dO-mK0"/>
-                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="2RK-CA-D4e"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="2RK-CA-D4e">
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="ceK-Q3-dMD" id="WT4-h0-KMJ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="clear button" id="csH-Zi-MDO"/>
                     </navigationItem>
                     <connections>
@@ -263,6 +265,7 @@
                         <outlet property="generateButton" destination="RTp-vI-ZZv" id="KjE-MW-k42"/>
                         <outlet property="menuButtonItem" destination="2RK-CA-D4e" id="jE3-Hj-cV9"/>
                         <outlet property="numberOfDecimals" destination="kOX-Sb-tz1" id="tRR-uy-hfR"/>
+                        <outlet property="scrollView" destination="1zc-01-zvl" id="iqr-5y-MbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcx-f8-0eH" userLabel="First Responder" sceneMemberID="firstResponder"/>

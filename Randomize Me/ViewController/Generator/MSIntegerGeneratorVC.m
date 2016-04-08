@@ -56,7 +56,6 @@
     self.minValue.text = @"";
     self.maxValue.text = @"";
     [self.baseSwitch setOn:NO animated:YES];
-    
 }
 
 #pragma mark - MSHTTPClient Delegate
