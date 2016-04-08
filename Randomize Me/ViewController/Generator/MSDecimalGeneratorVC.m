@@ -61,7 +61,8 @@ static int MSGenerateButtonHeight = 30;
 - (void)keyboardDidShow:(NSNotification *)notification {
     NSDictionary* info = [notification userInfo];
     CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-
+    kbRect = [self.view convertRect:kbRect fromView:nil];
+    
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + MSGenerateButtonHeight, 0.0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
