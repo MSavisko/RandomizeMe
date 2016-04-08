@@ -206,6 +206,16 @@
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-vI-ZZv">
+                                                        <rect key="frame" x="82" y="87" width="76" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Generate!">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="generateButtonPressed:" destination="ceK-Q3-dMD" eventType="touchUpInside" id="06D-G3-S4k"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -213,24 +223,12 @@
                                                     <constraint firstAttribute="height" constant="128" id="uRw-yr-ad9"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-vI-ZZv">
-                                                <rect key="frame" x="262" y="248" width="76" height="33"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Generate!">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="generateButtonPressed:" destination="ceK-Q3-dMD" eventType="touchUpInside" id="06D-G3-S4k"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="RTp-vI-ZZv" firstAttribute="top" secondItem="44j-AS-EnR" secondAttribute="bottom" constant="40" id="6wY-AA-SBU"/>
                                             <constraint firstAttribute="height" constant="285" id="Z3u-W4-z0P"/>
                                             <constraint firstItem="44j-AS-EnR" firstAttribute="top" secondItem="qWA-ln-oSJ" secondAttribute="top" constant="80" id="b1Y-iN-Qm6"/>
                                             <constraint firstItem="44j-AS-EnR" firstAttribute="centerX" secondItem="qWA-ln-oSJ" secondAttribute="centerX" id="c9r-aT-bkm"/>
-                                            <constraint firstItem="RTp-vI-ZZv" firstAttribute="centerX" secondItem="qWA-ln-oSJ" secondAttribute="centerX" id="xdt-sg-H2s"/>
                                         </constraints>
                                     </view>
                                 </subviews>
