@@ -25,17 +25,8 @@
     [super viewDidLoad];
     [self hideKeyboardByTap];
     [self setupMenuBar];
-    
     [self setTextFieldDelegate];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
+    [self setKeyboardNotification];
 }
 
 #pragma mark - IBAction
@@ -58,13 +49,6 @@
 }
 
 #pragma mark - Keyboard Methods
-- (void) hideKeyboardByTap {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-}
-
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
 }
@@ -73,11 +57,8 @@
 {
     NSDictionary* info = [notification userInfo];
     CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    // If you are using Xcode 6 or iOS 7.0, you may need this line of code. There was a bug when you
-    // rotated the device to landscape. It reported the keyboard as the wrong size as if it was still in portrait mode.
-    //kbRect = [self.view convertRect:kbRect fromView:nil];
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + 30, 0.0);
+
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + 20, 0.0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
     
@@ -95,7 +76,14 @@
     self.scrollView.scrollIndicatorInsets = contentInsets;
 }
 
-#pragma mark - Helper Methods
+#pragma mark - Setup Methods
+- (void) hideKeyboardByTap {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
 - (void) setupMenuBar {
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController)
@@ -110,6 +98,18 @@
 - (void) setTextFieldDelegate {
     self.numberOfDecimals.delegate = self;
     self.decimalPlaces.delegate = self;
+}
+
+- (void) setKeyboardNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 @end

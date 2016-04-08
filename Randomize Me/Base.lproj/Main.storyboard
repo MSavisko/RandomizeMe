@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xe-xK-GkW">
-                                <rect key="frame" x="188" y="228" width="225" height="144"/>
+                                <rect key="frame" x="188" y="210" width="225" height="180"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MAX value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bij-Qc-k0r">
                                         <rect key="frame" x="0.0" y="79" width="82" height="21"/>
@@ -87,10 +87,18 @@
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-oB-hco">
                                         <rect key="frame" x="171" y="113" width="51" height="31"/>
                                     </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9Z-aE-7PX">
+                                        <rect key="frame" x="74" y="147" width="76" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Generate!"/>
+                                        <connections>
+                                            <action selector="generateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MT-20-owj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="K2V-bx-guo"/>
+                                    <constraint firstAttribute="height" constant="180" id="K2V-bx-guo"/>
                                     <constraint firstAttribute="width" constant="225" id="M5C-ua-UCI"/>
                                 </constraints>
                             </view>
@@ -101,24 +109,14 @@
                                     <barButtonItem image="info button" id="acF-Ij-vNK"/>
                                 </items>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9Z-aE-7PX">
-                                <rect key="frame" x="262" y="397" width="76" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Generate!"/>
-                                <connections>
-                                    <action selector="generateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MT-20-owj"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="i9Z-aE-7PX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Spi-gQ-diE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="udB-ri-Q6z" secondAttribute="bottom" id="T7c-SK-wlq"/>
                             <constraint firstAttribute="trailing" secondItem="udB-ri-Q6z" secondAttribute="trailing" id="Ubw-Qc-J0l"/>
                             <constraint firstItem="2xe-xK-GkW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VQu-fO-XVg"/>
                             <constraint firstItem="udB-ri-Q6z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pJv-y2-ngm"/>
                             <constraint firstItem="2xe-xK-GkW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qny-Qo-dAs"/>
-                            <constraint firstItem="i9Z-aE-7PX" firstAttribute="top" secondItem="2xe-xK-GkW" secondAttribute="bottom" constant="25" id="rAX-hc-6kc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Integer Generator" id="QQg-fE-0RT">
@@ -154,7 +152,7 @@
             </objects>
             <point key="canvasLocation" x="1152" y="4"/>
         </scene>
-        <!--Decimal Fraction Generator-->
+        <!--Decimal Generator-->
         <scene sceneID="etw-bl-0g5">
             <objects>
                 <viewController id="ceK-Q3-dMD" customClass="MSDecimalGeneratorVC" sceneMemberID="viewController">
@@ -177,10 +175,10 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWA-ln-oSJ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="285"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44j-AS-EnR">
-                                                <rect key="frame" x="180" y="80" width="240" height="128"/>
+                                                <rect key="frame" x="180" y="192" width="240" height="108"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Decimals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKn-Id-d4N">
                                                         <rect key="frame" x="0.0" y="4" width="156" height="21"/>
@@ -188,13 +186,13 @@
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOX-Sb-tz1">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOX-Sb-tz1">
                                                         <rect key="frame" x="164" y="0.0" width="63" height="30"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0aQ-xF-Sci">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0aQ-xF-Sci">
                                                         <rect key="frame" x="164" y="38" width="63" height="30"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -207,7 +205,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-vI-ZZv">
-                                                        <rect key="frame" x="82" y="87" width="76" height="33"/>
+                                                        <rect key="frame" x="82" y="75" width="76" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="Generate!"/>
                                                         <connections>
@@ -218,24 +216,25 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="aSj-F2-YfB"/>
-                                                    <constraint firstAttribute="height" constant="128" id="uRw-yr-ad9"/>
+                                                    <constraint firstAttribute="height" constant="108" id="uRw-yr-ad9"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="285" id="Z3u-W4-z0P"/>
-                                            <constraint firstItem="44j-AS-EnR" firstAttribute="top" secondItem="qWA-ln-oSJ" secondAttribute="top" constant="80" id="b1Y-iN-Qm6"/>
                                             <constraint firstItem="44j-AS-EnR" firstAttribute="centerX" secondItem="qWA-ln-oSJ" secondAttribute="centerX" id="c9r-aT-bkm"/>
+                                            <constraint firstItem="44j-AS-EnR" firstAttribute="centerY" secondItem="qWA-ln-oSJ" secondAttribute="centerY" id="rJO-qE-Q8R"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="qWA-ln-oSJ" firstAttribute="leading" secondItem="1zc-01-zvl" secondAttribute="leading" id="619-rI-hbg"/>
                                     <constraint firstItem="qWA-ln-oSJ" firstAttribute="top" secondItem="1zc-01-zvl" secondAttribute="top" id="96i-MA-FBC"/>
                                     <constraint firstAttribute="trailing" secondItem="qWA-ln-oSJ" secondAttribute="trailing" id="DQ3-fN-zIu"/>
+                                    <constraint firstItem="qWA-ln-oSJ" firstAttribute="centerY" secondItem="1zc-01-zvl" secondAttribute="centerY" id="KrR-Ep-IDw"/>
                                     <constraint firstAttribute="bottom" secondItem="qWA-ln-oSJ" secondAttribute="bottom" id="kvY-lk-HNp"/>
+                                    <constraint firstAttribute="bottom" secondItem="qWA-ln-oSJ" secondAttribute="bottom" id="zI4-vO-W1n"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -251,7 +250,7 @@
                             <constraint firstAttribute="trailing" secondItem="1zc-01-zvl" secondAttribute="trailing" id="v1l-LU-xcG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Decimal Fraction Generator" id="2Gb-Af-xZc">
+                    <navigationItem key="navigationItem" title="Decimal Generator" id="2Gb-Af-xZc">
                         <barButtonItem key="backBarButtonItem" title=" " id="4RX-dO-mK0"/>
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="2RK-CA-D4e">
                             <connections>
@@ -418,7 +417,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="decimal menu color" translatesAutoresizingMaskIntoConstraints="NO" id="ueX-sd-qwy">
                                             <rect key="frame" x="18" y="2" width="40" height="40"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Decimal Fraction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPo-RB-p0i">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Decimal Generator" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPo-RB-p0i">
                                             <rect key="frame" x="66" y="12" width="185" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
