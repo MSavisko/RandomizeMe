@@ -252,12 +252,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Decimal Generator" id="2Gb-Af-xZc">
                         <barButtonItem key="backBarButtonItem" title=" " id="4RX-dO-mK0"/>
-                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="2RK-CA-D4e">
+                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="2RK-CA-D4e"/>
+                        <barButtonItem key="rightBarButtonItem" image="clear button" id="csH-Zi-MDO">
                             <connections>
-                                <action selector="menuButtonPressed:" destination="ceK-Q3-dMD" id="WT4-h0-KMJ"/>
+                                <action selector="clearButtonPressed:" destination="ceK-Q3-dMD" id="MAD-61-48y"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="clear button" id="csH-Zi-MDO"/>
                     </navigationItem>
                     <connections>
                         <outlet property="decimalPlaces" destination="0aQ-xF-Sci" id="9xC-Wq-jki"/>

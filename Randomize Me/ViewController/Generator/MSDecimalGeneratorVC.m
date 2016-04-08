@@ -35,9 +35,12 @@ static int MSGenerateButtonHeight = 30;
 - (IBAction)generateButtonPressed:(UIButton *)sender {
     NSLog(@"Decimal Generator Button Pressed!");
 }
-- (IBAction)menuButtonPressed:(UIBarButtonItem *)sender {
-    [self dismissKeyboard];
+- (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
+    self.numberOfDecimals.text = @"";
+    self.decimalPlaces.text = @"";
 }
+
+
 
 #pragma mark - UITextFiled Delegate
 - (void)textFieldDidBeginEditing:(UITextField *)sender

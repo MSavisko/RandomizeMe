@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *maxValue;
 @property (weak, nonatomic) IBOutlet UISwitch *baseSwitch;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
+@property (weak, nonatomic) UITextField *activeField;
 @property (strong, nonatomic) MSIntegerRequest *integerRequest;
 @property (strong, nonatomic) MSRandomResponse *response;
 @end
@@ -32,6 +33,8 @@
     [super viewDidLoad];
     [self hideKeyboardByTap];
     [self setupMenuBar];
+    [self setTextFieldDelegate];
+    [self setKeyboardNotification];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -74,16 +77,51 @@
     NSLog(@"%@", error);
 }
 
-#pragma mark - Helper Methods
+#pragma mark - UITextFiled Delegate
+- (void)textFieldDidBeginEditing:(UITextField *)sender
+{
+    self.activeField = sender;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)sender
+{
+    self.activeField = nil;
+}
+
+#pragma mark - Keyboard Methods
+-(void) dismissKeyboard {
+    [self.view endEditing:YES];
+}
+
+//- (void)keyboardDidShow:(NSNotification *)notification
+//{
+//    NSDictionary* info = [notification userInfo];
+//    CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+//    
+//    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + MSGenerateButtonHeight, 0.0);
+//    self.scrollView.contentInset = contentInsets;
+//    self.scrollView.scrollIndicatorInsets = contentInsets;
+//    
+//    CGRect aRect = self.view.frame;
+//    aRect.size.height -= kbRect.size.height;
+//    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin) ) {
+//        [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
+//    }
+//}
+//
+//- (void)keyboardWillBeHidden:(NSNotification *)notification
+//{
+//    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+//    self.scrollView.contentInset = contentInsets;
+//    self.scrollView.scrollIndicatorInsets = contentInsets;
+//}
+
+#pragma mark - Setup Methods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
-}
-
--(void) dismissKeyboard {
-    [self.view endEditing:YES];
 }
 
 - (void) setupMenuBar {
@@ -95,6 +133,24 @@
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
         [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     }
+}
+
+- (void) setTextFieldDelegate {
+    self.numberOfIntegers.delegate = self;
+    self.minValue.delegate = self;
+    self.maxValue.delegate = self;
+}
+
+- (void) setKeyboardNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 @end
