@@ -8,10 +8,11 @@
 
 #import "MSIntegerGeneratorVC.h"
 #import "MSIntegerResultVC.h"
+#import "SWRevealViewController.h"
 #import "MSIntegerRequest.h"
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
-#import "SWRevealViewController.h"
+
 
 @interface MSIntegerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -71,7 +72,7 @@ static int MSGenerateButtonHeight = 40;
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
         NSLog(@"Response data: %@", self.response.data);
-        [self performSegueWithIdentifier:@"ShowRandomResult" sender:nil];
+        [self performSegueWithIdentifier:@"ShowIntegerResult" sender:nil];
     } else {
         NSLog(@"Error exist. %@", [self.response parseError]);
     }

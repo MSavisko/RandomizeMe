@@ -7,15 +7,21 @@
 //
 
 #import "MSDecimalGeneratorVC.h"
+#import "MSDecimalResultVC.h"
 #import "SWRevealViewController.h"
+#import "MSDecimalRequest.h"
+#import "MSRandomResponse.h"
+#import "MSHTTPClient.h"
 
-@interface MSDecimalGeneratorVC () <UITextFieldDelegate>
+@interface MSDecimalGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
 @property (weak, nonatomic) IBOutlet UIButton *generateButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfDecimals;
 @property (weak, nonatomic) IBOutlet UITextField *decimalPlaces;
 @property (weak, nonatomic) UITextField *activeField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) MSDecimalRequest *decimalRequest;
+@property (strong, nonatomic) MSRandomResponse *response;
 @end
 
 @implementation MSDecimalGeneratorVC
@@ -31,10 +37,20 @@ static int MSGenerateButtonHeight = 30;
     [self setKeyboardNotification];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MSDecimalResultVC *resultVC = segue.destinationViewController;
+    resultVC.response = self.response;
+}
+
 #pragma mark - IBAction
 - (IBAction)generateButtonPressed:(UIButton *)sender {
     [self dismissKeyboard];
-    NSLog(@"Decimal Generator Button Pressed!");
+    self.decimalRequest = [[MSDecimalRequest alloc]initWithNumberOfDecimalFractions:[self.numberOfDecimals.text intValue] DecimalPlaces:[self.decimalPlaces.text intValue] andReplacement:NO];
+    NSLog(@"Request Body: %@", [self.decimalRequest makeRequestBody]);
+    
+    MSHTTPClient *client = [MSHTTPClient sharedClient];
+    [client setDelegate:self];
+    [client sendRequestWithParameters:[self.decimalRequest makeRequestBody]];
 }
 
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
@@ -42,6 +58,21 @@ static int MSGenerateButtonHeight = 30;
     self.decimalPlaces.text = @"";
 }
 
+#pragma mark - MSHTTPClient Delegate
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
+    self.response = [[MSRandomResponse alloc]init];
+    [self.response parseResponseFromData:responseObject];
+    if (!self.response.error) {
+        NSLog(@"Response data: %@", self.response.data);
+        [self performSegueWithIdentifier:@"ShowDecimalResult" sender:nil];
+    } else {
+        NSLog(@"Error exist. %@", [self.response parseError]);
+    }
+}
+
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
+    NSLog(@"%@", error);
+}
 
 
 #pragma mark - UITextFiled Delegate

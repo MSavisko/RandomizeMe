@@ -17,6 +17,7 @@
 		926AF22A1CB51454006DEF8E /* MSDecimalGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF2251CB51454006DEF8E /* MSDecimalGeneratorVC.m */; };
 		926AF22B1CB51454006DEF8E /* MSIntegerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF2271CB51454006DEF8E /* MSIntegerGeneratorVC.m */; };
 		926AF22C1CB51454006DEF8E /* MSListRandomizerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF2291CB51454006DEF8E /* MSListRandomizerVC.m */; };
+		926AF22F1CB825AF006DEF8E /* MSDecimalResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF22E1CB825AF006DEF8E /* MSDecimalResultVC.m */; };
 		92B7B5251C9EC231001BB572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5241C9EC231001BB572 /* main.m */; };
 		92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5271C9EC231001BB572 /* AppDelegate.m */; };
 		92B7B52E1C9EC231001BB572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52C1C9EC231001BB572 /* Main.storyboard */; };
@@ -49,6 +50,8 @@
 		926AF2271CB51454006DEF8E /* MSIntegerGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSIntegerGeneratorVC.m; path = ViewController/Generator/MSIntegerGeneratorVC.m; sourceTree = "<group>"; };
 		926AF2281CB51454006DEF8E /* MSListRandomizerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSListRandomizerVC.h; path = ViewController/Generator/MSListRandomizerVC.h; sourceTree = "<group>"; };
 		926AF2291CB51454006DEF8E /* MSListRandomizerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSListRandomizerVC.m; path = ViewController/Generator/MSListRandomizerVC.m; sourceTree = "<group>"; };
+		926AF22D1CB825AF006DEF8E /* MSDecimalResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSDecimalResultVC.h; path = ViewController/Result/MSDecimalResultVC.h; sourceTree = "<group>"; };
+		926AF22E1CB825AF006DEF8E /* MSDecimalResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDecimalResultVC.m; path = ViewController/Result/MSDecimalResultVC.m; sourceTree = "<group>"; };
 		92B7B5201C9EC231001BB572 /* Randomize Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomize Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B7B5241C9EC231001BB572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92B7B5261C9EC231001BB572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 			children = (
 				926AF2201CB512EE006DEF8E /* MSIntegerResultVC.h */,
 				926AF2211CB512EE006DEF8E /* MSIntegerResultVC.m */,
+				926AF22D1CB825AF006DEF8E /* MSDecimalResultVC.h */,
+				926AF22E1CB825AF006DEF8E /* MSDecimalResultVC.m */,
 			);
 			name = Result;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 				92ED36CE1CAC5F3D00816AFD /* MSHTTPClient.m in Sources */,
 				926AF21E1CB5114B006DEF8E /* SWRevealViewController.m in Sources */,
 				92B7B5431CA08007001BB572 /* MSRandomResponse.m in Sources */,
+				926AF22F1CB825AF006DEF8E /* MSDecimalResultVC.m in Sources */,
 				925B479F1CB3B78000747B72 /* MSIntegerRequest.m in Sources */,
 				926AF21B1CB510E5006DEF8E /* MSMenuBarController.m in Sources */,
 				92B7B5251C9EC231001BB572 /* main.m in Sources */,
