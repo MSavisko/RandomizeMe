@@ -436,8 +436,8 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRu-fA-c7O" userLabel="time content view">
-                                <rect key="frame" x="154" y="515" width="290" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRu-fA-c7O" userLabel="time content view">
+                                <rect key="frame" x="155" y="515" width="290" height="21"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-v9-6ZJ">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="21"/>
