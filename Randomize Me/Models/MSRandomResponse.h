@@ -24,6 +24,6 @@
 - (BOOL) parseVerifyResponseFromData:(NSDictionary*)data;
 - (NSString*) parseError;
 - (NSString*) makeStringFromIntegerData;
-- (NSString*) makeStringFromDecimalDataWithNumber:(NSInteger)number;
+- (NSString*) makeStringFromDecimalDataWithNumber: (NSInteger)number;
 
 @end
