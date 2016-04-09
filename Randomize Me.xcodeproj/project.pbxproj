@@ -167,7 +167,9 @@
 		92B7B5221C9EC231001BB572 /* Randomize Me */ = {
 			isa = PBXGroup;
 			children = (
-				92B7B53D1CA07A8C001BB572 /* Classes */,
+				92ED36CB1CAC567A00816AFD /* API */,
+				92B7B5401CA07ABA001BB572 /* Models */,
+				92B7B53F1CA07AA6001BB572 /* ViewController */,
 				92B7B5261C9EC231001BB572 /* AppDelegate.h */,
 				92B7B5271C9EC231001BB572 /* AppDelegate.m */,
 				92B7B52C1C9EC231001BB572 /* Main.storyboard */,
@@ -185,16 +187,6 @@
 				92B7B5241C9EC231001BB572 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		92B7B53D1CA07A8C001BB572 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				92ED36CB1CAC567A00816AFD /* API */,
-				92B7B5401CA07ABA001BB572 /* Models */,
-				92B7B53F1CA07AA6001BB572 /* ViewController */,
-			);
-			name = Classes;
 			sourceTree = "<group>";
 		};
 		92B7B53F1CA07AA6001BB572 /* ViewController */ = {
