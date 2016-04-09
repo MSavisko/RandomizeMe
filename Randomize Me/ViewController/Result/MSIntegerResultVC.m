@@ -9,6 +9,9 @@
 #import "MSIntegerResultVC.h"
 #import "SWRevealViewController.h"
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+
 @interface MSIntegerResultVC ()
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
@@ -23,8 +26,8 @@
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
-//    [self setupMenuBar];
     [self hideKeyboardByTap];
+    [self addFacebookShare];
     self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
 }
@@ -37,6 +40,19 @@
 #pragma mark - IBAction
 - (IBAction)trashButtonPressed:(id)sender {
     NSLog(@"Trash button pressed!");
+}
+- (IBAction)shareButtonPressed:(id)sender {
+    NSURL *contentURL = [[NSURL alloc] initWithString:
+                         @"https://www.random.org/integers/"];
+    
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc]init];
+    content.contentURL = contentURL;
+    content.imageURL = nil;
+    content.contentDescription = @"Integer Generation result by Randomize Me";
+    
+    [FBSDKShareDialog showFromViewController:self
+                                 withContent:content
+                                    delegate:nil];
 }
 
 #pragma mark - Keyboard Methods
@@ -59,6 +75,11 @@
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
         [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     }
+}
+
+#pragma mark - Shared Method
+- (void) addFacebookShare {
+    
 }
 
 

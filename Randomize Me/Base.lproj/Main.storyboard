@@ -475,7 +475,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="YZu-x4-7r3">
                         <barButtonItem key="backBarButtonItem" title=" " id="oAn-4X-muQ"/>
-                        <barButtonItem key="rightBarButtonItem" image="share button" id="dh3-3g-6Fy"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="dh3-3g-6Fy">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="wW4-yt-RqK" id="CDV-ua-8pb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="copyingButton" destination="Wil-Tf-HZu" id="ahG-7r-GUl"/>
