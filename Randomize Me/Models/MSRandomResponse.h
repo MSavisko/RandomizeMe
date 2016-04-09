@@ -23,7 +23,8 @@
 - (void) parseResponseFromData:(NSDictionary*)data;
 - (BOOL) parseVerifyResponseFromData:(NSDictionary*)data;
 - (NSString*) parseError;
-- (NSString*) makeStringFromIntegerData;
-- (NSString*) makeStringFromDecimalDataWithNumber: (NSInteger)number;
+- (NSString*) makeStringWithSpaceFromIntegerData;
+- (NSString*) makeStringWithSpaceFromDecimalDataWithNumber: (NSInteger)number;
+- (NSString*) makeStringComplitionTime;
 
 @end

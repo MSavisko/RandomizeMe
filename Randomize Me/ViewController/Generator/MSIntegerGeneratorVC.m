@@ -1,5 +1,5 @@
 //
-//  MSRandomNumberVC.m
+//  MSIntegerGeneratorVC.m
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 3/27/16.
@@ -53,8 +53,6 @@ static int MSGenerateButtonHeight = 40;
     if (self.replacementSwitch.isOn) {
         [self.integerRequest setReplacement:NO];
     };
-    NSLog(@"Request Body: %@", [self.integerRequest makeRequestBody]);
-    
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
     [client sendRequestWithParameters:[self.integerRequest makeRequestBody]];

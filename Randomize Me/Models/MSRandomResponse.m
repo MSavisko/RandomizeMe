@@ -60,7 +60,7 @@
     }
 }
 
-- (NSString*) makeStringFromIntegerData {
+- (NSString*) makeStringWithSpaceFromIntegerData {
     if ([self.methodName isEqualToString:@"generateSignedIntegers"]) {
         NSString *result = [[self.data valueForKey:@"description"] componentsJoinedByString:@" "];
         return result;
@@ -68,25 +68,29 @@
     else return @"Sorry! Planned maintenance work on the server, try again later";
 }
 
-- (NSString*) makeStringFromDecimalDataWithNumber: (NSInteger)number {
+- (NSString*) makeStringWithSpaceFromDecimalDataWithNumber: (NSInteger)number {
     if ([self.methodName isEqualToString:@"generateSignedDecimalFractions"]) {
         NSMutableString *mutableResult = [[NSMutableString alloc]init];
         for (NSInteger i=0; i < self.data.count; i++) {
             NSNumber *elementNumber = self.data[i];
             
-            //Rounding
+            //Rounding, because of some double much longer than other
             NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
             [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
             [formatter setMaximumFractionDigits:number];
             [formatter setRoundingMode: NSNumberFormatterRoundUp];
             NSString *numberString = [formatter stringFromNumber:elementNumber];
             
-            //Appending
+            //Appending, because we need space between result number
             [mutableResult appendString:[NSString stringWithFormat:@"%@ ", numberString]];
-            }
+        }
         return mutableResult;
     }
     else return @"Sorry! Planned maintenance work on the server, try again later";
+}
+
+- (NSString*) makeStringComplitionTime {
+    return [self.completionTime substringToIndex:self.completionTime.length-1];
 }
 
 

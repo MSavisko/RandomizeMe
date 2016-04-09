@@ -18,8 +18,6 @@
 
 - (instancetype) initWithNumberOfDecimalFractions:(NSInteger)number DecimalPlaces:(NSInteger)decimalPlaces andReplacement:(BOOL)replacemet;
 
-- (void) setReplacement:(BOOL)replacement;
-
 - (NSDictionary*) makeRequestBody;
 
 - (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature atCompletionTime:(NSString*)completionTime serial:(NSInteger)serialNumber andDataArray:(NSArray*)array;

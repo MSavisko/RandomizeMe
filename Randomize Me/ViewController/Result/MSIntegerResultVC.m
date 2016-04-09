@@ -1,5 +1,5 @@
 //
-//  MSRandomNumberResultVC.m
+//  MSIntegerResultVC.m
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 4/2/16.
@@ -7,6 +7,7 @@
 //
 
 #import "MSIntegerResultVC.h"
+#import "SWRevealViewController.h"
 
 @interface MSIntegerResultVC ()
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
@@ -22,9 +23,10 @@
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
+    [self setupMenuBar];
     [self hideKeyboardByTap];
-    self.resultTextView.text = [self.response makeStringFromIntegerData];
-    self.timestampLabel.text = [self.response.completionTime substringToIndex:self.response.completionTime.length-1];
+    self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
+    self.timestampLabel.text = [self.response makeStringComplitionTime];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -47,5 +49,15 @@
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
 }
+
+#pragma mark - Setup Methods
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+}
+
 
 @end

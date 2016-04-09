@@ -1,5 +1,5 @@
 //
-//  MSRandomNumberResultVC.h
+//  MSIntegerResultVC.h
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 4/2/16.

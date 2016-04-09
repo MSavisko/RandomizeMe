@@ -7,6 +7,7 @@
 //
 
 #import "MSDecimalResultVC.h"
+#import "SWRevealViewController.h"
 
 @interface MSDecimalResultVC ()
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
@@ -24,8 +25,9 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
-    self.resultTextView.text = [self.response makeStringFromDecimalDataWithNumber:self.decimalPlaces];
-    self.timestampLabel.text = [self.response.completionTime substringToIndex:self.response.completionTime.length-1];
+    [self setupMenuBar];
+    self.resultTextView.text = [self.response makeStringWithSpaceFromDecimalDataWithNumber:self.decimalPlaces];
+    self.timestampLabel.text = [self.response makeStringComplitionTime];
 }
 
 #pragma mark - IBAction
@@ -40,6 +42,15 @@
 
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
+}
+
+#pragma mark - Setup Methods
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
 }
 
 @end

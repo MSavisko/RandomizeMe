@@ -28,10 +28,6 @@
     return self;
 }
 
-- (void) setReplacement:(BOOL)replacement {
-    _replacement = replacement;
-}
-
 - (NSDictionary*) makeRequestBody {
     NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     paramOfRequest = @{
