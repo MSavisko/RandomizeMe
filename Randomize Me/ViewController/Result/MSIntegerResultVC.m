@@ -23,7 +23,7 @@
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
-    [self setupMenuBar];
+//    [self setupMenuBar];
     [self hideKeyboardByTap];
     self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
@@ -31,6 +31,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setupMenuBar]; //Because when back from second view, pan guesture menu not work
 }
 
 #pragma mark - IBAction
@@ -56,6 +57,7 @@
     if (revealViewController)
     {
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     }
 }
 

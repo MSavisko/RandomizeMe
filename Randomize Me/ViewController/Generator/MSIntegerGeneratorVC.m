@@ -36,9 +36,14 @@ static int MSGenerateButtonHeight = 40;
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
-    [self setupMenuBar];
+    //[self setupMenuBar];
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setupMenuBar]; //Because when back from second view, pan guesture menu not work
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
