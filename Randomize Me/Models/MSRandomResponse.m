@@ -13,8 +13,6 @@
 
 @implementation MSRandomResponse
 
-static int MSNumberOfNumeralsInDecimalBeforeDot = 2;
-
 - (void) parseResponseFromData:(NSDictionary*)data {
     if ([data valueForKey:@"error"]) {
         _error = YES;
