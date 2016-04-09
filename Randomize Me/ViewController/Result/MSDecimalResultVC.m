@@ -25,7 +25,6 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
-//    [self setupMenuBar];
     self.resultTextView.text = [self.response makeStringWithSpaceFromDecimalDataWithNumber:self.decimalPlaces];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
 }

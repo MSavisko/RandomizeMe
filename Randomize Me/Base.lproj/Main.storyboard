@@ -324,7 +324,7 @@
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="cS5-oK-bBc">
-                                <rect key="frame" x="40" y="84" width="520" height="421"/>
+                                <rect key="frame" x="30" y="84" width="540" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="290" id="0pN-Wx-Afd"/>
@@ -367,11 +367,11 @@
                             <constraint firstAttribute="trailing" secondItem="tOm-Zq-jjv" secondAttribute="trailing" id="6Fi-Hu-Nct"/>
                             <constraint firstItem="cS5-oK-bBc" firstAttribute="top" secondItem="cbd-vH-kpJ" secondAttribute="bottom" constant="20" id="Jgh-Gt-Jde"/>
                             <constraint firstItem="6Zx-qE-Hr4" firstAttribute="top" secondItem="cS5-oK-bBc" secondAttribute="bottom" constant="10" id="KRx-tf-fGU"/>
-                            <constraint firstItem="cS5-oK-bBc" firstAttribute="leading" secondItem="XSY-ES-4Ck" secondAttribute="leadingMargin" constant="20" id="QZS-2S-L6j"/>
+                            <constraint firstItem="cS5-oK-bBc" firstAttribute="leading" secondItem="XSY-ES-4Ck" secondAttribute="leadingMargin" constant="10" id="QZS-2S-L6j"/>
                             <constraint firstItem="6Zx-qE-Hr4" firstAttribute="centerX" secondItem="XSY-ES-4Ck" secondAttribute="centerX" id="Rrb-CA-Qki"/>
                             <constraint firstItem="cS5-oK-bBc" firstAttribute="centerX" secondItem="XSY-ES-4Ck" secondAttribute="centerX" id="Ubc-nD-EGi"/>
                             <constraint firstItem="tOm-Zq-jjv" firstAttribute="top" secondItem="6Zx-qE-Hr4" secondAttribute="bottom" constant="20" id="XZA-Tb-dpG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cS5-oK-bBc" secondAttribute="trailing" constant="20" id="XcZ-rN-i9Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cS5-oK-bBc" secondAttribute="trailing" constant="10" id="XcZ-rN-i9Q"/>
                             <constraint firstItem="tOm-Zq-jjv" firstAttribute="leading" secondItem="XSY-ES-4Ck" secondAttribute="leading" id="nad-gB-rf6"/>
                             <constraint firstItem="NEY-jT-oOT" firstAttribute="top" secondItem="tOm-Zq-jjv" secondAttribute="bottom" id="yh9-Y1-I2f"/>
                         </constraints>
@@ -421,7 +421,7 @@
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fUY-lJ-iLd">
-                                <rect key="frame" x="40" y="84" width="520" height="421"/>
+                                <rect key="frame" x="30" y="84" width="540" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="290" id="Fm3-qX-qZW"/>
@@ -467,8 +467,8 @@
                             <constraint firstItem="LRu-fA-c7O" firstAttribute="centerX" secondItem="Ync-io-2bp" secondAttribute="centerX" id="RNS-ug-19g"/>
                             <constraint firstItem="fUY-lJ-iLd" firstAttribute="top" secondItem="x65-pt-cva" secondAttribute="bottom" constant="20" id="Xjo-AT-wQI"/>
                             <constraint firstItem="ntK-t2-0YJ" firstAttribute="top" secondItem="ku1-DW-TYK" secondAttribute="bottom" id="YZJ-Il-uzM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fUY-lJ-iLd" secondAttribute="trailing" constant="20" id="l6I-DR-3Ct"/>
-                            <constraint firstItem="fUY-lJ-iLd" firstAttribute="leading" secondItem="Ync-io-2bp" secondAttribute="leadingMargin" constant="20" id="ujX-Dt-h3T"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fUY-lJ-iLd" secondAttribute="trailing" constant="10" id="l6I-DR-3Ct"/>
+                            <constraint firstItem="fUY-lJ-iLd" firstAttribute="leading" secondItem="Ync-io-2bp" secondAttribute="leadingMargin" constant="10" id="ujX-Dt-h3T"/>
                             <constraint firstItem="fUY-lJ-iLd" firstAttribute="centerX" secondItem="Ync-io-2bp" secondAttribute="centerX" id="wX7-sq-2XH"/>
                             <constraint firstItem="ku1-DW-TYK" firstAttribute="top" secondItem="LRu-fA-c7O" secondAttribute="bottom" constant="20" id="x8x-de-xYl"/>
                         </constraints>

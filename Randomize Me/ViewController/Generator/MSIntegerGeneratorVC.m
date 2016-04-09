@@ -36,7 +36,6 @@ static int MSGenerateButtonHeight = 40;
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
-    //[self setupMenuBar];
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
 }
