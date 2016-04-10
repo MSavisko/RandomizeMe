@@ -11,8 +11,11 @@
 
 #import "MBProgressHUD.h"
 
+#import <Social/Social.h>
+
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+
 
 @interface MSIntegerResultVC () <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
@@ -52,7 +55,7 @@
                                                                  delegate:self
                                                         cancelButtonTitle:@"Cancel"
                                                    destructiveButtonTitle:nil
-                                                        otherButtonTitles:@"Facebook", @"Vkontakte", @"Google+", nil];
+                                                        otherButtonTitles:@"Facebook", @"Vkontakte", @"Google+", @"Twitter", nil];
     shareActionSheet.tag = 100;
     [shareActionSheet showInView:self.view];
 }
@@ -77,6 +80,9 @@
         }
         else if (buttonIndex == 2) { //Google Plus
             [self shareWithGooglePlus];
+        }
+        else if (buttonIndex == 3) { //Twitter
+            [self shareWithTwitter];
         }
     }
     //Copying
@@ -146,6 +152,36 @@
 
 - (void) shareWithGooglePlus {
     
+}
+
+- (void) shareWithTwitter {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweet setInitialText:@"Test tweet!"];
+        [tweet addURL:[NSURL URLWithString:@"https://www.random.org/integers/"]];
+        [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
+         {
+             if (result == SLComposeViewControllerResultCancelled)
+             {
+                 NSLog(@"The user cancelled.");
+             }
+             else if (result == SLComposeViewControllerResultDone)
+             {
+                 NSLog(@"The user sent the tweet");
+             }
+         }];
+        [self presentViewController:tweet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
+                                                        message:@"Twitter integration is not available. A Twitter account must be set up on your device."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 #pragma mark - MBProgressHUD Method

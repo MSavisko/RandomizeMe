@@ -22,6 +22,7 @@
 		926AF23A1CB98C66006DEF8E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF2391CB98C66006DEF8E /* FBSDKCoreKit.framework */; };
 		926AF23C1CB98C85006DEF8E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF23B1CB98C85006DEF8E /* FBSDKLoginKit.framework */; };
 		926AF23E1CB98C95006DEF8E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF23D1CB98C95006DEF8E /* FBSDKShareKit.framework */; };
+		926AF2431CBADD0E006DEF8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF2421CBADD0E006DEF8E /* Social.framework */; };
 		92B7B5251C9EC231001BB572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5241C9EC231001BB572 /* main.m */; };
 		92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5271C9EC231001BB572 /* AppDelegate.m */; };
 		92B7B52E1C9EC231001BB572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52C1C9EC231001BB572 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		926AF2391CB98C66006DEF8E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		926AF23B1CB98C85006DEF8E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		926AF23D1CB98C95006DEF8E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		926AF2421CBADD0E006DEF8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		92B7B5201C9EC231001BB572 /* Randomize Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomize Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B7B5241C9EC231001BB572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92B7B5261C9EC231001BB572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926AF2431CBADD0E006DEF8E /* Social.framework in Frameworks */,
 				926AF23A1CB98C66006DEF8E /* FBSDKCoreKit.framework in Frameworks */,
 				926AF23E1CB98C95006DEF8E /* FBSDKShareKit.framework in Frameworks */,
 				926AF23C1CB98C85006DEF8E /* FBSDKLoginKit.framework in Frameworks */,
@@ -241,6 +244,7 @@
 		AE5F3AE4A692621CB21AD601 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				926AF2421CBADD0E006DEF8E /* Social.framework */,
 				926AF2381CB98C1D006DEF8E /* Facebook */,
 				E4A78DE2EA6F0405467FF221 /* libPods-Randomize Me.a */,
 			);
