@@ -38,6 +38,16 @@
     [self.resultTextView setContentOffset:CGPointZero animated:NO]; //Because position of text view must be Zero
 }
 
+#pragma mark - Setup Methods
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+}
+
 #pragma mark - IBAction
 
 #pragma mark - Keyboard Methods
@@ -50,16 +60,6 @@
 
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
-}
-
-#pragma mark - Setup Methods
-- (void) setupMenuBar {
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if (revealViewController)
-    {
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    }
 }
 
 @end

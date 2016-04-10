@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MSRandomResponse.h"
+#import <VK-ios-sdk/VKSdk.h>
 
-@interface MSIntegerResultVC : UIViewController
+@interface MSIntegerResultVC : UIViewController <VKSdkDelegate>
 @property (strong, nonatomic) MSRandomResponse *response;
 
 @end

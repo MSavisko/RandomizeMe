@@ -15,9 +15,10 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import <VK-ios-sdk/VKSdk.h>
 
 
-@interface MSIntegerResultVC () <UIActionSheetDelegate>
+@interface MSIntegerResultVC () <UIActionSheetDelegate, VKSdkUIDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
@@ -32,6 +33,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
+    [self setupVkDelegate];
     self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
 }
@@ -45,6 +47,21 @@
     [self.resultTextView setContentOffset:CGPointZero animated:NO]; //Because position of text view must be Zero
 }
 
+#pragma mark - Setup Methods
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+}
+
+- (void) setupVkDelegate {
+    [[VKSdk initializeWithAppId:@"5408231"] registerDelegate:self];
+    [[VKSdk instance] setUiDelegate:self];
+}
+
 #pragma mark - IBAction
 - (IBAction)trashButtonPressed:(id)sender {
     NSLog(@"Trash button pressed!");
@@ -55,7 +72,7 @@
                                                                  delegate:self
                                                         cancelButtonTitle:@"Cancel"
                                                    destructiveButtonTitle:nil
-                                                        otherButtonTitles:@"Facebook", @"Vkontakte", @"Google+", @"Twitter", nil];
+                                                        otherButtonTitles:@"Facebook", @"Vkontakte", @"Twitter", nil];
     shareActionSheet.tag = 100;
     [shareActionSheet showInView:self.view];
 }
@@ -76,12 +93,20 @@
             [self shareWithFacebook];
         }
         else if (buttonIndex == 1) { //Vkontakte
-            [self shareWithVkontakte];
+            NSArray *scope = @[VK_PER_FRIENDS, VK_PER_WALL, VK_PER_AUDIO, VK_PER_PHOTOS, VK_PER_NOHTTPS, VK_PER_EMAIL, VK_PER_MESSAGES];
+            [VKSdk wakeUpSession:scope completeBlock:^(VKAuthorizationState state, NSError *error) {
+                if (state == VKAuthorizationAuthorized) {
+                                [self shareWithVkontakte];
+                } else if (error) {
+                    [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+                }
+                else {
+                    [VKSdk authorize:scope];
+                    [self shareWithVkontakte];
+                }
+            }];
         }
-        else if (buttonIndex == 2) { //Google Plus
-            [self shareWithGooglePlus];
-        }
-        else if (buttonIndex == 3) { //Twitter
+        else if (buttonIndex == 2) { //Twitter
             [self shareWithTwitter];
         }
     }
@@ -109,6 +134,30 @@
     }
 }
 
+#pragma mark - VKSdkUI Delegate
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
+    VKCaptchaViewController *vc = [VKCaptchaViewController captchaControllerWithError:captchaError];
+    [vc presentIn:self];
+}
+
+#pragma mark - VKSdk Delegate
+- (void)vkSdkUserAuthorizationFailed {
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Access denied" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [self.navigationController popToViewController:self animated:YES];
+}
+
+- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
+    if (result.token) {
+        [self shareWithVkontakte];
+    } else if (result.error) {
+        [[[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"Access denied!"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+}
+
 #pragma mark - Keyboard Methods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -119,16 +168,6 @@
 
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
-}
-
-#pragma mark - Setup Methods
-- (void) setupMenuBar {
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if (revealViewController)
-    {
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    }
 }
 
 #pragma mark - Share Method
@@ -147,7 +186,13 @@
 }
 
 - (void) shareWithVkontakte {
-    
+    VKShareDialogController *shareDialog = [VKShareDialogController new];
+    shareDialog.text = @"Integer generation!";
+    shareDialog.shareLink = [[VKShareLink alloc] initWithTitle:@"Full Result of Integer Generation" link:[NSURL URLWithString:@"https://www.random.org/integers/"]];
+    [shareDialog setCompletionHandler:^(VKShareDialogController *dialog, VKShareDialogControllerResult result) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [self presentViewController:shareDialog animated:YES completion:nil];
 }
 
 - (void) shareWithGooglePlus {

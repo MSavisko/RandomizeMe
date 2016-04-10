@@ -13,6 +13,7 @@
 
 @implementation MSRandomResponse
 
+#pragma mark - Parse from Data
 - (void) parseResponseFromData:(NSDictionary*)data {
     if ([data valueForKey:@"error"]) {
         _error = YES;
@@ -51,6 +52,7 @@
     }
 }
 
+#pragma mark - Parse Error
 - (NSString*) parseError {
     if (self.error) {
         return self.responseBody[@"error"][@"message"];
@@ -60,6 +62,7 @@
     }
 }
 
+#pragma mark - Make String for represent
 - (NSString*) makeStringWithSpaceFromIntegerData {
     if ([self.methodName isEqualToString:@"generateSignedIntegers"]) {
         NSString *result = [[self.data valueForKey:@"description"] componentsJoinedByString:@" "];
@@ -93,6 +96,7 @@
     return [self.completionTime substringToIndex:self.completionTime.length-1];
 }
 
+#pragma mark - Make String for Share
 - (NSString*) makeStringFromAllIntegerData {
     NSString *resultName = @"Integer Generation";
     NSString *forResult = @"Result:";
@@ -108,7 +112,7 @@
     
     NSString *individualInformation = @"Individual information of generation:";
     NSString *completionTime = [NSString stringWithFormat:@"Completion time (UTC+0): %@", [self makeStringComplitionTime]];
-    NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %d", self.serialNumber];
+    NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %ld", (long)self.serialNumber];
     NSString *signature = [NSString stringWithFormat:@"Signature: %@", self.signature];
     
     NSString *result = [NSString stringWithFormat:@"%@\r\r%@\r%@\r\r%@\r%@\r%@\r%@\r%@\r\r%@\r%@\r%@\r%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, maxValue, replacement, individualInformation, completionTime, serialNumber, signature];

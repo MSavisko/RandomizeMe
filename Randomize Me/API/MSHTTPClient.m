@@ -41,32 +41,33 @@ static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/
 }
 
 - (void) sendRequestWithParameters:(NSDictionary*)parameters {
-    UIView *progressBackground = [(UIViewController *)self.delegate view];
-    [MBProgressHUD showHUDAddedTo:progressBackground animated:YES];
-    [self POST:MSRandomInvokeApiURL parameters:parameters progress:nil success:[self successBlock:progressBackground] failure:[self failBlock:progressBackground]];
+    //UIView *progressBackground = [(UIViewController *)self.delegate view];
+    //[MBProgressHUD showHUDAddedTo:progressBackground animated:YES];
+//    [self POST:MSRandomInvokeApiURL parameters:parameters progress:nil success:[self successBlock:progressBackground] failure:[self failBlock:progressBackground]];
+    [self POST:MSRandomInvokeApiURL parameters:parameters progress:nil success:[self successBlock] failure:[self failBlock]];
 }
 
 #pragma mark - Blocks
 
--(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock:(UIView *)progressBackground{
+-(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock{
     return ^(NSURLSessionDataTask *_Nonnull task, id  _Nullable responseObject){
         if ([self.delegate respondsToSelector:@selector(MSHTTPClient:didSucceedWithResponse:)]) {
             [self.delegate MSHTTPClient:self didSucceedWithResponse:responseObject];
         }else{
             NSLog(@"Delegate do not response success service");
         }
-        [MBProgressHUD hideAllHUDsForView:progressBackground animated:YES];
+        //[MBProgressHUD hideAllHUDsForView:progressBackground animated:YES];
     };
 }
 
--(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock:(UIView *)progressBackground{
+-(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock{
     return ^(NSURLSessionDataTask *task, NSError *error){
         if ([self.delegate respondsToSelector:@selector(MSHTTPClient:didFailWithError:)]) {
             [self.delegate MSHTTPClient:self didFailWithError:error];
         }else{
             NSLog(@"Delegate do not response failed service");
         }
-        [MBProgressHUD hideAllHUDsForView:progressBackground animated:YES];
+        //[MBProgressHUD hideAllHUDsForView:progressBackground animated:YES];
     };
 }
 
