@@ -12,6 +12,7 @@
 #import "MSIntegerRequest.h"
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
+#import "MBProgressHUD.h"
 
 
 @interface MSIntegerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
@@ -60,6 +61,7 @@ static int MSGenerateButtonHeight = 40;
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
     [client sendRequestWithParameters:[self.integerRequest makeRequestBody]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 - (IBAction)clearButton:(id)sender {
     self.numberOfIntegers.text = @"";
@@ -70,6 +72,7 @@ static int MSGenerateButtonHeight = 40;
 
 #pragma mark - MSHTTPClient Delegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     self.response = [[MSRandomResponse alloc]init];
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
@@ -81,6 +84,7 @@ static int MSGenerateButtonHeight = 40;
 }
 
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSLog(@"%@", error);
 }
 
