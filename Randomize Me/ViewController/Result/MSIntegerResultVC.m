@@ -15,6 +15,7 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import <VK-ios-sdk/VKSdk.h>
 
 
 @interface MSIntegerResultVC () <UIActionSheetDelegate>
