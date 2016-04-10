@@ -47,6 +47,21 @@
     [self.resultTextView setContentOffset:CGPointZero animated:NO]; //Because position of text view must be Zero
 }
 
+#pragma mark - Setup Methods
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+}
+
+- (void) setupVkDelegate {
+    [[VKSdk initializeWithAppId:@"5408231"] registerDelegate:self];
+    [[VKSdk instance] setUiDelegate:self];
+}
+
 #pragma mark - IBAction
 - (IBAction)trashButtonPressed:(id)sender {
     NSLog(@"Trash button pressed!");
@@ -57,7 +72,7 @@
                                                                  delegate:self
                                                         cancelButtonTitle:@"Cancel"
                                                    destructiveButtonTitle:nil
-                                                        otherButtonTitles:@"Facebook", @"Vkontakte", @"Google+", @"Twitter", nil];
+                                                        otherButtonTitles:@"Facebook", @"Vkontakte", @"Twitter", nil];
     shareActionSheet.tag = 100;
     [shareActionSheet showInView:self.view];
 }
@@ -91,10 +106,7 @@
                 }
             }];
         }
-        else if (buttonIndex == 2) { //Google Plus
-            [self shareWithGooglePlus];
-        }
-        else if (buttonIndex == 3) { //Twitter
+        else if (buttonIndex == 2) { //Twitter
             [self shareWithTwitter];
         }
     }
@@ -158,21 +170,6 @@
     [self.view endEditing:YES];
 }
 
-#pragma mark - Setup Methods
-- (void) setupMenuBar {
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if (revealViewController)
-    {
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    }
-}
-
-- (void) setupVkDelegate {
-    [[VKSdk initializeWithAppId:@"5408231"] registerDelegate:self];
-    [[VKSdk instance] setUiDelegate:self];
-}
-
 #pragma mark - Share Method
 - (void) shareWithFacebook {
     NSURL *contentURL = [[NSURL alloc] initWithString:
@@ -190,8 +187,8 @@
 
 - (void) shareWithVkontakte {
     VKShareDialogController *shareDialog = [VKShareDialogController new];
-    shareDialog.text = @"This post created created created created and made and post and delivered using #vksdk #ios";
-    shareDialog.uploadImages = @[ [VKUploadImage uploadImageWithImage:[UIImage imageNamed:@"apple"] andParams:[VKImageParameters jpegImageWithQuality:1.0] ] ];
+    shareDialog.text = @"Integer generation!";
+    shareDialog.shareLink = [[VKShareLink alloc] initWithTitle:@"Full Result of Integer Generation" link:[NSURL URLWithString:@"https://www.random.org/integers/"]];
     [shareDialog setCompletionHandler:^(VKShareDialogController *dialog, VKShareDialogControllerResult result) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
