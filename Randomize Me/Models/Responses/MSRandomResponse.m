@@ -93,5 +93,28 @@
     return [self.completionTime substringToIndex:self.completionTime.length-1];
 }
 
+- (NSString*) makeStringFromAllIntegerData {
+    NSString *resultName = @"Integer Generation";
+    NSString *forResult = @"Result:";
+    NSString *resultData = [self makeStringWithSpaceFromIntegerData];
+    
+    NSString *parametrs = @"Parameters of generation:";
+    NSString *numberOfIntegers = [NSString stringWithFormat:@"Number of integers: %@", self.responseBody[@"result"][@"random"][@"n"]];
+    
+    NSString *minValue = [NSString stringWithFormat:@"Minimum value: %@", self.responseBody[@"result"][@"random"][@"min"]];
+    NSString *maxValue = [NSString stringWithFormat:@"Maximum value: %@", self.responseBody[@"result"][@"random"][@"max"]];
+    
+    NSString *replacement = [NSString stringWithFormat:@"Unique integers: %@", self.responseBody[@"result"][@"random"][@"replacement"]];
+    
+    NSString *individualInformation = @"Individual information of generation:";
+    NSString *completionTime = [NSString stringWithFormat:@"Completion time (UTC+0): %@", [self makeStringComplitionTime]];
+    NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %d", self.serialNumber];
+    NSString *signature = [NSString stringWithFormat:@"Signature: %@", self.signature];
+    
+    NSString *result = [NSString stringWithFormat:@"%@\r\r%@\r%@\r\r%@\r%@\r%@\r%@\r%@\r\r%@\r%@\r%@\r%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, maxValue, replacement, individualInformation, completionTime, serialNumber, signature];
+    
+    return result;
+}
+
 
 @end

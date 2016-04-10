@@ -26,5 +26,6 @@
 - (NSString*) makeStringWithSpaceFromIntegerData;
 - (NSString*) makeStringWithSpaceFromDecimalDataWithNumber: (NSInteger)number;
 - (NSString*) makeStringComplitionTime;
+- (NSString*) makeStringFromAllIntegerData;
 
 @end

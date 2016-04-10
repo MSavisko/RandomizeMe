@@ -66,7 +66,9 @@
 
 #pragma mark - UIActionSheet Delegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (actionSheet.tag == 100) { //Because two action sheet. Share and coping
+    //Because two action sheet
+    //Share
+    if (actionSheet.tag == 100) {
         if (buttonIndex == 0) { //Facebook
             [self shareWithFacebook];
         }
@@ -77,18 +79,23 @@
             [self shareWithGooglePlus];
         }
     }
-    
+    //Copying
     if (actionSheet.tag == 200) {
-        if (buttonIndex == 0) { //Save Result to clipboard
+        if (buttonIndex == 0) { //Copy Result to clipboard
             [self showCopyingHud];
             dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                 UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
                 pasteboard.string = self.resultTextView.text;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                    });
-                });
+                [self hideCopyingHud];
+            });
+        }
+        else if (buttonIndex == 1) { //Copy All to clipboard
+            [self showCopyingHud];
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                // Do something...
+                UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                pasteboard.string = [self.response makeStringFromAllIntegerData];
+                [self hideCopyingHud];
             });
         }
     }
@@ -116,7 +123,7 @@
     }
 }
 
-#pragma mark - Shared Method
+#pragma mark - Share Method
 - (void) shareWithFacebook {
     NSURL *contentURL = [[NSURL alloc] initWithString:
                          @"https://www.random.org/integers/"];
@@ -145,6 +152,17 @@
     hud.mode = MBProgressHUDModeCustomView;
     hud.labelText = @"Сopied";
 }
+
+- (void) hideCopyingHud {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        });
+    });
+}
+
+#pragma mark - Present Data Method
+
 
 
 @end
