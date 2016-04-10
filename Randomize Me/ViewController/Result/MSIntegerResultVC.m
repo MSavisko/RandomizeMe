@@ -18,7 +18,7 @@
 #import <VK-ios-sdk/VKSdk.h>
 
 
-@interface MSIntegerResultVC () <UIActionSheetDelegate>
+@interface MSIntegerResultVC () <UIActionSheetDelegate, VKSdkUIDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
@@ -33,6 +33,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
+    [self setupVkDelegate];
     self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
 }
@@ -77,7 +78,18 @@
             [self shareWithFacebook];
         }
         else if (buttonIndex == 1) { //Vkontakte
-            [self shareWithVkontakte];
+            NSArray *scope = @[VK_PER_FRIENDS, VK_PER_WALL, VK_PER_AUDIO, VK_PER_PHOTOS, VK_PER_NOHTTPS, VK_PER_EMAIL, VK_PER_MESSAGES];
+            [VKSdk wakeUpSession:scope completeBlock:^(VKAuthorizationState state, NSError *error) {
+                if (state == VKAuthorizationAuthorized) {
+                                [self shareWithVkontakte];
+                } else if (error) {
+                    [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+                }
+                else {
+                    [VKSdk authorize:scope];
+                    [self shareWithVkontakte];
+                }
+            }];
         }
         else if (buttonIndex == 2) { //Google Plus
             [self shareWithGooglePlus];
@@ -110,6 +122,30 @@
     }
 }
 
+#pragma mark - VKSdkUI Delegate
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
+    VKCaptchaViewController *vc = [VKCaptchaViewController captchaControllerWithError:captchaError];
+    [vc presentIn:self];
+}
+
+#pragma mark - VKSdk Delegate
+- (void)vkSdkUserAuthorizationFailed {
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Access denied" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [self.navigationController popToViewController:self animated:YES];
+}
+
+- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
+    if (result.token) {
+        [self shareWithVkontakte];
+    } else if (result.error) {
+        [[[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"Access denied!"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+}
+
 #pragma mark - Keyboard Methods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -132,6 +168,11 @@
     }
 }
 
+- (void) setupVkDelegate {
+    [[VKSdk initializeWithAppId:@"5408231"] registerDelegate:self];
+    [[VKSdk instance] setUiDelegate:self];
+}
+
 #pragma mark - Share Method
 - (void) shareWithFacebook {
     NSURL *contentURL = [[NSURL alloc] initWithString:
@@ -148,7 +189,13 @@
 }
 
 - (void) shareWithVkontakte {
-    
+    VKShareDialogController *shareDialog = [VKShareDialogController new];
+    shareDialog.text = @"This post created created created created and made and post and delivered using #vksdk #ios";
+    shareDialog.uploadImages = @[ [VKUploadImage uploadImageWithImage:[UIImage imageNamed:@"apple"] andParams:[VKImageParameters jpegImageWithQuality:1.0] ] ];
+    [shareDialog setCompletionHandler:^(VKShareDialogController *dialog, VKShareDialogControllerResult result) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [self presentViewController:shareDialog animated:YES completion:nil];
 }
 
 - (void) shareWithGooglePlus {
