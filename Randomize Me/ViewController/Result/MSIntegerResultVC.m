@@ -92,11 +92,13 @@
         else if (buttonIndex == 1) { //Copy All to clipboard
             [self showCopyingHud];
             dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-                // Do something...
                 UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
                 pasteboard.string = [self.response makeStringFromAllIntegerData];
                 [self hideCopyingHud];
             });
+        }
+        else if (buttonIndex == 2) { //Save All to URL
+            
         }
     }
 }
@@ -160,9 +162,5 @@
         });
     });
 }
-
-#pragma mark - Present Data Method
-
-
 
 @end
