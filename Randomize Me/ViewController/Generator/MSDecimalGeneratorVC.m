@@ -48,7 +48,7 @@ static int MSGenerateButtonHeight = 30;
 }
 
 #pragma mark - IBAction
-- (IBAction)generateButtonPressed:(UIButton *)sender {
+- (IBAction)generateButtonPressed:(id)sender {
     [self dismissKeyboard];
     self.decimalRequest = [[MSDecimalRequest alloc]initWithNumberOfDecimalFractions:[self.numberOfDecimals.text intValue] DecimalPlaces:[self.decimalPlaces.text intValue] andReplacement:NO];
     NSLog(@"Request Body: %@", [self.decimalRequest makeRequestBody]);

@@ -414,7 +414,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sah-eK-Rvt"/>
-                                    <barButtonItem image="save button" id="Wil-Tf-HZu"/>
+                                    <barButtonItem image="save button" id="Wil-Tf-HZu">
+                                        <connections>
+                                            <action selector="copyingButtonPressed:" destination="wW4-yt-RqK" id="yht-3Z-1sc"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Qc0-66-6Aq"/>
                                     <barButtonItem image="info button" id="rpi-Ds-Btp"/>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="fbk-SC-Cev"/>

@@ -34,6 +34,10 @@
     [self setupMenuBar]; //Because when back from second view, pan guesture menu not work
 }
 
+- (void)viewDidLayoutSubviews {
+    [self.resultTextView setContentOffset:CGPointZero animated:NO]; //Because position of text view must be Zero
+}
+
 #pragma mark - IBAction
 
 #pragma mark - Keyboard Methods

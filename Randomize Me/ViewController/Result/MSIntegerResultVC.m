@@ -9,6 +9,8 @@
 #import "MSIntegerResultVC.h"
 #import "SWRevealViewController.h"
 
+#import "MBProgressHUD.h"
+
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
@@ -46,10 +48,50 @@
 }
 
 - (IBAction)shareButtonPressed:(id)sender {
-    UIActionSheet *shareSheet = [[UIActionSheet alloc]initWithTitle:@"What social network you want to use for sharing?"
-delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Vkontakte", @"Google+", nil];
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc]initWithTitle:@"What social network you want to use for sharing?"
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"Cancel"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"Facebook", @"Vkontakte", @"Google+", nil];
+    shareActionSheet.tag = 100;
+    [shareActionSheet showInView:self.view];
+}
+
+- (IBAction)copyingButtonPressed:(id)sender {
+    UIActionSheet *copyingActionSheet = [[UIActionSheet alloc]initWithTitle:nil
+                                                                 delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Result to clipboard", @"Copy All to clipboard", @"Save All to URL", nil];
+    copyingActionSheet.tag = 200;
+    [copyingActionSheet showInView:self.view];
+}
+
+#pragma mark - UIActionSheet Delegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (actionSheet.tag == 100) { //Because two action sheet. Share and coping
+        if (buttonIndex == 0) { //Facebook
+            [self shareWithFacebook];
+        }
+        else if (buttonIndex == 1) { //Vkontakte
+            [self shareWithVkontakte];
+        }
+        else if (buttonIndex == 2) { //Google Plus
+            [self shareWithGooglePlus];
+        }
+    }
     
-    [shareSheet showInView:self.view];
+    if (actionSheet.tag == 200) {
+        if (buttonIndex == 0) { //Save Result to clipboard
+            [self showCopyingHud];
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                pasteboard.string = self.resultTextView.text;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    });
+                });
+            });
+        }
+    }
 }
 
 #pragma mark - Keyboard Methods
@@ -87,6 +129,21 @@ delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButton
     [FBSDKShareDialog showFromViewController:self
                                  withContent:content
                                     delegate:nil];
+}
+
+- (void) shareWithVkontakte {
+    
+}
+
+- (void) shareWithGooglePlus {
+    
+}
+
+#pragma mark - MBProgressHUD Method
+- (void) showCopyingHud {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = @"Сopied";
 }
 
 
