@@ -12,7 +12,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
-@interface MSIntegerResultVC ()
+@interface MSIntegerResultVC () <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
@@ -27,32 +27,29 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
-    [self addFacebookShare];
     self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setupMenuBar]; //Because when back from second view, pan guesture menu not work
+    [self setupMenuBar]; //Because when back from second view, pan guesture for menu bar must work
+}
+
+- (void)viewDidLayoutSubviews {
+    [self.resultTextView setContentOffset:CGPointZero animated:NO]; //Because position of text view must be Zero
 }
 
 #pragma mark - IBAction
 - (IBAction)trashButtonPressed:(id)sender {
     NSLog(@"Trash button pressed!");
 }
+
 - (IBAction)shareButtonPressed:(id)sender {
-    NSURL *contentURL = [[NSURL alloc] initWithString:
-                         @"https://www.random.org/integers/"];
+    UIActionSheet *shareSheet = [[UIActionSheet alloc]initWithTitle:@"What social network you want to use for sharing?"
+delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Vkontakte", @"Google+", nil];
     
-    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc]init];
-    content.contentURL = contentURL;
-    content.imageURL = nil;
-    content.contentDescription = @"Integer Generation result by Randomize Me";
-    
-    [FBSDKShareDialog showFromViewController:self
-                                 withContent:content
-                                    delegate:nil];
+    [shareSheet showInView:self.view];
 }
 
 #pragma mark - Keyboard Methods
@@ -78,8 +75,18 @@
 }
 
 #pragma mark - Shared Method
-- (void) addFacebookShare {
+- (void) shareWithFacebook {
+    NSURL *contentURL = [[NSURL alloc] initWithString:
+                         @"https://www.random.org/integers/"];
     
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc]init];
+    content.contentURL = contentURL;
+    content.imageURL = nil;
+    content.contentDescription = @"Integer Generation result by Randomize Me";
+    
+    [FBSDKShareDialog showFromViewController:self
+                                 withContent:content
+                                    delegate:nil];
 }
 
 
