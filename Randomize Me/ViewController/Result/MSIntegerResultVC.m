@@ -10,9 +10,11 @@
 #import "SWRevealViewController.h"
 
 #import "MBProgressHUD.h"
+#import "VK-ios-sdk/VKSdk.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+
 
 @interface MSIntegerResultVC () <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
@@ -21,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *copyingButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (weak, nonatomic) id<VKSdkDelegate>vkDelegate;
+@property (weak, nonatomic) id <VKSdkUIDelegate>uiVkDelegate;
+
 @end
 
 @implementation MSIntegerResultVC
@@ -28,6 +33,7 @@
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
     [self hideKeyboardByTap];
     self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
@@ -141,6 +147,28 @@
 }
 
 - (void) shareWithVkontakte {
+    VKSdk *sdkInstance = [VKSdk initializeWithAppId:@"5408231"];
+    [sdkInstance registerDelegate:_vkDelegate];
+    [sdkInstance setUiDelegate:_uiVkDelegate];
+    NSArray *scope = @[@"friends", @"email", @"wall"];
+    
+    [VKSdk wakeUpSession:scope completeBlock:^(VKAuthorizationState state, NSError *error) {
+        if (state == VKAuthorizationAuthorized) {
+            // Authorized and ready to go
+            VKShareDialogController *shareDialog = [[VKShareDialogController alloc]init];
+            shareDialog.text = @"This post created using #vksdk #ios";
+            shareDialog.vkImages = nil;
+            shareDialog.shareLink = [[VKShareLink alloc] initWithTitle:@"Super puper link, but nobody knows" link:[NSURL URLWithString:@"https://vk.com/dev/ios_sdk"]];
+            [shareDialog setCompletionHandler:^(VKShareDialogController *dialog, VKShareDialogControllerResult result) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [self presentViewController:shareDialog animated:YES completion:nil];
+            
+        } else if (error) {
+            [VKSdk authorize:scope];
+            NSLog(@"Something go wrong with vk auth");
+        }
+    }];
     
 }
 
