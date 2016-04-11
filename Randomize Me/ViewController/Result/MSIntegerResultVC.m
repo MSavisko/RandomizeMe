@@ -18,7 +18,7 @@
 #import <VK-ios-sdk/VKSdk.h>
 
 
-@interface MSIntegerResultVC () <UIActionSheetDelegate, VKSdkUIDelegate>
+@interface MSIntegerResultVC () <UIActionSheetDelegate, VKSdkUIDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
@@ -90,7 +90,13 @@
     //Share
     if (actionSheet.tag == 100) {
         if (buttonIndex == 0) { //Facebook
-            [self shareWithFacebook];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook"
+                                                            message:@"All result was copied to clipboard. Use paste for share!"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            alert.tag = 400;
+            [alert show];
         }
         else if (buttonIndex == 1) { //Vkontakte
             NSArray *scope = @[VK_PER_WALL];
@@ -134,6 +140,13 @@
     }
 }
 
+#pragma mark - UIAlertView Delegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 400) {
+        [self shareWithFacebook];
+    }
+}
+
 #pragma mark - VKSdkUI Delegate
 - (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
     [self presentViewController:controller animated:YES completion:nil];
@@ -172,6 +185,8 @@
 
 #pragma mark - Share Method
 - (void) shareWithFacebook {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = [self.response makeStringFromAllIntegerData];
     NSURL *contentURL = [[NSURL alloc] initWithString:
                          @"https://www.random.org/integers/"];
     
@@ -199,7 +214,7 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweet setInitialText:@"Test tweet!"];
+        [tweet setInitialText:self.resultTextView.text];
         [tweet addURL:[NSURL URLWithString:@"https://www.random.org/integers/"]];
         [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
          {
