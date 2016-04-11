@@ -68,8 +68,8 @@
 - (IBAction)trashButtonPressed:(id)sender {
     UIPasteboard *pb = [UIPasteboard generalPasteboard];
     [pb setValue:@"" forPasteboardType:UIPasteboardNameGeneral];
-    [self.navigationController popViewControllerAnimated:YES];
-    
+    [self showDeletingHud];
+    [self hideDeletingHud];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
@@ -268,6 +268,21 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        });
+    });
+}
+
+- (void) showDeletingHud {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = @"Deleted";
+}
+
+- (void) hideDeletingHud {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
         });
     });
 }
