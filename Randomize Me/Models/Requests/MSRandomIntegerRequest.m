@@ -1,42 +1,28 @@
 //
-//  MSIntegerRequest.m
+//  MSRandomIntegerRequest.m
 //  Randomize Me
 //
-//  Created by Maksym Savisko on 4/5/16.
+//  Created by Maksym Savisko on 4/11/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSIntegerRequest.h"
+#import "MSRandomIntegerRequest.h"
+#import "MSRandomRequest.h"
 #import "MSApiKey.h"
 
-@interface MSIntegerRequest ()
-@end
+@implementation MSRandomIntegerRequest
 
-@implementation MSIntegerRequest
-
-- (instancetype) initWithNumberOfIntegers:(NSInteger)number
-                         minBoundaryValue:(NSInteger)minValue
-                         maxBoundaryValue:(NSInteger)maxValue
-                           andReplacement:(BOOL)replacemet
-                                  forBase:(NSInteger)base {
-    self = [super init];
+- (instancetype) initWithCount:(NSInteger)count min:(NSInteger)min max:(NSInteger)max unique:(BOOL)unique {
+    self = [super initWithMethod:@"generateSignedIntegers" count:count unique:unique];
     if (self) {
-        _requestId = arc4random_uniform(32767);
-        _methodName = @"generateSignedIntegers";
-        _number = number;
-        _minValue = minValue;
-        _maxValue = maxValue;
-        _replacement = replacemet;
-        _base = base;
+        _minValue = min;
+        _maxValue = max;
+        _base = 10;
     }
     return self;
 }
 
-- (void) setReplacement:(BOOL)replacement {
-    _replacement = replacement;
-};
-
-- (NSDictionary*) makeRequestBody {
+- (NSDictionary*) requestBody {
     NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     paramOfRequest = @{
                        @"apiKey" : MSRandomApiKey,
@@ -56,7 +42,7 @@
     return requestBody;
 }
 
-- (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature
+- (NSDictionary*) requestBodyWithSignature:(NSString*)signature
                               atCompletionTime:(NSString*)completionTime
                                         serial:(NSInteger)serialNumber
                                   andDataArray:(NSArray*)array {
@@ -86,5 +72,6 @@
     
     return requestBody;
 }
+
 
 @end

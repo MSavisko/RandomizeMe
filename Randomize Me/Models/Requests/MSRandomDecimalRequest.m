@@ -1,46 +1,32 @@
 //
-//  MSStringsRequest.m
+//  MSRandomDecimalRequest.m
 //  Randomize Me
 //
-//  Created by Maksym Savisko on 4/5/16.
+//  Created by Maksym Savisko on 4/11/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSStringsRequest.h"
+#import "MSRandomDecimalRequest.h"
+#import "MSRandomRequest.h"
 #import "MSApiKey.h"
 
-@interface MSStringsRequest ()
-@end
+@implementation MSRandomDecimalRequest
 
-@implementation MSStringsRequest
-
-- (instancetype) initWithNumberOfStrings:(NSInteger)number
-                               andLength:(NSInteger)length
-                           forCharacters:(NSString*)characters
-                          andReplacement:(BOOL)replacemet {
-    self = [super init];
+- (instancetype) initWithCount:(NSInteger)count andDecimalPlaces:(NSInteger)decimalPlaces {
+    self = [super initWithMethod:@"generateSignedDecimalFractions" count:count unique:YES];
     if (self) {
-        _requestId = arc4random_uniform(32767);
-        _methodName = @"generateSignedStrings";
-        _number = number;
-        _length = length;
-        _characters = characters;
-        _replacement = replacemet;
+        _decimalPlaces = decimalPlaces;
     }
+    
     return self;
 }
 
-- (void) setReplacement:(BOOL)replacement {
-    _replacement = replacement;
-}
-
-- (NSDictionary*) makeRequestBody {
+- (NSDictionary*) requestBody {
     NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     paramOfRequest = @{
                        @"apiKey" : MSRandomApiKey,
                        @"n" : [NSNumber numberWithInteger:self.number],
-                       @"length" : [NSNumber numberWithInteger:self.length],
-                       @"characters" : self.characters,
+                       @"decimalPlaces" : [NSNumber numberWithInteger:self.decimalPlaces],
                        @"replacement" : [NSNumber numberWithBool:self.replacement],
                        };
     NSDictionary *requestBody = @{
@@ -52,14 +38,13 @@
     return requestBody;
 }
 
-- (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature
+- (NSDictionary*) requestBodyWithSignature:(NSString*)signature
                               atCompletionTime:(NSString*)completionTime
                                         serial:(NSInteger)serialNumber
                                   andDataArray:(NSArray*)array {
     NSDictionary * uniqueParam = [[NSDictionary alloc]init];
     uniqueParam = @{
-                    @"length" : [NSNumber numberWithInteger:self.length],
-                    @"characters" : self.characters,
+                    @"decimalPlaces" : [NSNumber numberWithInteger:self.decimalPlaces],
                     };
     NSMutableDictionary *randomPartOfDict = [NSMutableDictionary
                                              dictionaryWithDictionary: @{
@@ -81,7 +66,5 @@
     
     return requestBody;
 }
-
-
 
 @end

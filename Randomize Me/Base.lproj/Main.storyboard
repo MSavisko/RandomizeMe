@@ -51,7 +51,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbe-XU-pXd">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbe-XU-pXd">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-Dk-tjL" userLabel="Content View">
@@ -211,7 +211,7 @@
                                     <barButtonItem image="info button" id="Hvg-F9-UzB"/>
                                 </items>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-01-zvl">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-01-zvl">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWA-ln-oSJ" userLabel="Content View">
