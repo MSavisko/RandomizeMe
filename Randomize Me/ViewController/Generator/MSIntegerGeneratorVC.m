@@ -57,10 +57,8 @@ static int MSGenerateButtonHeight = 40;
 #pragma mark - IBAction
 - (IBAction) generateButtonPressed:(id)sender {
     //Test new Model
-//    MSRandomIntegerRequest *newRequest = [[MSRandomIntegerRequest alloc] initWithCount:10 min:1 max:10 unique:YES];
-//    [newRequest setReplacement:YES];
-//    NSLog(@"New Request Body: %hhd", newRequest.replacement);
     
+ 
     [self dismissKeyboard];
     self.request = [[MSRandomIntegerRequest alloc]initWithCount:[self.numberOfIntegers.text intValue] min:[self.minValue.text intValue] max:[self.maxValue.text intValue] unique:YES];
     if (self.replacementSwitch.isOn) {

@@ -1,40 +1,28 @@
 //
-//  MSStringsRequest.m
+//  MSStringsRandomRequest.m
 //  Randomize Me
 //
-//  Created by Maksym Savisko on 4/5/16.
+//  Created by Maksym Savisko on 4/11/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSStringsRequest.h"
+#import "MSStringsRandomRequest.h"
+#import "MSRandomRequest.h"
 #import "MSApiKey.h"
 
-@interface MSStringsRequest ()
-@end
+@implementation MSStringsRandomRequest
 
-@implementation MSStringsRequest
-
-- (instancetype) initWithNumberOfStrings:(NSInteger)number
-                               andLength:(NSInteger)length
-                           forCharacters:(NSString*)characters
-                          andReplacement:(BOOL)replacemet {
-    self = [super init];
+- (instancetype) initWithCount:(NSInteger)count length:(NSInteger)length forCharacters:(NSString*)characters unique:(BOOL)unique {
+    self = [super initWithMethod:@"generateSignedStrings" count:count unique:unique];
+    
     if (self) {
-        _requestId = arc4random_uniform(32767);
-        _methodName = @"generateSignedStrings";
-        _number = number;
         _length = length;
         _characters = characters;
-        _replacement = replacemet;
     }
     return self;
 }
 
-- (void) setReplacement:(BOOL)replacement {
-    _replacement = replacement;
-}
-
-- (NSDictionary*) makeRequestBody {
+- (NSDictionary*) requestBody {
     NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     paramOfRequest = @{
                        @"apiKey" : MSRandomApiKey,
@@ -52,7 +40,7 @@
     return requestBody;
 }
 
-- (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature
+- (NSDictionary*) requestBodyWithSignature:(NSString*)signature
                               atCompletionTime:(NSString*)completionTime
                                         serial:(NSInteger)serialNumber
                                   andDataArray:(NSArray*)array {
@@ -81,7 +69,5 @@
     
     return requestBody;
 }
-
-
 
 @end

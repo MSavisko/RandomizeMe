@@ -64,15 +64,11 @@
 
 #pragma mark - Make String for represent
 - (NSString*) makeStringWithSpaceFromIntegerData {
-    if ([self.methodName isEqualToString:@"generateSignedIntegers"]) {
         NSString *result = [[self.data valueForKey:@"description"] componentsJoinedByString:@" "];
         return result;
-    }
-    else return @"Sorry! Planned maintenance work on the server, try again later";
 }
 
 - (NSString*) makeStringWithSpaceFromDecimalDataWithNumber: (NSInteger)number {
-    if ([self.methodName isEqualToString:@"generateSignedDecimalFractions"]) {
         NSMutableString *mutableResult = [[NSMutableString alloc]init];
         for (NSInteger i=0; i < self.data.count; i++) {
             NSNumber *elementNumber = self.data[i];
@@ -88,8 +84,6 @@
             [mutableResult appendString:[NSString stringWithFormat:@"%@ ", numberString]];
         }
         return mutableResult;
-    }
-    else return @"Sorry! Planned maintenance work on the server, try again later";
 }
 
 - (NSString*) makeStringComplitionTime {
