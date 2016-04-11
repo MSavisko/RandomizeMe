@@ -1,34 +1,27 @@
 //
-//  MSDecimalRequest.m
+//  MSRandomDecimalRequest.m
 //  Randomize Me
 //
-//  Created by Maksym Savisko on 4/5/16.
+//  Created by Maksym Savisko on 4/11/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSDecimalRequest.h"
+#import "MSRandomDecimalRequest.h"
+#import "MSRandomRequest.h"
 #import "MSApiKey.h"
 
-@interface MSDecimalRequest ()
-@end
+@implementation MSRandomDecimalRequest
 
-@implementation MSDecimalRequest
-
-- (instancetype) initWithNumberOfDecimalFractions:(NSInteger)number
-                                    DecimalPlaces:(NSInteger)decimalPlaces
-                                   andReplacement:(BOOL)replacemet {
-    self = [super init];
+- (instancetype) initWithCount:(NSInteger)count andDecimalPlaces:(NSInteger)decimalPlaces {
+    self = [super initWithMethod:@"generateSignedDecimalFractions" count:count unique:YES];
     if (self) {
-        _requestId = arc4random_uniform(32767);
-        _methodName = @"generateSignedDecimalFractions";
-        _number = number;
         _decimalPlaces = decimalPlaces;
-        _replacement = replacemet;
     }
+    
     return self;
 }
 
-- (NSDictionary*) makeRequestBody {
+- (NSDictionary*) requestBody {
     NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     paramOfRequest = @{
                        @"apiKey" : MSRandomApiKey,
@@ -45,7 +38,7 @@
     return requestBody;
 }
 
-- (NSDictionary*) makeRequestBodyWithSignature:(NSString*)signature
+- (NSDictionary*) requestBodyWithSignature:(NSString*)signature
                               atCompletionTime:(NSString*)completionTime
                                         serial:(NSInteger)serialNumber
                                   andDataArray:(NSArray*)array {
@@ -73,7 +66,5 @@
     
     return requestBody;
 }
-
-
 
 @end

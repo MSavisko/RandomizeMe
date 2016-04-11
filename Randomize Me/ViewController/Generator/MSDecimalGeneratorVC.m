@@ -9,7 +9,7 @@
 #import "MSDecimalGeneratorVC.h"
 #import "MSDecimalResultVC.h"
 #import "SWRevealViewController.h"
-#import "MSDecimalRequest.h"
+#import "MSRandomDecimalRequest.h"
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
 #import "MBProgressHUD.h"
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *decimalPlaces;
 @property (weak, nonatomic) UITextField *activeField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) MSDecimalRequest *decimalRequest;
+@property (strong, nonnull) MSRandomDecimalRequest *request;
 @property (strong, nonatomic) MSRandomResponse *response;
 @end
 
@@ -45,18 +45,16 @@ static int MSGenerateButtonHeight = 30;
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MSDecimalResultVC *resultVC = segue.destinationViewController;
     resultVC.response = self.response;
-    resultVC.decimalPlaces = self.decimalRequest.decimalPlaces;
+    resultVC.decimalPlaces = self.request.decimalPlaces;
 }
 
 #pragma mark - IBAction
 - (IBAction)generateButtonPressed:(id)sender {
     [self dismissKeyboard];
-    self.decimalRequest = [[MSDecimalRequest alloc]initWithNumberOfDecimalFractions:[self.numberOfDecimals.text intValue] DecimalPlaces:[self.decimalPlaces.text intValue] andReplacement:NO];
-    NSLog(@"Request Body: %@", [self.decimalRequest makeRequestBody]);
-    
+    self.request = [[MSRandomDecimalRequest alloc]initWithCount:[self.numberOfDecimals.text intValue] andDecimalPlaces:[self.decimalPlaces.text intValue]];
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
-    [client sendRequestToRandomOrgWithParameters:[self.decimalRequest makeRequestBody]];
+    [client sendRequestToRandomOrgWithParameters: [self.request requestBody]];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
