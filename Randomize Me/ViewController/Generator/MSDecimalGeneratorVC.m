@@ -12,6 +12,7 @@
 #import "MSDecimalRequest.h"
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
+#import "MBProgressHUD.h"
 
 @interface MSDecimalGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
@@ -56,6 +57,7 @@ static int MSGenerateButtonHeight = 30;
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
     [client sendRequestWithParameters:[self.decimalRequest makeRequestBody]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
@@ -65,6 +67,7 @@ static int MSGenerateButtonHeight = 30;
 
 #pragma mark - MSHTTPClient Delegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     self.response = [[MSRandomResponse alloc]init];
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
