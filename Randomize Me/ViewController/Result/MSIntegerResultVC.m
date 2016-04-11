@@ -195,10 +195,6 @@
     [self presentViewController:shareDialog animated:YES completion:nil];
 }
 
-- (void) shareWithGooglePlus {
-    
-}
-
 - (void) shareWithTwitter {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {

@@ -16,7 +16,9 @@
 @property (weak, nonatomic) id<MSHTTPClientDelegate>delegate;
 
 + (instancetype) sharedClient;
-- (void) sendRequestWithParameters:(NSDictionary*)parameters;
+
+- (void) sendRequestToTextUploadWithParameters:(NSDictionary *)parameters;
+- (void) sendRequestToRandomOrgWithParameters:(NSDictionary*)parameters;
 
 @end
 

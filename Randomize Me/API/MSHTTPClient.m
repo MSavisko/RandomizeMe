@@ -9,12 +9,14 @@
 #import "MSHTTPClient.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
+#import "MSApiKey.h"
 
 
 @interface MSHTTPClient ()
 @end
 
 static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/1/invoke";
+static NSString *const MSTextInvokeApiURL = @"http://api.textuploader.com/v1";
 
 @implementation MSHTTPClient
 
@@ -40,10 +42,11 @@ static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/
     return  self;
 }
 
-- (void) sendRequestWithParameters:(NSDictionary*)parameters {
-    //UIView *progressBackground = [(UIViewController *)self.delegate view];
-    //[MBProgressHUD showHUDAddedTo:progressBackground animated:YES];
-//    [self POST:MSRandomInvokeApiURL parameters:parameters progress:nil success:[self successBlock:progressBackground] failure:[self failBlock:progressBackground]];
+- (void) sendRequestToTextUploadWithParameters:(NSDictionary *)parameters {
+    [self.requestSerializer setValue:MSTextApiKey forHTTPHeaderField:@"X-TextUploader-API-Key"];
+}
+
+- (void) sendRequestToRandomOrgWithParameters:(NSDictionary*)parameters {
     [self POST:MSRandomInvokeApiURL parameters:parameters progress:nil success:[self successBlock] failure:[self failBlock]];
 }
 
@@ -56,7 +59,6 @@ static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/
         }else{
             NSLog(@"Delegate do not response success service");
         }
-        //[MBProgressHUD hideAllHUDsForView:progressBackground animated:YES];
     };
 }
 
@@ -67,7 +69,6 @@ static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/
         }else{
             NSLog(@"Delegate do not response failed service");
         }
-        //[MBProgressHUD hideAllHUDsForView:progressBackground animated:YES];
     };
 }
 

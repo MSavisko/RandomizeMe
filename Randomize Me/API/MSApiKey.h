@@ -1,5 +1,5 @@
 //
-//  MSRandomApiKey.h
+//  MSApiKey.h
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 4/5/16.
@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const MSApiKey;
-extern NSString *const MSHashedApiKey;
+extern NSString *const MSRandomApiKey;
+extern NSString *const MSRandomHashedApiKey;
+extern NSString *const MSTextApiKey;
 
-@interface MSRandomApiKey : NSObject
+@interface MSApiKey : NSObject
 
 @end

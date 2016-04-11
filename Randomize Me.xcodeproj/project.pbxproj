@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		925B47941CB3AC0F00747B72 /* MSRandomApiKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 925B47931CB3AC0F00747B72 /* MSRandomApiKey.m */; };
+		925B47941CB3AC0F00747B72 /* MSApiKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 925B47931CB3AC0F00747B72 /* MSApiKey.m */; };
 		925B479E1CB3B78000747B72 /* MSDecimalRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 925B479B1CB3B78000747B72 /* MSDecimalRequest.m */; };
 		925B479F1CB3B78000747B72 /* MSIntegerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 925B479D1CB3B78000747B72 /* MSIntegerRequest.m */; };
 		925B47A21CB3B85D00747B72 /* MSStringsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 925B47A11CB3B85D00747B72 /* MSStringsRequest.m */; };
@@ -34,8 +34,8 @@
 
 /* Begin PBXFileReference section */
 		4387789B997E65E0109B624F /* Pods-Randomize Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Randomize Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Randomize Me/Pods-Randomize Me.debug.xcconfig"; sourceTree = "<group>"; };
-		925B47921CB3AC0F00747B72 /* MSRandomApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSRandomApiKey.h; path = API/MSRandomApiKey.h; sourceTree = "<group>"; };
-		925B47931CB3AC0F00747B72 /* MSRandomApiKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomApiKey.m; path = API/MSRandomApiKey.m; sourceTree = "<group>"; };
+		925B47921CB3AC0F00747B72 /* MSApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSApiKey.h; path = API/MSApiKey.h; sourceTree = "<group>"; };
+		925B47931CB3AC0F00747B72 /* MSApiKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSApiKey.m; path = API/MSApiKey.m; sourceTree = "<group>"; };
 		925B479A1CB3B78000747B72 /* MSDecimalRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSDecimalRequest.h; path = Models/Requests/MSDecimalRequest.h; sourceTree = "<group>"; };
 		925B479B1CB3B78000747B72 /* MSDecimalRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDecimalRequest.m; path = Models/Requests/MSDecimalRequest.m; sourceTree = "<group>"; };
 		925B479C1CB3B78000747B72 /* MSIntegerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSIntegerRequest.h; path = Models/Requests/MSIntegerRequest.h; sourceTree = "<group>"; };
@@ -233,8 +233,8 @@
 		92ED36CB1CAC567A00816AFD /* API */ = {
 			isa = PBXGroup;
 			children = (
-				925B47921CB3AC0F00747B72 /* MSRandomApiKey.h */,
-				925B47931CB3AC0F00747B72 /* MSRandomApiKey.m */,
+				925B47921CB3AC0F00747B72 /* MSApiKey.h */,
+				925B47931CB3AC0F00747B72 /* MSApiKey.m */,
 				92ED36CC1CAC5F3D00816AFD /* MSHTTPClient.h */,
 				92ED36CD1CAC5F3D00816AFD /* MSHTTPClient.m */,
 			);
@@ -380,7 +380,7 @@
 				925B47A21CB3B85D00747B72 /* MSStringsRequest.m in Sources */,
 				92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */,
 				925B479E1CB3B78000747B72 /* MSDecimalRequest.m in Sources */,
-				925B47941CB3AC0F00747B72 /* MSRandomApiKey.m in Sources */,
+				925B47941CB3AC0F00747B72 /* MSApiKey.m in Sources */,
 				926AF2221CB512EE006DEF8E /* MSIntegerResultVC.m in Sources */,
 				92ED36CE1CAC5F3D00816AFD /* MSHTTPClient.m in Sources */,
 				926AF21E1CB5114B006DEF8E /* SWRevealViewController.m in Sources */,

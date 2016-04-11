@@ -7,7 +7,7 @@
 //
 
 #import "MSStringsRequest.h"
-#import "MSRandomApiKey.h"
+#import "MSApiKey.h"
 
 @interface MSStringsRequest ()
 @end
@@ -37,7 +37,7 @@
 - (NSDictionary*) makeRequestBody {
     NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     paramOfRequest = @{
-                       @"apiKey" : MSApiKey,
+                       @"apiKey" : MSRandomApiKey,
                        @"n" : [NSNumber numberWithInteger:self.number],
                        @"length" : [NSNumber numberWithInteger:self.length],
                        @"characters" : self.characters,
@@ -64,7 +64,7 @@
     NSMutableDictionary *randomPartOfDict = [NSMutableDictionary
                                              dictionaryWithDictionary: @{
                                                                          @"method" : self.methodName,
-                                                                         @"hashedApiKey" : MSHashedApiKey,
+                                                                         @"hashedApiKey" : MSRandomHashedApiKey,
                                                                          @"n" : [NSNumber numberWithInteger:self.number],
                                                                          @"replacement" : [NSNumber numberWithBool:self.replacement],
                                                                          @"data" : array,

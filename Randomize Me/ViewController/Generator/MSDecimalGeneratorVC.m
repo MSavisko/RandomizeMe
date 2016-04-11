@@ -56,7 +56,7 @@ static int MSGenerateButtonHeight = 30;
     
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
-    [client sendRequestWithParameters:[self.decimalRequest makeRequestBody]];
+    [client sendRequestToRandomOrgWithParameters:[self.decimalRequest makeRequestBody]];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
@@ -78,6 +78,7 @@ static int MSGenerateButtonHeight = 30;
 }
 
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSLog(@"%@", error);
 }
 
