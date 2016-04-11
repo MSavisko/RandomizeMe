@@ -39,6 +39,7 @@ static int MSGenerateButtonHeight = 40;
     [self hideKeyboardByTap];
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
+    [self.generateButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -63,11 +64,28 @@ static int MSGenerateButtonHeight = 40;
     [client sendRequestToRandomOrgWithParameters:[self.integerRequest makeRequestBody]];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
-- (IBAction)clearButton:(id)sender {
+- (IBAction)clearButtonPressed:(id)sender {
     self.numberOfIntegers.text = @"";
     self.minValue.text = @"";
     self.maxValue.text = @"";
     [self.replacementSwitch setOn:NO animated:YES];
+}
+- (IBAction)infoButtonPressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Integer Generation"
+                                                    message:@"This form allows you to generate random integers. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (IBAction)editingChanged {
+    if ([self.numberOfIntegers.text length] != 0 && [self.minValue.text length] != 0 && [self.maxValue.text length] != 0) {
+        [self.generateButton setEnabled:YES];
+    }
+    else {
+        [self.generateButton setEnabled:NO];
+    }
 }
 
 #pragma mark - MSHTTPClient Delegate
@@ -78,7 +96,7 @@ static int MSGenerateButtonHeight = 40;
     if (!self.response.error) {
         [self performSegueWithIdentifier:@"ShowIntegerResult" sender:nil];
     } else {
-        NSLog(@"Error exist. %@", [self.response parseError]);
+        [self showAlertWithMessage:[self.response parseError]];
     }
 }
 
@@ -96,6 +114,53 @@ static int MSGenerateButtonHeight = 40;
 - (void)textFieldDidEndEditing:(UITextField *)sender
 {
     self.activeField = nil;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (!string.length)
+    {
+        return YES;
+    }
+    
+    if (textField.keyboardType == UIKeyboardTypeNumberPad)
+    {
+        if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                            message:@"This field accepts only numeric entries!"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
+    }
+    
+    NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (self.activeField == self.numberOfIntegers) {
+        if (updatedText.length > 5)
+        {
+            if (string.length > 1)
+            {
+                [self showAlertForTextFieldWithNumber:5];
+            }
+            [self showAlertForTextFieldWithNumber:5];
+            return NO;
+        }
+    } else {
+        if (updatedText.length > 10)
+        {
+            if (string.length > 1)
+            {
+                [self showAlertForTextFieldWithNumber:10];
+            }
+            [self showAlertForTextFieldWithNumber:10];
+            return NO;
+        }
+    }
+    return YES;
 }
 
 #pragma mark - Keyboard Methods
@@ -162,6 +227,26 @@ static int MSGenerateButtonHeight = 40;
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+}
+
+#pragma mark - Helper Methods
+- (void) showAlertForTextFieldWithNumber:(NSInteger)number {
+    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %d numbers!", number];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) showAlertWithMessage:(NSString*)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

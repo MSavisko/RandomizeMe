@@ -25,6 +25,8 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
+    [self.trashButton setEnabled:NO];
+    [self.trashButton setTintColor:[UIColor clearColor]];
     self.resultTextView.text = [self.response makeStringWithSpaceFromDecimalDataWithNumber:self.decimalPlaces];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
 }

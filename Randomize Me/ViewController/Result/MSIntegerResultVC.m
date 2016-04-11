@@ -34,6 +34,8 @@
     [super viewDidLoad];
     [self hideKeyboardByTap];
     [self setupVkDelegate];
+    [self.trashButton setEnabled:NO];
+    [self.trashButton setTintColor:[UIColor clearColor]];
     self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
 }
@@ -67,6 +69,17 @@
     NSLog(@"Trash button pressed!");
 }
 
+- (IBAction)infoButtonPressed:(id)sender {
+    NSString *message = [NSString stringWithFormat:@"Serial: %ld\nCompletion Time: %@\n", (long)self.response.serialNumber, [self.response makeStringComplitionTime]];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Integer Generation"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 - (IBAction)shareButtonPressed:(id)sender {
     UIActionSheet *shareActionSheet = [[UIActionSheet alloc]initWithTitle:@"What social network you want to use for sharing?"
                                                                  delegate:self
@@ -79,7 +92,7 @@
 
 - (IBAction)copyingButtonPressed:(id)sender {
     UIActionSheet *copyingActionSheet = [[UIActionSheet alloc]initWithTitle:nil
-                                                                 delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Result to clipboard", @"Copy All to clipboard", @"Save All to URL", nil];
+                                                                 delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Result to clipboard", @"Copy All to clipboard", nil];
     copyingActionSheet.tag = 200;
     [copyingActionSheet showInView:self.view];
 }
