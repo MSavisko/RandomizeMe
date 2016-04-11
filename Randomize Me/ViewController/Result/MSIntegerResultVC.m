@@ -34,8 +34,8 @@
     [super viewDidLoad];
     [self hideKeyboardByTap];
     [self setupVkDelegate];
-    [self.trashButton setEnabled:NO];
-    [self.trashButton setTintColor:[UIColor clearColor]];
+    //[self.trashButton setEnabled:NO];
+    //[self.trashButton setTintColor:[UIColor clearColor]];
     self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
     self.timestampLabel.text = [self.response makeStringComplitionTime];
 }
@@ -66,7 +66,10 @@
 
 #pragma mark - IBAction
 - (IBAction)trashButtonPressed:(id)sender {
-    NSLog(@"Trash button pressed!");
+    UIPasteboard *pb = [UIPasteboard generalPasteboard];
+    [pb setValue:@"" forPasteboardType:UIPasteboardNameGeneral];
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
@@ -121,7 +124,6 @@
                 }
                 else {
                     [VKSdk authorize:scope];
-                    [self shareWithVkontakte];
                 }
             }];
         }
@@ -178,7 +180,9 @@
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     if (result.token) {
-        [self shareWithVkontakte];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self shareWithVkontakte];
+        });
     } else if (result.error) {
         [[[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"Access denied!"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }

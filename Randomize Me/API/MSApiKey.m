@@ -9,8 +9,7 @@
 #import "MSApiKey.h"
 
 @implementation MSApiKey
-#warning replace API_KEY
-NSString *const MSRandomApiKey = @"";
+NSString *const MSRandomApiKey = @"00000000-0000-0000-0000-000000000000";
 NSString *const MSRandomHashedApiKey = @"BC/WYznRk76plu/5FxeAL85FWlpGMxC+jTkkm9ZyQY6+1doglqiX8hjq6T3srd0nSN47fgXd0UD7BI+YzFSwZg==";
 NSString *const MSTextApiKey = @"";
 
