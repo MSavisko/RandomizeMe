@@ -9,11 +9,13 @@
 #import "MSIntegerGeneratorVC.h"
 #import "MSIntegerResultVC.h"
 #import "SWRevealViewController.h"
-#import "MSIntegerRequest.h"
+#import "MSRandomIntegerRequest.h"
+
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
 #import "MBProgressHUD.h"
 
+#import "MSRandomIntegerRequest.h"
 
 @interface MSIntegerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -25,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *replacementSwitch;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (weak, nonatomic) UITextField *activeField;
-@property (strong, nonatomic) MSIntegerRequest *integerRequest;
+@property (strong, nonnull) MSRandomIntegerRequest *request;
 @property (strong, nonatomic) MSRandomResponse *response;
 @end
 
@@ -54,14 +56,19 @@ static int MSGenerateButtonHeight = 40;
 
 #pragma mark - IBAction
 - (IBAction) generateButtonPressed:(id)sender {
+    //Test new Model
+//    MSRandomIntegerRequest *newRequest = [[MSRandomIntegerRequest alloc] initWithCount:10 min:1 max:10 unique:YES];
+//    [newRequest setReplacement:YES];
+//    NSLog(@"New Request Body: %hhd", newRequest.replacement);
+    
     [self dismissKeyboard];
-    self.integerRequest = [[MSIntegerRequest alloc]initWithNumberOfIntegers:[self.numberOfIntegers.text intValue] minBoundaryValue:[self.minValue.text intValue] maxBoundaryValue:[self.maxValue.text intValue] andReplacement:YES forBase:10];
+    self.request = [[MSRandomIntegerRequest alloc]initWithCount:[self.numberOfIntegers.text intValue] min:[self.minValue.text intValue] max:[self.maxValue.text intValue] unique:YES];
     if (self.replacementSwitch.isOn) {
-        [self.integerRequest setReplacement:NO];
+        [self.request setReplacement:NO];
     };
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
-    [client sendRequestToRandomOrgWithParameters:[self.integerRequest makeRequestBody]];
+    [client sendRequestToRandomOrgWithParameters:[self.request requestBody]];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 - (IBAction)clearButtonPressed:(id)sender {

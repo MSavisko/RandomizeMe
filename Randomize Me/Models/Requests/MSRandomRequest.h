@@ -15,4 +15,7 @@
 @property (readonly, nonatomic) BOOL replacement;
 @property (readonly, nonatomic) NSInteger number;
 
+- (instancetype) initWithMethod:(NSString*)method count:(NSInteger)count unique:(BOOL)unique;
+- (void) setReplacement:(BOOL)replacement;
+
 @end

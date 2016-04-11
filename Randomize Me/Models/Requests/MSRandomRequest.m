@@ -24,4 +24,8 @@
     return self;
 }
 
+- (void) setReplacement:(BOOL)replacement {
+    _replacement = replacement;
+};
+
 @end
