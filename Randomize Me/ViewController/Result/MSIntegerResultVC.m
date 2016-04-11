@@ -93,7 +93,7 @@
             [self shareWithFacebook];
         }
         else if (buttonIndex == 1) { //Vkontakte
-            NSArray *scope = @[VK_PER_FRIENDS, VK_PER_WALL, VK_PER_AUDIO, VK_PER_PHOTOS, VK_PER_NOHTTPS, VK_PER_EMAIL, VK_PER_MESSAGES];
+            NSArray *scope = @[VK_PER_WALL];
             [VKSdk wakeUpSession:scope completeBlock:^(VKAuthorizationState state, NSError *error) {
                 if (state == VKAuthorizationAuthorized) {
                                 [self shareWithVkontakte];
@@ -187,7 +187,7 @@
 
 - (void) shareWithVkontakte {
     VKShareDialogController *shareDialog = [VKShareDialogController new];
-    shareDialog.text = @"Integer generation!";
+    shareDialog.text = [self.response makeStringFromAllIntegerData];
     shareDialog.shareLink = [[VKShareLink alloc] initWithTitle:@"Full Result of Integer Generation" link:[NSURL URLWithString:@"https://www.random.org/integers/"]];
     [shareDialog setCompletionHandler:^(VKShareDialogController *dialog, VKShareDialogControllerResult result) {
         [self dismissViewControllerAnimated:YES completion:nil];

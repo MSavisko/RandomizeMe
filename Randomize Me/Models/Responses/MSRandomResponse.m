@@ -115,7 +115,7 @@
     NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %ld", (long)self.serialNumber];
     NSString *signature = [NSString stringWithFormat:@"Signature: %@", self.signature];
     
-    NSString *result = [NSString stringWithFormat:@"%@\r\r%@\r%@\r\r%@\r%@\r%@\r%@\r%@\r\r%@\r%@\r%@\r%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, maxValue, replacement, individualInformation, completionTime, serialNumber, signature];
+    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, maxValue, replacement, individualInformation, completionTime, serialNumber, signature];
     
     return result;
 }
