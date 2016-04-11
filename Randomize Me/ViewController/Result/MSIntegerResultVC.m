@@ -36,8 +36,8 @@
     [self setupVkDelegate];
     //[self.trashButton setEnabled:NO];
     //[self.trashButton setTintColor:[UIColor clearColor]];
-    self.resultTextView.text = [self.response makeStringWithSpaceFromIntegerData];
-    self.timestampLabel.text = [self.response makeStringComplitionTime];
+    self.resultTextView.text = [self stringResult];
+    self.timestampLabel.text = [self stringComplitionTime];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -73,7 +73,7 @@
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
-    NSString *message = [NSString stringWithFormat:@"Serial: %ld\nCompletion Time: %@\n", (long)self.response.serialNumber, [self.response makeStringComplitionTime]];
+    NSString *message = [NSString stringWithFormat:@"Serial: %ld\nCompletion Time: %@\n", (long)self.response.serialNumber, [self stringComplitionTime]];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Integer Generation"
                                                     message:message
@@ -145,7 +145,7 @@
             [self showCopyingHud];
             dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                 UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-                pasteboard.string = [self.response makeStringFromAllIntegerData];
+                pasteboard.string = [self stringResultForShare];
                 [self hideCopyingHud];
             });
         }
@@ -203,7 +203,7 @@
 #pragma mark - Share Method
 - (void) shareWithFacebook {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = [self.response makeStringFromAllIntegerData];
+    pasteboard.string = [self stringResultForShare];
     NSURL *contentURL = [[NSURL alloc] initWithString:
                          @"https://www.random.org/integers/"];
     
@@ -219,7 +219,7 @@
 
 - (void) shareWithVkontakte {
     VKShareDialogController *shareDialog = [VKShareDialogController new];
-    shareDialog.text = [self.response makeStringFromAllIntegerData];
+    shareDialog.text = [self stringResultForShare];
     shareDialog.shareLink = [[VKShareLink alloc] initWithTitle:@"Full Result of Integer Generation" link:[NSURL URLWithString:@"https://www.random.org/integers/"]];
     [shareDialog setCompletionHandler:^(VKShareDialogController *dialog, VKShareDialogControllerResult result) {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -231,17 +231,17 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweet setInitialText:self.resultTextView.text];
+        [tweet setInitialText:[self stringResult]];
         [tweet addURL:[NSURL URLWithString:@"https://www.random.org/integers/"]];
         [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
          {
              if (result == SLComposeViewControllerResultCancelled)
              {
-                 NSLog(@"The user cancelled.");
+                 //The user cancelled
              }
              else if (result == SLComposeViewControllerResultDone)
              {
-                 NSLog(@"The user sent the tweet");
+                 //The user sent the tweet
              }
          }];
         [self presentViewController:tweet animated:YES completion:nil];
@@ -285,6 +285,39 @@
             [self.navigationController popViewControllerAnimated:YES];
         });
     });
+}
+
+#pragma mark - Presentation Data Method
+- (NSString*) stringResult {
+    NSString *result = [[self.response.data valueForKey:@"description"] componentsJoinedByString:@" "];
+    return result;
+}
+
+- (NSString*) stringComplitionTime {
+    return [self.response.completionTime substringToIndex:self.response.completionTime.length-1];
+}
+
+- (NSString*) stringResultForShare {
+    NSString *resultName = @"Integer Generation";
+    NSString *forResult = @"Result:";
+    NSString *resultData = [self stringResult];
+    
+    NSString *parametrs = @"Parameters of generation:";
+    NSString *numberOfIntegers = [NSString stringWithFormat:@"Number of integers: %@", self.response.responseBody[@"result"][@"random"][@"n"]];
+    
+    NSString *minValue = [NSString stringWithFormat:@"Minimum value: %@", self.response.responseBody[@"result"][@"random"][@"min"]];
+    NSString *maxValue = [NSString stringWithFormat:@"Maximum value: %@", self.response.responseBody[@"result"][@"random"][@"max"]];
+    
+    NSString *replacement = [NSString stringWithFormat:@"Unique integers: %@", self.response.responseBody[@"result"][@"random"][@"replacement"]];
+    
+    NSString *individualInformation = @"Individual information of generation:";
+    NSString *completionTime = [NSString stringWithFormat:@"Completion time (UTC+0): %@", [self stringComplitionTime]];
+    NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %ld", (long)self.response.serialNumber];
+    NSString *signature = [NSString stringWithFormat:@"Signature: %@", self.response.signature];
+    
+    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, maxValue, replacement, individualInformation, completionTime, serialNumber, signature];
+    
+    return result;
 }
 
 @end
