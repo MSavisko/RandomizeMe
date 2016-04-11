@@ -16,7 +16,6 @@
 @end
 
 static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/1/invoke";
-static NSString *const MSTextInvokeApiURL = @"http://api.textuploader.com/v1";
 
 @implementation MSHTTPClient
 
@@ -40,10 +39,6 @@ static NSString *const MSTextInvokeApiURL = @"http://api.textuploader.com/v1";
         [self.requestSerializer setValue:@"application/json-rpc" forHTTPHeaderField:@"Accept"];
     }
     return  self;
-}
-
-- (void) sendRequestToTextUploadWithParameters:(NSDictionary *)parameters {
-    [self.requestSerializer setValue:MSTextApiKey forHTTPHeaderField:@"X-TextUploader-API-Key"];
 }
 
 - (void) sendRequestToRandomOrgWithParameters:(NSDictionary*)parameters {
