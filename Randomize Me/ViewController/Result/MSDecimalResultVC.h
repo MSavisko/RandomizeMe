@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MSRandomResponse.h"
+#import <VK-ios-sdk/VKSdk.h>
 
-@interface MSDecimalResultVC : UIViewController
+@interface MSDecimalResultVC : UIViewController <VKSdkDelegate>
 @property (strong, nonatomic) MSRandomResponse *response;
 @property (nonatomic) NSInteger decimalPlaces;
 

@@ -12,13 +12,12 @@
 #import "MBProgressHUD.h"
 
 #import <Social/Social.h>
-
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import <VK-ios-sdk/VKSdk.h>
 
 
-@interface MSIntegerResultVC () <UIActionSheetDelegate, VKSdkUIDelegate, UIAlertViewDelegate>
+@interface MSIntegerResultVC () <UIActionSheetDelegate, UIAlertViewDelegate, VKSdkUIDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
@@ -106,13 +105,7 @@
     //Share
     if (actionSheet.tag == 100) {
         if (buttonIndex == 0) { //Facebook
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook"
-                                                            message:@"All result was copied to clipboard. Use paste for share!"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            alert.tag = 400;
-            [alert show];
+            [self showAlertWithMessage:@"All result was copied to clipboard. Use paste for share!" tag:400];
         }
         else if (buttonIndex == 1) { //Vkontakte
             NSArray *scope = @[VK_PER_WALL];
@@ -128,7 +121,11 @@
             }];
         }
         else if (buttonIndex == 2) { //Twitter
-            [self shareWithTwitter];
+            if ([self stringResult].length > 115) {
+                [self showAlertWithMessage:@"The result is too long to send the tweet. You will need to manually cut it!" tag:500];
+            } else {
+                [self shareWithTwitter];
+            }
         }
     }
     //Copying
@@ -137,7 +134,7 @@
             [self showCopyingHud];
             dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                 UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-                pasteboard.string = self.resultTextView.text;
+                pasteboard.string = [self stringResult];
                 [self hideCopyingHud];
             });
         }
@@ -159,6 +156,9 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 400) {
         [self shareWithFacebook];
+    }
+    if (alertView.tag == 500) {
+        [self shareWithTwitter];
     }
 }
 
@@ -285,6 +285,17 @@
             [self.navigationController popViewControllerAnimated:YES];
         });
     });
+}
+
+#pragma mark - Helper Methods
+- (void) showAlertWithMessage:(NSString*)message tag:(NSInteger)tag {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    alert.tag = tag;
+    [alert show];
 }
 
 #pragma mark - Presentation Data Method

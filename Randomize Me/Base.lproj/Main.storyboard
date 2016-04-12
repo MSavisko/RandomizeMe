@@ -344,7 +344,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5C8-ni-dv8"/>
-                                    <barButtonItem image="save button" id="RD1-vW-5hl"/>
+                                    <barButtonItem image="save button" id="RD1-vW-5hl">
+                                        <connections>
+                                            <action selector="copyingButtonPressed:" destination="PYh-b3-nL4" id="W0T-Up-Va4"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XrI-DQ-18S"/>
                                     <barButtonItem image="info button" id="67i-Qg-pK3">
                                         <connections>
@@ -408,7 +412,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="uPW-QK-pe7">
-                        <barButtonItem key="rightBarButtonItem" image="share button" id="Px3-YU-HBp"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="Px3-YU-HBp">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="PYh-b3-nL4" id="wCt-Zp-tfe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="copyingButton" destination="RD1-vW-5hl" id="jdc-kw-cBh"/>
