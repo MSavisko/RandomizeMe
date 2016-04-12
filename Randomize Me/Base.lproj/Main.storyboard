@@ -346,7 +346,11 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5C8-ni-dv8"/>
                                     <barButtonItem image="save button" id="RD1-vW-5hl"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XrI-DQ-18S"/>
-                                    <barButtonItem image="info button" id="67i-Qg-pK3"/>
+                                    <barButtonItem image="info button" id="67i-Qg-pK3">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="PYh-b3-nL4" id="l3x-yn-RsD"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="fJh-A8-8uB"/>
                                 </items>
                             </toolbar>

@@ -60,6 +60,17 @@
     [self hideDeletingHud];
 }
 
+- (IBAction)infoButtonPressed:(id)sender {
+    NSString *message = [NSString stringWithFormat:@"Serial: %ld\nCompletion Time: %@\n", (long)self.response.serialNumber, [self stringComplitionTime]];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Decimal Generation"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 #pragma mark - Keyboard Methods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
