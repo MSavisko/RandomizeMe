@@ -41,7 +41,7 @@ static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/
     return  self;
 }
 
-- (void) sendRequestToRandomOrgWithParameters:(NSDictionary*)parameters {
+- (void) sendRequest:(NSDictionary*)parameters {
     [self POST:MSRandomInvokeApiURL parameters:parameters progress:nil success:[self successBlock] failure:[self failBlock]];
 }
 

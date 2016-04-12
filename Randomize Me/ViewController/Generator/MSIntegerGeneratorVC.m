@@ -60,7 +60,7 @@ static int MSGenerateButtonHeight = 40;
     }
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
-    [client sendRequestToRandomOrgWithParameters:[self.request requestBody]];
+    [client sendRequest:[self.request requestBody]];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 - (IBAction)clearButtonPressed:(id)sender {

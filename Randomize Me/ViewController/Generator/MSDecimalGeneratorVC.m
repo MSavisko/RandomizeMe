@@ -55,7 +55,7 @@ static int MSGenerateButtonHeight = 30;
     self.request = [[MSRandomDecimalRequest alloc]initWithCount:[self.numberOfDecimals.text intValue] andDecimalPlaces:[self.decimalPlaces.text intValue]];
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
-    [client sendRequestToRandomOrgWithParameters: [self.request requestBody]];
+    [client sendRequest: [self.request requestBody]];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 

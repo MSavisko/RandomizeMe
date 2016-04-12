@@ -17,7 +17,7 @@
 
 + (instancetype) sharedClient;
 
-- (void) sendRequestToRandomOrgWithParameters:(NSDictionary*)parameters;
+- (void) sendRequest:(NSDictionary*)parameters;
 
 @end
 
