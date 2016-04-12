@@ -62,10 +62,5 @@
     }
 }
 
-#pragma mark - Make String for represent
-- (NSString*) makeStringComplitionTime {
-    return [self.completionTime substringToIndex:self.completionTime.length-1];
-}
-
 
 @end

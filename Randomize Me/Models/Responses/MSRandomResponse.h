@@ -23,6 +23,5 @@
 - (void) parseResponseFromData:(NSDictionary*)data;
 - (BOOL) parseVerifyResponseFromData:(NSDictionary*)data;
 - (NSString*) parseError;
-- (NSString*) makeStringComplitionTime;
 
 @end

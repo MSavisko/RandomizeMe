@@ -52,7 +52,7 @@ static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/
         if ([self.delegate respondsToSelector:@selector(MSHTTPClient:didSucceedWithResponse:)]) {
             [self.delegate MSHTTPClient:self didSucceedWithResponse:responseObject];
         }else{
-            NSLog(@"Delegate do not response success service");
+            //Delegate do not response success service
         }
     };
 }
@@ -62,7 +62,7 @@ static NSString *const MSRandomInvokeApiURL = @"https://api.random.org/json-rpc/
         if ([self.delegate respondsToSelector:@selector(MSHTTPClient:didFailWithError:)]) {
             [self.delegate MSHTTPClient:self didFailWithError:error];
         }else{
-            NSLog(@"Delegate do not response failed service");
+            //Delegate do not response failed service
         }
     };
 }
