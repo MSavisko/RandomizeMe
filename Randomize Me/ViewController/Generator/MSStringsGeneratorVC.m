@@ -52,7 +52,27 @@ static int MSGenerateButtonHeight = 27;
 }
 
 #pragma mark - IBAction
+- (IBAction)generateButtonPressed:(id)sender {
+    [self dismissKeyboard];
+    //=======================
+}
 
+- (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
+    self.numberOfStrings.text = @"";
+    self.charactersLength.text = @"";
+    [self.digitsSwitch setOn:NO animated:YES];
+    [self.lowercaseSwitch setOn:NO animated:YES];
+    [self.uppercaseSwitch setOn:NO animated:YES];
+}
+
+- (IBAction)infoButtonPressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Strings Generator"
+                                                    message:@"This form allows you to generate random text strings. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 
 #pragma mark - UITextFiled Delegate
 - (void)textFieldDidBeginEditing:(UITextField *)sender {

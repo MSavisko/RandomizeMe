@@ -208,7 +208,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="P1e-sJ-Auo"/>
-                                    <barButtonItem image="info button" id="afF-et-4pr"/>
+                                    <barButtonItem image="info button" id="afF-et-4pr">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="gQo-VO-eJd" id="dn9-JL-Ied"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y7w-aF-2Aw">
@@ -273,6 +277,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="Generate!"/>
                                                         <connections>
+                                                            <action selector="generateButtonPressed:" destination="gQo-VO-eJd" eventType="touchUpInside" id="5ZU-qA-Zrg"/>
                                                             <action selector="generateButtonPressed:" destination="ceK-Q3-dMD" eventType="touchUpInside" id="hau-Cp-OJr"/>
                                                         </connections>
                                                     </button>
@@ -325,7 +330,11 @@
                     <navigationItem key="navigationItem" title="Strings Generator" id="Ke4-RH-7iU">
                         <barButtonItem key="backBarButtonItem" title=" " id="tmW-SX-Ubo"/>
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="sUv-AV-q1F"/>
-                        <barButtonItem key="rightBarButtonItem" image="clear button" id="be9-AM-hgi"/>
+                        <barButtonItem key="rightBarButtonItem" image="clear button" id="be9-AM-hgi">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="gQo-VO-eJd" id="6AJ-21-fKI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="charactersLength" destination="MH9-kI-3Xc" id="oP3-xk-ZP6"/>

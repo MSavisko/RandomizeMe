@@ -63,6 +63,7 @@ static int MSGenerateButtonHeight = 30;
     self.numberOfDecimals.text = @"";
     self.decimalPlaces.text = @"";
 }
+
 - (IBAction)infoButtonPressed:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Decimal Generator"
                                                     message:@"This form allows you to generate random decimal fractions in the [0,1] interval. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
