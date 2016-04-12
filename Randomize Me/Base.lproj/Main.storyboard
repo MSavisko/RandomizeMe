@@ -230,7 +230,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
-                                                            <action selector="editingChanged" destination="ceK-Q3-dMD" eventType="editingChanged" id="kFQ-Yu-nuw"/>
+                                                            <action selector="editingChanged" destination="gQo-VO-eJd" eventType="editingChanged" id="Itj-nh-1jP"/>
                                                         </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of strings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kb-tm-kOR">
@@ -278,7 +278,6 @@
                                                         <state key="normal" title="Generate!"/>
                                                         <connections>
                                                             <action selector="generateButtonPressed:" destination="gQo-VO-eJd" eventType="touchUpInside" id="5ZU-qA-Zrg"/>
-                                                            <action selector="generateButtonPressed:" destination="ceK-Q3-dMD" eventType="touchUpInside" id="hau-Cp-OJr"/>
                                                         </connections>
                                                     </button>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MH9-kI-3Xc">
@@ -287,7 +286,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
-                                                            <action selector="editingChanged" destination="ceK-Q3-dMD" eventType="editingChanged" id="sIi-gx-zvf"/>
+                                                            <action selector="editingChanged" destination="gQo-VO-eJd" eventType="editingChanged" id="HKK-E4-sBi"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>

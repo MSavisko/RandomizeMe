@@ -39,6 +39,7 @@ static int MSGenerateButtonHeight = 27;
     [self hideKeyboardByTap];
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
+    [self.generateButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -72,6 +73,15 @@ static int MSGenerateButtonHeight = 27;
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (IBAction)editingChanged {
+    if ([self.numberOfStrings.text length] != 0 && [self.charactersLength.text length] != 0) {
+        [self.generateButton setEnabled:YES];
+    }
+    else {
+        [self.generateButton setEnabled:NO];
+    }
 }
 
 #pragma mark - UITextFiled Delegate
