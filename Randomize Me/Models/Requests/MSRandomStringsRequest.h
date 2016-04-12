@@ -1,5 +1,5 @@
 //
-//  MSStringsRandomRequest.h
+//  MSRandomStringsRequest.h
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 4/11/16.
@@ -8,7 +8,7 @@
 
 #import "MSRandomRequest.h"
 
-@interface MSStringsRandomRequest : MSRandomRequest
+@interface MSRandomStringsRequest : MSRandomRequest
 
 @property (readonly, nonatomic) NSInteger length;
 @property (readonly, strong, nonatomic) NSString *characters;

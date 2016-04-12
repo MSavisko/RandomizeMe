@@ -1,16 +1,16 @@
 //
-//  MSStringsRandomRequest.m
+//  MSMSRandomStringsRequest.m
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 4/11/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSStringsRandomRequest.h"
+#import "MSRandomStringsRequest.h"
 #import "MSRandomRequest.h"
 #import "MSApiKey.h"
 
-@implementation MSStringsRandomRequest
+@implementation MSRandomStringsRequest
 
 - (instancetype) initWithCount:(NSInteger)count length:(NSInteger)length forCharacters:(NSString*)characters unique:(BOOL)unique {
     self = [super initWithMethod:@"generateSignedStrings" count:count unique:unique];
