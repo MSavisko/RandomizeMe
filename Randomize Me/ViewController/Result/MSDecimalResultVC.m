@@ -27,8 +27,8 @@
     [self hideKeyboardByTap];
     [self.trashButton setEnabled:NO];
     [self.trashButton setTintColor:[UIColor clearColor]];
-    self.resultTextView.text = [self.response makeStringWithSpaceFromDecimalDataWithNumber:self.decimalPlaces];
-    self.timestampLabel.text = [self.response makeStringComplitionTime];
+    self.resultTextView.text = [self stringResultWithNumber:self.decimalPlaces];
+    self.timestampLabel.text = [self stringComplitionTime];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -63,5 +63,29 @@
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
 }
+
+#pragma mark - Presentation Data Method
+- (NSString*) stringResultWithNumber: (NSInteger)number {
+    NSMutableString *mutableResult = [[NSMutableString alloc]init];
+    for (NSInteger i=0; i < self.response.data.count; i++) {
+        NSNumber *elementNumber = self.response.data[i];
+        
+        //Rounding, because of some double much longer than other
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [formatter setMaximumFractionDigits:number];
+        [formatter setRoundingMode: NSNumberFormatterRoundUp];
+        NSString *numberString = [formatter stringFromNumber:elementNumber];
+        
+        //Appending, because we need space between result number
+        [mutableResult appendString:[NSString stringWithFormat:@"%@ ", numberString]];
+    }
+    return mutableResult;
+}
+
+- (NSString*) stringComplitionTime {
+    return [self.response.completionTime substringToIndex:self.response.completionTime.length-1];
+}
+
 
 @end
