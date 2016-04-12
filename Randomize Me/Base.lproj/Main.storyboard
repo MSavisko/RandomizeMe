@@ -328,7 +328,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="2G6-ht-aG2"/>
-                                    <barButtonItem image="trash button" id="fNv-OO-z9j"/>
+                                    <barButtonItem image="trash button" id="fNv-OO-z9j">
+                                        <connections>
+                                            <action selector="trashButtonPressed:" destination="PYh-b3-nL4" id="BX9-2N-ylq"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5C8-ni-dv8"/>
                                     <barButtonItem image="save button" id="RD1-vW-5hl"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XrI-DQ-18S"/>
