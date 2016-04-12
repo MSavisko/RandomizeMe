@@ -108,6 +108,53 @@ static int MSGenerateButtonHeight = 30;
     self.activeField = nil;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (!string.length)
+    {
+        return YES;
+    }
+    
+    if (textField.keyboardType == UIKeyboardTypeNumberPad)
+    {
+        if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                            message:@"This field accepts only numeric entries!"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
+    }
+    
+    NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (self.activeField == self.numberOfDecimals) {
+        if (updatedText.length > 5)
+        {
+            if (string.length > 1)
+            {
+                [self showAlertForTextFieldWithNumber:5];
+            }
+            [self showAlertForTextFieldWithNumber:5];
+            return NO;
+        }
+    } else {
+        if (updatedText.length > 2)
+        {
+            if (string.length > 1)
+            {
+                [self showAlertForTextFieldWithNumber:2];
+            }
+            [self showAlertForTextFieldWithNumber:2];
+            return NO;
+        }
+    }
+    return YES;
+}
+
 #pragma mark - Keyboard Methods
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
@@ -170,5 +217,26 @@ static int MSGenerateButtonHeight = 30;
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
 }
+
+#pragma mark - Helper Methods
+- (void) showAlertForTextFieldWithNumber:(NSInteger)number {
+    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %d numbers!", number];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) showAlertWithMessage:(NSString*)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 
 @end
