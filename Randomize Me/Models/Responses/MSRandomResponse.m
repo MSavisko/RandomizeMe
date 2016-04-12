@@ -63,24 +63,6 @@
 }
 
 #pragma mark - Make String for represent
-- (NSString*) makeStringWithSpaceFromDecimalDataWithNumber: (NSInteger)number {
-        NSMutableString *mutableResult = [[NSMutableString alloc]init];
-        for (NSInteger i=0; i < self.data.count; i++) {
-            NSNumber *elementNumber = self.data[i];
-            
-            //Rounding, because of some double much longer than other
-            NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-            [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-            [formatter setMaximumFractionDigits:number];
-            [formatter setRoundingMode: NSNumberFormatterRoundUp];
-            NSString *numberString = [formatter stringFromNumber:elementNumber];
-            
-            //Appending, because we need space between result number
-            [mutableResult appendString:[NSString stringWithFormat:@"%@ ", numberString]];
-        }
-        return mutableResult;
-}
-
 - (NSString*) makeStringComplitionTime {
     return [self.completionTime substringToIndex:self.completionTime.length-1];
 }
