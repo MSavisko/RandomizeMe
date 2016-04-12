@@ -35,6 +35,7 @@ static int MSGenerateButtonHeight = 30;
     [self hideKeyboardByTap];
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
+    [self.generateButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -69,6 +70,15 @@ static int MSGenerateButtonHeight = 30;
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (IBAction)editingChanged {
+    if ([self.numberOfDecimals.text length] != 0 && [self.decimalPlaces.text length] != 0) {
+        [self.generateButton setEnabled:YES];
+    }
+    else {
+        [self.generateButton setEnabled:NO];
+    }
 }
 
 #pragma mark - MSHTTPClient Delegate
