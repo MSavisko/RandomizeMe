@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *decimalPlaces;
 @property (weak, nonatomic) UITextField *activeField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonnull) MSRandomDecimalRequest *request;
+@property (strong, nonatomic) MSRandomDecimalRequest *request;
 @property (strong, nonatomic) MSRandomResponse *response;
 @end
 
