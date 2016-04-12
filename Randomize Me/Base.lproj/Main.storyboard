@@ -208,7 +208,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WxF-cM-Hci"/>
-                                    <barButtonItem image="info button" id="Hvg-F9-UzB"/>
+                                    <barButtonItem image="info button" id="Hvg-F9-UzB">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="ceK-Q3-dMD" id="Mnd-Om-ftF"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-01-zvl">
