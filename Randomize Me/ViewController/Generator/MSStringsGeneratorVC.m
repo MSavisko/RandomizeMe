@@ -18,11 +18,17 @@
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
+    [self hideKeyboardByTap];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupMenuBar]; //Because when back from second view, pan guesture menu not work
+}
+
+#pragma mark - Keyboard Methods
+-(void) dismissKeyboard {
+    [self.view endEditing:YES];
 }
 
 #pragma mark - Setup Methods
