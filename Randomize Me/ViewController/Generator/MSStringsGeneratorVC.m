@@ -55,7 +55,15 @@ static int MSGenerateButtonHeight = 27;
 #pragma mark - IBAction
 - (IBAction)generateButtonPressed:(id)sender {
     [self dismissKeyboard];
-    //=======================
+    if ([self allowedCharacters].length == 0) {
+        [self showAlertWithMessage:@"All switch parameters are OFF. Please, switch ON one or more characters parameters."];
+    } else {
+        self.request = [[MSRandomStringsRequest alloc]initWithCount:[self.numberOfStrings.text intValue] length:[self.charactersLength.text integerValue] forCharacters:[self allowedCharacters] unique:NO];
+        MSHTTPClient *client = [MSHTTPClient sharedClient];
+        [client setDelegate:self];
+        [client sendRequestToRandomOrgWithParameters: [self.request requestBody]];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
 }
 
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
@@ -91,6 +99,7 @@ static int MSGenerateButtonHeight = 27;
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
         [self performSegueWithIdentifier:@"ShowStringsResult" sender:nil];
+        NSLog(@"Result: %@", self.response.data);
     } else {
         [self showAlertWithMessage:[self.response parseError]];
     }
@@ -233,6 +242,20 @@ static int MSGenerateButtonHeight = 27;
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (NSString*) allowedCharacters {
+    NSMutableString *characters = [NSMutableString stringWithFormat:@""];
+    if (self.uppercaseSwitch.isOn) {
+        [characters appendString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+    }
+    if (self.lowercaseSwitch.isOn) {
+        [characters appendString:@"abcdefghijklmnopqrstuvwxyz"];
+    }
+    if (self.digitsSwitch.isOn) {
+        [characters appendString:@"0123456789"];
+    }
+    return characters;
 }
 
 @end
