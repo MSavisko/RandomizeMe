@@ -107,7 +107,7 @@ static int MSGenerateButtonHeight = 40;
 
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    NSLog(@"%@", error);
+    [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
 #pragma mark - UITextFiled Delegate

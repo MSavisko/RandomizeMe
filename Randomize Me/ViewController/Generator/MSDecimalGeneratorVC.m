@@ -89,13 +89,13 @@ static int MSGenerateButtonHeight = 30;
     if (!self.response.error) {
         [self performSegueWithIdentifier:@"ShowDecimalResult" sender:nil];
     } else {
-        NSLog(@"Error exist. %@", [self.response parseError]);
+        [self showAlertWithMessage:[self.response parseError]];
     }
 }
 
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    NSLog(@"%@", error);
+    [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
 
