@@ -326,9 +326,9 @@
     NSString *resultData = [self stringResultWithNumber:self.decimalPlaces];
     
     NSString *parametrs = @"Parameters of generation:";
-    NSString *numberOfIntegers = [NSString stringWithFormat:@"Number of decimals: %@", self.response.responseBody[@"result"][@"random"][@"n"]];
+    NSString *numberOfDecimals = [NSString stringWithFormat:@"Number of decimals: %@", self.response.responseBody[@"result"][@"random"][@"n"]];
     
-    NSString *minValue = [NSString stringWithFormat:@"Decimal places: %@", self.response.responseBody[@"result"][@"random"][@"decimalPlaces"]];
+    NSString *decimalPlaces = [NSString stringWithFormat:@"Decimal places: %@", self.response.responseBody[@"result"][@"random"][@"decimalPlaces"]];
     
     NSString *replacement = @"Unique decimals: YES";
     
@@ -337,7 +337,7 @@
     NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %ld", (long)self.response.serialNumber];
     NSString *signature = [NSString stringWithFormat:@"Signature: %@", self.response.signature];
     
-    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, replacement, individualInformation, completionTime, serialNumber, signature];
+    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfDecimals, decimalPlaces, replacement, individualInformation, completionTime, serialNumber, signature];
     
     return result;
 }

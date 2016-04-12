@@ -10,7 +10,7 @@
 #import "MSRandomResponse.h"
 #import <VK-ios-sdk/VKSdk.h>
 
-@interface MSStringsResultVC : UIViewController
+@interface MSStringsResultVC : UIViewController <VKSdkDelegate>
 @property (strong, nonatomic) MSRandomResponse *response;
 
 @end
