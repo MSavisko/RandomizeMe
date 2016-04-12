@@ -335,6 +335,7 @@
                         <outlet property="menuButtonItem" destination="sUv-AV-q1F" id="hUr-L2-Ppj"/>
                         <outlet property="numberOfStrings" destination="VZE-kF-OKc" id="kNl-LL-8Ii"/>
                         <outlet property="uppercaseSwitch" destination="Bn5-WN-fZK" id="oGE-Df-4Hb"/>
+                        <segue destination="eCa-WK-9fw" kind="show" identifier="ShowStringsResult" id="XPM-ZS-J3j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZJ-te-LTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -470,6 +471,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcx-f8-0eH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="-765"/>
+        </scene>
+        <!--Strings Result-->
+        <scene sceneID="ISY-78-KQ9">
+            <objects>
+                <viewController title="Strings Result" id="eCa-WK-9fw" customClass="MSStringsResultVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dob-wS-7bu"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tzc-w6-9vO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="54H-Bg-tYi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBS-Kt-43x">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="7pK-Js-j12"/>
+                                    <barButtonItem image="trash button" id="MrY-6u-cve"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Mw5-C9-Wgh"/>
+                                    <barButtonItem image="save button" id="AIf-Gc-qE8"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aYn-Jw-NwH"/>
+                                    <barButtonItem image="info button" id="Wdu-AI-ogP"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="F5Q-1T-9Sq"/>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLm-2V-KBm" userLabel="time content view">
+                                <rect key="frame" x="155" y="515" width="290" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t9-lT-shV">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvQ-ql-rzm">
+                                        <rect key="frame" x="99" y="0.0" width="191" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="rbj-pI-ddc"/>
+                                    <constraint firstAttribute="height" constant="21" id="vkK-Ct-cgJ"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a2E-z0-rky">
+                                <rect key="frame" x="30" y="84" width="540" height="411"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WLm-2V-KBm" firstAttribute="centerX" secondItem="54H-Bg-tYi" secondAttribute="centerX" id="0Ta-qx-JaV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a2E-z0-rky" secondAttribute="trailing" constant="10" id="C5E-TJ-3wF"/>
+                            <constraint firstItem="Tzc-w6-9vO" firstAttribute="top" secondItem="hBS-Kt-43x" secondAttribute="bottom" id="EkM-TA-XO5"/>
+                            <constraint firstItem="hBS-Kt-43x" firstAttribute="leading" secondItem="54H-Bg-tYi" secondAttribute="leading" id="HPa-hA-6N2"/>
+                            <constraint firstItem="a2E-z0-rky" firstAttribute="leading" secondItem="54H-Bg-tYi" secondAttribute="leadingMargin" constant="10" id="aEJ-YH-biv"/>
+                            <constraint firstItem="WLm-2V-KBm" firstAttribute="top" secondItem="a2E-z0-rky" secondAttribute="bottom" constant="20" id="fG0-7i-qTJ"/>
+                            <constraint firstItem="hBS-Kt-43x" firstAttribute="top" secondItem="WLm-2V-KBm" secondAttribute="bottom" constant="20" id="oBZ-RR-BIM"/>
+                            <constraint firstItem="a2E-z0-rky" firstAttribute="centerX" secondItem="54H-Bg-tYi" secondAttribute="centerX" id="qJE-WN-mYx"/>
+                            <constraint firstItem="a2E-z0-rky" firstAttribute="top" secondItem="Dob-wS-7bu" secondAttribute="bottom" constant="20" id="qx0-if-VbI"/>
+                            <constraint firstAttribute="trailing" secondItem="hBS-Kt-43x" secondAttribute="trailing" id="uy6-Vq-Pl8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Result" id="6ek-QY-NYJ">
+                        <barButtonItem key="backBarButtonItem" title=" " id="aTc-LO-Wis"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="yl3-ZH-h50"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3A-1s-OHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2144" y="-1510"/>
         </scene>
         <!--Decimal Result-->
         <scene sceneID="loz-YO-6ks">
