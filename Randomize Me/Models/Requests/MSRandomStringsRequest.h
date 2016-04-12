@@ -15,6 +15,8 @@
 
 - (instancetype) initWithCount:(NSInteger)count length:(NSInteger)length forCharacters:(NSString*)characters unique:(BOOL)unique;
 
+- (void) setCharacters:(NSString *)characters;
+
 - (NSDictionary*) requestBody;
 
 - (NSDictionary*) requestBodyWithSignature:(NSString*)signature atCompletionTime:(NSString*)completionTime serial:(NSInteger)serialNumber andDataArray:(NSArray*)array;
