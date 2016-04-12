@@ -61,7 +61,7 @@ static int MSGenerateButtonHeight = 27;
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
     self.numberOfStrings.text = @"";
     self.charactersLength.text = @"";
-    [self.digitsSwitch setOn:NO animated:YES];
+    [self.digitsSwitch setOn:YES animated:YES];
     [self.lowercaseSwitch setOn:NO animated:YES];
     [self.uppercaseSwitch setOn:NO animated:YES];
 }
@@ -84,6 +84,23 @@ static int MSGenerateButtonHeight = 27;
     }
 }
 
+#pragma mark - MSHTTPClient Delegate
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    self.response = [[MSRandomResponse alloc]init];
+    [self.response parseResponseFromData:responseObject];
+    if (!self.response.error) {
+        [self performSegueWithIdentifier:@"ShowStringsResult" sender:nil];
+    } else {
+        [self showAlertWithMessage:[self.response parseError]];
+    }
+}
+
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
+}
+
 #pragma mark - UITextFiled Delegate
 - (void)textFieldDidBeginEditing:(UITextField *)sender {
     self.activeField = sender;
@@ -93,7 +110,47 @@ static int MSGenerateButtonHeight = 27;
     self.activeField = nil;
 }
 
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (!string.length)
+    {
+        return YES;
+    }
+    
+    if (textField.keyboardType == UIKeyboardTypeNumberPad)
+    {
+        if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound)
+        {
+            [self showAlertWithMessage:@"This field accepts only numeric entries!"];
+            return NO;
+        }
+    }
+    
+    NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (self.activeField == self.numberOfStrings) {
+        if (updatedText.length > 5)
+        {
+            if (string.length > 1)
+            {
+                [self showAlertForTextFieldWithNumber:5];
+            }
+            [self showAlertForTextFieldWithNumber:5];
+            return NO;
+        }
+    } else {
+        if (updatedText.length > 2)
+        {
+            if (string.length > 1)
+            {
+                [self showAlertForTextFieldWithNumber:2];
+            }
+            [self showAlertForTextFieldWithNumber:2];
+            return NO;
+        }
+    }
+    return YES;
+}
 
 #pragma mark - Keyboard Methods
 -(void) dismissKeyboard {
@@ -156,6 +213,26 @@ static int MSGenerateButtonHeight = 27;
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+}
+
+#pragma mark - Helper Methods
+- (void) showAlertForTextFieldWithNumber:(NSInteger)number {
+    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) showAlertWithMessage:(NSString*)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

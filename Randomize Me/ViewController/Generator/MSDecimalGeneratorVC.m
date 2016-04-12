@@ -120,12 +120,7 @@ static int MSGenerateButtonHeight = 30;
     {
         if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
-                                                            message:@"This field accepts only numeric entries!"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            [self showAlertWithMessage:@"This field accepts only numeric entries!"];
             return NO;
         }
     }
