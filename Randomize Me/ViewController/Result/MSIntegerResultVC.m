@@ -319,14 +319,17 @@
     NSString *minValue = [NSString stringWithFormat:@"Minimum value: %@", self.response.responseBody[@"result"][@"random"][@"min"]];
     NSString *maxValue = [NSString stringWithFormat:@"Maximum value: %@", self.response.responseBody[@"result"][@"random"][@"max"]];
     
-    NSString *replacement = [NSString stringWithFormat:@"Unique integers: %@", self.response.responseBody[@"result"][@"random"][@"replacement"]];
-    
+    NSString *mutableReplacement = [NSString stringWithFormat:@"Unique integers: YES"];
+    NSString *replacement = [NSString stringWithFormat:@"%@", self.response.responseBody[@"result"][@"random"][@"replacement"]];
+    if ([replacement isEqualToString:@"1"]) {
+        mutableReplacement = @"Unique integers: NO";
+    }
     NSString *individualInformation = @"Individual information of generation:";
     NSString *completionTime = [NSString stringWithFormat:@"Completion time (UTC+0): %@", [self stringComplitionTime]];
     NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %ld", (long)self.response.serialNumber];
     NSString *signature = [NSString stringWithFormat:@"Signature: %@", self.response.signature];
     
-    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, maxValue, replacement, individualInformation, completionTime, serialNumber, signature];
+    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, maxValue, mutableReplacement, individualInformation, completionTime, serialNumber, signature];
     
     return result;
 }

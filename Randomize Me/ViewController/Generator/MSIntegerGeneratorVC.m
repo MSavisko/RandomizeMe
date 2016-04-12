@@ -61,9 +61,9 @@ static int MSGenerateButtonHeight = 40;
  
     [self dismissKeyboard];
     self.request = [[MSRandomIntegerRequest alloc]initWithCount:[self.numberOfIntegers.text intValue] min:[self.minValue.text intValue] max:[self.maxValue.text intValue] unique:YES];
-    if (self.replacementSwitch.isOn) {
-        [self.request setReplacement:NO];
-    };
+    if (!self.replacementSwitch.isOn) {
+        [self.request setReplacement:YES];
+    }
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
     [client sendRequestToRandomOrgWithParameters:[self.request requestBody]];
