@@ -10,12 +10,9 @@
 #import "MSIntegerResultVC.h"
 #import "SWRevealViewController.h"
 #import "MSRandomIntegerRequest.h"
-
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
 #import "MBProgressHUD.h"
-
-#import "MSRandomIntegerRequest.h"
 
 @interface MSIntegerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

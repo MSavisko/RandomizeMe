@@ -7,10 +7,22 @@
 //
 
 #import "MSStringsGeneratorVC.h"
-#import "SWRevealViewController.h"
 
-@interface MSStringsGeneratorVC ()
+#import "SWRevealViewController.h"
+#import "MSRandomStringsRequest.h"
+#import "MSRandomResponse.h"
+#import "MSHTTPClient.h"
+#import "MBProgressHUD.h"
+
+@interface MSStringsGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UITextField *numberOfStrings;
+@property (weak, nonatomic) IBOutlet UITextField *charactersLength;
+@property (weak, nonatomic) IBOutlet UISwitch *digitsSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *uppercaseSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *lowercaseSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *generateButton;
+
 @end
 
 @implementation MSStringsGeneratorVC

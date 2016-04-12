@@ -268,8 +268,8 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lowercase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzY-PS-CgV">
-                                                        <rect key="frame" x="8" y="165" width="128" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lowercase (a-z)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzY-PS-CgV">
+                                                        <rect key="frame" x="8" y="165" width="139" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -328,7 +328,13 @@
                         <barButtonItem key="rightBarButtonItem" image="clear button" id="be9-AM-hgi"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="charactersLength" destination="MH9-kI-3Xc" id="oP3-xk-ZP6"/>
+                        <outlet property="digitsSwitch" destination="q2C-dp-PGf" id="Yqc-b0-BlA"/>
+                        <outlet property="generateButton" destination="NDp-4k-SB5" id="xT2-fP-wPj"/>
+                        <outlet property="lowercaseSwitch" destination="MTJ-DJ-BT6" id="Vg6-Ui-iaf"/>
                         <outlet property="menuButtonItem" destination="sUv-AV-q1F" id="hUr-L2-Ppj"/>
+                        <outlet property="numberOfStrings" destination="VZE-kF-OKc" id="kNl-LL-8Ii"/>
+                        <outlet property="uppercaseSwitch" destination="Bn5-WN-fZK" id="oGE-Df-4Hb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZJ-te-LTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
