@@ -56,9 +56,6 @@ static int MSGenerateButtonHeight = 40;
 
 #pragma mark - IBAction
 - (IBAction) generateButtonPressed:(id)sender {
-    //Test new Model
-    
- 
     [self dismissKeyboard];
     self.request = [[MSRandomIntegerRequest alloc]initWithCount:[self.numberOfIntegers.text intValue] min:[self.minValue.text intValue] max:[self.maxValue.text intValue] unique:YES];
     if (!self.replacementSwitch.isOn) {
@@ -236,7 +233,7 @@ static int MSGenerateButtonHeight = 40;
 
 #pragma mark - Helper Methods
 - (void) showAlertForTextFieldWithNumber:(NSInteger)number {
-    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %d numbers!", number];
+    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
                                                     message:message
                                                    delegate:self

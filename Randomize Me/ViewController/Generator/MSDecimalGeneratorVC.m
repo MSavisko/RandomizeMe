@@ -220,7 +220,7 @@ static int MSGenerateButtonHeight = 30;
 
 #pragma mark - Helper Methods
 - (void) showAlertForTextFieldWithNumber:(NSInteger)number {
-    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %d numbers!", number];
+    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
                                                     message:message
                                                    delegate:self

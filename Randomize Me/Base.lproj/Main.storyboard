@@ -192,6 +192,46 @@
             </objects>
             <point key="canvasLocation" x="1152" y="4"/>
         </scene>
+        <!--Strings Generator-->
+        <scene sceneID="E35-oL-YLc">
+            <objects>
+                <viewController title="Strings Generator" id="gQo-VO-eJd" customClass="MSStringsGeneratorVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CXc-Nw-yKw"/>
+                        <viewControllerLayoutGuide type="bottom" id="UZX-Ff-XCz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wxE-1f-r3B">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OP5-8Q-tzM">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="P1e-sJ-Auo"/>
+                                    <barButtonItem image="info button" id="afF-et-4pr"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OP5-8Q-tzM" secondAttribute="trailing" id="S5M-Tk-0Lg"/>
+                            <constraint firstItem="UZX-Ff-XCz" firstAttribute="top" secondItem="OP5-8Q-tzM" secondAttribute="bottom" id="YBo-gh-NPD"/>
+                            <constraint firstItem="OP5-8Q-tzM" firstAttribute="leading" secondItem="wxE-1f-r3B" secondAttribute="leading" id="wRZ-r3-aaW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Strings Generator" id="Ke4-RH-7iU">
+                        <barButtonItem key="backBarButtonItem" title=" " id="tmW-SX-Ubo"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="sUv-AV-q1F"/>
+                        <barButtonItem key="rightBarButtonItem" image="clear button" id="be9-AM-hgi"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButtonItem" destination="sUv-AV-q1F" id="hUr-L2-Ppj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZJ-te-LTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152" y="-1510"/>
+        </scene>
         <!--Decimal Generator-->
         <scene sceneID="etw-bl-0g5">
             <objects>
@@ -630,6 +670,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="kj7-F6-t4W" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="OK2-zT-Y1N"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="list" id="Y4u-Ui-a54">
                                 <rect key="frame" x="0.0" y="154" width="600" height="44"/>
@@ -831,6 +874,24 @@
             </objects>
             <point key="canvasLocation" x="340" y="-765"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tk7-7N-Jdk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kj7-F6-t4W" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xtr-Hs-fR8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gQo-VO-eJd" kind="relationship" relationship="rootViewController" id="Hhe-Ta-l0B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7dU-Rx-kty" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="-1510"/>
+        </scene>
     </scenes>
     <resources>
         <image name="about menu color " width="29" height="29"/>
@@ -853,6 +914,6 @@
         <image name="verify menu color" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AGh-qr-MhJ"/>
+        <segue reference="s9U-xP-mxe"/>
     </inferredMetricsTieBreakers>
 </document>

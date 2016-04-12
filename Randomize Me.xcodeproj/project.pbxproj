@@ -11,6 +11,7 @@
 		920CDFE61CBC257300971651 /* MSRandomIntegerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 920CDFE51CBC257300971651 /* MSRandomIntegerRequest.m */; };
 		920CDFE91CBC386400971651 /* MSRandomDecimalRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 920CDFE81CBC386400971651 /* MSRandomDecimalRequest.m */; };
 		920CDFEC1CBC3FCC00971651 /* MSRandomStringsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 920CDFEB1CBC3FCC00971651 /* MSRandomStringsRequest.m */; };
+		920CDFEF1CBD221D00971651 /* MSStringsGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 920CDFEE1CBD221D00971651 /* MSStringsGeneratorVC.m */; };
 		925B47941CB3AC0F00747B72 /* MSApiKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 925B47931CB3AC0F00747B72 /* MSApiKey.m */; };
 		926AF21B1CB510E5006DEF8E /* MSMenuBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF21A1CB510E5006DEF8E /* MSMenuBarController.m */; };
 		926AF21E1CB5114B006DEF8E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF21D1CB5114B006DEF8E /* SWRevealViewController.m */; };
@@ -43,6 +44,8 @@
 		920CDFE81CBC386400971651 /* MSRandomDecimalRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomDecimalRequest.m; path = Models/Requests/MSRandomDecimalRequest.m; sourceTree = "<group>"; };
 		920CDFEA1CBC3FCC00971651 /* MSRandomStringsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSRandomStringsRequest.h; path = Models/Requests/MSRandomStringsRequest.h; sourceTree = "<group>"; };
 		920CDFEB1CBC3FCC00971651 /* MSRandomStringsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomStringsRequest.m; path = Models/Requests/MSRandomStringsRequest.m; sourceTree = "<group>"; };
+		920CDFED1CBD221D00971651 /* MSStringsGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSStringsGeneratorVC.h; path = ViewController/Generator/MSStringsGeneratorVC.h; sourceTree = "<group>"; };
+		920CDFEE1CBD221D00971651 /* MSStringsGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSStringsGeneratorVC.m; path = ViewController/Generator/MSStringsGeneratorVC.m; sourceTree = "<group>"; };
 		925B47921CB3AC0F00747B72 /* MSApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSApiKey.h; path = API/MSApiKey.h; sourceTree = "<group>"; };
 		925B47931CB3AC0F00747B72 /* MSApiKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSApiKey.m; path = API/MSApiKey.m; sourceTree = "<group>"; };
 		926AF2191CB510E5006DEF8E /* MSMenuBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSMenuBarController.h; path = ViewController/MenuBar/MSMenuBarController.h; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				926AF2271CB51454006DEF8E /* MSIntegerGeneratorVC.m */,
 				926AF2241CB51454006DEF8E /* MSDecimalGeneratorVC.h */,
 				926AF2251CB51454006DEF8E /* MSDecimalGeneratorVC.m */,
+				920CDFED1CBD221D00971651 /* MSStringsGeneratorVC.h */,
+				920CDFEE1CBD221D00971651 /* MSStringsGeneratorVC.m */,
 				926AF2281CB51454006DEF8E /* MSListRandomizerVC.h */,
 				926AF2291CB51454006DEF8E /* MSListRandomizerVC.m */,
 			);
@@ -386,6 +391,7 @@
 				920CDFE61CBC257300971651 /* MSRandomIntegerRequest.m in Sources */,
 				92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */,
 				920CDFE31CBC1B9900971651 /* MSRandomRequest.m in Sources */,
+				920CDFEF1CBD221D00971651 /* MSStringsGeneratorVC.m in Sources */,
 				925B47941CB3AC0F00747B72 /* MSApiKey.m in Sources */,
 				926AF2221CB512EE006DEF8E /* MSIntegerResultVC.m in Sources */,
 				92ED36CE1CAC5F3D00816AFD /* MSHTTPClient.m in Sources */,

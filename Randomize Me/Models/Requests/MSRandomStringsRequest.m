@@ -22,6 +22,10 @@
     return self;
 }
 
+- (void) setCharacters:(NSString *)characters {
+    _characters = characters;
+}
+
 - (NSDictionary*) requestBody {
     NSDictionary *paramOfRequest = [[NSDictionary alloc]init];
     paramOfRequest = @{

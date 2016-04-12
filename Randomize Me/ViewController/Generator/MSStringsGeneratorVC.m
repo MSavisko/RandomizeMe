@@ -7,7 +7,41 @@
 //
 
 #import "MSStringsGeneratorVC.h"
+#import "SWRevealViewController.h"
+
+@interface MSStringsGeneratorVC ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@end
 
 @implementation MSStringsGeneratorVC
+
+#pragma mark - UIViewController
+- (void) viewDidLoad {
+    [super viewDidLoad];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setupMenuBar]; //Because when back from second view, pan guesture menu not work
+}
+
+#pragma mark - Setup Methods
+- (void) hideKeyboardByTap {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.menuButtonItem setTarget: self.revealViewController];
+        [self.menuButtonItem setAction: @selector(revealToggle:)];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+}
 
 @end
