@@ -40,6 +40,7 @@ static int MSRollButtonHeight = 30;
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupMenuBar];
+    self.numberOfDice.text = @"";
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -51,7 +52,7 @@ static int MSRollButtonHeight = 30;
 - (IBAction) rollDiceButtonPressed:(id)sender {
     if ([self.numberOfDice.text intValue] > 6 || [self.numberOfDice.text intValue] == 0) {
         self.numberOfDice.text = @"";
-        [self showAlertWithMessage:@"Number of dice must bee LESS than 7!"];
+        [self showAlertWithMessage:@"Number of dice must be GREATER than 0 and LESS than 7!"];
         [self.numberOfDice becomeFirstResponder];
     } else {
         [self dismissKeyboard];

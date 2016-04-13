@@ -41,7 +41,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setupMenuBar]; //Because when back from second view, pan guesture for menu bar must work
+    [self setupMenuBar];
 }
 
 - (void)viewDidLayoutSubviews {
