@@ -50,15 +50,16 @@ static int MSGenerateButtonHeight = 30;
 
 #pragma mark - IBAction
 - (IBAction)generateButtonPressed:(id)sender {
-    [self dismissKeyboard];
     if ([self.numberOfPasswords.text intValue] > 100) {
         self.numberOfPasswords.text = @"";
         [self showAlertWithMessage:@"Number of passwords must bee LESS than 100!"];
+        [self.numberOfPasswords becomeFirstResponder];
     }
     else if (self.charactersLength.text.length == 1) {
         if ([self.charactersLength.text intValue] < 6) {
             self.charactersLength.text = @"";
             [self showAlertWithMessage:@"Characters length must bee MORE than 5!"];
+            [self.charactersLength becomeFirstResponder];
         } else {
             [self generate];
         }
@@ -66,8 +67,10 @@ static int MSGenerateButtonHeight = 30;
     else if ([self.charactersLength.text intValue] > 20) {
         self.charactersLength.text = @"";
         [self showAlertWithMessage:@"Characters length must bee LESS than 20!"];
+        [self.charactersLength becomeFirstResponder];
     }
     else {
+        [self dismissKeyboard];
         [self generate];
     }
 }
