@@ -751,7 +751,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgY-U0-Vrh">
-                                                <rect key="frame" x="132" y="36" width="336" height="420"/>
+                                                <rect key="frame" x="132" y="20" width="336" height="452"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dice4_blue" translatesAutoresizingMaskIntoConstraints="NO" id="E58-Kq-SwV">
                                                         <rect key="frame" x="173" y="144" width="128" height="128"/>
@@ -774,38 +774,38 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="336" id="2Ab-l2-dS6"/>
+                                                    <constraint firstAttribute="height" constant="452" id="i8i-We-5JB"/>
                                                     <constraint firstAttribute="width" constant="336" id="kRw-mM-0uh"/>
-                                                    <constraint firstAttribute="height" constant="420" id="krQ-Kk-eAf"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="cgY-U0-Vrh" firstAttribute="centerX" secondItem="1jR-hd-brF" secondAttribute="centerX" id="V5O-cn-vXK"/>
-                                            <constraint firstItem="cgY-U0-Vrh" firstAttribute="centerY" secondItem="1jR-hd-brF" secondAttribute="centerY" id="ZIg-Rg-QwY"/>
+                                            <constraint firstAttribute="bottom" secondItem="cgY-U0-Vrh" secondAttribute="bottom" constant="20" id="Q5T-8q-Vg0"/>
+                                            <constraint firstItem="cgY-U0-Vrh" firstAttribute="centerX" secondItem="1jR-hd-brF" secondAttribute="centerX" id="mBZ-4w-7jF"/>
+                                            <constraint firstAttribute="height" constant="492" id="qRe-4v-yhh"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="1jR-hd-brF" secondAttribute="trailing" id="4Jz-ak-14z"/>
-                                    <constraint firstItem="1jR-hd-brF" firstAttribute="leading" secondItem="h91-Hq-eE6" secondAttribute="leading" id="JEG-HE-6ah"/>
-                                    <constraint firstAttribute="bottom" secondItem="1jR-hd-brF" secondAttribute="bottom" id="JoB-wE-63Y"/>
-                                    <constraint firstItem="1jR-hd-brF" firstAttribute="centerX" secondItem="h91-Hq-eE6" secondAttribute="centerX" id="Mmk-FU-ZCs"/>
-                                    <constraint firstItem="1jR-hd-brF" firstAttribute="centerY" secondItem="h91-Hq-eE6" secondAttribute="centerY" id="c1d-Yt-qnB"/>
-                                    <constraint firstItem="1jR-hd-brF" firstAttribute="top" secondItem="h91-Hq-eE6" secondAttribute="top" id="hrB-tZ-p4a"/>
+                                    <constraint firstAttribute="trailing" secondItem="1jR-hd-brF" secondAttribute="trailing" id="3g4-8b-J75"/>
+                                    <constraint firstItem="1jR-hd-brF" firstAttribute="leading" secondItem="h91-Hq-eE6" secondAttribute="leading" id="Peh-jc-8Qb"/>
+                                    <constraint firstItem="1jR-hd-brF" firstAttribute="top" secondItem="h91-Hq-eE6" secondAttribute="top" id="sVA-J5-Kvu"/>
+                                    <constraint firstAttribute="bottom" secondItem="1jR-hd-brF" secondAttribute="bottom" id="tWX-V4-7z9"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h91-Hq-eE6" firstAttribute="top" secondItem="nAm-E2-wuw" secondAttribute="bottom" id="8JP-eu-Fs4"/>
-                            <constraint firstItem="Ou6-15-Hd5" firstAttribute="top" secondItem="Tfu-jh-8hX" secondAttribute="bottom" id="EZB-ui-B6x"/>
-                            <constraint firstItem="1jR-hd-brF" firstAttribute="width" secondItem="Tdg-ck-u8S" secondAttribute="width" id="Uah-uh-zSg"/>
-                            <constraint firstAttribute="trailing" secondItem="Tfu-jh-8hX" secondAttribute="trailing" id="XKB-bW-Nuk"/>
-                            <constraint firstItem="h91-Hq-eE6" firstAttribute="leading" secondItem="Tdg-ck-u8S" secondAttribute="leading" id="Y82-u8-V2P"/>
-                            <constraint firstAttribute="trailing" secondItem="h91-Hq-eE6" secondAttribute="trailing" id="crB-83-zKO"/>
-                            <constraint firstItem="Tfu-jh-8hX" firstAttribute="leading" secondItem="Tdg-ck-u8S" secondAttribute="leading" id="kho-5d-Kjb"/>
-                            <constraint firstItem="Tfu-jh-8hX" firstAttribute="top" secondItem="h91-Hq-eE6" secondAttribute="bottom" id="tRb-1X-DX9"/>
+                            <constraint firstItem="Tfu-jh-8hX" firstAttribute="top" secondItem="h91-Hq-eE6" secondAttribute="bottom" id="4lV-Mn-MHz"/>
+                            <constraint firstAttribute="trailing" secondItem="Tfu-jh-8hX" secondAttribute="trailing" id="Ac0-0M-MRa"/>
+                            <constraint firstItem="1jR-hd-brF" firstAttribute="width" secondItem="Tdg-ck-u8S" secondAttribute="width" id="JmY-JD-gxD"/>
+                            <constraint firstItem="h91-Hq-eE6" firstAttribute="leading" secondItem="Tdg-ck-u8S" secondAttribute="leading" id="QF1-Lz-9e7"/>
+                            <constraint firstItem="Ou6-15-Hd5" firstAttribute="top" secondItem="Tfu-jh-8hX" secondAttribute="bottom" id="S3X-Lm-P18"/>
+                            <constraint firstItem="Tfu-jh-8hX" firstAttribute="leading" secondItem="Tdg-ck-u8S" secondAttribute="leading" id="SjE-Vn-VOj"/>
+                            <constraint firstAttribute="trailing" secondItem="h91-Hq-eE6" secondAttribute="trailing" id="bHF-sG-kRy"/>
+                            <constraint firstItem="h91-Hq-eE6" firstAttribute="top" secondItem="nAm-E2-wuw" secondAttribute="bottom" id="iGL-TM-mx6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="4pj-MI-4wv">
@@ -874,7 +874,7 @@
                                     <constraint firstAttribute="width" constant="290" id="3Lp-ft-LPW"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-BG-20K">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-BG-20K">
                                 <rect key="frame" x="30" y="84" width="540" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -974,7 +974,7 @@
                                     <constraint firstAttribute="height" constant="21" id="vkK-Ct-cgJ"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="a2E-z0-rky">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="a2E-z0-rky">
                                 <rect key="frame" x="30" y="84" width="540" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
