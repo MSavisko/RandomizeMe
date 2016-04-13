@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbk-b7-SrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1560" y="-1141"/>
+            <point key="canvasLocation" x="-2136" y="-2277"/>
         </scene>
         <!--Integer Generator-->
         <scene sceneID="tne-QT-ifu">
@@ -191,6 +191,90 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1152" y="4"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Wuf-Vg-1Oh">
+            <objects>
+                <viewController id="bcs-qU-dof" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DF7-Vt-tf6"/>
+                        <viewControllerLayoutGuide type="bottom" id="tfy-2Q-ldB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hWm-re-GV2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7p2-le-JMi">
+                                <rect key="frame" x="8" y="176" width="304" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GDL-mx-P9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="-3865"/>
+        </scene>
+        <!--Dice Roller Generator-->
+        <scene sceneID="IPU-HH-Sz2">
+            <objects>
+                <viewController title="Dice Roller Generator" id="Ret-Yv-CoS" customClass="MSDiceRollerGeneratorVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q13-Ms-mEO"/>
+                        <viewControllerLayoutGuide type="bottom" id="a1X-uV-t8w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oAx-Jd-Ics">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKz-gm-Gx3">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4SN-xA-1rt"/>
+                                    <barButtonItem image="info button" id="8e7-C9-g9Y"/>
+                                </items>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeT-OK-XF3">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EV8-4H-9vm" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="top" secondItem="YeT-OK-XF3" secondAttribute="top" id="0v5-X6-4zF"/>
+                                    <constraint firstAttribute="bottom" secondItem="EV8-4H-9vm" secondAttribute="bottom" id="FAw-vI-1zH"/>
+                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="leading" secondItem="YeT-OK-XF3" secondAttribute="leading" id="Mp9-LC-zQP"/>
+                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="centerX" secondItem="YeT-OK-XF3" secondAttribute="centerX" id="i0g-t6-M3U"/>
+                                    <constraint firstAttribute="trailing" secondItem="EV8-4H-9vm" secondAttribute="trailing" id="sOP-Cy-xaZ"/>
+                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="centerY" secondItem="YeT-OK-XF3" secondAttribute="centerY" id="w2M-Gi-i1Y"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DKz-gm-Gx3" secondAttribute="trailing" id="42c-By-7cu"/>
+                            <constraint firstItem="DKz-gm-Gx3" firstAttribute="leading" secondItem="oAx-Jd-Ics" secondAttribute="leading" id="5cj-5r-Q7K"/>
+                            <constraint firstItem="EV8-4H-9vm" firstAttribute="width" secondItem="oAx-Jd-Ics" secondAttribute="width" id="Bsd-Q0-FDO"/>
+                            <constraint firstItem="YeT-OK-XF3" firstAttribute="leading" secondItem="oAx-Jd-Ics" secondAttribute="leading" id="JUf-Vj-wVc"/>
+                            <constraint firstItem="a1X-uV-t8w" firstAttribute="top" secondItem="DKz-gm-Gx3" secondAttribute="bottom" id="Jho-Cs-fyd"/>
+                            <constraint firstItem="DKz-gm-Gx3" firstAttribute="top" secondItem="YeT-OK-XF3" secondAttribute="bottom" id="QEx-q9-w91"/>
+                            <constraint firstItem="YeT-OK-XF3" firstAttribute="top" secondItem="q13-Ms-mEO" secondAttribute="bottom" id="d22-aC-yyX"/>
+                            <constraint firstAttribute="trailing" secondItem="YeT-OK-XF3" secondAttribute="trailing" id="xgL-uU-77N"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dice Roller" id="f84-hu-HrW">
+                        <barButtonItem key="backBarButtonItem" title=" " id="qWV-Hb-QqT"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="1g4-0A-i4F"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="2pJ-0U-S9j"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cv9-MU-Ydv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160" y="-3069"/>
         </scene>
         <!--Passwords Generator-->
         <scene sceneID="b2X-6o-1EK">
@@ -1179,6 +1263,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Sap-Qh-zg7" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="pdK-bo-NOA"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lottery" id="9aH-oq-6bI">
                                 <rect key="frame" x="0.0" y="286" width="600" height="44"/>
@@ -1303,7 +1390,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lh4-KF-Zfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-682" y="-1141"/>
+            <point key="canvasLocation" x="-1130" y="-2277"/>
         </scene>
         <!--Decimal Navigator Controller-->
         <scene sceneID="AUA-fg-BJ3">
@@ -1358,6 +1445,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enu-pK-5hS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="-2277"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ymy-nZ-pd3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sap-Qh-zg7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJ8-Bh-plz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ret-Yv-CoS" kind="relationship" relationship="rootViewController" id="jIT-93-ciX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sjH-vm-m8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="-3069"/>
         </scene>
     </scenes>
     <resources>

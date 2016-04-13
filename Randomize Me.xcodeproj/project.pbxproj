@@ -27,6 +27,7 @@
 		926AF2431CBADD0E006DEF8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF2421CBADD0E006DEF8E /* Social.framework */; };
 		928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */; };
 		928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */; };
+		928F4AE81CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */; };
 		92B7B5251C9EC231001BB572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5241C9EC231001BB572 /* main.m */; };
 		92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5271C9EC231001BB572 /* AppDelegate.m */; };
 		92B7B52E1C9EC231001BB572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52C1C9EC231001BB572 /* Main.storyboard */; };
@@ -74,6 +75,8 @@
 		928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPasswordsGeneratorVC.m; path = ViewController/Generator/MSPasswordsGeneratorVC.m; sourceTree = "<group>"; };
 		928F4AE31CBE29C50049BDE7 /* MSPasswordsResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsResultVC.h; path = ViewController/Result/MSPasswordsResultVC.h; sourceTree = "<group>"; };
 		928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPasswordsResultVC.m; path = ViewController/Result/MSPasswordsResultVC.m; sourceTree = "<group>"; };
+		928F4AE61CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSDiceRollerGeneratorVC.h; path = ViewController/Generator/MSDiceRollerGeneratorVC.h; sourceTree = "<group>"; };
+		928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDiceRollerGeneratorVC.m; path = ViewController/Generator/MSDiceRollerGeneratorVC.m; sourceTree = "<group>"; };
 		92B7B5201C9EC231001BB572 /* Randomize Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomize Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B7B5241C9EC231001BB572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92B7B5261C9EC231001BB572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				920CDFEE1CBD221D00971651 /* MSStringsGeneratorVC.m */,
 				928F4AE01CBE29530049BDE7 /* MSPasswordsGeneratorVC.h */,
 				928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */,
+				928F4AE61CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.h */,
+				928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */,
 			);
 			name = Generator;
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 				92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */,
 				920CDFE31CBC1B9900971651 /* MSRandomRequest.m in Sources */,
 				920CDFEF1CBD221D00971651 /* MSStringsGeneratorVC.m in Sources */,
+				928F4AE81CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m in Sources */,
 				925B47941CB3AC0F00747B72 /* MSApiKey.m in Sources */,
 				926AF2221CB512EE006DEF8E /* MSIntegerResultVC.m in Sources */,
 				92ED36CE1CAC5F3D00816AFD /* MSHTTPClient.m in Sources */,
