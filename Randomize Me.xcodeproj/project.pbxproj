@@ -19,13 +19,14 @@
 		926AF2221CB512EE006DEF8E /* MSIntegerResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF2211CB512EE006DEF8E /* MSIntegerResultVC.m */; };
 		926AF22A1CB51454006DEF8E /* MSDecimalGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF2251CB51454006DEF8E /* MSDecimalGeneratorVC.m */; };
 		926AF22B1CB51454006DEF8E /* MSIntegerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF2271CB51454006DEF8E /* MSIntegerGeneratorVC.m */; };
-		926AF22C1CB51454006DEF8E /* MSListRandomizerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF2291CB51454006DEF8E /* MSListRandomizerVC.m */; };
 		926AF22F1CB825AF006DEF8E /* MSDecimalResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF22E1CB825AF006DEF8E /* MSDecimalResultVC.m */; };
 		926AF2331CB937C3006DEF8E /* MSRandomResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AF2311CB937C3006DEF8E /* MSRandomResponse.m */; };
 		926AF23A1CB98C66006DEF8E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF2391CB98C66006DEF8E /* FBSDKCoreKit.framework */; };
 		926AF23C1CB98C85006DEF8E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF23B1CB98C85006DEF8E /* FBSDKLoginKit.framework */; };
 		926AF23E1CB98C95006DEF8E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF23D1CB98C95006DEF8E /* FBSDKShareKit.framework */; };
 		926AF2431CBADD0E006DEF8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF2421CBADD0E006DEF8E /* Social.framework */; };
+		928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */; };
+		928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */; };
 		92B7B5251C9EC231001BB572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5241C9EC231001BB572 /* main.m */; };
 		92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5271C9EC231001BB572 /* AppDelegate.m */; };
 		92B7B52E1C9EC231001BB572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52C1C9EC231001BB572 /* Main.storyboard */; };
@@ -61,8 +62,6 @@
 		926AF2251CB51454006DEF8E /* MSDecimalGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDecimalGeneratorVC.m; path = ViewController/Generator/MSDecimalGeneratorVC.m; sourceTree = "<group>"; };
 		926AF2261CB51454006DEF8E /* MSIntegerGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSIntegerGeneratorVC.h; path = ViewController/Generator/MSIntegerGeneratorVC.h; sourceTree = "<group>"; };
 		926AF2271CB51454006DEF8E /* MSIntegerGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSIntegerGeneratorVC.m; path = ViewController/Generator/MSIntegerGeneratorVC.m; sourceTree = "<group>"; };
-		926AF2281CB51454006DEF8E /* MSListRandomizerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSListRandomizerVC.h; path = ViewController/Generator/MSListRandomizerVC.h; sourceTree = "<group>"; };
-		926AF2291CB51454006DEF8E /* MSListRandomizerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSListRandomizerVC.m; path = ViewController/Generator/MSListRandomizerVC.m; sourceTree = "<group>"; };
 		926AF22D1CB825AF006DEF8E /* MSDecimalResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSDecimalResultVC.h; path = ViewController/Result/MSDecimalResultVC.h; sourceTree = "<group>"; };
 		926AF22E1CB825AF006DEF8E /* MSDecimalResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDecimalResultVC.m; path = ViewController/Result/MSDecimalResultVC.m; sourceTree = "<group>"; };
 		926AF2311CB937C3006DEF8E /* MSRandomResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSRandomResponse.m; path = Models/Responses/MSRandomResponse.m; sourceTree = "<group>"; };
@@ -71,6 +70,10 @@
 		926AF23B1CB98C85006DEF8E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		926AF23D1CB98C95006DEF8E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		926AF2421CBADD0E006DEF8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		928F4AE01CBE29530049BDE7 /* MSPasswordsGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsGeneratorVC.h; path = ViewController/Generator/MSPasswordsGeneratorVC.h; sourceTree = "<group>"; };
+		928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPasswordsGeneratorVC.m; path = ViewController/Generator/MSPasswordsGeneratorVC.m; sourceTree = "<group>"; };
+		928F4AE31CBE29C50049BDE7 /* MSPasswordsResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsResultVC.h; path = ViewController/Result/MSPasswordsResultVC.h; sourceTree = "<group>"; };
+		928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPasswordsResultVC.m; path = ViewController/Result/MSPasswordsResultVC.m; sourceTree = "<group>"; };
 		92B7B5201C9EC231001BB572 /* Randomize Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomize Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B7B5241C9EC231001BB572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92B7B5261C9EC231001BB572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				926AF22E1CB825AF006DEF8E /* MSDecimalResultVC.m */,
 				920CDFF01CBD485700971651 /* MSStringsResultVC.h */,
 				920CDFF11CBD485700971651 /* MSStringsResultVC.m */,
+				928F4AE31CBE29C50049BDE7 /* MSPasswordsResultVC.h */,
+				928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */,
 			);
 			name = Result;
 			sourceTree = "<group>";
@@ -158,8 +163,8 @@
 				926AF2251CB51454006DEF8E /* MSDecimalGeneratorVC.m */,
 				920CDFED1CBD221D00971651 /* MSStringsGeneratorVC.h */,
 				920CDFEE1CBD221D00971651 /* MSStringsGeneratorVC.m */,
-				926AF2281CB51454006DEF8E /* MSListRandomizerVC.h */,
-				926AF2291CB51454006DEF8E /* MSListRandomizerVC.m */,
+				928F4AE01CBE29530049BDE7 /* MSPasswordsGeneratorVC.h */,
+				928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */,
 			);
 			name = Generator;
 			sourceTree = "<group>";
@@ -391,7 +396,6 @@
 				926AF22A1CB51454006DEF8E /* MSDecimalGeneratorVC.m in Sources */,
 				920CDFE91CBC386400971651 /* MSRandomDecimalRequest.m in Sources */,
 				926AF22B1CB51454006DEF8E /* MSIntegerGeneratorVC.m in Sources */,
-				926AF22C1CB51454006DEF8E /* MSListRandomizerVC.m in Sources */,
 				926AF2331CB937C3006DEF8E /* MSRandomResponse.m in Sources */,
 				920CDFE61CBC257300971651 /* MSRandomIntegerRequest.m in Sources */,
 				920CDFF21CBD485700971651 /* MSStringsResultVC.m in Sources */,
@@ -404,6 +408,8 @@
 				926AF21E1CB5114B006DEF8E /* SWRevealViewController.m in Sources */,
 				926AF22F1CB825AF006DEF8E /* MSDecimalResultVC.m in Sources */,
 				920CDFEC1CBC3FCC00971651 /* MSRandomStringsRequest.m in Sources */,
+				928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */,
+				928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */,
 				926AF21B1CB510E5006DEF8E /* MSMenuBarController.m in Sources */,
 				92B7B5251C9EC231001BB572 /* main.m in Sources */,
 			);

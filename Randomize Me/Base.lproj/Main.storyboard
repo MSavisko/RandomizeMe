@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbk-b7-SrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1352" y="-765"/>
+            <point key="canvasLocation" x="-1560" y="-1141"/>
         </scene>
         <!--Integer Generator-->
         <scene sceneID="tne-QT-ifu">
@@ -191,6 +191,28 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1152" y="4"/>
+        </scene>
+        <!--Passwords Generator-->
+        <scene sceneID="b2X-6o-1EK">
+            <objects>
+                <viewController title="Passwords Generator" id="etQ-4Q-RvU" customClass="MSPasswordsGeneratorVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LCh-bm-KiB"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sya-F1-oaP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Tc-Zq-sJP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UZR-wR-wWl"/>
+                    <connections>
+                        <segue destination="5Ml-xF-HGe" kind="show" identifier="ShowPasswordsResult" id="6Yw-LS-Daf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5HD-Y3-Hf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160" y="-2277"/>
         </scene>
         <!--Strings Generator-->
         <scene sceneID="E35-oL-YLc">
@@ -480,6 +502,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcx-f8-0eH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="-765"/>
+        </scene>
+        <!--Passwords Result-->
+        <scene sceneID="BOH-UP-fGj">
+            <objects>
+                <viewController title="Passwords Result" id="5Ml-xF-HGe" customClass="MSPasswordsGeneratorVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h0Y-Bz-6ly"/>
+                        <viewControllerLayoutGuide type="bottom" id="QRX-g4-bhQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gos-9E-xjK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OuK-Dv-xe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2144" y="-2277"/>
         </scene>
         <!--Strings Result-->
         <scene sceneID="ISY-78-KQ9">
@@ -930,6 +970,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="9dX-sH-2Q7" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="BWN-ha-S91"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dice" id="3UZ-FX-j2P">
                                 <rect key="frame" x="0.0" y="242" width="600" height="44"/>
@@ -1073,7 +1116,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lh4-KF-Zfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-470" y="-765"/>
+            <point key="canvasLocation" x="-682" y="-1141"/>
         </scene>
         <!--Decimal Navigator Controller-->
         <scene sceneID="AUA-fg-BJ3">
@@ -1110,6 +1153,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dU-Rx-kty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="-1510"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2eS-mH-PVV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9dX-sH-2Q7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yGr-YI-ikr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="etQ-4Q-RvU" kind="relationship" relationship="rootViewController" id="wS1-UH-dbL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="enu-pK-5hS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="-2277"/>
         </scene>
     </scenes>
     <resources>
