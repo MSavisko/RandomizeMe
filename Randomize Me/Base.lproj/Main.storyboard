@@ -620,7 +620,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LAI-5r-t1b">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAI-5r-t1b">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="Irs-oh-2VA"/>
@@ -632,8 +632,48 @@
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="6nD-vz-S1F"/>
                                 </items>
                             </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-BG-20K">
+                                <rect key="frame" x="30" y="84" width="540" height="411"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRe-VT-vnF" userLabel="time content view">
+                                <rect key="frame" x="155" y="515" width="290" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZC-sp-qzA">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6q-qb-OQY">
+                                        <rect key="frame" x="99" y="0.0" width="191" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="39z-gN-6vH"/>
+                                    <constraint firstAttribute="width" constant="290" id="3Lp-ft-LPW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LAI-5r-t1b" firstAttribute="top" secondItem="aRe-VT-vnF" secondAttribute="bottom" constant="20" id="040-tm-fL0"/>
+                            <constraint firstItem="LAI-5r-t1b" firstAttribute="leading" secondItem="Gos-9E-xjK" secondAttribute="leading" id="CFK-gR-3x1"/>
+                            <constraint firstItem="QRX-g4-bhQ" firstAttribute="top" secondItem="LAI-5r-t1b" secondAttribute="bottom" id="CK8-4n-6Aj"/>
+                            <constraint firstAttribute="trailing" secondItem="LAI-5r-t1b" secondAttribute="trailing" id="ETc-dF-Khs"/>
+                            <constraint firstItem="4gj-BG-20K" firstAttribute="top" secondItem="h0Y-Bz-6ly" secondAttribute="bottom" constant="20" id="FFg-ZM-OOA"/>
+                            <constraint firstItem="aRe-VT-vnF" firstAttribute="centerX" secondItem="Gos-9E-xjK" secondAttribute="centerX" id="Hbb-1D-N4F"/>
+                            <constraint firstItem="aRe-VT-vnF" firstAttribute="top" secondItem="4gj-BG-20K" secondAttribute="bottom" constant="20" id="I55-cx-gWn"/>
+                            <constraint firstItem="4gj-BG-20K" firstAttribute="centerX" secondItem="Gos-9E-xjK" secondAttribute="centerX" id="MuU-ID-Dbk"/>
+                            <constraint firstItem="4gj-BG-20K" firstAttribute="leading" secondItem="Gos-9E-xjK" secondAttribute="leadingMargin" constant="10" id="WaB-6P-hmq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4gj-BG-20K" secondAttribute="trailing" constant="10" id="bww-BQ-tgJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="ZhN-Lo-Lwq">
                         <barButtonItem key="backBarButtonItem" title=" " id="0oz-kF-ceR"/>

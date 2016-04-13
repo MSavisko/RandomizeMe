@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *copyingButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
-
 @end
 
 @implementation MSStringsResultVC
@@ -285,7 +284,7 @@
     });
 }
 
-#pragma mark - Helper Methods
+#pragma mark - Alert Methods
 - (void) showAlertWithMessage:(NSString*)message tag:(NSInteger)tag {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
                                                     message:message
@@ -295,7 +294,6 @@
     alert.tag = tag;
     [alert show];
 }
-
 
 #pragma mark - Presentation Data Method
 - (NSString*) stringResult {
