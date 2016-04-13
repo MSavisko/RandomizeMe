@@ -611,7 +611,7 @@
         <!--Passwords Result-->
         <scene sceneID="BOH-UP-fGj">
             <objects>
-                <viewController title="Passwords Result" id="5Ml-xF-HGe" customClass="MSPasswordsGeneratorVC" sceneMemberID="viewController">
+                <viewController title="Passwords Result" id="5Ml-xF-HGe" customClass="MSPasswordsResultVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h0Y-Bz-6ly"/>
                         <viewControllerLayoutGuide type="bottom" id="QRX-g4-bhQ"/>
@@ -624,21 +624,26 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="Irs-oh-2VA"/>
-                                    <barButtonItem image="trash button" id="d9V-sW-Wb6"/>
+                                    <barButtonItem image="trash button" id="d9V-sW-Wb6">
+                                        <connections>
+                                            <action selector="trashButtonPressed:" destination="5Ml-xF-HGe" id="NcF-rq-UOP"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Jmp-6Z-a7a"/>
-                                    <barButtonItem image="save button" id="Mf2-xD-LZL"/>
+                                    <barButtonItem image="save button" id="Mf2-xD-LZL">
+                                        <connections>
+                                            <action selector="copyingButtonPressed:" destination="5Ml-xF-HGe" id="pyO-RO-BW1"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="o1t-WL-daX"/>
-                                    <barButtonItem image="info button" id="qIz-59-5h5"/>
+                                    <barButtonItem image="info button" id="qIz-59-5h5">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="5Ml-xF-HGe" id="Bt6-Gd-12f"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="6nD-vz-S1F"/>
                                 </items>
                             </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-BG-20K">
-                                <rect key="frame" x="30" y="84" width="540" height="411"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRe-VT-vnF" userLabel="time content view">
                                 <rect key="frame" x="155" y="515" width="290" height="21"/>
                                 <subviews>
@@ -660,6 +665,13 @@
                                     <constraint firstAttribute="width" constant="290" id="3Lp-ft-LPW"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-BG-20K">
+                                <rect key="frame" x="30" y="84" width="540" height="411"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -677,8 +689,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="ZhN-Lo-Lwq">
                         <barButtonItem key="backBarButtonItem" title=" " id="0oz-kF-ceR"/>
-                        <barButtonItem key="rightBarButtonItem" image="share button" id="cfK-0a-VHK"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="cfK-0a-VHK">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="5Ml-xF-HGe" id="yhJ-aK-tJ0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="copyingButton" destination="Mf2-xD-LZL" id="8f8-Fl-F1Z"/>
+                        <outlet property="infoButton" destination="qIz-59-5h5" id="xeh-VM-ddt"/>
+                        <outlet property="resultTextView" destination="4gj-BG-20K" id="8Nd-tE-O5d"/>
+                        <outlet property="shareButton" destination="cfK-0a-VHK" id="shn-QG-wci"/>
+                        <outlet property="timestampLabel" destination="X6q-qb-OQY" id="WIU-xT-njs"/>
+                        <outlet property="trashButton" destination="d9V-sW-Wb6" id="Dgh-N3-dXy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OuK-Dv-xe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
