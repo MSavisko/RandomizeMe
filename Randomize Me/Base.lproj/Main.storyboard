@@ -1243,10 +1243,10 @@
             </objects>
             <point key="canvasLocation" x="2144" y="4"/>
         </scene>
-        <!--Integer Navigator Controller-->
+        <!--Integer NC-->
         <scene sceneID="Yfa-rf-Hyf">
             <objects>
-                <navigationController title="Integer Navigator Controller" automaticallyAdjustsScrollViewInsets="NO" id="o7z-ku-MHm" sceneMemberID="viewController">
+                <navigationController title="Integer NC" automaticallyAdjustsScrollViewInsets="NO" id="o7z-ku-MHm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X9r-ZB-qq7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1524,10 +1524,10 @@
             </objects>
             <point key="canvasLocation" x="-1130" y="-2277"/>
         </scene>
-        <!--Decimal Navigator Controller-->
+        <!--Decimal NC-->
         <scene sceneID="AUA-fg-BJ3">
             <objects>
-                <navigationController title="Decimal Navigator Controller" automaticallyAdjustsScrollViewInsets="NO" id="I7Y-SO-7AE" sceneMemberID="viewController">
+                <navigationController title="Decimal NC" automaticallyAdjustsScrollViewInsets="NO" id="I7Y-SO-7AE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eny-L3-RRy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1542,10 +1542,10 @@
             </objects>
             <point key="canvasLocation" x="340" y="-765"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Strings NC-->
         <scene sceneID="tk7-7N-Jdk">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kj7-F6-t4W" sceneMemberID="viewController">
+                <navigationController title="Strings NC" automaticallyAdjustsScrollViewInsets="NO" id="kj7-F6-t4W" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xtr-Hs-fR8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1560,10 +1560,10 @@
             </objects>
             <point key="canvasLocation" x="340" y="-1510"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Passwords NC-->
         <scene sceneID="2eS-mH-PVV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9dX-sH-2Q7" sceneMemberID="viewController">
+                <navigationController title="Passwords NC" automaticallyAdjustsScrollViewInsets="NO" id="9dX-sH-2Q7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yGr-YI-ikr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1578,10 +1578,10 @@
             </objects>
             <point key="canvasLocation" x="340" y="-2277"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Dice Roller NC-->
         <scene sceneID="Ymy-nZ-pd3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sap-Qh-zg7" sceneMemberID="viewController">
+                <navigationController title="Dice Roller NC" automaticallyAdjustsScrollViewInsets="NO" id="Sap-Qh-zg7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJ8-Bh-plz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
