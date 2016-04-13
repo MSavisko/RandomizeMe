@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSRandomResponse.h"
+#import <VK-ios-sdk/VKSdk.h>
 
-@interface MSPasswordsResultVC : UIViewController
+@interface MSPasswordsResultVC : UIViewController <VKSdkDelegate>
+@property (strong, nonatomic) MSRandomResponse *response;
 
 @end

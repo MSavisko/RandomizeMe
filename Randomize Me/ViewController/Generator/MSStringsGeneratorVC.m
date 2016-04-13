@@ -72,6 +72,7 @@ static int MSGenerateButtonHeight = 27;
     [self.digitsSwitch setOn:YES animated:YES];
     [self.lowercaseSwitch setOn:NO animated:YES];
     [self.uppercaseSwitch setOn:NO animated:YES];
+    [self.generateButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {

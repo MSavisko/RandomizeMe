@@ -62,6 +62,7 @@ static int MSGenerateButtonHeight = 30;
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
     self.numberOfDecimals.text = @"";
     self.decimalPlaces.text = @"";
+    [self.generateButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {

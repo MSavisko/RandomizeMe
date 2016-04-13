@@ -114,14 +114,6 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-oB-hco">
                                                         <rect key="frame" x="184" y="113" width="51" height="31"/>
                                                     </switch>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9Z-aE-7PX">
-                                                        <rect key="frame" x="86" y="150" width="76" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <state key="normal" title="Generate!"/>
-                                                        <connections>
-                                                            <action selector="generateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MT-20-owj"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -129,6 +121,14 @@
                                                     <constraint firstAttribute="width" constant="250" id="pTF-lq-bBs"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9Z-aE-7PX">
+                                                <rect key="frame" x="260" y="306" width="80" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Generate!"/>
+                                                <connections>
+                                                    <action selector="generateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MT-20-owj"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -203,10 +203,115 @@
                     <view key="view" contentMode="scaleToFill" id="8Tc-Zq-sJP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qd2-TH-3Ps">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="I3A-Hf-i7i"/>
+                                    <barButtonItem image="info button" id="F3r-6p-8cF">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="etQ-4Q-RvU" id="OXJ-0E-Nj9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ua9-eR-cWJ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBJ-4N-4vR" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ax-pZ-jrD">
+                                                <rect key="frame" x="170.5" y="188" width="260" height="115"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of passwords" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTG-AJ-2Rt">
+                                                        <rect key="frame" x="8" y="8" width="180" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLY-Ya-1Tp">
+                                                        <rect key="frame" x="191" y="4" width="59" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="editingChanged" destination="etQ-4Q-RvU" eventType="editingChanged" id="PY6-a0-Bjq"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6 - 20" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPO-aH-YzC">
+                                                        <rect key="frame" x="186" y="42" width="64" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="editingChanged" destination="etQ-4Q-RvU" eventType="editingChanged" id="8vw-iB-zUV"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Characters length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb3-8J-Hcy">
+                                                        <rect key="frame" x="8" y="46" width="170" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCt-jp-msM">
+                                                        <rect key="frame" x="89" y="83" width="80" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Generate!"/>
+                                                        <connections>
+                                                            <action selector="generateButtonPressed:" destination="etQ-4Q-RvU" eventType="touchUpInside" id="sQ6-sg-nq2"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="260" id="AFh-Pt-oZ0"/>
+                                                    <constraint firstAttribute="height" constant="115" id="iOG-cW-pbb"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="5Ax-pZ-jrD" firstAttribute="centerX" secondItem="GBJ-4N-4vR" secondAttribute="centerX" id="3bN-K8-jzQ"/>
+                                            <constraint firstItem="5Ax-pZ-jrD" firstAttribute="centerY" secondItem="GBJ-4N-4vR" secondAttribute="centerY" id="e6b-lb-hd6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GBJ-4N-4vR" firstAttribute="leading" secondItem="Ua9-eR-cWJ" secondAttribute="leading" id="0i0-cJ-X2r"/>
+                                    <constraint firstAttribute="trailing" secondItem="GBJ-4N-4vR" secondAttribute="trailing" id="GL2-sz-duL"/>
+                                    <constraint firstItem="GBJ-4N-4vR" firstAttribute="centerY" secondItem="Ua9-eR-cWJ" secondAttribute="centerY" id="UtR-92-lFC"/>
+                                    <constraint firstItem="GBJ-4N-4vR" firstAttribute="top" secondItem="Ua9-eR-cWJ" secondAttribute="top" id="f5B-4B-V3m"/>
+                                    <constraint firstAttribute="bottom" secondItem="GBJ-4N-4vR" secondAttribute="bottom" id="hFy-11-n76"/>
+                                    <constraint firstItem="GBJ-4N-4vR" firstAttribute="centerX" secondItem="Ua9-eR-cWJ" secondAttribute="centerX" id="rsf-ZI-bj4"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qd2-TH-3Ps" firstAttribute="leading" secondItem="8Tc-Zq-sJP" secondAttribute="leading" id="1M4-eW-CSG"/>
+                            <constraint firstItem="Ua9-eR-cWJ" firstAttribute="leading" secondItem="8Tc-Zq-sJP" secondAttribute="leading" id="1nZ-iT-ONd"/>
+                            <constraint firstItem="GBJ-4N-4vR" firstAttribute="width" secondItem="8Tc-Zq-sJP" secondAttribute="width" id="FMS-4j-X0r"/>
+                            <constraint firstAttribute="trailing" secondItem="Ua9-eR-cWJ" secondAttribute="trailing" id="cgh-D7-u3T"/>
+                            <constraint firstItem="Ua9-eR-cWJ" firstAttribute="top" secondItem="LCh-bm-KiB" secondAttribute="bottom" id="dGm-Z6-1GQ"/>
+                            <constraint firstItem="Qd2-TH-3Ps" firstAttribute="top" secondItem="Ua9-eR-cWJ" secondAttribute="bottom" id="elP-6c-fb4"/>
+                            <constraint firstAttribute="trailing" secondItem="Qd2-TH-3Ps" secondAttribute="trailing" id="fHH-fO-Nl6"/>
+                            <constraint firstItem="Sya-F1-oaP" firstAttribute="top" secondItem="Qd2-TH-3Ps" secondAttribute="bottom" id="qVd-OL-i9x"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UZR-wR-wWl"/>
+                    <navigationItem key="navigationItem" title="Passwords Generator" id="UZR-wR-wWl">
+                        <barButtonItem key="backBarButtonItem" title=" " id="gDB-jA-F4s"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="QfE-hY-oRw"/>
+                        <barButtonItem key="rightBarButtonItem" image="clear button" id="0x0-bP-2Qi">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="etQ-4Q-RvU" id="xbN-DV-A4e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="charactersLength" destination="MPO-aH-YzC" id="xBx-Cv-yIG"/>
+                        <outlet property="generateButton" destination="SCt-jp-msM" id="y8c-ke-VGo"/>
+                        <outlet property="menuButtonItem" destination="QfE-hY-oRw" id="Bz3-17-5dm"/>
+                        <outlet property="numberOfPasswords" destination="oLY-Ya-1Tp" id="qBr-Ln-YK7"/>
+                        <outlet property="scrollView" destination="Ua9-eR-cWJ" id="Rv2-To-Szv"/>
                         <segue destination="5Ml-xF-HGe" kind="show" identifier="ShowPasswordsResult" id="6Yw-LS-Daf"/>
                     </connections>
                 </viewController>
@@ -291,14 +396,9 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDp-4k-SB5">
-                                                        <rect key="frame" x="87" y="197" width="76" height="33"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <state key="normal" title="Generate!"/>
-                                                        <connections>
-                                                            <action selector="generateButtonPressed:" destination="gQo-VO-eJd" eventType="touchUpInside" id="5ZU-qA-Zrg"/>
-                                                        </connections>
-                                                    </button>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MTJ-DJ-BT6">
+                                                        <rect key="frame" x="172" y="7" width="51" height="31"/>
+                                                    </switch>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MH9-kI-3Xc">
                                                         <rect key="frame" x="165" y="122" width="63" height="30"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,9 +408,14 @@
                                                             <action selector="editingChanged" destination="gQo-VO-eJd" eventType="editingChanged" id="HKK-E4-sBi"/>
                                                         </connections>
                                                     </textField>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MTJ-DJ-BT6">
-                                                        <rect key="frame" x="172" y="7" width="51" height="31"/>
-                                                    </switch>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDp-4k-SB5">
+                                                        <rect key="frame" x="85" y="197" width="80" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Generate!"/>
+                                                        <connections>
+                                                            <action selector="generateButtonPressed:" destination="gQo-VO-eJd" eventType="touchUpInside" id="5ZU-qA-Zrg"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -417,14 +522,6 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-vI-ZZv">
-                                                        <rect key="frame" x="82" y="75" width="76" height="33"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <state key="normal" title="Generate!"/>
-                                                        <connections>
-                                                            <action selector="generateButtonPressed:" destination="ceK-Q3-dMD" eventType="touchUpInside" id="06D-G3-S4k"/>
-                                                        </connections>
-                                                    </button>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0aQ-xF-Sci">
                                                         <rect key="frame" x="177" y="39" width="63" height="30"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -450,6 +547,14 @@
                                                     <constraint firstAttribute="height" constant="108" id="uRw-yr-ad9"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-vI-ZZv">
+                                                <rect key="frame" x="260" y="267" width="80" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Generate!"/>
+                                                <connections>
+                                                    <action selector="generateButtonPressed:" destination="ceK-Q3-dMD" eventType="touchUpInside" id="06D-G3-S4k"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>

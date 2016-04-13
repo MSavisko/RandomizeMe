@@ -68,6 +68,7 @@ static int MSGenerateButtonHeight = 40;
     self.minValue.text = @"";
     self.maxValue.text = @"";
     [self.replacementSwitch setOn:NO animated:YES];
+    [self.generateButton setEnabled:NO];
 }
 - (IBAction)infoButtonPressed:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Integer Generator"
