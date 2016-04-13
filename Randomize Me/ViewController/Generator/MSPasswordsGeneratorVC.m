@@ -40,7 +40,7 @@ static int MSGenerateButtonHeight = 30;
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setupMenuBar]; //Because when back from second view, pan guesture menu not work
+    [self setupMenuBar];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
