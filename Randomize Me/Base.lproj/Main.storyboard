@@ -192,31 +192,6 @@
             </objects>
             <point key="canvasLocation" x="1152" y="4"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Wuf-Vg-1Oh">
-            <objects>
-                <viewController id="bcs-qU-dof" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DF7-Vt-tf6"/>
-                        <viewControllerLayoutGuide type="bottom" id="tfy-2Q-ldB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hWm-re-GV2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7p2-le-JMi">
-                                <rect key="frame" x="8" y="176" width="304" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GDL-mx-P9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1148" y="-3865"/>
-        </scene>
         <!--Dice Roller Generator-->
         <scene sceneID="IPU-HH-Sz2">
             <objects>
@@ -236,34 +211,66 @@
                                     <barButtonItem image="info button" id="8e7-C9-g9Y"/>
                                 </items>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeT-OK-XF3">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YeT-OK-XF3">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EV8-4H-9vm" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSp-Rx-LR2">
+                                                <rect key="frame" x="197.5" y="205.5" width="205" height="80"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of dice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hD3-ha-rV3">
+                                                        <rect key="frame" x="8" y="13" width="125" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivR-J9-heB">
+                                                        <rect key="frame" x="62" y="49" width="80" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Roll Dice"/>
+                                                    </button>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Bb-fS-A0A">
+                                                        <rect key="frame" x="141" y="9" width="55" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="205" id="PzJ-4n-KKK"/>
+                                                    <constraint firstAttribute="height" constant="80" id="RwB-uK-Suc"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="VSp-Rx-LR2" firstAttribute="centerY" secondItem="EV8-4H-9vm" secondAttribute="centerY" id="0qa-JZ-5as"/>
+                                            <constraint firstItem="VSp-Rx-LR2" firstAttribute="centerX" secondItem="EV8-4H-9vm" secondAttribute="centerX" id="9Ew-xs-jBx"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="top" secondItem="YeT-OK-XF3" secondAttribute="top" id="0v5-X6-4zF"/>
-                                    <constraint firstAttribute="bottom" secondItem="EV8-4H-9vm" secondAttribute="bottom" id="FAw-vI-1zH"/>
-                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="leading" secondItem="YeT-OK-XF3" secondAttribute="leading" id="Mp9-LC-zQP"/>
-                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="centerX" secondItem="YeT-OK-XF3" secondAttribute="centerX" id="i0g-t6-M3U"/>
-                                    <constraint firstAttribute="trailing" secondItem="EV8-4H-9vm" secondAttribute="trailing" id="sOP-Cy-xaZ"/>
-                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="centerY" secondItem="YeT-OK-XF3" secondAttribute="centerY" id="w2M-Gi-i1Y"/>
+                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="centerY" secondItem="YeT-OK-XF3" secondAttribute="centerY" id="6PY-Dn-Uwp"/>
+                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="centerX" secondItem="YeT-OK-XF3" secondAttribute="centerX" id="CGu-2u-3Gv"/>
+                                    <constraint firstAttribute="bottom" secondItem="EV8-4H-9vm" secondAttribute="bottom" id="Jop-O7-Oj1"/>
+                                    <constraint firstAttribute="trailing" secondItem="EV8-4H-9vm" secondAttribute="trailing" id="PAW-Ll-N8f"/>
+                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="leading" secondItem="YeT-OK-XF3" secondAttribute="leading" id="TtD-8T-mo1"/>
+                                    <constraint firstItem="EV8-4H-9vm" firstAttribute="top" secondItem="YeT-OK-XF3" secondAttribute="top" id="b2x-Gs-IuD"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="DKz-gm-Gx3" secondAttribute="trailing" id="42c-By-7cu"/>
-                            <constraint firstItem="DKz-gm-Gx3" firstAttribute="leading" secondItem="oAx-Jd-Ics" secondAttribute="leading" id="5cj-5r-Q7K"/>
-                            <constraint firstItem="EV8-4H-9vm" firstAttribute="width" secondItem="oAx-Jd-Ics" secondAttribute="width" id="Bsd-Q0-FDO"/>
-                            <constraint firstItem="YeT-OK-XF3" firstAttribute="leading" secondItem="oAx-Jd-Ics" secondAttribute="leading" id="JUf-Vj-wVc"/>
-                            <constraint firstItem="a1X-uV-t8w" firstAttribute="top" secondItem="DKz-gm-Gx3" secondAttribute="bottom" id="Jho-Cs-fyd"/>
-                            <constraint firstItem="DKz-gm-Gx3" firstAttribute="top" secondItem="YeT-OK-XF3" secondAttribute="bottom" id="QEx-q9-w91"/>
-                            <constraint firstItem="YeT-OK-XF3" firstAttribute="top" secondItem="q13-Ms-mEO" secondAttribute="bottom" id="d22-aC-yyX"/>
-                            <constraint firstAttribute="trailing" secondItem="YeT-OK-XF3" secondAttribute="trailing" id="xgL-uU-77N"/>
+                            <constraint firstAttribute="trailing" secondItem="YeT-OK-XF3" secondAttribute="trailing" id="75x-o0-6qe"/>
+                            <constraint firstItem="YeT-OK-XF3" firstAttribute="leading" secondItem="oAx-Jd-Ics" secondAttribute="leading" id="ACA-kY-upC"/>
+                            <constraint firstItem="a1X-uV-t8w" firstAttribute="top" secondItem="DKz-gm-Gx3" secondAttribute="bottom" id="YQa-RI-qtD"/>
+                            <constraint firstItem="EV8-4H-9vm" firstAttribute="width" secondItem="oAx-Jd-Ics" secondAttribute="width" id="aVQ-2q-wI2"/>
+                            <constraint firstAttribute="trailing" secondItem="DKz-gm-Gx3" secondAttribute="trailing" id="h63-V6-046"/>
+                            <constraint firstItem="YeT-OK-XF3" firstAttribute="top" secondItem="q13-Ms-mEO" secondAttribute="bottom" id="qO9-Hc-sX8"/>
+                            <constraint firstItem="DKz-gm-Gx3" firstAttribute="leading" secondItem="oAx-Jd-Ics" secondAttribute="leading" id="rfw-cE-fOG"/>
+                            <constraint firstItem="DKz-gm-Gx3" firstAttribute="top" secondItem="YeT-OK-XF3" secondAttribute="bottom" id="sO1-Hd-QG0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dice Roller" id="f84-hu-HrW">
