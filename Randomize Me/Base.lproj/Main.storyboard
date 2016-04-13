@@ -234,7 +234,7 @@
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Bb-fS-A0A">
                                                         <rect key="frame" x="141" y="9" width="55" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -276,8 +276,15 @@
                     <navigationItem key="navigationItem" title="Dice Roller" id="f84-hu-HrW">
                         <barButtonItem key="backBarButtonItem" title=" " id="qWV-Hb-QqT"/>
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="1g4-0A-i4F"/>
-                        <barButtonItem key="rightBarButtonItem" image="share button" id="2pJ-0U-S9j"/>
+                        <barButtonItem key="rightBarButtonItem" image="clear button" id="2pJ-0U-S9j"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButtonItem" destination="1g4-0A-i4F" id="Ndv-V8-g4s"/>
+                        <outlet property="numberOfDice" destination="7Bb-fS-A0A" id="No2-L9-nVz"/>
+                        <outlet property="rollDiceButton" destination="ivR-J9-heB" id="Wyj-GR-IQI"/>
+                        <outlet property="scrollView" destination="YeT-OK-XF3" id="Fvd-AY-s3X"/>
+                        <segue destination="DaI-Da-6HH" kind="show" identifier="ShowDiceRollerResult" id="LoZ-qE-Pal"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cv9-MU-Ydv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -698,6 +705,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcx-f8-0eH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="-765"/>
+        </scene>
+        <!--Dice Roller Result-->
+        <scene sceneID="e1C-Fd-Jt1">
+            <objects>
+                <viewController title="Dice Roller Result" id="DaI-Da-6HH" customClass="MSDiceRollerResultVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nAm-E2-wuw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ou6-15-Hd5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tdg-ck-u8S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2eO-3v-I1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2144" y="-3069"/>
         </scene>
         <!--Passwords Result-->
         <scene sceneID="BOH-UP-fGj">

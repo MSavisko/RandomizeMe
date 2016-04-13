@@ -63,6 +63,7 @@ static int MSGenerateButtonHeight = 40;
     [client sendRequest:[self.request requestBody]];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
+
 - (IBAction)clearButtonPressed:(id)sender {
     self.numberOfIntegers.text = @"";
     self.minValue.text = @"";
@@ -70,6 +71,7 @@ static int MSGenerateButtonHeight = 40;
     [self.replacementSwitch setOn:NO animated:YES];
     [self.generateButton setEnabled:NO];
 }
+
 - (IBAction)infoButtonPressed:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Integer Generator"
                                                     message:@"This form allows you to generate random integers. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
