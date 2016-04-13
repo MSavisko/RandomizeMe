@@ -774,7 +774,6 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="336" id="2Ab-l2-dS6"/>
                                                     <constraint firstAttribute="height" constant="452" id="i8i-We-5JB"/>
                                                     <constraint firstAttribute="width" constant="336" id="kRw-mM-0uh"/>
                                                 </constraints>
@@ -812,6 +811,14 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="15u-4S-8Uw"/>
                         <barButtonItem key="rightBarButtonItem" image="share button" id="7iq-GI-srN"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="fifthImageView" destination="iFJ-hr-TiH" id="BiU-Xe-d2q"/>
+                        <outlet property="firstImageView" destination="zhB-yi-Bhd" id="TY1-m6-Ryy"/>
+                        <outlet property="fourthImageView" destination="E58-Kq-SwV" id="8Uc-6D-k2d"/>
+                        <outlet property="secondImageView" destination="di8-hg-ATK" id="MkX-IC-m1C"/>
+                        <outlet property="sixthImageView" destination="HDH-rI-WTa" id="qST-tN-5D4"/>
+                        <outlet property="thirdImageView" destination="wfZ-6d-A3P" id="n5C-g2-8HP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eO-3v-I1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
