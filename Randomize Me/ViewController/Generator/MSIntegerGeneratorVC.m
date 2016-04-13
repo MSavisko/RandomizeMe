@@ -108,13 +108,11 @@ static int MSGenerateButtonHeight = 40;
 }
 
 #pragma mark - UITextFiled Delegate
-- (void)textFieldDidBeginEditing:(UITextField *)sender
-{
+- (void)textFieldDidBeginEditing:(UITextField *)sender {
     self.activeField = sender;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)sender
-{
+- (void)textFieldDidEndEditing:(UITextField *)sender {
     self.activeField = nil;
 }
 

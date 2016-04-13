@@ -208,7 +208,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4SN-xA-1rt"/>
-                                    <barButtonItem image="info button" id="8e7-C9-g9Y"/>
+                                    <barButtonItem image="info button" id="8e7-C9-g9Y">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="Ret-Yv-CoS" id="Ohz-Qg-fX3"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YeT-OK-XF3">
@@ -230,11 +234,17 @@
                                                         <rect key="frame" x="62" y="49" width="80" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="Roll Dice"/>
+                                                        <connections>
+                                                            <action selector="rollDiceButtonPressed:" destination="Ret-Yv-CoS" eventType="touchUpInside" id="7ew-fO-Dyd"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Bb-fS-A0A">
                                                         <rect key="frame" x="141" y="9" width="55" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="editingChanged" destination="Ret-Yv-CoS" eventType="editingChanged" id="wYh-uP-2HV"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -276,7 +286,11 @@
                     <navigationItem key="navigationItem" title="Dice Roller" id="f84-hu-HrW">
                         <barButtonItem key="backBarButtonItem" title=" " id="qWV-Hb-QqT"/>
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="1g4-0A-i4F"/>
-                        <barButtonItem key="rightBarButtonItem" image="clear button" id="2pJ-0U-S9j"/>
+                        <barButtonItem key="rightBarButtonItem" image="clear button" id="2pJ-0U-S9j">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="Ret-Yv-CoS" id="b61-rG-Vcj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButtonItem" destination="1g4-0A-i4F" id="Ndv-V8-g4s"/>
@@ -719,6 +733,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Result" id="4pj-MI-4wv">
+                        <barButtonItem key="backBarButtonItem" title=" " id="15u-4S-8Uw"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eO-3v-I1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

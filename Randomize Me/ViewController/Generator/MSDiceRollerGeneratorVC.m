@@ -48,13 +48,15 @@ static int MSRollButtonHeight = 30;
 }
 
 #pragma mark - IBAction
-- (IBAction) generateButtonPressed:(id)sender {
-    [self dismissKeyboard];
-    self.request = [[MSRandomIntegerRequest alloc]initWithCount:[self.numberOfDice.text intValue] min:1 max:6 unique:NO];
-    MSHTTPClient *client = [MSHTTPClient sharedClient];
-    [client setDelegate:self];
-    [client sendRequest:[self.request requestBody]];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+- (IBAction) rollDiceButtonPressed:(id)sender {
+    if ([self.numberOfDice.text intValue] > 6 || [self.numberOfDice.text intValue] == 0) {
+        self.numberOfDice.text = @"";
+        [self showAlertWithMessage:@"Number of dice must bee LESS than 7!"];
+        [self.numberOfDice becomeFirstResponder];
+    } else {
+        [self dismissKeyboard];
+        [self roll];
+    }
 }
 
 - (IBAction)clearButtonPressed:(id)sender {
@@ -64,13 +66,74 @@ static int MSRollButtonHeight = 30;
 
 - (IBAction)infoButtonPressed:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Dice Roller"
-                                                    message:@"This form allows you to generate random integers. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
+                                                    message:@"This form allows you to roll virtual dice. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
 }
 
+- (IBAction)editingChanged {
+    if ([self.numberOfDice.text length] != 0) {
+        [self.rollDiceButton setEnabled:YES];
+    }
+    else {
+        [self.rollDiceButton setEnabled:NO];
+    }
+}
+
+#pragma mark - MSHTTPClient Delegate
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    self.response = [[MSRandomResponse alloc]init];
+    [self.response parseResponseFromData:responseObject];
+    if (!self.response.error) {
+        [self performSegueWithIdentifier:@"ShowDiceRollerResult" sender:nil];
+        NSLog(@"Result: %@", self.response.data);
+    } else {
+        [self showAlertWithMessage:[self.response parseError]];
+    }
+}
+
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
+}
+
+#pragma mark - UITextFiled Delegate
+- (void)textFieldDidBeginEditing:(UITextField *)sender {
+    self.activeField = sender;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)sender {
+    self.activeField = nil;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (!string.length) {
+        return YES;
+    }
+    
+    if (textField.keyboardType == UIKeyboardTypeNumberPad) {
+        if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                            message:@"This field accepts only numeric entries!"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
+    }
+
+    NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (updatedText.length > 1) {
+        [self showAlertForTextFieldWithNumber:1];
+        return NO;
+    }
+    return YES;
+}
 
 
 #pragma mark - Keyboard Methods
@@ -78,8 +141,7 @@ static int MSRollButtonHeight = 30;
     [self.view endEditing:YES];
 }
 
-- (void)keyboardDidShow:(NSNotification *)notification
-{
+- (void)keyboardDidShow:(NSNotification *)notification {
     NSDictionary* info = [notification userInfo];
     CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     kbRect = [self.view convertRect:kbRect fromView:nil];
@@ -95,8 +157,7 @@ static int MSRollButtonHeight = 30;
     }
 }
 
-- (void)keyboardWillBeHidden:(NSNotification *)notification
-{
+- (void)keyboardWillBeHidden:(NSNotification *)notification {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
@@ -136,6 +197,34 @@ static int MSRollButtonHeight = 30;
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+}
+
+#pragma mark - Helper Methods
+- (void) showAlertForTextFieldWithNumber:(NSInteger)number {
+    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) showAlertWithMessage:(NSString*)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) roll {
+    self.request = [[MSRandomIntegerRequest alloc]initWithCount:[self.numberOfDice.text intValue] min:1 max:6 unique:NO];
+    MSHTTPClient *client = [MSHTTPClient sharedClient];
+    [client setDelegate:self];
+    [client sendRequest:[self.request requestBody]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 

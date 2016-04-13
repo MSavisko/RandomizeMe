@@ -61,6 +61,7 @@ static int MSGenerateButtonHeight = 30;
             [self showAlertWithMessage:@"Characters length must bee MORE than 5!"];
             [self.charactersLength becomeFirstResponder];
         } else {
+            [self dismissKeyboard];
             [self generate];
         }
     }
@@ -106,7 +107,6 @@ static int MSGenerateButtonHeight = 30;
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
         [self performSegueWithIdentifier:@"ShowPasswordsResult" sender:nil];
-        NSLog(@"Result: %@", self.response.data);
     } else {
         [self showAlertWithMessage:[self.response parseError]];
     }
