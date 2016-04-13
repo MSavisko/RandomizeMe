@@ -51,11 +51,26 @@ static int MSGenerateButtonHeight = 30;
 #pragma mark - IBAction
 - (IBAction)generateButtonPressed:(id)sender {
     [self dismissKeyboard];
-    self.request = [[MSRandomStringsRequest alloc]initWithCount:[self.numberOfPasswords.text intValue] length:[self.charactersLength.text intValue] forCharacters:[self allowedCharacters] unique:NO];
-    MSHTTPClient *client = [MSHTTPClient sharedClient];
-    [client setDelegate:self];
-    [client sendRequest: [self.request requestBody]];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    if ([self.numberOfPasswords.text intValue] > 100) {
+        self.numberOfPasswords.text = @"";
+        [self showAlertWithMessage:@"Number of passwords must bee LESS than 100!"];
+    }
+    else if (self.charactersLength.text.length == 1) {
+        if ([self.charactersLength.text intValue] < 6) {
+            self.charactersLength.text = @"";
+            [self showAlertWithMessage:@"Characters length must bee MORE than 5!"];
+        } else {
+            [self generate];
+        }
+    }
+    else if ([self.charactersLength.text intValue] > 20) {
+        self.charactersLength.text = @"";
+        [self showAlertWithMessage:@"Characters length must bee LESS than 20!"];
+    }
+    else {
+        [self generate];
+    }
 }
 
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
@@ -237,6 +252,14 @@ static int MSGenerateButtonHeight = 30;
 - (NSString*) allowedCharacters {
     NSString *characters = @"23456789abcdefghjkmnprstuxyzABCDEFGHJKMNPRSTUXYZ";
     return characters;
+}
+
+- (void) generate {
+    self.request = [[MSRandomStringsRequest alloc]initWithCount:[self.numberOfPasswords.text intValue] length:[self.charactersLength.text intValue] forCharacters:[self allowedCharacters] unique:NO];
+    MSHTTPClient *client = [MSHTTPClient sharedClient];
+    [client setDelegate:self];
+    [client sendRequest: [self.request requestBody]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 @end
