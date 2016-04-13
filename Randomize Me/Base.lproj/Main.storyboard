@@ -230,14 +230,6 @@
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLY-Ya-1Tp">
-                                                        <rect key="frame" x="191" y="4" width="59" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
-                                                        <connections>
-                                                            <action selector="editingChanged" destination="etQ-4Q-RvU" eventType="editingChanged" id="PY6-a0-Bjq"/>
-                                                        </connections>
-                                                    </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6 - 20" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPO-aH-YzC">
                                                         <rect key="frame" x="186" y="42" width="64" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -260,6 +252,14 @@
                                                             <action selector="generateButtonPressed:" destination="etQ-4Q-RvU" eventType="touchUpInside" id="sQ6-sg-nq2"/>
                                                         </connections>
                                                     </button>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLY-Ya-1Tp">
+                                                        <rect key="frame" x="188" y="4" width="59" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="editingChanged" destination="etQ-4Q-RvU" eventType="editingChanged" id="PY6-a0-Bjq"/>
+                                                        </connections>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -619,8 +619,26 @@
                     <view key="view" contentMode="scaleToFill" id="Gos-9E-xjK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LAI-5r-t1b">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="Irs-oh-2VA"/>
+                                    <barButtonItem image="trash button" id="d9V-sW-Wb6"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Jmp-6Z-a7a"/>
+                                    <barButtonItem image="save button" id="Mf2-xD-LZL"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="o1t-WL-daX"/>
+                                    <barButtonItem image="info button" id="qIz-59-5h5"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="6nD-vz-S1F"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Result" id="ZhN-Lo-Lwq">
+                        <barButtonItem key="backBarButtonItem" title=" " id="0oz-kF-ceR"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="cfK-0a-VHK"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OuK-Dv-xe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Randomize Me/ViewController/Generator/MSPasswordsGeneratorVC.m"
-            timestampString = "482236104.87386"
+            timestampString = "482236442.649005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-textFieldDidEndEditing:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Randomize Me/ViewController/Generator/MSPasswordsGeneratorVC.m"
-            timestampString = "482235527.024499"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-generateButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -58,11 +58,7 @@ static int MSGenerateButtonHeight = 27;
     if ([self allowedCharacters].length == 0) {
         [self showAlertWithMessage:@"All switch parameters are OFF. Please, switch ON one or more characters parameters."];
     } else {
-        self.request = [[MSRandomStringsRequest alloc]initWithCount:[self.numberOfStrings.text intValue] length:[self.charactersLength.text integerValue] forCharacters:[self allowedCharacters] unique:NO];
-        MSHTTPClient *client = [MSHTTPClient sharedClient];
-        [client setDelegate:self];
-        [client sendRequest: [self.request requestBody]];
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self generate];
     }
 }
 
@@ -225,7 +221,7 @@ static int MSGenerateButtonHeight = 27;
                                                object:nil];
 }
 
-#pragma mark - Helper Methods
+#pragma mark - Alert Methods
 - (void) showAlertForTextFieldWithNumber:(NSInteger)number {
     NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
@@ -245,6 +241,7 @@ static int MSGenerateButtonHeight = 27;
     [alert show];
 }
 
+#pragma mark - Helper Methods
 - (NSString*) allowedCharacters {
     NSMutableString *characters = [NSMutableString stringWithFormat:@""];
     if (self.uppercaseSwitch.isOn) {
@@ -257,6 +254,14 @@ static int MSGenerateButtonHeight = 27;
         [characters appendString:@"0123456789"];
     }
     return characters;
+}
+
+- (void) generate {
+    self.request = [[MSRandomStringsRequest alloc]initWithCount:[self.numberOfStrings.text intValue] length:[self.charactersLength.text integerValue] forCharacters:[self allowedCharacters] unique:NO];
+    MSHTTPClient *client = [MSHTTPClient sharedClient];
+    [client setDelegate:self];
+    [client sendRequest: [self.request requestBody]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 @end

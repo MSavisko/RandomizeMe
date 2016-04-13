@@ -51,7 +51,6 @@ static int MSGenerateButtonHeight = 30;
 #pragma mark - IBAction
 - (IBAction)generateButtonPressed:(id)sender {
     [self dismissKeyboard];
-    
     if ([self.numberOfPasswords.text intValue] > 100) {
         self.numberOfPasswords.text = @"";
         [self showAlertWithMessage:@"Number of passwords must bee LESS than 100!"];
@@ -229,7 +228,7 @@ static int MSGenerateButtonHeight = 30;
                                                object:nil];
 }
 
-#pragma mark - Helper Methods
+#pragma mark - Alert Methods
 - (void) showAlertForTextFieldWithNumber:(NSInteger)number {
     NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
@@ -249,6 +248,7 @@ static int MSGenerateButtonHeight = 30;
     [alert show];
 }
 
+#pragma mark - Helper Methods
 - (NSString*) allowedCharacters {
     NSString *characters = @"23456789abcdefghjkmnprstuxyzABCDEFGHJKMNPRSTUXYZ";
     return characters;
