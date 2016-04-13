@@ -1,12 +1,12 @@
 //
-//  MSIntegerResultVC.m
+//  MSStringsResultVC.m
 //  Randomize Me
 //
-//  Created by Maksym Savisko on 4/2/16.
+//  Created by Maksym Savisko on 4/12/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSIntegerResultVC.h"
+#import "MSStringsResultVC.h"
 #import "SWRevealViewController.h"
 
 #import "MBProgressHUD.h"
@@ -16,8 +16,7 @@
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import <VK-ios-sdk/VKSdk.h>
 
-
-@interface MSIntegerResultVC () <UIActionSheetDelegate, UIAlertViewDelegate, VKSdkUIDelegate>
+@interface MSStringsResultVC () <UIActionSheetDelegate, UIAlertViewDelegate, VKSdkUIDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
@@ -26,22 +25,20 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @end
 
-@implementation MSIntegerResultVC
+@implementation MSStringsResultVC
 
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardByTap];
     [self setupVkDelegate];
-    //[self.trashButton setEnabled:NO];
-    //[self.trashButton setTintColor:[UIColor clearColor]];
     self.resultTextView.text = [self stringResult];
     self.timestampLabel.text = [self stringComplitionTime];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setupMenuBar]; //Because when back from second view, pan guesture for menu bar must work
+    [self setupMenuBar];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -74,7 +71,7 @@
 - (IBAction)infoButtonPressed:(id)sender {
     NSString *message = [NSString stringWithFormat:@"Serial: %ld\nCompletion Time: %@\n", (long)self.response.serialNumber, [self stringComplitionTime]];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Integer Generation"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Strings Generation"
                                                     message:message
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
@@ -94,7 +91,7 @@
 
 - (IBAction)copyingButtonPressed:(id)sender {
     UIActionSheet *copyingActionSheet = [[UIActionSheet alloc]initWithTitle:nil
-                                                                 delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Result to clipboard", @"Copy All to clipboard", nil];
+                                                                   delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Result to clipboard", @"Copy All to clipboard", nil];
     copyingActionSheet.tag = 200;
     [copyingActionSheet showInView:self.view];
 }
@@ -111,7 +108,7 @@
             NSArray *scope = @[VK_PER_WALL];
             [VKSdk wakeUpSession:scope completeBlock:^(VKAuthorizationState state, NSError *error) {
                 if (state == VKAuthorizationAuthorized) {
-                                [self shareWithVkontakte];
+                    [self shareWithVkontakte];
                 } else if (error) {
                     [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
                 }
@@ -205,12 +202,12 @@
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = [self stringResultForShare];
     NSURL *contentURL = [[NSURL alloc] initWithString:
-                         @"https://www.random.org/integers/"];
+                         @"https://www.random.org/strings/"];
     
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc]init];
     content.contentURL = contentURL;
     content.imageURL = nil;
-    content.contentDescription = @"Integer Generation result by Randomize Me";
+    content.contentDescription = @"Strings Generation result by Randomize Me";
     
     [FBSDKShareDialog showFromViewController:self
                                  withContent:content
@@ -220,7 +217,7 @@
 - (void) shareWithVkontakte {
     VKShareDialogController *shareDialog = [VKShareDialogController new];
     shareDialog.text = [self stringResultForShare];
-    shareDialog.shareLink = [[VKShareLink alloc] initWithTitle:@"Full Result of Integer Generation" link:[NSURL URLWithString:@"https://www.random.org/integers/"]];
+    shareDialog.shareLink = [[VKShareLink alloc] initWithTitle:@"Full Result of Strings Generation" link:[NSURL URLWithString:@"https://www.random.org/strings/"]];
     [shareDialog setCompletionHandler:^(VKShareDialogController *dialog, VKShareDialogControllerResult result) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
@@ -232,7 +229,7 @@
     {
         SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweet setInitialText:[self stringResult]];
-        [tweet addURL:[NSURL URLWithString:@"https://www.random.org/integers/"]];
+        [tweet addURL:[NSURL URLWithString:@"https://www.random.org/strings/"]];
         [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
          {
              if (result == SLComposeViewControllerResultCancelled)
@@ -287,7 +284,7 @@
     });
 }
 
-#pragma mark - Helper Methods
+#pragma mark - Alert Methods
 - (void) showAlertWithMessage:(NSString*)message tag:(NSInteger)tag {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
                                                     message:message
@@ -300,8 +297,15 @@
 
 #pragma mark - Presentation Data Method
 - (NSString*) stringResult {
-    NSString *result = [[self.response.data valueForKey:@"description"] componentsJoinedByString:@" "];
-    return result;
+    NSString *exampleResult = [NSString stringWithFormat:@"%@", self.response.data.firstObject];
+    if (exampleResult.length > 4) {
+        NSString *result = [[self.response.data valueForKey:@"description"] componentsJoinedByString:@"\n"];
+        return result;
+    }
+    else {
+        NSString *result = [[self.response.data valueForKey:@"description"] componentsJoinedByString:@" "];
+        return result;
+    }
 }
 
 - (NSString*) stringComplitionTime {
@@ -309,27 +313,23 @@
 }
 
 - (NSString*) stringResultForShare {
-    NSString *resultName = @"Integer Generation";
+    NSString *resultName = @"Strings Generation";
     NSString *forResult = @"Result:";
     NSString *resultData = [self stringResult];
     
     NSString *parametrs = @"Parameters of generation:";
-    NSString *numberOfIntegers = [NSString stringWithFormat:@"Number of integers: %@", self.response.responseBody[@"result"][@"random"][@"n"]];
+    NSString *numberOfStrings = [NSString stringWithFormat:@"Number of Strings: %@", self.response.responseBody[@"result"][@"random"][@"n"]];
     
-    NSString *minValue = [NSString stringWithFormat:@"Minimum value: %@", self.response.responseBody[@"result"][@"random"][@"min"]];
-    NSString *maxValue = [NSString stringWithFormat:@"Maximum value: %@", self.response.responseBody[@"result"][@"random"][@"max"]];
+    NSString *length = [NSString stringWithFormat:@"Length: %@", self.response.responseBody[@"result"][@"random"][@"length"]];
+    NSString *characters = [NSString stringWithFormat:@"Allowed characters: %@", self.response.responseBody[@"result"][@"random"][@"characters"]];
     
-    NSString *mutableReplacement = [NSString stringWithFormat:@"Unique integers: YES"];
-    NSString *replacement = [NSString stringWithFormat:@"%@", self.response.responseBody[@"result"][@"random"][@"replacement"]];
-    if ([replacement isEqualToString:@"1"]) {
-        mutableReplacement = @"Unique integers: NO";
-    }
+    NSString *replacement = @"Unique Strings: NO";
     NSString *individualInformation = @"Individual information of generation:";
     NSString *completionTime = [NSString stringWithFormat:@"Completion time (UTC+0): %@", [self stringComplitionTime]];
     NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %ld", (long)self.response.serialNumber];
     NSString *signature = [NSString stringWithFormat:@"Signature: %@", self.response.signature];
     
-    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, maxValue, mutableReplacement, individualInformation, completionTime, serialNumber, signature];
+    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfStrings, length, characters, replacement, individualInformation, completionTime, serialNumber, signature];
     
     return result;
 }

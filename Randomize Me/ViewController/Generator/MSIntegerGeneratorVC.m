@@ -10,12 +10,9 @@
 #import "MSIntegerResultVC.h"
 #import "SWRevealViewController.h"
 #import "MSRandomIntegerRequest.h"
-
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
 #import "MBProgressHUD.h"
-
-#import "MSRandomIntegerRequest.h"
 
 @interface MSIntegerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -46,7 +43,7 @@ static int MSGenerateButtonHeight = 40;
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setupMenuBar]; //Because when back from second view, pan guesture menu not work
+    [self setupMenuBar];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -56,27 +53,27 @@ static int MSGenerateButtonHeight = 40;
 
 #pragma mark - IBAction
 - (IBAction) generateButtonPressed:(id)sender {
-    //Test new Model
-    
- 
     [self dismissKeyboard];
     self.request = [[MSRandomIntegerRequest alloc]initWithCount:[self.numberOfIntegers.text intValue] min:[self.minValue.text intValue] max:[self.maxValue.text intValue] unique:YES];
-    if (self.replacementSwitch.isOn) {
-        [self.request setReplacement:NO];
-    };
+    if (!self.replacementSwitch.isOn) {
+        [self.request setReplacement:YES];
+    }
     MSHTTPClient *client = [MSHTTPClient sharedClient];
     [client setDelegate:self];
-    [client sendRequestToRandomOrgWithParameters:[self.request requestBody]];
+    [client sendRequest:[self.request requestBody]];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
+
 - (IBAction)clearButtonPressed:(id)sender {
     self.numberOfIntegers.text = @"";
     self.minValue.text = @"";
     self.maxValue.text = @"";
     [self.replacementSwitch setOn:NO animated:YES];
+    [self.generateButton setEnabled:NO];
 }
+
 - (IBAction)infoButtonPressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Integer Generation"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Integer Generator"
                                                     message:@"This form allows you to generate random integers. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
@@ -107,17 +104,15 @@ static int MSGenerateButtonHeight = 40;
 
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    NSLog(@"%@", error);
+    [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
 #pragma mark - UITextFiled Delegate
-- (void)textFieldDidBeginEditing:(UITextField *)sender
-{
+- (void)textFieldDidBeginEditing:(UITextField *)sender {
     self.activeField = sender;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)sender
-{
+- (void)textFieldDidEndEditing:(UITextField *)sender {
     self.activeField = nil;
 }
 
@@ -236,7 +231,7 @@ static int MSGenerateButtonHeight = 40;
 
 #pragma mark - Helper Methods
 - (void) showAlertForTextFieldWithNumber:(NSInteger)number {
-    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %d numbers!", number];
+    NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
                                                     message:message
                                                    delegate:self

@@ -62,57 +62,5 @@
     }
 }
 
-#pragma mark - Make String for represent
-- (NSString*) makeStringWithSpaceFromIntegerData {
-        NSString *result = [[self.data valueForKey:@"description"] componentsJoinedByString:@" "];
-        return result;
-}
-
-- (NSString*) makeStringWithSpaceFromDecimalDataWithNumber: (NSInteger)number {
-        NSMutableString *mutableResult = [[NSMutableString alloc]init];
-        for (NSInteger i=0; i < self.data.count; i++) {
-            NSNumber *elementNumber = self.data[i];
-            
-            //Rounding, because of some double much longer than other
-            NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-            [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-            [formatter setMaximumFractionDigits:number];
-            [formatter setRoundingMode: NSNumberFormatterRoundUp];
-            NSString *numberString = [formatter stringFromNumber:elementNumber];
-            
-            //Appending, because we need space between result number
-            [mutableResult appendString:[NSString stringWithFormat:@"%@ ", numberString]];
-        }
-        return mutableResult;
-}
-
-- (NSString*) makeStringComplitionTime {
-    return [self.completionTime substringToIndex:self.completionTime.length-1];
-}
-
-#pragma mark - Make String for Share
-- (NSString*) makeStringFromAllIntegerData {
-    NSString *resultName = @"Integer Generation";
-    NSString *forResult = @"Result:";
-    NSString *resultData = [self makeStringWithSpaceFromIntegerData];
-    
-    NSString *parametrs = @"Parameters of generation:";
-    NSString *numberOfIntegers = [NSString stringWithFormat:@"Number of integers: %@", self.responseBody[@"result"][@"random"][@"n"]];
-    
-    NSString *minValue = [NSString stringWithFormat:@"Minimum value: %@", self.responseBody[@"result"][@"random"][@"min"]];
-    NSString *maxValue = [NSString stringWithFormat:@"Maximum value: %@", self.responseBody[@"result"][@"random"][@"max"]];
-    
-    NSString *replacement = [NSString stringWithFormat:@"Unique integers: %@", self.responseBody[@"result"][@"random"][@"replacement"]];
-    
-    NSString *individualInformation = @"Individual information of generation:";
-    NSString *completionTime = [NSString stringWithFormat:@"Completion time (UTC+0): %@", [self makeStringComplitionTime]];
-    NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %ld", (long)self.serialNumber];
-    NSString *signature = [NSString stringWithFormat:@"Signature: %@", self.signature];
-    
-    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfIntegers, minValue, maxValue, replacement, individualInformation, completionTime, serialNumber, signature];
-    
-    return result;
-}
-
 
 @end

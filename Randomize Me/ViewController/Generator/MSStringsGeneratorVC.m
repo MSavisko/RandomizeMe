@@ -1,33 +1,37 @@
 //
-//  MSDecimalGeneratorVC.m
+//  MSStringsGeneratorVC.m
 //  Randomize Me
 //
-//  Created by Maksym Savisko on 4/6/16.
+//  Created by Maksym Savisko on 4/12/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSDecimalGeneratorVC.h"
-#import "MSDecimalResultVC.h"
+#import "MSStringsGeneratorVC.h"
+#import "MSStringsResultVC.h"
 #import "SWRevealViewController.h"
-#import "MSRandomDecimalRequest.h"
+#import "MSRandomStringsRequest.h"
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
 #import "MBProgressHUD.h"
 
-@interface MSDecimalGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
-@property (weak, nonatomic) IBOutlet UIButton *generateButton;
-@property (weak, nonatomic) IBOutlet UITextField *numberOfDecimals;
-@property (weak, nonatomic) IBOutlet UITextField *decimalPlaces;
-@property (weak, nonatomic) UITextField *activeField;
+@interface MSStringsGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) MSRandomDecimalRequest *request;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UITextField *numberOfStrings;
+@property (weak, nonatomic) IBOutlet UITextField *charactersLength;
+@property (weak, nonatomic) UITextField *activeField;
+@property (weak, nonatomic) IBOutlet UISwitch *digitsSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *uppercaseSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *lowercaseSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *generateButton;
+@property (strong, nonatomic) MSRandomStringsRequest *request;
 @property (strong, nonatomic) MSRandomResponse *response;
+
 @end
 
-@implementation MSDecimalGeneratorVC
+@implementation MSStringsGeneratorVC
 
-static int MSGenerateButtonHeight = 30;
+static int MSGenerateButtonHeight = 27;
 
 #pragma mark - UIViewController
 - (void) viewDidLoad {
@@ -44,30 +48,32 @@ static int MSGenerateButtonHeight = 30;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    MSDecimalResultVC *resultVC = segue.destinationViewController;
+    MSStringsResultVC *resultVC = segue.destinationViewController;
     resultVC.response = self.response;
-    resultVC.decimalPlaces = self.request.decimalPlaces;
 }
 
 #pragma mark - IBAction
 - (IBAction)generateButtonPressed:(id)sender {
     [self dismissKeyboard];
-    self.request = [[MSRandomDecimalRequest alloc]initWithCount:[self.numberOfDecimals.text intValue] andDecimalPlaces:[self.decimalPlaces.text intValue]];
-    MSHTTPClient *client = [MSHTTPClient sharedClient];
-    [client setDelegate:self];
-    [client sendRequest: [self.request requestBody]];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if ([self allowedCharacters].length == 0) {
+        [self showAlertWithMessage:@"All switch parameters are OFF. Please, switch ON one or more characters parameters."];
+    } else {
+        [self generate];
+    }
 }
 
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
-    self.numberOfDecimals.text = @"";
-    self.decimalPlaces.text = @"";
+    self.numberOfStrings.text = @"";
+    self.charactersLength.text = @"";
+    [self.digitsSwitch setOn:YES animated:YES];
+    [self.lowercaseSwitch setOn:NO animated:YES];
+    [self.uppercaseSwitch setOn:NO animated:YES];
     [self.generateButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Decimal Generator"
-                                                    message:@"This form allows you to generate random decimal fractions in the [0,1] interval. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Strings Generator"
+                                                    message:@"This form allows you to generate random text strings. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
@@ -75,7 +81,7 @@ static int MSGenerateButtonHeight = 30;
 }
 
 - (IBAction)editingChanged {
-    if ([self.numberOfDecimals.text length] != 0 && [self.decimalPlaces.text length] != 0) {
+    if ([self.numberOfStrings.text length] != 0 && [self.charactersLength.text length] != 0) {
         [self.generateButton setEnabled:YES];
     }
     else {
@@ -89,7 +95,8 @@ static int MSGenerateButtonHeight = 30;
     self.response = [[MSRandomResponse alloc]init];
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
-        [self performSegueWithIdentifier:@"ShowDecimalResult" sender:nil];
+        [self performSegueWithIdentifier:@"ShowStringsResult" sender:nil];
+        NSLog(@"Result: %@", self.response.data);
     } else {
         [self showAlertWithMessage:[self.response parseError]];
     }
@@ -99,7 +106,6 @@ static int MSGenerateButtonHeight = 30;
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
-
 
 #pragma mark - UITextFiled Delegate
 - (void)textFieldDidBeginEditing:(UITextField *)sender {
@@ -128,7 +134,7 @@ static int MSGenerateButtonHeight = 30;
     
     NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    if (self.activeField == self.numberOfDecimals) {
+    if (self.activeField == self.numberOfStrings) {
         if (updatedText.length > 5)
         {
             if (string.length > 1)
@@ -199,8 +205,8 @@ static int MSGenerateButtonHeight = 30;
 }
 
 - (void) setTextFieldDelegate {
-    self.numberOfDecimals.delegate = self;
-    self.decimalPlaces.delegate = self;
+    self.numberOfStrings.delegate = self;
+    self.charactersLength.delegate = self;
 }
 
 - (void) setKeyboardNotification {
@@ -215,7 +221,7 @@ static int MSGenerateButtonHeight = 30;
                                                object:nil];
 }
 
-#pragma mark - Helper Methods
+#pragma mark - Alert Methods
 - (void) showAlertForTextFieldWithNumber:(NSInteger)number {
     NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
@@ -235,5 +241,27 @@ static int MSGenerateButtonHeight = 30;
     [alert show];
 }
 
+#pragma mark - Helper Methods
+- (NSString*) allowedCharacters {
+    NSMutableString *characters = [NSMutableString stringWithFormat:@""];
+    if (self.uppercaseSwitch.isOn) {
+        [characters appendString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+    }
+    if (self.lowercaseSwitch.isOn) {
+        [characters appendString:@"abcdefghijklmnopqrstuvwxyz"];
+    }
+    if (self.digitsSwitch.isOn) {
+        [characters appendString:@"0123456789"];
+    }
+    return characters;
+}
+
+- (void) generate {
+    self.request = [[MSRandomStringsRequest alloc]initWithCount:[self.numberOfStrings.text intValue] length:[self.charactersLength.text integerValue] forCharacters:[self allowedCharacters] unique:NO];
+    MSHTTPClient *client = [MSHTTPClient sharedClient];
+    [client setDelegate:self];
+    [client sendRequest: [self.request requestBody]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
 
 @end

@@ -1,8 +1,8 @@
 //
-//  MSDecimalResultVC.h
+//  MSPasswordsResultVC.h
 //  Randomize Me
 //
-//  Created by Maksym Savisko on 4/8/16.
+//  Created by Maksym Savisko on 4/13/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
@@ -10,8 +10,7 @@
 #import "MSRandomResponse.h"
 #import <VK-ios-sdk/VKSdk.h>
 
-@interface MSDecimalResultVC : UIViewController <VKSdkDelegate>
+@interface MSPasswordsResultVC : UIViewController <VKSdkDelegate>
 @property (strong, nonatomic) MSRandomResponse *response;
-@property (nonatomic) NSInteger decimalPlaces;
 
 @end

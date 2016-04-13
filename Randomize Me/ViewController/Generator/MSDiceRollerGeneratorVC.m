@@ -1,33 +1,32 @@
 //
-//  MSDecimalGeneratorVC.m
+//  MSDiceRollerGeneratorVC.m
 //  Randomize Me
 //
-//  Created by Maksym Savisko on 4/6/16.
+//  Created by Maksym Savisko on 4/13/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSDecimalGeneratorVC.h"
-#import "MSDecimalResultVC.h"
+#import "MSDiceRollerGeneratorVC.h"
+#import "MSDiceRollerResultVC.h"
 #import "SWRevealViewController.h"
-#import "MSRandomDecimalRequest.h"
+#import "MSRandomIntegerRequest.h"
 #import "MSRandomResponse.h"
 #import "MSHTTPClient.h"
 #import "MBProgressHUD.h"
 
-@interface MSDecimalGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
-@property (weak, nonatomic) IBOutlet UIButton *generateButton;
-@property (weak, nonatomic) IBOutlet UITextField *numberOfDecimals;
-@property (weak, nonatomic) IBOutlet UITextField *decimalPlaces;
-@property (weak, nonatomic) UITextField *activeField;
+@interface MSDiceRollerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) MSRandomDecimalRequest *request;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UITextField *numberOfDice;
+@property (weak, nonatomic) UITextField *activeField;
+@property (weak, nonatomic) IBOutlet UIButton *rollDiceButton;
+@property (strong, nonatomic) MSRandomIntegerRequest *request;
 @property (strong, nonatomic) MSRandomResponse *response;
 @end
 
-@implementation MSDecimalGeneratorVC
+@implementation MSDiceRollerGeneratorVC
 
-static int MSGenerateButtonHeight = 30;
+static int MSRollButtonHeight = 30;
 
 #pragma mark - UIViewController
 - (void) viewDidLoad {
@@ -35,7 +34,7 @@ static int MSGenerateButtonHeight = 30;
     [self hideKeyboardByTap];
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
-    [self.generateButton setEnabled:NO];
+    [self.rollDiceButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -44,30 +43,30 @@ static int MSGenerateButtonHeight = 30;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    MSDecimalResultVC *resultVC = segue.destinationViewController;
+    MSDiceRollerResultVC *resultVC = segue.destinationViewController;
     resultVC.response = self.response;
-    resultVC.decimalPlaces = self.request.decimalPlaces;
 }
 
 #pragma mark - IBAction
-- (IBAction)generateButtonPressed:(id)sender {
-    [self dismissKeyboard];
-    self.request = [[MSRandomDecimalRequest alloc]initWithCount:[self.numberOfDecimals.text intValue] andDecimalPlaces:[self.decimalPlaces.text intValue]];
-    MSHTTPClient *client = [MSHTTPClient sharedClient];
-    [client setDelegate:self];
-    [client sendRequest: [self.request requestBody]];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+- (IBAction) rollDiceButtonPressed:(id)sender {
+    if ([self.numberOfDice.text intValue] > 6 || [self.numberOfDice.text intValue] == 0) {
+        self.numberOfDice.text = @"";
+        [self showAlertWithMessage:@"Number of dice must bee LESS than 7!"];
+        [self.numberOfDice becomeFirstResponder];
+    } else {
+        [self dismissKeyboard];
+        [self roll];
+    }
 }
 
-- (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
-    self.numberOfDecimals.text = @"";
-    self.decimalPlaces.text = @"";
-    [self.generateButton setEnabled:NO];
+- (IBAction)clearButtonPressed:(id)sender {
+    self.numberOfDice.text = @"";
+    [self.rollDiceButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Decimal Generator"
-                                                    message:@"This form allows you to generate random decimal fractions in the [0,1] interval. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Dice Roller"
+                                                    message:@"This form allows you to roll virtual dice. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
@@ -75,11 +74,11 @@ static int MSGenerateButtonHeight = 30;
 }
 
 - (IBAction)editingChanged {
-    if ([self.numberOfDecimals.text length] != 0 && [self.decimalPlaces.text length] != 0) {
-        [self.generateButton setEnabled:YES];
+    if ([self.numberOfDice.text length] != 0) {
+        [self.rollDiceButton setEnabled:YES];
     }
     else {
-        [self.generateButton setEnabled:NO];
+        [self.rollDiceButton setEnabled:NO];
     }
 }
 
@@ -89,7 +88,8 @@ static int MSGenerateButtonHeight = 30;
     self.response = [[MSRandomResponse alloc]init];
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
-        [self performSegueWithIdentifier:@"ShowDecimalResult" sender:nil];
+        [self performSegueWithIdentifier:@"ShowDiceRollerResult" sender:nil];
+        NSLog(@"Result: %@", self.response.data);
     } else {
         [self showAlertWithMessage:[self.response parseError]];
     }
@@ -100,7 +100,6 @@ static int MSGenerateButtonHeight = 30;
     [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
-
 #pragma mark - UITextFiled Delegate
 - (void)textFieldDidBeginEditing:(UITextField *)sender {
     self.activeField = sender;
@@ -110,47 +109,32 @@ static int MSGenerateButtonHeight = 30;
     self.activeField = nil;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    if (!string.length)
-    {
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (!string.length) {
         return YES;
     }
     
-    if (textField.keyboardType == UIKeyboardTypeNumberPad)
-    {
-        if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound)
-        {
-            [self showAlertWithMessage:@"This field accepts only numeric entries!"];
+    if (textField.keyboardType == UIKeyboardTypeNumberPad) {
+        if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                            message:@"This field accepts only numeric entries!"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
             return NO;
         }
     }
-    
+
     NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    if (self.activeField == self.numberOfDecimals) {
-        if (updatedText.length > 5)
-        {
-            if (string.length > 1)
-            {
-                [self showAlertForTextFieldWithNumber:5];
-            }
-            [self showAlertForTextFieldWithNumber:5];
-            return NO;
-        }
-    } else {
-        if (updatedText.length > 2)
-        {
-            if (string.length > 1)
-            {
-                [self showAlertForTextFieldWithNumber:2];
-            }
-            [self showAlertForTextFieldWithNumber:2];
-            return NO;
-        }
+    if (updatedText.length > 1) {
+        [self showAlertForTextFieldWithNumber:1];
+        return NO;
     }
     return YES;
 }
+
 
 #pragma mark - Keyboard Methods
 -(void) dismissKeyboard {
@@ -162,7 +146,7 @@ static int MSGenerateButtonHeight = 30;
     CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     kbRect = [self.view convertRect:kbRect fromView:nil];
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + MSGenerateButtonHeight, 0.0);
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + MSRollButtonHeight, 0.0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
     
@@ -199,8 +183,8 @@ static int MSGenerateButtonHeight = 30;
 }
 
 - (void) setTextFieldDelegate {
-    self.numberOfDecimals.delegate = self;
-    self.decimalPlaces.delegate = self;
+    self.numberOfDice.delegate = self;
+
 }
 
 - (void) setKeyboardNotification {
@@ -233,6 +217,14 @@ static int MSGenerateButtonHeight = 30;
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (void) roll {
+    self.request = [[MSRandomIntegerRequest alloc]initWithCount:[self.numberOfDice.text intValue] min:1 max:6 unique:NO];
+    MSHTTPClient *client = [MSHTTPClient sharedClient];
+    [client setDelegate:self];
+    [client sendRequest:[self.request requestBody]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 
