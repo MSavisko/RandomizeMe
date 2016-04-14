@@ -29,6 +29,8 @@
 		928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */; };
 		928F4AE81CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */; };
 		928F4AEB1CBE8FD90049BDE7 /* MSDiceRollerResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AEA1CBE8FD90049BDE7 /* MSDiceRollerResultVC.m */; };
+		928F4AEE1CBFBCA10049BDE7 /* MSCardShufflerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AED1CBFBCA10049BDE7 /* MSCardShufflerGeneratorVC.m */; };
+		928F4AF11CBFBCD60049BDE7 /* MSCardShufflerResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AF01CBFBCD60049BDE7 /* MSCardShufflerResultVC.m */; };
 		92B7B5251C9EC231001BB572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5241C9EC231001BB572 /* main.m */; };
 		92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5271C9EC231001BB572 /* AppDelegate.m */; };
 		92B7B52E1C9EC231001BB572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52C1C9EC231001BB572 /* Main.storyboard */; };
@@ -80,6 +82,10 @@
 		928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDiceRollerGeneratorVC.m; path = ViewController/Generator/MSDiceRollerGeneratorVC.m; sourceTree = "<group>"; };
 		928F4AE91CBE8FD90049BDE7 /* MSDiceRollerResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSDiceRollerResultVC.h; path = ViewController/Result/MSDiceRollerResultVC.h; sourceTree = "<group>"; };
 		928F4AEA1CBE8FD90049BDE7 /* MSDiceRollerResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDiceRollerResultVC.m; path = ViewController/Result/MSDiceRollerResultVC.m; sourceTree = "<group>"; };
+		928F4AEC1CBFBCA10049BDE7 /* MSCardShufflerGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSCardShufflerGeneratorVC.h; path = ViewController/Generator/MSCardShufflerGeneratorVC.h; sourceTree = "<group>"; };
+		928F4AED1CBFBCA10049BDE7 /* MSCardShufflerGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSCardShufflerGeneratorVC.m; path = ViewController/Generator/MSCardShufflerGeneratorVC.m; sourceTree = "<group>"; };
+		928F4AEF1CBFBCD60049BDE7 /* MSCardShufflerResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSCardShufflerResultVC.h; path = ViewController/Result/MSCardShufflerResultVC.h; sourceTree = "<group>"; };
+		928F4AF01CBFBCD60049BDE7 /* MSCardShufflerResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSCardShufflerResultVC.m; path = ViewController/Result/MSCardShufflerResultVC.m; sourceTree = "<group>"; };
 		92B7B5201C9EC231001BB572 /* Randomize Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomize Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B7B5241C9EC231001BB572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92B7B5261C9EC231001BB572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -158,6 +164,8 @@
 				928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */,
 				928F4AE91CBE8FD90049BDE7 /* MSDiceRollerResultVC.h */,
 				928F4AEA1CBE8FD90049BDE7 /* MSDiceRollerResultVC.m */,
+				928F4AEF1CBFBCD60049BDE7 /* MSCardShufflerResultVC.h */,
+				928F4AF01CBFBCD60049BDE7 /* MSCardShufflerResultVC.m */,
 			);
 			name = Result;
 			sourceTree = "<group>";
@@ -175,6 +183,8 @@
 				928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */,
 				928F4AE61CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.h */,
 				928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */,
+				928F4AEC1CBFBCA10049BDE7 /* MSCardShufflerGeneratorVC.h */,
+				928F4AED1CBFBCA10049BDE7 /* MSCardShufflerGeneratorVC.m */,
 			);
 			name = Generator;
 			sourceTree = "<group>";
@@ -405,12 +415,14 @@
 			files = (
 				926AF22A1CB51454006DEF8E /* MSDecimalGeneratorVC.m in Sources */,
 				928F4AEB1CBE8FD90049BDE7 /* MSDiceRollerResultVC.m in Sources */,
+				928F4AF11CBFBCD60049BDE7 /* MSCardShufflerResultVC.m in Sources */,
 				920CDFE91CBC386400971651 /* MSRandomDecimalRequest.m in Sources */,
 				926AF22B1CB51454006DEF8E /* MSIntegerGeneratorVC.m in Sources */,
 				926AF2331CB937C3006DEF8E /* MSRandomResponse.m in Sources */,
 				920CDFE61CBC257300971651 /* MSRandomIntegerRequest.m in Sources */,
 				920CDFF21CBD485700971651 /* MSStringsResultVC.m in Sources */,
 				92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */,
+				928F4AEE1CBFBCA10049BDE7 /* MSCardShufflerGeneratorVC.m in Sources */,
 				920CDFE31CBC1B9900971651 /* MSRandomRequest.m in Sources */,
 				920CDFEF1CBD221D00971651 /* MSStringsGeneratorVC.m in Sources */,
 				928F4AE81CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m in Sources */,

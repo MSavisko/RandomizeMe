@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbk-b7-SrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2136" y="-2277"/>
+            <point key="canvasLocation" x="-2252" y="-2809"/>
         </scene>
         <!--Integer Generator-->
         <scene sceneID="tne-QT-ifu">
@@ -191,6 +191,30 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1152" y="4"/>
+        </scene>
+        <!--Card Shuffler Generator-->
+        <scene sceneID="Inf-ke-rke">
+            <objects>
+                <viewController title="Card Shuffler Generator" id="rfP-PK-k5z" customClass="MSCardShufflerGeneratorVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dRl-jd-uTK"/>
+                        <viewControllerLayoutGuide type="bottom" id="mqR-mE-Rl3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1dU-XP-y2q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Card Shuffler" id="fS9-z6-Ohw">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Lj2-eu-jee"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="pnO-Av-q00" kind="show" identifier="ShowCardShufflerResult" id="EBq-uI-BiK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Stt-9t-wji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160" y="-3853"/>
         </scene>
         <!--Dice Roller Generator-->
         <scene sceneID="IPU-HH-Sz2">
@@ -719,6 +743,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcx-f8-0eH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="-765"/>
+        </scene>
+        <!--Result-->
+        <scene sceneID="uBa-n7-Nkz">
+            <objects>
+                <viewController id="pnO-Av-q00" customClass="MSCardShufflerResultVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QtG-Hg-l82"/>
+                        <viewControllerLayoutGuide type="bottom" id="jlc-nf-m8N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OEl-qC-5Da">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Result" id="sn6-z2-M9c">
+                        <barButtonItem key="backBarButtonItem" title=" " id="0vr-LF-m6e"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50B-cE-pwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2144" y="-3853"/>
         </scene>
         <!--Dice Roller Result-->
         <scene sceneID="e1C-Fd-Jt1">
@@ -1456,6 +1501,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JIF-LI-vak" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="hQn-jh-yve"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="verify" id="hQx-ja-fq6">
                                 <rect key="frame" x="0.0" y="374" width="600" height="44"/>
@@ -1542,7 +1590,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lh4-KF-Zfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1130" y="-2277"/>
+            <point key="canvasLocation" x="-1326" y="-2809"/>
         </scene>
         <!--Decimal NC-->
         <scene sceneID="AUA-fg-BJ3">
@@ -1616,6 +1664,24 @@
             </objects>
             <point key="canvasLocation" x="340" y="-3069"/>
         </scene>
+        <!--Card Shuffler NC-->
+        <scene sceneID="EvS-k0-Voz">
+            <objects>
+                <navigationController title="Card Shuffler NC" automaticallyAdjustsScrollViewInsets="NO" id="JIF-LI-vak" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FP1-FR-0b8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rfP-PK-k5z" kind="relationship" relationship="rootViewController" id="GpC-hZ-saG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CXJ-t8-An4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="-3853"/>
+        </scene>
     </scenes>
     <resources>
         <image name="about menu color " width="29" height="29"/>
@@ -1638,6 +1704,6 @@
         <image name="verify menu color" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s9U-xP-mxe"/>
+        <segue reference="AGh-qr-MhJ"/>
     </inferredMetricsTieBreakers>
 </document>
