@@ -158,6 +158,12 @@ static int MSGenerateButtonHeight = 30;
     if (self.diamondsSwitch.isOn) {
         [characters appendString:@"123456789ABCD"];
     }
+    if (self.clubsSwitch.isOn) {
+        [characters appendString:@"EFGHIJKLMNOPQ"];
+    }
+    if (self.clubsSwitch.isOn) {
+        [characters appendString:@"RS"];
+    }
     return characters;
 }
 
@@ -340,7 +346,7 @@ static int MSGenerateButtonHeight = 30;
     else if ([result isEqualToString:@"R"]) {
         [card addObjectsFromArray:@[@"black_joker", @"Black Joker"]];
     }
-    else if ([result isEqualToString:@"T"]) {
+    else if ([result isEqualToString:@"S"]) {
         [card addObjectsFromArray:@[@"red_joker", @"Red Joker"]];
     }
     return card;
