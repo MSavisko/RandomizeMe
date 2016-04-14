@@ -218,7 +218,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yn9-VJ-1CB">
-                                                <rect key="frame" x="190" y="115" width="220" height="262"/>
+                                                <rect key="frame" x="190" y="131" width="220" height="230"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spades ♠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKU-a8-H5T">
                                                         <rect key="frame" x="8" y="8" width="110" height="21"/>
@@ -253,17 +253,6 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TcO-bJ-L6i">
                                                         <rect key="frame" x="163" y="116" width="51" height="31"/>
                                                     </switch>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of decks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uq-xF-erB">
-                                                        <rect key="frame" x="8" y="203" width="147" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tbt-IP-xbU">
-                                                        <rect key="frame" x="163" y="199" width="49" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
-                                                    </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jokers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5b-e4-3xE">
                                                         <rect key="frame" x="8" y="165" width="51" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -277,14 +266,14 @@
                                                         <rect key="frame" x="163" y="3" width="51" height="31"/>
                                                     </switch>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ph1-Qn-kNw">
-                                                        <rect key="frame" x="80" y="232" width="60" height="30"/>
+                                                        <rect key="frame" x="80" y="192" width="60" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="Draw!"/>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="262" id="9mE-47-jw4"/>
+                                                    <constraint firstAttribute="height" constant="230" id="9mE-47-jw4"/>
                                                     <constraint firstAttribute="width" constant="220" id="PxD-tc-J9t"/>
                                                 </constraints>
                                             </view>
@@ -329,7 +318,6 @@
                         <outlet property="heartsSwitch" destination="QXQ-Vs-TX8" id="6fw-4v-ioH"/>
                         <outlet property="jokersSwitch" destination="rvg-hO-TMw" id="SPc-Pw-DlY"/>
                         <outlet property="menuButtonItem" destination="HJZ-pP-sZS" id="XHL-in-BiN"/>
-                        <outlet property="numberOfDecks" destination="Tbt-IP-xbU" id="YqW-Nl-rmz"/>
                         <outlet property="scrollView" destination="lQB-sC-iuP" id="LFH-mz-hfn"/>
                         <outlet property="spadesSwitch" destination="m0r-ki-rEG" id="Gy9-8G-5bk"/>
                         <segue destination="pnO-Av-q00" kind="show" identifier="ShowCardShufflerResult" id="EBq-uI-BiK"/>

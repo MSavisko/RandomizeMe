@@ -14,7 +14,7 @@
 #import "MSHTTPClient.h"
 #import "MBProgressHUD.h"
 
-@interface MSCardShufflerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
+@interface MSCardShufflerGeneratorVC () <MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
 @property (weak, nonatomic) IBOutlet UISwitch *spadesSwitch;
@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UISwitch *diamondsSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *clubsSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *jokersSwitch;
-@property (weak, nonatomic) IBOutlet UITextField *numberOfDecks;
 @property (weak, nonatomic) UITextField *activeField;
 @property (weak, nonatomic) IBOutlet UIButton *drawButton;
 @property (strong, nonatomic) MSRandomStringsRequest *request;
@@ -37,9 +36,6 @@ static int MSGenerateButtonHeight = 30;
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
-    [self hideKeyboardByTap];
-    [self setTextFieldDelegate];
-    [self setKeyboardNotification];
     [self.drawButton setEnabled:NO];
 }
 
@@ -54,8 +50,7 @@ static int MSGenerateButtonHeight = 30;
 }
 
 #pragma mark - IBAction
-- (IBAction)generateButtonPressed:(id)sender {
-    [self dismissKeyboard];
+- (IBAction) drawButtonPressed:(id)sender {
     if ([self allowedCharacters].length == 0) {
         [self showAlertWithMessage:@"All switch parameters are OFF. Please, switch ON one or more characters parameters."];
     } else {
@@ -63,42 +58,7 @@ static int MSGenerateButtonHeight = 30;
     }
 }
 
-
-#pragma mark - Keyboard Methods
--(void) dismissKeyboard {
-    [self.view endEditing:YES];
-}
-
-- (void)keyboardDidShow:(NSNotification *)notification {
-    NSDictionary* info = [notification userInfo];
-    CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    kbRect = [self.view convertRect:kbRect fromView:nil];
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height + MSGenerateButtonHeight, 0.0);
-    self.scrollView.contentInset = contentInsets;
-    self.scrollView.scrollIndicatorInsets = contentInsets;
-    
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbRect.size.height;
-    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin) ) {
-        [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
-    }
-}
-
-- (void)keyboardWillBeHidden:(NSNotification *)notification {
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.scrollView.contentInset = contentInsets;
-    self.scrollView.scrollIndicatorInsets = contentInsets;
-}
-
 #pragma mark - Setup Methods
-- (void) hideKeyboardByTap {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-}
-
 - (void) setupMenuBar {
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController)
@@ -108,22 +68,6 @@ static int MSGenerateButtonHeight = 30;
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
         [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     }
-}
-
-- (void) setTextFieldDelegate {
-    self.numberOfDecks.delegate = self;
-}
-
-- (void) setKeyboardNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
 }
 
 #pragma mark - Alert Methods

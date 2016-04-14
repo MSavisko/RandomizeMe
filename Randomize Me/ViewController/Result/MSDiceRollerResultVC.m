@@ -300,21 +300,21 @@
         case 1:
             return @"dice1_blue";
             break;
-            
         case 2:
             return @"dice2_blue";
-            
+            break;
         case 3:
             return @"dice3_blue";
-            
+            break;
         case 4:
             return @"dice4_blue";
-            
+            break;
         case 5:
             return @"dice5_blue";
-            
+            break;
         case 6:
             return @"dice6_blue";
+            break;
             
         default:
             break;
@@ -362,7 +362,6 @@
         case 1:
             return @"dice1_small";
             break;
-            
         case 2:
             return @"dice2_small";
             
