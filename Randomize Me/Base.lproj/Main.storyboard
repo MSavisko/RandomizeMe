@@ -203,10 +203,123 @@
                     <view key="view" contentMode="scaleToFill" id="1dU-XP-y2q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyP-Ge-9nV">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="s8V-QV-F8V"/>
+                                    <barButtonItem image="info button" id="zYP-gP-i4T"/>
+                                </items>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQB-sC-iuP">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abY-0l-Fo8" userLabel="Content VIew">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yn9-VJ-1CB">
+                                                <rect key="frame" x="190" y="115" width="220" height="262"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spades ♠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKU-a8-H5T">
+                                                        <rect key="frame" x="8" y="8" width="110" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hearts ♥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3h-BH-032">
+                                                        <rect key="frame" x="8" y="47" width="110" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QXQ-Vs-TX8">
+                                                        <rect key="frame" x="163" y="42" width="51" height="31"/>
+                                                    </switch>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hvb-Z9-EqT">
+                                                        <rect key="frame" x="163" y="81" width="51" height="31"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diamonds ♦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voT-mh-xBb">
+                                                        <rect key="frame" x="8" y="86" width="110" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clubs ♣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Q-Gz-Htg">
+                                                        <rect key="frame" x="8" y="125" width="71" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TcO-bJ-L6i">
+                                                        <rect key="frame" x="163" y="116" width="51" height="31"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of decks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uq-xF-erB">
+                                                        <rect key="frame" x="8" y="203" width="147" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tbt-IP-xbU">
+                                                        <rect key="frame" x="163" y="199" width="49" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jokers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5b-e4-3xE">
+                                                        <rect key="frame" x="8" y="165" width="51" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rvg-hO-TMw">
+                                                        <rect key="frame" x="163" y="160" width="51" height="31"/>
+                                                    </switch>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m0r-ki-rEG">
+                                                        <rect key="frame" x="163" y="3" width="51" height="31"/>
+                                                    </switch>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ph1-Qn-kNw">
+                                                        <rect key="frame" x="80" y="232" width="60" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Draw!"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="262" id="9mE-47-jw4"/>
+                                                    <constraint firstAttribute="width" constant="220" id="PxD-tc-J9t"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Yn9-VJ-1CB" firstAttribute="centerY" secondItem="abY-0l-Fo8" secondAttribute="centerY" id="Wuv-gZ-KWQ"/>
+                                            <constraint firstItem="Yn9-VJ-1CB" firstAttribute="centerX" secondItem="abY-0l-Fo8" secondAttribute="centerX" id="qel-Nt-2je"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="abY-0l-Fo8" firstAttribute="top" secondItem="lQB-sC-iuP" secondAttribute="top" id="Ax8-t9-z3g"/>
+                                    <constraint firstAttribute="trailing" secondItem="abY-0l-Fo8" secondAttribute="trailing" id="AzK-My-KGP"/>
+                                    <constraint firstAttribute="bottom" secondItem="abY-0l-Fo8" secondAttribute="bottom" id="dNA-rI-v6r"/>
+                                    <constraint firstItem="abY-0l-Fo8" firstAttribute="centerY" secondItem="lQB-sC-iuP" secondAttribute="centerY" id="npd-Xa-vke"/>
+                                    <constraint firstItem="abY-0l-Fo8" firstAttribute="leading" secondItem="lQB-sC-iuP" secondAttribute="leading" id="s3f-r7-eYD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GyP-Ge-9nV" secondAttribute="trailing" id="6Vr-jm-GL9"/>
+                            <constraint firstItem="abY-0l-Fo8" firstAttribute="width" secondItem="1dU-XP-y2q" secondAttribute="width" id="Hbc-az-wFr"/>
+                            <constraint firstItem="mqR-mE-Rl3" firstAttribute="top" secondItem="GyP-Ge-9nV" secondAttribute="bottom" id="IdI-4y-fdQ"/>
+                            <constraint firstItem="GyP-Ge-9nV" firstAttribute="top" secondItem="lQB-sC-iuP" secondAttribute="bottom" id="V5L-7z-3y1"/>
+                            <constraint firstItem="lQB-sC-iuP" firstAttribute="top" secondItem="dRl-jd-uTK" secondAttribute="bottom" id="fo9-XK-7WJ"/>
+                            <constraint firstAttribute="trailing" secondItem="lQB-sC-iuP" secondAttribute="trailing" id="pTZ-47-gVM"/>
+                            <constraint firstItem="lQB-sC-iuP" firstAttribute="leading" secondItem="1dU-XP-y2q" secondAttribute="leading" id="vfi-ik-unH"/>
+                            <constraint firstItem="GyP-Ge-9nV" firstAttribute="leading" secondItem="1dU-XP-y2q" secondAttribute="leading" id="xvE-10-uUV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Card Shuffler" id="fS9-z6-Ohw">
                         <barButtonItem key="backBarButtonItem" title=" " id="Lj2-eu-jee"/>
+                        <barButtonItem key="rightBarButtonItem" image="clear button" id="KRe-r6-DE4"/>
                     </navigationItem>
                     <connections>
                         <segue destination="pnO-Av-q00" kind="show" identifier="ShowCardShufflerResult" id="EBq-uI-BiK"/>
@@ -744,10 +857,10 @@
             </objects>
             <point key="canvasLocation" x="1152" y="-765"/>
         </scene>
-        <!--Result-->
+        <!--Card Shuffler Result-->
         <scene sceneID="uBa-n7-Nkz">
             <objects>
-                <viewController id="pnO-Av-q00" customClass="MSCardShufflerResultVC" sceneMemberID="viewController">
+                <viewController title="Card Shuffler Result" id="pnO-Av-q00" customClass="MSCardShufflerResultVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QtG-Hg-l82"/>
                         <viewControllerLayoutGuide type="bottom" id="jlc-nf-m8N"/>
@@ -755,10 +868,30 @@
                     <view key="view" contentMode="scaleToFill" id="OEl-qC-5Da">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uyk-6c-xF8">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="fdf-F2-ET9"/>
+                                    <barButtonItem image="trash button" id="5kA-gM-Nw2"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KXt-iI-OBL"/>
+                                    <barButtonItem image="save button" id="RWm-mu-MRo"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rs7-JF-48u"/>
+                                    <barButtonItem image="info button" id="0iE-js-RN2"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="2WN-bj-hAF"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jlc-nf-m8N" firstAttribute="top" secondItem="Uyk-6c-xF8" secondAttribute="bottom" id="IdX-79-eH7"/>
+                            <constraint firstAttribute="trailing" secondItem="Uyk-6c-xF8" secondAttribute="trailing" id="Jms-vz-cDx"/>
+                            <constraint firstItem="Uyk-6c-xF8" firstAttribute="leading" secondItem="OEl-qC-5Da" secondAttribute="leading" id="eFW-Zx-Hc5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="sn6-z2-M9c">
                         <barButtonItem key="backBarButtonItem" title=" " id="0vr-LF-m6e"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="nER-hp-nFm"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50B-cE-pwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
