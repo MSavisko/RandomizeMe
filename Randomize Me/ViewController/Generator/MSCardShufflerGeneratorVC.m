@@ -153,10 +153,10 @@ static int MSGenerateButtonHeight = 30;
         [characters appendString:@"abcdefghijklm"];
     }
     if (self.heartsSwitch.isOn) {
-        [characters appendString:@"abcdefghijklmnopqrstuvwxyz"];
+        [characters appendString:@"nopqrstuvwxyz"];
     }
-    if (self.digitsSwitch.isOn) {
-        [characters appendString:@"0123456789"];
+    if (self.diamondsSwitch.isOn) {
+        [characters appendString:@"123456789ABCD"];
     }
     return characters;
 }
@@ -220,7 +220,6 @@ static int MSGenerateButtonHeight = 30;
     else if ([result isEqualToString:@"o"]) {
         [card addObjectsFromArray:@[@"3_of_hearts", @"Three of Hearts"]];
     }
-    
     else if ([result isEqualToString:@"p"]) {
         [card addObjectsFromArray:@[@"4_of_hearts", @"Four of Hearts"]];
     }
@@ -255,7 +254,95 @@ static int MSGenerateButtonHeight = 30;
         [card addObjectsFromArray:@[@"queen_of_hearts", @"Queen of Hearts"]];
     }
     
+    //Diamonds
+    else if ([result isEqualToString:@"1"]) {
+        [card addObjectsFromArray:@[@"2_of_diamonds", @"Two of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"2"]) {
+        [card addObjectsFromArray:@[@"3_of_diamonds", @"Three of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"3"]) {
+        [card addObjectsFromArray:@[@"4_of_diamonds", @"Four of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"4"]) {
+        [card addObjectsFromArray:@[@"5_of_diamonds", @"Five of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"5"]) {
+        [card addObjectsFromArray:@[@"6_of_diamonds", @"Six of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"6"]) {
+        [card addObjectsFromArray:@[@"7_of_diamonds", @"Seven of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"7"]) {
+        [card addObjectsFromArray:@[@"8_of_diamonds", @"Eight of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"8"]) {
+        [card addObjectsFromArray:@[@"9_of_diamonds", @"Nine of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"9"]) {
+        [card addObjectsFromArray:@[@"10_of_diamonds", @"Ten of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"A"]) {
+        [card addObjectsFromArray:@[@"ace_of_diamonds", @"Ace of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"B"]) {
+        [card addObjectsFromArray:@[@"jack_of_diamonds", @"Jack of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"C"]) {
+        [card addObjectsFromArray:@[@"king_of_diamonds", @"King of Diamonds"]];
+    }
+    else if ([result isEqualToString:@"D"]) {
+        [card addObjectsFromArray:@[@"queen_of_diamonds", @"Queen of Diamonds"]];
+    }
     
+    //Clubs
+    else if ([result isEqualToString:@"E"]) {
+        [card addObjectsFromArray:@[@"2_of_clubs", @"Two of Clubs"]];
+    }
+    else if ([result isEqualToString:@"F"]) {
+        [card addObjectsFromArray:@[@"3_of_clubs", @"Three of Clubs"]];
+    }
+    else if ([result isEqualToString:@"G"]) {
+        [card addObjectsFromArray:@[@"4_of_clubs", @"Four of Clubs"]];
+    }
+    else if ([result isEqualToString:@"H"]) {
+        [card addObjectsFromArray:@[@"5_of_clubs", @"Five of Clubs"]];
+    }
+    else if ([result isEqualToString:@"I"]) {
+        [card addObjectsFromArray:@[@"6_of_clubs", @"Six of Clubs"]];
+    }
+    else if ([result isEqualToString:@"J"]) {
+        [card addObjectsFromArray:@[@"7_of_clubs", @"Seven of Clubs"]];
+    }
+    else if ([result isEqualToString:@"K"]) {
+        [card addObjectsFromArray:@[@"8_of_clubs", @"Eight of Clubs"]];
+    }
+    else if ([result isEqualToString:@"L"]) {
+        [card addObjectsFromArray:@[@"9_of_clubs", @"Nine of Clubs"]];
+    }
+    else if ([result isEqualToString:@"M"]) {
+        [card addObjectsFromArray:@[@"10_of_clubs", @"Ten of Clubs"]];
+    }
+    else if ([result isEqualToString:@"N"]) {
+        [card addObjectsFromArray:@[@"ace_of_clubs", @"Ace of Clubs"]];
+    }
+    else if ([result isEqualToString:@"O"]) {
+        [card addObjectsFromArray:@[@"jack_of_clubs", @"Jack of Clubs"]];
+    }
+    else if ([result isEqualToString:@"P"]) {
+        [card addObjectsFromArray:@[@"king_of_clubs", @"King of Clubs"]];
+    }
+    else if ([result isEqualToString:@"Q"]) {
+        [card addObjectsFromArray:@[@"queen_of_clubs", @"Queen of Clubs"]];
+    }
+    
+    //Jokers
+    else if ([result isEqualToString:@"R"]) {
+        [card addObjectsFromArray:@[@"black_joker", @"Black Joker"]];
+    }
+    else if ([result isEqualToString:@"T"]) {
+        [card addObjectsFromArray:@[@"red_joker", @"Red Joker"]];
+    }
     return card;
 }
 
