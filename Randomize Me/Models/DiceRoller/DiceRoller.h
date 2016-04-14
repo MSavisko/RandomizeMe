@@ -15,6 +15,7 @@
 
 - (NSArray*) imageSet;
 - (NSArray*) nameSet;
+- (NSArray*) smallImageSet;
 - (void) rollWithResponse:(MSRandomResponse*)response;
 
 @end

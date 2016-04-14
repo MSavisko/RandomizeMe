@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *copyingButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (strong, nonatomic) DiceRoller *roll;
 
 @end
 
@@ -290,55 +291,24 @@
     [alert show];
 }
 
-#pragma mark - Presentation Image Method
-- (NSString*) imageNameFromDice:(NSNumber*)number {
-    int diceNumber = [number intValue];
-    switch (diceNumber) {
-        case 1:
-            return @"dice1_blue";
-            break;
-        case 2:
-            return @"dice2_blue";
-            break;
-        case 3:
-            return @"dice3_blue";
-            break;
-        case 4:
-            return @"dice4_blue";
-            break;
-        case 5:
-            return @"dice5_blue";
-            break;
-        case 6:
-            return @"dice6_blue";
-            break;
-            
-        default:
-            break;
-    }
-    return nil;
-}
-
+#pragma mark - Presentation Method
 - (void) setDiceImage {
-    DiceRoller *roll = [[DiceRoller alloc]init];
-    [roll rollWithResponse:self.response];
-    NSArray *array = [roll imageSet];
-    for (int i = 0; i < array.count; i++) {
-        NSString *imageName = [roll imageSet][i];
+    self.roll = [[DiceRoller alloc]init];
+    [self.roll rollWithResponse:self.response];
+    for (int i = 0; i < [self.roll imageSet].count; i++) {
+        NSString *imageName = [self.roll imageSet][i];
         UIImage *image = [UIImage imageNamed:imageName];
         [self.arrayOfImage[i] setImage:image];
     }
 }
 
-#pragma mark - Presentation Data String Method
 - (NSString*) stringComplitionTime {
     return [self.response.completionTime substringToIndex:self.response.completionTime.length-1];
 }
 
 - (NSString*) stringResult {
-    NSString *result = [[self.response.data valueForKey:@"description"] componentsJoinedByString:@" dice"];
-    NSMutableString *mutableResult = [NSMutableString stringWithFormat:@"dice%@", result];
-    return mutableResult;
+    NSString *result = [[[self.roll nameSet] valueForKey:@"description"] componentsJoinedByString:@" "];
+    return result;
 }
 
 - (NSString*) stringResultForShare {
@@ -356,38 +326,11 @@
 }
 
 #pragma mark - Presentation Share Image Method
-- (NSString*) imageNameForSharedDice:(NSNumber*)number {
-    int diceNumber = [number intValue];
-    switch (diceNumber) {
-        case 1:
-            return @"dice1_small";
-            break;
-        case 2:
-            return @"dice2_small";
-            
-        case 3:
-            return @"dice3_small";
-            
-        case 4:
-            return @"dice4_small";
-            
-        case 5:
-            return @"dice5_small";
-            
-        case 6:
-            return @"dice6_small";
-            
-        default:
-            break;
-    }
-    return nil;
-}
-
 //VK image
 - (NSArray*) imageShareVkontakte {
     NSMutableArray *imageArray = [[NSMutableArray alloc]init];
     for (int i = 0; i < self.response.data.count; i++) {
-        NSString *imageName = [self imageNameForSharedDice:self.response.data[i]];
+        NSString *imageName = [self.roll smallImageSet][i];
         UIImage *image = [UIImage imageNamed:imageName];
         [imageArray addObject:[VKUploadImage uploadImageWithImage:image andParams:[VKImageParameters jpegImageWithQuality:1.0] ]];
     }

@@ -12,7 +12,8 @@
 @property (readonly, nonatomic) NSInteger number;
 @property (readonly, strong, nonatomic) NSString *name;
 @property (readonly, strong, nonatomic) NSString *imageName;
+@property (readonly, strong, nonatomic) NSString *smallImageName;
 
-- (instancetype) initWithName:(NSString*)name number:(NSInteger)number andImageName:(NSString*)imageName;
+- (instancetype) initWithName:(NSString*)name number:(NSInteger)number imageName:(NSString*)imageName smallImageName:(NSString*)smallImageName;
 
 @end

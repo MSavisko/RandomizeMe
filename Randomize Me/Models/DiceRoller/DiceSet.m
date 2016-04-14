@@ -13,12 +13,12 @@
 
 +(NSDictionary *) dicesSet {
     NSDictionary *result = @{
-                            @"1" : @"dice1_blue",
-                            @"2" : @"dice2_blue",
-                            @"3" : @"dice3_blue",
-                            @"4" : @"dice4_blue",
-                            @"5" : @"dice5_blue",
-                            @"6" : @"dice6_blue",
+                            @"1" : @[@"dice1_blue", @"dice1_small"],
+                            @"2" : @[@"dice2_blue", @"dice2_small"],
+                            @"3" : @[@"dice3_blue", @"dice3_small"],
+                            @"4" : @[@"dice4_blue", @"dice4_small"],
+                            @"5" : @[@"dice5_blue", @"dice5_small"],
+                            @"6" : @[@"dice6_blue", @"dice6_small"],
                             };
     return result;
 }
