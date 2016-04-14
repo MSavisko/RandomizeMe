@@ -909,7 +909,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SL6-YS-BUK">
-                                                <rect key="frame" x="190" y="87" width="220" height="319"/>
+                                                <rect key="frame" x="190" y="40" width="220" height="319"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="220" id="CU0-1K-OJH"/>
                                                     <constraint firstAttribute="height" constant="319" id="Jwq-vi-NgC"/>
@@ -919,16 +919,15 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="SL6-YS-BUK" firstAttribute="centerX" secondItem="acQ-ZC-tFW" secondAttribute="centerX" id="4Xv-hy-5HX"/>
-                                            <constraint firstItem="SL6-YS-BUK" firstAttribute="centerY" secondItem="acQ-ZC-tFW" secondAttribute="centerY" id="rQ6-XD-CUA"/>
+                                            <constraint firstAttribute="height" constant="492" id="ge8-Cw-4Jn"/>
+                                            <constraint firstItem="SL6-YS-BUK" firstAttribute="top" secondItem="acQ-ZC-tFW" secondAttribute="top" constant="40" id="xBW-UV-62e"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="acQ-ZC-tFW" firstAttribute="centerX" secondItem="hVq-WV-YBN" secondAttribute="centerX" id="a57-F9-JlK"/>
                                     <constraint firstItem="acQ-ZC-tFW" firstAttribute="top" secondItem="hVq-WV-YBN" secondAttribute="top" id="bOo-qI-Q1l"/>
                                     <constraint firstAttribute="bottom" secondItem="acQ-ZC-tFW" secondAttribute="bottom" id="kGd-Pj-BVy"/>
                                     <constraint firstItem="acQ-ZC-tFW" firstAttribute="leading" secondItem="hVq-WV-YBN" secondAttribute="leading" id="mDU-OL-eAC"/>
-                                    <constraint firstItem="acQ-ZC-tFW" firstAttribute="centerY" secondItem="hVq-WV-YBN" secondAttribute="centerY" id="sEk-OZ-6V6"/>
                                     <constraint firstAttribute="trailing" secondItem="acQ-ZC-tFW" secondAttribute="trailing" id="uAz-Yk-L6y"/>
                                 </constraints>
                             </scrollView>
