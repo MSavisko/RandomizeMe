@@ -25,6 +25,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *sixthImageView;
 @property (strong, nonatomic) NSArray *arrayOfImage;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *copyingButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+
 @end
 
 @implementation MSDiceRollerResultVC
@@ -61,6 +69,124 @@
     self.arrayOfImage = [NSArray arrayWithObjects:self.firstImageView, self.secondImageView, self.thirdImageView, self.fourthImageView, self.fifthImageView, self.sixthImageView, nil];
 }
 
+#pragma mark - IBAction
+- (IBAction)trashButtonPressed:(id)sender {
+    UIPasteboard *pb = [UIPasteboard generalPasteboard];
+    [pb setValue:@"" forPasteboardType:UIPasteboardNameGeneral];
+    [self showDeletingHud];
+    [self hideDeletingHud];
+}
+
+- (IBAction)infoButtonPressed:(id)sender {
+    NSString *message = [NSString stringWithFormat:@"Serial: %ld\nCompletion Time: %@\n", (long)self.response.serialNumber, [self stringComplitionTime]];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Dice Roller"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (IBAction)shareButtonPressed:(id)sender {
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc]initWithTitle:@"What social network you want to use for sharing?"
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"Cancel"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"Facebook", @"Vkontakte", @"Twitter", nil];
+    shareActionSheet.tag = 100;
+    [shareActionSheet showInView:self.view];
+}
+
+- (IBAction)copyingButtonPressed:(id)sender {
+    UIActionSheet *copyingActionSheet = [[UIActionSheet alloc]initWithTitle:nil
+                                                                   delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Result to clipboard", @"Copy All to clipboard", nil];
+    copyingActionSheet.tag = 200;
+    [copyingActionSheet showInView:self.view];
+}
+
+#pragma mark - UIActionSheet Delegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    //Because two action sheet
+    //Share
+    if (actionSheet.tag == 100) {
+        if (buttonIndex == 0) { //Facebook
+            [self showAlertWithMessage:@"All result was copied to clipboard. Use paste for share!" tag:400];
+        }
+        else if (buttonIndex == 1) { //Vkontakte
+            NSArray *scope = @[VK_PER_WALL, VK_PER_PHOTOS];
+            [VKSdk wakeUpSession:scope completeBlock:^(VKAuthorizationState state, NSError *error) {
+                if (state == VKAuthorizationAuthorized) {
+                    [self shareWithVkontakte];
+                } else if (error) {
+                    [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+                }
+                else {
+                    [VKSdk authorize:scope];
+                }
+            }];
+        }
+        else if (buttonIndex == 2) { //Twitter
+                [self shareWithTwitter];
+        }
+    }
+    //Copying
+    if (actionSheet.tag == 200) {
+        if (buttonIndex == 0) { //Copy Result to clipboard
+            [self showCopyingHud];
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                pasteboard.string = [self stringResult];
+                [self hideCopyingHud];
+            });
+        }
+        else if (buttonIndex == 1) { //Copy All to clipboard
+            [self showCopyingHud];
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                pasteboard.string = [self stringResultForShare];
+                [self hideCopyingHud];
+            });
+        }
+        else if (buttonIndex == 2) { //Save All to URL
+            
+        }
+    }
+}
+
+#pragma mark - UIAlertView Delegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 400) {
+        [self shareWithFacebook];
+    }
+}
+
+#pragma mark - VKSdkUI Delegate
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
+    VKCaptchaViewController *vc = [VKCaptchaViewController captchaControllerWithError:captchaError];
+    [vc presentIn:self];
+}
+
+#pragma mark - VKSdk Delegate
+- (void)vkSdkUserAuthorizationFailed {
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Access denied" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [self.navigationController popToViewController:self animated:YES];
+}
+
+- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
+    if (result.token) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self shareWithVkontakte];
+        });
+    } else if (result.error) {
+        [[[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"Access denied!"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+}
+
 #pragma mark - Share Method
 - (void) shareWithFacebook {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
@@ -93,9 +219,9 @@
     {
         SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweet setInitialText:@"Dice roller result via Randomize Me"];
-        [tweet addURL:[NSURL URLWithString:@"https://www.random.org/passwords/"]];
+        [tweet addURL:[NSURL URLWithString:@"https://www.random.org/dice/"]];
         for (int i = 0; i < self.response.data.count; i++) {
-            NSString *imageName = [self sharedDice:self.response.data[i]];
+            NSString *imageName = [self imageNameForSharedDice:self.response.data[i]];
             UIImage *image = [UIImage imageNamed:imageName];
             [tweet addImage:image];
         }
@@ -123,7 +249,46 @@
     }
 }
 
+#pragma mark - MBProgressHUD Method
+- (void) showCopyingHud {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = @"Сopied";
+}
 
+- (void) hideCopyingHud {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        });
+    });
+}
+
+- (void) showDeletingHud {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = @"Deleted";
+}
+
+- (void) hideDeletingHud {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+    });
+}
+
+#pragma mark - Helper Methods
+- (void) showAlertWithMessage:(NSString*)message tag:(NSInteger)tag {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    alert.tag = tag;
+    [alert show];
+}
 
 #pragma mark - Presentation Image Method
 - (NSString*) imageNameFromDice:(NSNumber*)number {
@@ -162,7 +327,7 @@
     }
 }
 
-#pragma mark - Presentation Data Method
+#pragma mark - Presentation Data String Method
 - (NSString*) stringComplitionTime {
     return [self.response.completionTime substringToIndex:self.response.completionTime.length-1];
 }
@@ -178,7 +343,7 @@
     NSString *forResult = @"Result:";
     NSString *resultData = [self stringResult];
     NSString *parametrs = @"Parameters of generation:";
-    NSString *numberOfStrings = [NSString stringWithFormat:@"Number of Dice: %d", self.response.data.count];
+    NSString *numberOfStrings = [NSString stringWithFormat:@"Number of Dice: %lu", (unsigned long)self.response.data.count];
     NSString *replacement = @"Unique Dice: NO";
     NSString *individualInformation = @"Individual information of generation:";
     NSString *completionTime = [NSString stringWithFormat:@"Completion time (UTC+0): %@", [self stringComplitionTime]];
@@ -188,7 +353,7 @@
 }
 
 #pragma mark - Presentation Share Image Method
-- (NSString*) sharedDice:(NSNumber*)number {
+- (NSString*) imageNameForSharedDice:(NSNumber*)number {
     int diceNumber = [number intValue];
     switch (diceNumber) {
         case 1:
@@ -220,7 +385,7 @@
 - (NSArray*) imageShareVkontakte {
     NSMutableArray *imageArray = [[NSMutableArray alloc]init];
     for (int i = 0; i < self.response.data.count; i++) {
-        NSString *imageName = [self sharedDice:self.response.data[i]];
+        NSString *imageName = [self imageNameForSharedDice:self.response.data[i]];
         UIImage *image = [UIImage imageNamed:imageName];
         [imageArray addObject:[VKUploadImage uploadImageWithImage:image andParams:[VKImageParameters jpegImageWithQuality:1.0] ]];
     }
@@ -231,7 +396,7 @@
 - (NSArray*) imageShareFacebook {
     NSMutableArray *imageArray = [[NSMutableArray alloc]init];
     for (int i = 0; i < self.response.data.count; i++) {
-        NSString *imageName = [self sharedDice:self.response.data[i]];
+        NSString *imageName = [self imageNameForSharedDice:self.response.data[i]];
         UIImage *image = [UIImage imageNamed:imageName];
         FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
         photo.image = image;
