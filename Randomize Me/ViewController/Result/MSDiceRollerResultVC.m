@@ -24,13 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *fifthImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *sixthImageView;
 @property (strong, nonatomic) NSArray *arrayOfImage;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *copyingButton;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 
 @end

@@ -8,9 +8,7 @@
 
 #import "MSStringsResultVC.h"
 #import "SWRevealViewController.h"
-
 #import "MBProgressHUD.h"
-
 #import <Social/Social.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>

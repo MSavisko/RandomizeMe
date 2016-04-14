@@ -882,26 +882,84 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="fdf-F2-ET9"/>
-                                    <barButtonItem image="trash button" id="5kA-gM-Nw2"/>
+                                    <barButtonItem image="trash button" id="5kA-gM-Nw2">
+                                        <connections>
+                                            <action selector="trashButtonPressed:" destination="pnO-Av-q00" id="RmI-T1-Aaq"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="KXt-iI-OBL"/>
-                                    <barButtonItem image="save button" id="RWm-mu-MRo"/>
+                                    <barButtonItem image="save button" id="RWm-mu-MRo">
+                                        <connections>
+                                            <action selector="copyingButtonPressed:" destination="pnO-Av-q00" id="Tj6-8Z-4N5"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rs7-JF-48u"/>
-                                    <barButtonItem image="info button" id="0iE-js-RN2"/>
+                                    <barButtonItem image="info button" id="0iE-js-RN2">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="pnO-Av-q00" id="p86-Zg-IDs"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="2WN-bj-hAF"/>
                                 </items>
                             </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hVq-WV-YBN">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acQ-ZC-tFW" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SL6-YS-BUK">
+                                                <rect key="frame" x="190" y="87" width="220" height="319"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="220" id="CU0-1K-OJH"/>
+                                                    <constraint firstAttribute="height" constant="319" id="Jwq-vi-NgC"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="SL6-YS-BUK" firstAttribute="centerX" secondItem="acQ-ZC-tFW" secondAttribute="centerX" id="4Xv-hy-5HX"/>
+                                            <constraint firstItem="SL6-YS-BUK" firstAttribute="centerY" secondItem="acQ-ZC-tFW" secondAttribute="centerY" id="rQ6-XD-CUA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="acQ-ZC-tFW" firstAttribute="centerX" secondItem="hVq-WV-YBN" secondAttribute="centerX" id="a57-F9-JlK"/>
+                                    <constraint firstItem="acQ-ZC-tFW" firstAttribute="top" secondItem="hVq-WV-YBN" secondAttribute="top" id="bOo-qI-Q1l"/>
+                                    <constraint firstAttribute="bottom" secondItem="acQ-ZC-tFW" secondAttribute="bottom" id="kGd-Pj-BVy"/>
+                                    <constraint firstItem="acQ-ZC-tFW" firstAttribute="leading" secondItem="hVq-WV-YBN" secondAttribute="leading" id="mDU-OL-eAC"/>
+                                    <constraint firstItem="acQ-ZC-tFW" firstAttribute="centerY" secondItem="hVq-WV-YBN" secondAttribute="centerY" id="sEk-OZ-6V6"/>
+                                    <constraint firstAttribute="trailing" secondItem="acQ-ZC-tFW" secondAttribute="trailing" id="uAz-Yk-L6y"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jlc-nf-m8N" firstAttribute="top" secondItem="Uyk-6c-xF8" secondAttribute="bottom" id="IdX-79-eH7"/>
-                            <constraint firstAttribute="trailing" secondItem="Uyk-6c-xF8" secondAttribute="trailing" id="Jms-vz-cDx"/>
-                            <constraint firstItem="Uyk-6c-xF8" firstAttribute="leading" secondItem="OEl-qC-5Da" secondAttribute="leading" id="eFW-Zx-Hc5"/>
+                            <constraint firstItem="jlc-nf-m8N" firstAttribute="top" secondItem="Uyk-6c-xF8" secondAttribute="bottom" id="8gk-5B-5O7"/>
+                            <constraint firstAttribute="trailing" secondItem="Uyk-6c-xF8" secondAttribute="trailing" id="G7j-NP-068"/>
+                            <constraint firstItem="Uyk-6c-xF8" firstAttribute="top" secondItem="hVq-WV-YBN" secondAttribute="bottom" id="Nb1-3A-1on"/>
+                            <constraint firstItem="acQ-ZC-tFW" firstAttribute="width" secondItem="OEl-qC-5Da" secondAttribute="width" id="fiS-L1-uDn"/>
+                            <constraint firstAttribute="trailing" secondItem="hVq-WV-YBN" secondAttribute="trailing" id="he1-pq-QfG"/>
+                            <constraint firstItem="Uyk-6c-xF8" firstAttribute="leading" secondItem="OEl-qC-5Da" secondAttribute="leading" id="mt1-ye-T1s"/>
+                            <constraint firstItem="hVq-WV-YBN" firstAttribute="leading" secondItem="OEl-qC-5Da" secondAttribute="leading" id="p0R-ja-cs2"/>
+                            <constraint firstItem="hVq-WV-YBN" firstAttribute="top" secondItem="QtG-Hg-l82" secondAttribute="bottom" id="rbm-UP-fNf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="sn6-z2-M9c">
                         <barButtonItem key="backBarButtonItem" title=" " id="0vr-LF-m6e"/>
-                        <barButtonItem key="rightBarButtonItem" image="share button" id="nER-hp-nFm"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="nER-hp-nFm">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="pnO-Av-q00" id="ybN-et-77f"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cardImageView" destination="SL6-YS-BUK" id="Z5c-UA-jti"/>
+                        <outlet property="copyingButton" destination="RWm-mu-MRo" id="oo5-ni-BJw"/>
+                        <outlet property="infoButton" destination="0iE-js-RN2" id="q3v-4l-GP3"/>
+                        <outlet property="shareButton" destination="nER-hp-nFm" id="ajC-GA-jvl"/>
+                        <outlet property="trashButton" destination="5kA-gM-Nw2" id="kyf-vt-dmp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50B-cE-pwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
