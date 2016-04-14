@@ -61,8 +61,72 @@
     self.arrayOfImage = [NSArray arrayWithObjects:self.firstImageView, self.secondImageView, self.thirdImageView, self.fourthImageView, self.fifthImageView, self.sixthImageView, nil];
 }
 
+#pragma mark - Share Method
+- (void) shareWithFacebook {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = [self stringResultForShare];
+    NSURL *contentURL = [[NSURL alloc] initWithString:
+                         @"https://www.random.org/dice/"];
+    
+    FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
+    content.contentURL = contentURL;
+    content.photos = [self imageShareFacebook];
+    
+    [FBSDKShareDialog showFromViewController:self
+                                 withContent:content
+                                    delegate:nil];
+}
+
+- (void) shareWithVkontakte {
+    VKShareDialogController *shareDialog = [VKShareDialogController new];
+    shareDialog.text = [self stringResultForShare];
+    shareDialog.shareLink = [[VKShareLink alloc] initWithTitle:@"Dice roller result via Randomize Me" link:[NSURL URLWithString:@"https://www.random.org/dice/"]];
+    shareDialog.uploadImages = [self imageShareVkontakte];
+    [shareDialog setCompletionHandler:^(VKShareDialogController *dialog, VKShareDialogControllerResult result) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [self presentViewController:shareDialog animated:YES completion:nil];
+}
+
+- (void) shareWithTwitter {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweet setInitialText:@"Dice roller result via Randomize Me"];
+        [tweet addURL:[NSURL URLWithString:@"https://www.random.org/passwords/"]];
+        for (int i = 0; i < self.response.data.count; i++) {
+            NSString *imageName = [self sharedDice:self.response.data[i]];
+            UIImage *image = [UIImage imageNamed:imageName];
+            [tweet addImage:image];
+        }
+        [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
+         {
+             if (result == SLComposeViewControllerResultCancelled)
+             {
+                 //The user cancelled
+             }
+             else if (result == SLComposeViewControllerResultDone)
+             {
+                 //The user sent the tweet
+             }
+         }];
+        [self presentViewController:tweet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
+                                                        message:@"Twitter integration is not available. A Twitter account must be set up on your device."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+
+
 #pragma mark - Presentation Image Method
-- (NSString*) imageNameFromeDice:(NSNumber*)number {
+- (NSString*) imageNameFromDice:(NSNumber*)number {
     int diceNumber = [number intValue];
     switch (diceNumber) {
         case 1:
@@ -92,7 +156,7 @@
 
 - (void) setDiceImage {
     for (int i = 0; i < self.response.data.count; i++) {
-        NSString *imageName = [self imageNameFromeDice:self.response.data[i]];
+        NSString *imageName = [self imageNameFromDice:self.response.data[i]];
         UIImage *image = [UIImage imageNamed:imageName];
         [self.arrayOfImage[i] setImage:image];
     }
@@ -109,7 +173,7 @@
     return mutableResult;
 }
 
-- (NSString*) stringResultForCopying {
+- (NSString*) stringResultForShare {
     NSString *resultName = @"Dice Roller Generation";
     NSString *forResult = @"Result:";
     NSString *resultData = [self stringResult];
@@ -123,10 +187,59 @@
     return result;
 }
 
-//- (NSString*) stringResultForShare {
-//    return result;
-//}
+#pragma mark - Presentation Share Image Method
+- (NSString*) sharedDice:(NSNumber*)number {
+    int diceNumber = [number intValue];
+    switch (diceNumber) {
+        case 1:
+            return @"dice1_small";
+            break;
+            
+        case 2:
+            return @"dice2_small";
+            
+        case 3:
+            return @"dice3_small";
+            
+        case 4:
+            return @"dice4_small";
+            
+        case 5:
+            return @"dice5_blue";
+            
+        case 6:
+            return @"dice6_small";
+            
+        default:
+            break;
+    }
+    return nil;
+}
 
+//VK image
+- (NSArray*) imageShareVkontakte {
+    NSMutableArray *imageArray = [[NSMutableArray alloc]init];
+    for (int i = 0; i < self.response.data.count; i++) {
+        NSString *imageName = [self sharedDice:self.response.data[i]];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [imageArray addObject:[VKUploadImage uploadImageWithImage:image andParams:[VKImageParameters jpegImageWithQuality:1.0] ]];
+    }
+    return imageArray;
+}
+
+//Facebook image
+- (NSArray*) imageShareFacebook {
+    NSMutableArray *imageArray = [[NSMutableArray alloc]init];
+    for (int i = 0; i < self.response.data.count; i++) {
+        NSString *imageName = [self sharedDice:self.response.data[i]];
+        UIImage *image = [UIImage imageNamed:imageName];
+        FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+        photo.image = image;
+        photo.userGenerated = YES;
+        [imageArray addObject:photo];
+    }
+    return imageArray;
+}
 
 
 
