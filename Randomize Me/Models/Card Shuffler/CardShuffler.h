@@ -12,6 +12,6 @@
 
 @interface CardShuffler : NSObject
 
-- (Card*) shuffleResponse:(MSRandomResponse*)response;
+- (Card*) shuffleWithResponse:(MSRandomResponse*)response;
 
 @end

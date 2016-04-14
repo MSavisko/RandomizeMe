@@ -13,12 +13,12 @@
 
 @implementation CardShuffler
 
-- (Card*) shuffleResponse:(MSRandomResponse*)response {
-    Card *card = [[Card alloc]init];
+- (Card*) shuffleWithResponse:(MSRandomResponse*)response {
     NSString *cardMapper = response.data[0];
+    NSString *name = [Deck cards][cardMapper][1];
+    NSString *imageName = [Deck cards][cardMapper][0];
     
-    card.name = [Deck cards][cardMapper][1];
-    card.imageName = [Deck cards][cardMapper][0];
+    Card *card = [[Card alloc]initWithName:name andImageName:imageName];
     
     return card;
 }

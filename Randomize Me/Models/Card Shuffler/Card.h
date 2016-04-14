@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Card : NSObject
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *imageName;
+@property (readonly, strong, nonatomic) NSString *name;
+@property (readonly, strong, nonatomic) NSString *imageName;
+
+- (instancetype) initWithName:(NSString*)name andImageName:(NSString*)imageName;
 
 @end

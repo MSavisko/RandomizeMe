@@ -10,4 +10,12 @@
 
 @implementation Card
 
+- (instancetype) initWithName:(NSString*)name andImageName:(NSString*)imageName {
+    self = [super init];
+    _name = name;
+    _imageName = imageName;
+    
+    return self;
+}
+
 @end

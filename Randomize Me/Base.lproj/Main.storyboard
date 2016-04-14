@@ -208,7 +208,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="s8V-QV-F8V"/>
-                                    <barButtonItem image="info button" id="zYP-gP-i4T"/>
+                                    <barButtonItem image="info button" id="zYP-gP-i4T">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="rfP-PK-k5z" id="Wo4-cT-MlH"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQB-sC-iuP">
@@ -269,6 +273,9 @@
                                                         <rect key="frame" x="80" y="192" width="60" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="Draw!"/>
+                                                        <connections>
+                                                            <action selector="drawButtonPressed:" destination="rfP-PK-k5z" eventType="touchUpInside" id="UXW-Bk-yuX"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -309,7 +316,11 @@
                     <navigationItem key="navigationItem" title="Card Shuffler" id="fS9-z6-Ohw">
                         <barButtonItem key="backBarButtonItem" title=" " id="Lj2-eu-jee"/>
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="HJZ-pP-sZS"/>
-                        <barButtonItem key="rightBarButtonItem" image="clear button" id="KRe-r6-DE4"/>
+                        <barButtonItem key="rightBarButtonItem" image="clear button" id="KRe-r6-DE4">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="rfP-PK-k5z" id="ew5-dB-Kyu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="clubsSwitch" destination="TcO-bJ-L6i" id="8tM-m4-BoA"/>
