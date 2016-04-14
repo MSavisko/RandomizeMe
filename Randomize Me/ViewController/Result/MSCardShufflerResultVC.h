@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSRandomResponse.h"
+#import <VK-ios-sdk/VKSdk.h>
 
-@interface MSCardShufflerResultVC : UIViewController
+@interface MSCardShufflerResultVC : UIViewController <VKSdkDelegate>
+@property (strong, nonatomic) MSRandomResponse *response;
 
 @end

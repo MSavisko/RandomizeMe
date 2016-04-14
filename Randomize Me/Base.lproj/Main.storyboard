@@ -319,9 +319,19 @@
                     </view>
                     <navigationItem key="navigationItem" title="Card Shuffler" id="fS9-z6-Ohw">
                         <barButtonItem key="backBarButtonItem" title=" " id="Lj2-eu-jee"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="HJZ-pP-sZS"/>
                         <barButtonItem key="rightBarButtonItem" image="clear button" id="KRe-r6-DE4"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="clubsSwitch" destination="TcO-bJ-L6i" id="8tM-m4-BoA"/>
+                        <outlet property="diamondsSwitch" destination="Hvb-Z9-EqT" id="jSR-1F-b8l"/>
+                        <outlet property="drawButton" destination="ph1-Qn-kNw" id="hRc-5x-gx8"/>
+                        <outlet property="heartsSwitch" destination="QXQ-Vs-TX8" id="6fw-4v-ioH"/>
+                        <outlet property="jokersSwitch" destination="rvg-hO-TMw" id="SPc-Pw-DlY"/>
+                        <outlet property="menuButtonItem" destination="HJZ-pP-sZS" id="XHL-in-BiN"/>
+                        <outlet property="numberOfDecks" destination="Tbt-IP-xbU" id="YqW-Nl-rmz"/>
+                        <outlet property="scrollView" destination="lQB-sC-iuP" id="LFH-mz-hfn"/>
+                        <outlet property="spadesSwitch" destination="m0r-ki-rEG" id="Gy9-8G-5bk"/>
                         <segue destination="pnO-Av-q00" kind="show" identifier="ShowCardShufflerResult" id="EBq-uI-BiK"/>
                     </connections>
                 </viewController>
