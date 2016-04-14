@@ -119,183 +119,107 @@ static int MSGenerateButtonHeight = 30;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
-- (NSArray*) imageNameFromResult:(NSString*)result {
-    NSMutableArray *card = [[NSMutableArray alloc]init];
+- (void) result {
+    NSDictionary *cardsMappping = [self cardsMapping];
+    NSString *card = self.response.data[0];
+    NSArray *array = cardsMappping[card];
     
-    //Spades
-    if ([result isEqualToString:@"a"]) {
-        [card addObjectsFromArray:@[@"2_of_spades", @"Two of Spades"]];
-    }
-    else if ([result isEqualToString:@"b"]) {
-        [card addObjectsFromArray:@[@"3_of_spades", @"Three of Spades"]];
-    }
-    else if ([result isEqualToString:@"c"]) {
-        [card addObjectsFromArray:@[@"4_of_spades", @"Four of Spades"]];
-    }
-    else if ([result isEqualToString:@"d"]) {
-        [card addObjectsFromArray:@[@"5_of_spades", @"Five of Spades"]];
-    }
-    else if ([result isEqualToString:@"e"]) {
-        [card addObjectsFromArray:@[@"6_of_spades", @"Six of Spades"]];
-    }
-    else if ([result isEqualToString:@"f"]) {
-        [card addObjectsFromArray:@[@"7_of_spades", @"Seven of Spades"]];
-    }
-    else if ([result isEqualToString:@"g"]) {
-        [card addObjectsFromArray:@[@"8_of_spades", @"Eight of Spades"]];
-    }
-    else if ([result isEqualToString:@"h"]) {
-        [card addObjectsFromArray:@[@"9_of_spades", @"Nine of Spades"]];
-    }
-    else if ([result isEqualToString:@"i"]) {
-        [card addObjectsFromArray:@[@"10_of_spades", @"Ten of Spades"]];
-    }
-    else if ([result isEqualToString:@"j"]) {
-        [card addObjectsFromArray:@[@"ace_of_spades", @"Ace of Spades"]];
-    }
-    else if ([result isEqualToString:@"k"]) {
-        [card addObjectsFromArray:@[@"jack_of_spades", @"Jack of Spades"]];
-    }
-    else if ([result isEqualToString:@"l"]) {
-        [card addObjectsFromArray:@[@"king_of_spades", @"King of Spades"]];
-    }
-    else if ([result isEqualToString:@"m"]) {
-        [card addObjectsFromArray:@[@"queen_of_spades", @"Queen of Spades"]];
-    }
+    UIImage *image = [UIImage imageNamed:array[0]];
     
-    //Hearts
-    else if ([result isEqualToString:@"n"]) {
-        [card addObjectsFromArray:@[@"2_of_hearts", @"Two of Hearts"]];
-    }
-    else if ([result isEqualToString:@"o"]) {
-        [card addObjectsFromArray:@[@"3_of_hearts", @"Three of Hearts"]];
-    }
-    else if ([result isEqualToString:@"p"]) {
-        [card addObjectsFromArray:@[@"4_of_hearts", @"Four of Hearts"]];
-    }
-    else if ([result isEqualToString:@"q"]) {
-        [card addObjectsFromArray:@[@"5_of_hearts", @"Five of Hearts"]];
-    }
-    else if ([result isEqualToString:@"r"]) {
-        [card addObjectsFromArray:@[@"6_of_hearts", @"Six of Hearts"]];
-    }
-    else if ([result isEqualToString:@"s"]) {
-        [card addObjectsFromArray:@[@"7_of_hearts", @"Seven of Hearts"]];
-    }
-    else if ([result isEqualToString:@"t"]) {
-        [card addObjectsFromArray:@[@"8_of_hearts", @"Eight of Hearts"]];
-    }
-    else if ([result isEqualToString:@"u"]) {
-        [card addObjectsFromArray:@[@"9_of_hearts", @"Nine of Hearts"]];
-    }
-    else if ([result isEqualToString:@"v"]) {
-        [card addObjectsFromArray:@[@"10_of_hearts", @"Ten of Hearts"]];
-    }
-    else if ([result isEqualToString:@"w"]) {
-        [card addObjectsFromArray:@[@"ace_of_hearts", @"Ace of Hearts"]];
-    }
-    else if ([result isEqualToString:@"x"]) {
-        [card addObjectsFromArray:@[@"jack_of_hearts", @"Jack of Hearts"]];
-    }
-    else if ([result isEqualToString:@"y"]) {
-        [card addObjectsFromArray:@[@"king_of_hearts", @"King of Hearts"]];
-    }
-    else if ([result isEqualToString:@"z"]) {
-        [card addObjectsFromArray:@[@"queen_of_hearts", @"Queen of Hearts"]];
-    }
-    
-    //Diamonds
-    else if ([result isEqualToString:@"1"]) {
-        [card addObjectsFromArray:@[@"2_of_diamonds", @"Two of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"2"]) {
-        [card addObjectsFromArray:@[@"3_of_diamonds", @"Three of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"3"]) {
-        [card addObjectsFromArray:@[@"4_of_diamonds", @"Four of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"4"]) {
-        [card addObjectsFromArray:@[@"5_of_diamonds", @"Five of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"5"]) {
-        [card addObjectsFromArray:@[@"6_of_diamonds", @"Six of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"6"]) {
-        [card addObjectsFromArray:@[@"7_of_diamonds", @"Seven of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"7"]) {
-        [card addObjectsFromArray:@[@"8_of_diamonds", @"Eight of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"8"]) {
-        [card addObjectsFromArray:@[@"9_of_diamonds", @"Nine of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"9"]) {
-        [card addObjectsFromArray:@[@"10_of_diamonds", @"Ten of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"A"]) {
-        [card addObjectsFromArray:@[@"ace_of_diamonds", @"Ace of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"B"]) {
-        [card addObjectsFromArray:@[@"jack_of_diamonds", @"Jack of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"C"]) {
-        [card addObjectsFromArray:@[@"king_of_diamonds", @"King of Diamonds"]];
-    }
-    else if ([result isEqualToString:@"D"]) {
-        [card addObjectsFromArray:@[@"queen_of_diamonds", @"Queen of Diamonds"]];
-    }
-    
-    //Clubs
-    else if ([result isEqualToString:@"E"]) {
-        [card addObjectsFromArray:@[@"2_of_clubs", @"Two of Clubs"]];
-    }
-    else if ([result isEqualToString:@"F"]) {
-        [card addObjectsFromArray:@[@"3_of_clubs", @"Three of Clubs"]];
-    }
-    else if ([result isEqualToString:@"G"]) {
-        [card addObjectsFromArray:@[@"4_of_clubs", @"Four of Clubs"]];
-    }
-    else if ([result isEqualToString:@"H"]) {
-        [card addObjectsFromArray:@[@"5_of_clubs", @"Five of Clubs"]];
-    }
-    else if ([result isEqualToString:@"I"]) {
-        [card addObjectsFromArray:@[@"6_of_clubs", @"Six of Clubs"]];
-    }
-    else if ([result isEqualToString:@"J"]) {
-        [card addObjectsFromArray:@[@"7_of_clubs", @"Seven of Clubs"]];
-    }
-    else if ([result isEqualToString:@"K"]) {
-        [card addObjectsFromArray:@[@"8_of_clubs", @"Eight of Clubs"]];
-    }
-    else if ([result isEqualToString:@"L"]) {
-        [card addObjectsFromArray:@[@"9_of_clubs", @"Nine of Clubs"]];
-    }
-    else if ([result isEqualToString:@"M"]) {
-        [card addObjectsFromArray:@[@"10_of_clubs", @"Ten of Clubs"]];
-    }
-    else if ([result isEqualToString:@"N"]) {
-        [card addObjectsFromArray:@[@"ace_of_clubs", @"Ace of Clubs"]];
-    }
-    else if ([result isEqualToString:@"O"]) {
-        [card addObjectsFromArray:@[@"jack_of_clubs", @"Jack of Clubs"]];
-    }
-    else if ([result isEqualToString:@"P"]) {
-        [card addObjectsFromArray:@[@"king_of_clubs", @"King of Clubs"]];
-    }
-    else if ([result isEqualToString:@"Q"]) {
-        [card addObjectsFromArray:@[@"queen_of_clubs", @"Queen of Clubs"]];
-    }
-    
-    //Jokers
-    else if ([result isEqualToString:@"R"]) {
-        [card addObjectsFromArray:@[@"black_joker", @"Black Joker"]];
-    }
-    else if ([result isEqualToString:@"S"]) {
-        [card addObjectsFromArray:@[@"red_joker", @"Red Joker"]];
-    }
-    return card;
+    UIImageView *imageView = [[UIImageView alloc]init];
+    [imageView setImage:image];
 }
 
+- (NSDictionary*) cardsMapping {
+    NSMutableDictionary *cards = [[NSMutableDictionary alloc]init];
+    
+    //Spades
+    NSDictionary *spades = [[NSDictionary alloc]init];
+    spades = @{
+             @"a" : @[@"2_of_spades", @"Two of Spades"],
+             @"b" : @[@"3_of_spades", @"Three of Spades"],
+             @"c" : @[@"4_of_spades", @"Four of Spades"],
+             @"d" : @[@"5_of_spades", @"Five of Spades"],
+             @"e" : @[@"6_of_spades", @"Six of Spades"],
+             @"f" : @[@"7_of_spades", @"Seven of Spades"],
+             @"g" : @[@"7_of_spades", @"Seven of Spades"],
+             @"h" : @[@"9_of_spades", @"Nine of Spades"],
+             @"i": @[@"10_of_spades", @"Ten of Spades"],
+             @"j": @[@"ace_of_spades", @"Ace of Spades"],
+             @"k": @[@"jack_of_spades", @"Jack of Spades"],
+             @"l": @[@"king_of_spades", @"King of Spades"],
+             @"m": @[@"queen_of_spades", @"Queen of Spades"],
+             };
+    
+    //Hearts
+    NSDictionary *hearts = [[NSDictionary alloc]init];
+    hearts = @{
+               @"n" : @[@"2_of_hearts", @"Two of Hearts"],
+               @"o" : @[@"3_of_hearts", @"Three of Hearts"],
+               @"p" : @[@"4_of_hearts", @"Four of Hearts"],
+               @"q" : @[@"5_of_hearts", @"Five of Hearts"],
+               @"r" : @[@"6_of_hearts", @"Six of Hearts"],
+               @"s" : @[@"7_of_hearts", @"Seven of Hearts"],
+               @"t" : @[@"8_of_hearts", @"Eight of Hearts"],
+               @"u" : @[@"9_of_hearts", @"Nine of Hearts"],
+               @"v" : @[@"10_of_hearts", @"Ten of Hearts"],
+               @"w" : @[@"ace_of_hearts", @"Ace of Hearts"],
+               @"x" : @[@"jack_of_hearts", @"Jack of Hearts"],
+               @"y" : @[@"king_of_hearts", @"King of Hearts"],
+               @"z" : @[@"queen_of_hearts", @"Queen of Hearts"],
+               };
+    
+    //Diamonds
+    NSDictionary *diamonds = [[NSDictionary alloc]init];
+    diamonds = @{
+                 @"1" : @[@"2_of_diamonds", @"Two of Diamonds"],
+                 @"2" : @[@"3_of_diamonds", @"Three of Diamonds"],
+                 @"3" : @[@"4_of_diamonds", @"Four of Diamonds"],
+                 @"4" : @[@"5_of_diamonds", @"Five of Diamonds"],
+                 @"5" : @[@"6_of_diamonds", @"Six of Diamonds"],
+                 @"6" : @[@"7_of_diamonds", @"Seven of Diamonds"],
+                 @"7" : @[@"8_of_diamonds", @"Eight of Diamonds"],
+                 @"8" : @[@"9_of_diamonds", @"Nine of Diamonds"],
+                 @"9" : @[@"10_of_diamonds", @"Ten of Diamonds"],
+                 @"A" : @[@"ace_of_diamonds", @"Ace of Diamonds"],
+                 @"B" : @[@"jack_of_diamonds", @"Jack of Diamonds"],
+                 @"C" : @[@"king_of_diamonds", @"King of Diamonds"],
+                 @"D" : @[@"queen_of_diamonds", @"Queen of Diamonds"],
+                 };
+    
+    //Clubs
+    NSDictionary *clubs = [[NSDictionary alloc]init];
+    clubs = @{
+              @"E" : @[@"2_of_clubs", @"Two of Clubs"],
+              @"F" : @[@"3_of_clubs", @"Three of Clubs"],
+              @"G" : @[@"4_of_clubs", @"Four of Clubs"],
+              @"H" : @[@"5_of_clubs", @"Five of Clubs"],
+              @"I" : @[@"6_of_clubs", @"Six of Clubs"],
+              @"J" : @[@"7_of_clubs", @"Seven of Clubs"],
+              @"K" : @[@"8_of_clubs", @"Eight of Clubs"],
+              @"L" : @[@"9_of_clubs", @"Nine of Clubs"],
+              @"M" : @[@"10_of_clubs", @"Ten of Clubs"],
+              @"N" : @[@"ace_of_clubs", @"Ace of Clubs"],
+              @"O" : @[@"jack_of_clubs", @"Jack of Clubs"],
+              @"P" : @[@"king_of_clubs", @"King of Clubs"],
+              @"Q" : @[@"queen_of_clubs", @"Queen of Clubs"],
+              };
+
+    //Jokers
+    NSDictionary *jokers = [[NSDictionary alloc]init];
+    jokers = @{
+               @"R" : @[@"black_joker", @"Black Joker"],
+               @"S" : @[@"red_joker", @"Red Joker"],
+               };
+    
+    [cards addEntriesFromDictionary:spades];
+    [cards addEntriesFromDictionary:hearts];
+    [cards addEntriesFromDictionary:diamonds];
+    [cards addEntriesFromDictionary:clubs];
+    [cards addEntriesFromDictionary:jokers];
+    
+    return cards;
+}
 
 
 @end
