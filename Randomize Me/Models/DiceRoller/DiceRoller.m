@@ -29,7 +29,7 @@
 
 - (NSArray*) imageSet {
     NSMutableArray *imageSet = [[NSMutableArray alloc]init];
-    for (int i = 0; self.setOfDices.dices.count; i++) {
+    for (int i = 0; i < self.setOfDices.dices.count; i++) {
         Dice *dice = self.setOfDices.dices[i];
         [imageSet addObject:dice.imageName];
     }
@@ -38,7 +38,7 @@
 
 - (NSArray*) nameSet {
     NSMutableArray *nameSet = [[NSMutableArray alloc]init];
-    for (int i = 0; self.setOfDices.dices.count; i++) {
+    for (int i = 0; i < self.setOfDices.dices.count; i++) {
         Dice *dice = self.setOfDices.dices[i];
         [nameSet addObject:dice.name];
     }

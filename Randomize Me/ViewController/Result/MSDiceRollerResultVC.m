@@ -7,6 +7,7 @@
 //
 
 #import "MSDiceRollerResultVC.h"
+#import "DiceRoller.h"
 #import "SWRevealViewController.h"
 
 #import "MBProgressHUD.h"
