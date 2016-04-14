@@ -320,8 +320,11 @@
 }
 
 - (void) setDiceImage {
-    for (int i = 0; i < self.response.data.count; i++) {
-        NSString *imageName = [self imageNameFromDice:self.response.data[i]];
+    DiceRoller *roll = [[DiceRoller alloc]init];
+    [roll rollWithResponse:self.response];
+    NSArray *array = [roll imageSet];
+    for (int i = 0; i < array.count; i++) {
+        NSString *imageName = [roll imageSet][i];
         UIImage *image = [UIImage imageNamed:imageName];
         [self.arrayOfImage[i] setImage:image];
     }

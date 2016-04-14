@@ -27,4 +27,12 @@
     [_dices addObject:dice];
 }
 
+- (instancetype) init {
+    self = [super init];
+    if (self) {
+        _dices = [[NSMutableArray alloc]init];
+    }
+    return self;
+}
+
 @end
