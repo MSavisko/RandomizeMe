@@ -12,9 +12,10 @@
 
 - (instancetype) initWithName:(NSString*)name andImageName:(NSString*)imageName {
     self = [super init];
-    _name = name;
-    _imageName = imageName;
-    
+    if (self) {
+        _name = name;
+        _imageName = imageName;
+    }
     return self;
 }
 

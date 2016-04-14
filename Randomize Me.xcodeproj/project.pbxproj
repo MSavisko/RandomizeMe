@@ -34,6 +34,9 @@
 		928F4AF91CC0216F0049BDE7 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AF81CC0216F0049BDE7 /* Card.m */; };
 		928F4AFC1CC021D80049BDE7 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AFB1CC021D80049BDE7 /* Deck.m */; };
 		928F4AFF1CC022450049BDE7 /* CardShuffler.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AFE1CC022450049BDE7 /* CardShuffler.m */; };
+		928F4B071CC03E7C0049BDE7 /* Dice.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4B061CC03E7C0049BDE7 /* Dice.m */; };
+		928F4B0D1CC03FAC0049BDE7 /* DiceSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4B0C1CC03FAC0049BDE7 /* DiceSet.m */; };
+		928F4B101CC040A20049BDE7 /* DiceRoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4B0F1CC040A20049BDE7 /* DiceRoller.m */; };
 		92B7B5251C9EC231001BB572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5241C9EC231001BB572 /* main.m */; };
 		92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5271C9EC231001BB572 /* AppDelegate.m */; };
 		92B7B52E1C9EC231001BB572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52C1C9EC231001BB572 /* Main.storyboard */; };
@@ -95,6 +98,12 @@
 		928F4AFB1CC021D80049BDE7 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = "Models/Card Shuffler/Deck.m"; sourceTree = "<group>"; };
 		928F4AFD1CC022450049BDE7 /* CardShuffler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardShuffler.h; path = "Models/Card Shuffler/CardShuffler.h"; sourceTree = "<group>"; };
 		928F4AFE1CC022450049BDE7 /* CardShuffler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardShuffler.m; path = "Models/Card Shuffler/CardShuffler.m"; sourceTree = "<group>"; };
+		928F4B051CC03E7C0049BDE7 /* Dice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dice.h; path = Models/DiceRoller/Dice.h; sourceTree = "<group>"; };
+		928F4B061CC03E7C0049BDE7 /* Dice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dice.m; path = Models/DiceRoller/Dice.m; sourceTree = "<group>"; };
+		928F4B0B1CC03FAC0049BDE7 /* DiceSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceSet.h; path = Models/DiceRoller/DiceSet.h; sourceTree = "<group>"; };
+		928F4B0C1CC03FAC0049BDE7 /* DiceSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceSet.m; path = Models/DiceRoller/DiceSet.m; sourceTree = "<group>"; };
+		928F4B0E1CC040A20049BDE7 /* DiceRoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceRoller.h; path = Models/DiceRoller/DiceRoller.h; sourceTree = "<group>"; };
+		928F4B0F1CC040A20049BDE7 /* DiceRoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceRoller.m; path = Models/DiceRoller/DiceRoller.m; sourceTree = "<group>"; };
 		92B7B5201C9EC231001BB572 /* Randomize Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomize Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B7B5241C9EC231001BB572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92B7B5261C9EC231001BB572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -230,6 +239,19 @@
 			name = CardShuffler;
 			sourceTree = "<group>";
 		};
+		928F4B041CC03E2A0049BDE7 /* DiceRoller */ = {
+			isa = PBXGroup;
+			children = (
+				928F4B051CC03E7C0049BDE7 /* Dice.h */,
+				928F4B061CC03E7C0049BDE7 /* Dice.m */,
+				928F4B0B1CC03FAC0049BDE7 /* DiceSet.h */,
+				928F4B0C1CC03FAC0049BDE7 /* DiceSet.m */,
+				928F4B0E1CC040A20049BDE7 /* DiceRoller.h */,
+				928F4B0F1CC040A20049BDE7 /* DiceRoller.m */,
+			);
+			name = DiceRoller;
+			sourceTree = "<group>";
+		};
 		92B7B5171C9EC231001BB572 = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +308,7 @@
 		92B7B5401CA07ABA001BB572 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				928F4B041CC03E2A0049BDE7 /* DiceRoller */,
 				928F4AF61CC0213B0049BDE7 /* CardShuffler */,
 				926AF2301CB937A8006DEF8E /* Responses */,
 				925B47991CB3B76B00747B72 /* Requests */,
@@ -437,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				926AF22A1CB51454006DEF8E /* MSDecimalGeneratorVC.m in Sources */,
+				928F4B0D1CC03FAC0049BDE7 /* DiceSet.m in Sources */,
 				928F4AEB1CBE8FD90049BDE7 /* MSDiceRollerResultVC.m in Sources */,
 				928F4AF11CBFBCD60049BDE7 /* MSCardShufflerResultVC.m in Sources */,
 				920CDFE91CBC386400971651 /* MSRandomDecimalRequest.m in Sources */,
@@ -445,6 +469,7 @@
 				920CDFE61CBC257300971651 /* MSRandomIntegerRequest.m in Sources */,
 				920CDFF21CBD485700971651 /* MSStringsResultVC.m in Sources */,
 				92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */,
+				928F4B071CC03E7C0049BDE7 /* Dice.m in Sources */,
 				928F4AEE1CBFBCA10049BDE7 /* MSCardShufflerGeneratorVC.m in Sources */,
 				920CDFE31CBC1B9900971651 /* MSRandomRequest.m in Sources */,
 				928F4AF91CC0216F0049BDE7 /* Card.m in Sources */,
@@ -457,6 +482,7 @@
 				926AF22F1CB825AF006DEF8E /* MSDecimalResultVC.m in Sources */,
 				920CDFEC1CBC3FCC00971651 /* MSRandomStringsRequest.m in Sources */,
 				928F4AFF1CC022450049BDE7 /* CardShuffler.m in Sources */,
+				928F4B101CC040A20049BDE7 /* DiceRoller.m in Sources */,
 				928F4AFC1CC021D80049BDE7 /* Deck.m in Sources */,
 				928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */,
 				928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */,
