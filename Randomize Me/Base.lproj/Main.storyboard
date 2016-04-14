@@ -742,7 +742,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="TA5-B8-LVY"/>
-                                    <barButtonItem image="save button" id="b7M-zG-0xp"/>
+                                    <barButtonItem image="save button" id="b7M-zG-0xp">
+                                        <connections>
+                                            <action selector="copyingButtonPressed:" destination="DaI-Da-6HH" id="ip9-1P-DHT"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="w93-uu-zrt"/>
                                     <barButtonItem image="info button" id="Ohx-Ac-2eM">
                                         <connections>

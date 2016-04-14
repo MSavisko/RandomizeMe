@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dice4_small.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "dice4_small-1.png",
+      "filename" : "dice4-small.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "dice4_small-2.png",
       "scale" : "3x"
     }
   ],

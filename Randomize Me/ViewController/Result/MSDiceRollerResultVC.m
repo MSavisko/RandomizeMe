@@ -127,7 +127,11 @@
             }];
         }
         else if (buttonIndex == 2) { //Twitter
+            if ([self stringResult].length > 115) {
+                [self showAlertWithMessage:@"The result is too long to send the tweet. You will need to manually cut it!" tag:500];
+            } else {
                 [self shareWithTwitter];
+            }
         }
     }
     //Copying
@@ -158,6 +162,9 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 400) {
         [self shareWithFacebook];
+    }
+    if (alertView.tag == 500) {
+        [self shareWithTwitter];
     }
 }
 
@@ -194,9 +201,10 @@
     NSURL *contentURL = [[NSURL alloc] initWithString:
                          @"https://www.random.org/dice/"];
     
-    FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc]init];
     content.contentURL = contentURL;
-    content.photos = [self imageShareFacebook];
+    content.imageURL = nil;
+    content.contentDescription = @"Dice Roller result by Randomize Me";
     
     [FBSDKShareDialog showFromViewController:self
                                  withContent:content
@@ -218,13 +226,8 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweet setInitialText:@"Dice roller result via Randomize Me"];
+        [tweet setInitialText:[NSString stringWithFormat:@"Dice Roller result:\n%@",[self stringResult]]];
         [tweet addURL:[NSURL URLWithString:@"https://www.random.org/dice/"]];
-        for (int i = 0; i < self.response.data.count; i++) {
-            NSString *imageName = [self imageNameForSharedDice:self.response.data[i]];
-            UIImage *image = [UIImage imageNamed:imageName];
-            [tweet addImage:image];
-        }
         [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
          {
              if (result == SLComposeViewControllerResultCancelled)
@@ -370,7 +373,7 @@
             return @"dice4_small";
             
         case 5:
-            return @"dice5_blue";
+            return @"dice5_small";
             
         case 6:
             return @"dice6_small";
@@ -392,19 +395,6 @@
     return imageArray;
 }
 
-//Facebook image
-- (NSArray*) imageShareFacebook {
-    NSMutableArray *imageArray = [[NSMutableArray alloc]init];
-    for (int i = 0; i < self.response.data.count; i++) {
-        NSString *imageName = [self imageNameForSharedDice:self.response.data[i]];
-        UIImage *image = [UIImage imageNamed:imageName];
-        FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
-        photo.image = image;
-        photo.userGenerated = YES;
-        [imageArray addObject:photo];
-    }
-    return imageArray;
-}
 
 
 
