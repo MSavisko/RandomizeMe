@@ -231,27 +231,39 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0N-Zs-IoS">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWF-w9-S3X">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zf-t7-Njr">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWF-w9-S3X">
+                                                <rect key="frame" x="10" y="10" width="580" height="482"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                                            </textView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
-                                    </textView>
+                                        <constraints>
+                                            <constraint firstItem="RWF-w9-S3X" firstAttribute="top" secondItem="3zf-t7-Njr" secondAttribute="top" constant="10" id="4ku-SY-0SZ"/>
+                                            <constraint firstItem="RWF-w9-S3X" firstAttribute="leading" secondItem="3zf-t7-Njr" secondAttribute="leading" constant="10" id="M1p-ee-UpW"/>
+                                            <constraint firstAttribute="trailing" secondItem="RWF-w9-S3X" secondAttribute="trailing" constant="10" id="e3h-Dl-UWt"/>
+                                            <constraint firstAttribute="bottom" secondItem="RWF-w9-S3X" secondAttribute="bottom" id="oUJ-cF-DIw"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="RWF-w9-S3X" firstAttribute="centerY" secondItem="M0N-Zs-IoS" secondAttribute="centerY" id="3Cq-i2-fnd"/>
-                                    <constraint firstAttribute="trailing" secondItem="RWF-w9-S3X" secondAttribute="trailing" id="MIt-f1-jzh"/>
-                                    <constraint firstItem="RWF-w9-S3X" firstAttribute="top" secondItem="M0N-Zs-IoS" secondAttribute="top" id="RGW-OL-GPW"/>
-                                    <constraint firstItem="RWF-w9-S3X" firstAttribute="leading" secondItem="M0N-Zs-IoS" secondAttribute="leading" id="aNV-hf-xPK"/>
-                                    <constraint firstAttribute="bottom" secondItem="RWF-w9-S3X" secondAttribute="bottom" id="ddb-YK-K4n"/>
+                                    <constraint firstItem="3zf-t7-Njr" firstAttribute="top" secondItem="M0N-Zs-IoS" secondAttribute="top" id="EkB-N5-Uj4"/>
+                                    <constraint firstAttribute="trailing" secondItem="3zf-t7-Njr" secondAttribute="trailing" id="F01-DB-019"/>
+                                    <constraint firstAttribute="bottom" secondItem="3zf-t7-Njr" secondAttribute="bottom" id="W6r-Gc-kKs"/>
+                                    <constraint firstItem="3zf-t7-Njr" firstAttribute="centerY" secondItem="M0N-Zs-IoS" secondAttribute="centerY" id="hMl-er-q2I"/>
+                                    <constraint firstItem="3zf-t7-Njr" firstAttribute="leading" secondItem="M0N-Zs-IoS" secondAttribute="leading" id="vsf-2d-QeZ"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="py4-yD-AHj" firstAttribute="leading" secondItem="hHA-ZF-mul" secondAttribute="leading" id="1pF-jW-uqM"/>
+                            <constraint firstItem="3zf-t7-Njr" firstAttribute="width" secondItem="hHA-ZF-mul" secondAttribute="width" id="Iol-oU-qb6"/>
                             <constraint firstAttribute="trailing" secondItem="M0N-Zs-IoS" secondAttribute="trailing" id="TLu-ic-EqH"/>
-                            <constraint firstItem="RWF-w9-S3X" firstAttribute="width" secondItem="hHA-ZF-mul" secondAttribute="width" id="Wdp-gq-Zsb"/>
                             <constraint firstAttribute="trailing" secondItem="py4-yD-AHj" secondAttribute="trailing" id="YcJ-4s-nCe"/>
                             <constraint firstItem="py4-yD-AHj" firstAttribute="top" secondItem="M0N-Zs-IoS" secondAttribute="bottom" id="b6l-6t-g1d"/>
                             <constraint firstItem="0gM-pu-ViW" firstAttribute="top" secondItem="py4-yD-AHj" secondAttribute="bottom" id="eQt-TX-jaR"/>
