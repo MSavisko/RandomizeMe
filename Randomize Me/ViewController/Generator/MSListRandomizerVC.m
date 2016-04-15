@@ -1,4 +1,4 @@
-//
+    //
 //  MSListRandomizerVC.m
 //  Randomize Me
 //
@@ -14,20 +14,12 @@
 #import "MBProgressHUD.h"
 
 
-@interface MSListRandomizerVC () <UITextViewDelegate, MSHTTPClientDelegate>
-
+@interface MSListRandomizerVC () <UITextViewDelegate, MSHTTPClientDelegate, SWRevealViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
-
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *randomizeButton;
-
-
-
 
 @property (strong, nonnull) MSRandomIntegerRequest *request;
 @property (strong, nonatomic) MSRandomResponse *response;
@@ -51,15 +43,12 @@
     [self setupMenuBar];
 }
 
+
 #pragma mark - IBAction
 - (IBAction)doneButtonPressed:(id)sender {
     [self dismissKeyboard];
     [self.textView setContentOffset:CGPointZero animated:NO];
 }
-
-
-#pragma mark - UITextView Delegate
-
 
 #pragma mark - Setup Methods
 - (void) hideKeyboardByTap {
@@ -71,6 +60,7 @@
 
 - (void) setupMenuBar {
     SWRevealViewController *revealViewController = self.revealViewController;
+    revealViewController.delegate = self;
     if (revealViewController)
     {
         [self.menuButtonItem setTarget: self.revealViewController];
@@ -82,6 +72,18 @@
 
 - (void) setTextViewDelegate {
     self.textView.delegate = self;
+}
+
+
+#pragma mark - SWRevealViewController Delegate
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position {
+    if (position == FrontViewPositionRight) {
+        self.textView.editable = NO;
+    }
+    else {
+        self.textView.editable = YES;
+    }
+    
 }
 
 #pragma mark - Keyboard Methods
@@ -100,7 +102,6 @@
 - (void)keyboardWillBeHidden:(NSNotification *)notification {
     self.textView.contentInset = UIEdgeInsetsZero;
     self.textView.scrollIndicatorInsets = UIEdgeInsetsZero;
-    NSLog(@"%f", self.textView.frame.size.height);
 }
 
 - (void) setKeyboardNotification {
