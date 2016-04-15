@@ -207,10 +207,25 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="py4-yD-AHj">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="eQk-iy-0g7"/>
+                                    <barButtonItem image="clear button" id="qIW-jj-GXf">
+                                        <connections>
+                                            <action selector="clearButtonPressed:" destination="679-vZ-IcL" id="sO8-N8-sWY"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="eXr-f7-Em9"/>
-                                    <barButtonItem title="Randomize" id="8ad-bq-Qa2"/>
+                                    <barButtonItem title="Randomize" id="8ad-bq-Qa2">
+                                        <connections>
+                                            <action selector="randomizeButtonPressed:" destination="679-vZ-IcL" id="ucE-wy-diO"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lnE-CI-Bj8"/>
-                                    <barButtonItem image="info button" id="fjJ-XM-IZu"/>
+                                    <barButtonItem image="info button" id="fjJ-XM-IZu">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="679-vZ-IcL" id="jEe-qg-2ML"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="UxY-Q2-9lk"/>
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0N-Zs-IoS">

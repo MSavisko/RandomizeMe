@@ -43,12 +43,31 @@
     [self setupMenuBar];
 }
 
-
 #pragma mark - IBAction
+- (IBAction)randomizeButtonPressed:(id)sender {
+    NSArray *lines = [self.textView.text componentsSeparatedByString:@"\n"];
+    NSLog(@"%@", lines);
+}
+
 - (IBAction)doneButtonPressed:(id)sender {
     [self dismissKeyboard];
     [self.textView setContentOffset:CGPointZero animated:NO];
 }
+
+- (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
+    self.textView.text = @"Enter your items in the field below, each on a separate line.\nItems can be numbers, names, email addresses, etc. A maximum of 10,000 items are allowed.";
+    self.textView.textColor = [UIColor lightGrayColor];
+}
+
+- (IBAction)infoButtonPressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"List Randomizer"
+                                                    message:@"This form allows you to arrange the items of a list in random order. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs."
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 
 #pragma mark - Setup Methods
 - (void) hideKeyboardByTap {
