@@ -36,8 +36,6 @@
     [self setKeyboardNotification];
     [self setTextView];
     [self.doneButton setEnabled:NO];
-    //[self testSample];
-    //[self textViewSample];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -54,18 +52,9 @@
 #pragma mark - IBAction
 - (IBAction)randomizeButtonPressed:(id)sender {
     NSArray *lines = [self.textView.text componentsSeparatedByString:@"\n"];
-    if ([lines.lastObject isEqualToString:@""]) {
-        if (lines.count - 1 < 2) {
-            [self showAlertWithMessage:@"Your list must contain at least two items!"];
-        }
+    if ([self checkTextFIeld]) {
+        [self randomizeWithList:lines];
     }
-    else if (lines.count < 2) {
-        [self showAlertWithMessage:@"Your list must contain at least two items!"];
-    }
-    else if (lines.count > 9999) {
-        [self showAlertWithMessage:@"Your list must contain at less than 10000 items!"];
-    }
-    [self randomizeWithList:lines];
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
@@ -206,6 +195,29 @@
     [client setDelegate:self];
     [client sendRequest:[self.request requestBody]];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+- (BOOL) checkTextFIeld {
+    NSArray *lines = [self.textView.text componentsSeparatedByString:@"\n"];
+    if ([lines.lastObject isEqualToString:@""]) {
+        if (lines.count - 1 < 2) {
+            [self showAlertWithMessage:@"Your list must contain at least two items!"];
+            return NO;
+        }
+    }
+    else if (lines.count < 2) {
+        [self showAlertWithMessage:@"Your list must contain at least two items!"];
+        return NO;
+    }
+    else if (lines.count > 9999) {
+        [self showAlertWithMessage:@"Your list must contain at less than 10000 items!"];
+        return NO;
+    }
+    else if ([self.textView.text isEqualToString:@"Enter your items in the field below, each on a separate line.\nItems can be numbers, names, email addresses, etc. A maximum of 10,000 items are allowed."]) {
+        [self showAlertWithMessage:@"Your list must contain at least two items!"];
+        return NO;
+    }
+    return YES;
 }
 
 @end
