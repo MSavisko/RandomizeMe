@@ -7,15 +7,116 @@
 //
 
 #import "MSListRandomizerVC.h"
+#import "SWRevealViewController.h"
+#import "MSRandomIntegerRequest.h"
+#import "MSRandomResponse.h"
+#import "MSHTTPClient.h"
+#import "MBProgressHUD.h"
+
+
+@interface MSListRandomizerVC () <UITextViewDelegate, MSHTTPClientDelegate>
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *randomizeButton;
+
+
+
+
+@property (strong, nonnull) MSRandomIntegerRequest *request;
+@property (strong, nonatomic) MSRandomResponse *response;
+
+@end
 
 @implementation MSListRandomizerVC
 
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
+    [self hideKeyboardByTap];
+    [self setKeyboardNotification];
+    [self setTextViewDelegate];
     //[self testSample];
     //[self textViewSample];
 }
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setupMenuBar];
+}
+
+#pragma mark - IBAction
+- (IBAction)doneButtonPressed:(id)sender {
+    [self dismissKeyboard];
+    [self.textView setContentOffset:CGPointZero animated:NO];
+}
+
+
+#pragma mark - UITextView Delegate
+
+
+#pragma mark - Setup Methods
+- (void) hideKeyboardByTap {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.menuButtonItem setTarget: self.revealViewController];
+        [self.menuButtonItem setAction: @selector(revealToggle:)];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+}
+
+- (void) setTextViewDelegate {
+    self.textView.delegate = self;
+}
+
+#pragma mark - Keyboard Methods
+-(void) dismissKeyboard {
+    [self.view endEditing:YES];
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    NSDictionary* info = [notification userInfo];
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    self.textView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0);
+    self.textView.scrollIndicatorInsets = self.textView.contentInset;
+}
+
+- (void)keyboardWillBeHidden:(NSNotification *)notification {
+    self.textView.contentInset = UIEdgeInsetsZero;
+    self.textView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    NSLog(@"%f", self.textView.frame.size.height);
+}
+
+- (void) setKeyboardNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+
+
 
 - (void) textViewSample {
     NSString *textFieldText = [NSString stringWithFormat:@"First \nSecond\nThird\nFourth\nFifth"];

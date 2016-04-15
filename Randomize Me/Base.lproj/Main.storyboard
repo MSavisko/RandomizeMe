@@ -203,15 +203,90 @@
                     <view key="view" contentMode="scaleToFill" id="hHA-ZF-mul">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="py4-yD-AHj">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="eXr-f7-Em9"/>
+                                    <barButtonItem title="Randomize" id="8ad-bq-Qa2"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lnE-CI-Bj8"/>
+                                    <barButtonItem image="info button" id="fjJ-XM-IZu"/>
+                                </items>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0N-Zs-IoS">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RWF-w9-S3X">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="RWF-w9-S3X" firstAttribute="centerY" secondItem="M0N-Zs-IoS" secondAttribute="centerY" id="3Cq-i2-fnd"/>
+                                    <constraint firstAttribute="trailing" secondItem="RWF-w9-S3X" secondAttribute="trailing" id="MIt-f1-jzh"/>
+                                    <constraint firstItem="RWF-w9-S3X" firstAttribute="top" secondItem="M0N-Zs-IoS" secondAttribute="top" id="RGW-OL-GPW"/>
+                                    <constraint firstItem="RWF-w9-S3X" firstAttribute="leading" secondItem="M0N-Zs-IoS" secondAttribute="leading" id="aNV-hf-xPK"/>
+                                    <constraint firstAttribute="bottom" secondItem="RWF-w9-S3X" secondAttribute="bottom" id="ddb-YK-K4n"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="py4-yD-AHj" firstAttribute="leading" secondItem="hHA-ZF-mul" secondAttribute="leading" id="1pF-jW-uqM"/>
+                            <constraint firstAttribute="trailing" secondItem="M0N-Zs-IoS" secondAttribute="trailing" id="TLu-ic-EqH"/>
+                            <constraint firstItem="RWF-w9-S3X" firstAttribute="width" secondItem="hHA-ZF-mul" secondAttribute="width" id="Wdp-gq-Zsb"/>
+                            <constraint firstAttribute="trailing" secondItem="py4-yD-AHj" secondAttribute="trailing" id="YcJ-4s-nCe"/>
+                            <constraint firstItem="py4-yD-AHj" firstAttribute="top" secondItem="M0N-Zs-IoS" secondAttribute="bottom" id="b6l-6t-g1d"/>
+                            <constraint firstItem="0gM-pu-ViW" firstAttribute="top" secondItem="py4-yD-AHj" secondAttribute="bottom" id="eQt-TX-jaR"/>
+                            <constraint firstItem="M0N-Zs-IoS" firstAttribute="leading" secondItem="hHA-ZF-mul" secondAttribute="leading" id="rRb-df-eG0"/>
+                            <constraint firstItem="M0N-Zs-IoS" firstAttribute="top" secondItem="cPv-ur-aEa" secondAttribute="bottom" id="thh-Wj-AsF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="List Randomizer" id="MeP-0R-163">
                         <barButtonItem key="backBarButtonItem" title=" " id="Xqu-YK-Buf"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu filled" id="GSi-Mj-Ucf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Uow-7t-sWD">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="679-vZ-IcL" id="MCj-4k-fHe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="Uow-7t-sWD" id="89Q-2X-Sdc"/>
+                        <outlet property="menuButtonItem" destination="GSi-Mj-Ucf" id="uxR-0b-iDx"/>
+                        <outlet property="randomizeButton" destination="8ad-bq-Qa2" id="Pfa-1s-hAF"/>
+                        <outlet property="scrollView" destination="M0N-Zs-IoS" id="oXt-BZ-CrE"/>
+                        <outlet property="textView" destination="RWF-w9-S3X" id="Vub-J7-8Kf"/>
+                        <segue destination="v0z-10-2JR" kind="show" identifier="ShowListResult" id="Bw5-L8-fVv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ml-eV-coS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="-4665"/>
+        </scene>
+        <!--List Randomizer Result-->
+        <scene sceneID="X4g-5X-o51">
+            <objects>
+                <viewController title="List Randomizer Result" id="v0z-10-2JR" customClass="MSListResultVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s84-if-gbc"/>
+                        <viewControllerLayoutGuide type="bottom" id="5nw-nr-yZG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XsT-XS-cVH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Result" id="vxx-SN-UbX">
+                        <barButtonItem key="backBarButtonItem" title=" " id="AhD-z1-kaa"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LWa-Wp-iw3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2144" y="-4665"/>
         </scene>
         <!--Card Shuffler Generator-->
         <scene sceneID="Inf-ke-rke">
