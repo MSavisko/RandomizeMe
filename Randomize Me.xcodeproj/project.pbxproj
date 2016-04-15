@@ -39,6 +39,7 @@
 		928F4B101CC040A20049BDE7 /* DiceRoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4B0F1CC040A20049BDE7 /* DiceRoller.m */; };
 		928F4B131CC0F7570049BDE7 /* MSListRandomizerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4B121CC0F7570049BDE7 /* MSListRandomizerVC.m */; };
 		928F4B161CC112DE0049BDE7 /* MSListResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4B151CC112DE0049BDE7 /* MSListResultVC.m */; };
+		928F4B1D1CC174400049BDE7 /* ListRandomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4B1C1CC174400049BDE7 /* ListRandomizer.m */; };
 		92B7B5251C9EC231001BB572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5241C9EC231001BB572 /* main.m */; };
 		92B7B5281C9EC231001BB572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B7B5271C9EC231001BB572 /* AppDelegate.m */; };
 		92B7B52E1C9EC231001BB572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7B52C1C9EC231001BB572 /* Main.storyboard */; };
@@ -110,6 +111,8 @@
 		928F4B121CC0F7570049BDE7 /* MSListRandomizerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSListRandomizerVC.m; path = ViewController/Generator/MSListRandomizerVC.m; sourceTree = "<group>"; };
 		928F4B141CC112DE0049BDE7 /* MSListResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSListResultVC.h; path = ViewController/Result/MSListResultVC.h; sourceTree = "<group>"; };
 		928F4B151CC112DE0049BDE7 /* MSListResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSListResultVC.m; path = ViewController/Result/MSListResultVC.m; sourceTree = "<group>"; };
+		928F4B1B1CC174400049BDE7 /* ListRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListRandomizer.h; path = Models/ListRandomizer/ListRandomizer.h; sourceTree = "<group>"; };
+		928F4B1C1CC174400049BDE7 /* ListRandomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListRandomizer.m; path = Models/ListRandomizer/ListRandomizer.m; sourceTree = "<group>"; };
 		92B7B5201C9EC231001BB572 /* Randomize Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomize Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B7B5241C9EC231001BB572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92B7B5261C9EC231001BB572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -262,6 +265,15 @@
 			name = DiceRoller;
 			sourceTree = "<group>";
 		};
+		928F4B171CC170380049BDE7 /* ListRandomizer */ = {
+			isa = PBXGroup;
+			children = (
+				928F4B1B1CC174400049BDE7 /* ListRandomizer.h */,
+				928F4B1C1CC174400049BDE7 /* ListRandomizer.m */,
+			);
+			name = ListRandomizer;
+			sourceTree = "<group>";
+		};
 		92B7B5171C9EC231001BB572 = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +330,7 @@
 		92B7B5401CA07ABA001BB572 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				928F4B171CC170380049BDE7 /* ListRandomizer */,
 				928F4B041CC03E2A0049BDE7 /* DiceRoller */,
 				928F4AF61CC0213B0049BDE7 /* CardShuffler */,
 				926AF2301CB937A8006DEF8E /* Responses */,
@@ -498,6 +511,7 @@
 				928F4AFC1CC021D80049BDE7 /* Deck.m in Sources */,
 				928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */,
 				928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */,
+				928F4B1D1CC174400049BDE7 /* ListRandomizer.m in Sources */,
 				926AF21B1CB510E5006DEF8E /* MSMenuBarController.m in Sources */,
 				92B7B5251C9EC231001BB572 /* main.m in Sources */,
 			);
