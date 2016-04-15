@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSRandomResponse.h"
+#import <VK-ios-sdk/VKSdk.h>
 
-@interface MSListResultVC : UIViewController
+@interface MSListResultVC : UIViewController <VKSdkDelegate>
+@property (strong, nonatomic) MSRandomResponse *response;
+@property (strong, nonatomic) NSArray *list;
 
 @end

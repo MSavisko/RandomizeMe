@@ -7,6 +7,7 @@
 //
 
 #import "MSListRandomizerVC.h"
+#import "MSListResultVC.h"
 #import "SWRevealViewController.h"
 #import "MSRandomIntegerRequest.h"
 #import "MSRandomResponse.h"
@@ -34,6 +35,7 @@
     [self hideKeyboardByTap];
     [self setKeyboardNotification];
     [self setTextView];
+    [self.doneButton setEnabled:NO];
     //[self testSample];
     //[self textViewSample];
 }
@@ -41,6 +43,12 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupMenuBar];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MSListResultVC *resultVC = segue.destinationViewController;
+    resultVC.response = self.response;
+    resultVC.list = [self.textView.text componentsSeparatedByString:@"\n"];
 }
 
 #pragma mark - IBAction
@@ -54,6 +62,7 @@
     else if (lines.count < 2) {
         [self showAlertWithMessage:@"Your list must contain at least two items!"];
     }
+    [self randomizeWithList:lines];
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
@@ -102,6 +111,18 @@
     self.textView.textColor = [UIColor lightGrayColor];
 }
 
+- (void) setKeyboardNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
 #pragma mark - SWRevealViewController Delegate
 - (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position {
     if (position == FrontViewPositionRight) {
@@ -110,6 +131,24 @@
     else {
         self.textView.editable = YES;
     }
+}
+
+#pragma mark - MSHTTPClient Delegate
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    self.response = [[MSRandomResponse alloc]init];
+    [self.response parseResponseFromData:responseObject];
+    if (!self.response.error) {
+        [self performSegueWithIdentifier:@"ShowListResult" sender:nil];
+        NSLog(@"%@", self.response.data);
+    } else {
+        [self showAlertWithMessage:[self.response parseError]];
+    }
+}
+
+- (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didFailWithError:(NSError *)error {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
 #pragma mark - UITextView Delegate
@@ -129,8 +168,6 @@
     [textView resignFirstResponder];
 }
 
-
-
 #pragma mark - Keyboard Methods
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
@@ -142,23 +179,13 @@
     
     self.textView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0);
     self.textView.scrollIndicatorInsets = self.textView.contentInset;
+    [self.doneButton setEnabled:YES];
 }
 
 - (void)keyboardWillBeHidden:(NSNotification *)notification {
     self.textView.contentInset = UIEdgeInsetsZero;
     self.textView.scrollIndicatorInsets = UIEdgeInsetsZero;
-}
-
-- (void) setKeyboardNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
+    [self.doneButton setEnabled:NO];
 }
 
 - (void) textViewSample {
@@ -217,6 +244,14 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (void) randomizeWithList:(NSArray*)list {
+    self.request = [[MSRandomIntegerRequest alloc]initWithCount:list.count min:1 max:list.count unique:YES];
+    MSHTTPClient *client = [MSHTTPClient sharedClient];
+    [client setDelegate:self];
+    [client sendRequest:[self.request requestBody]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 @end
