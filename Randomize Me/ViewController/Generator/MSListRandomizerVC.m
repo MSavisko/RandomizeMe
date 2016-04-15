@@ -46,12 +46,19 @@
 #pragma mark - IBAction
 - (IBAction)randomizeButtonPressed:(id)sender {
     NSArray *lines = [self.textView.text componentsSeparatedByString:@"\n"];
-    NSLog(@"%@", lines);
+    if ([lines.lastObject isEqualToString:@""]) {
+        if (lines.count - 1 < 2) {
+            [self showAlertWithMessage:@"Your list must contain at least two items!"];
+        }
+    }
+    else if (lines.count < 2) {
+        [self showAlertWithMessage:@"Your list must contain at least two items!"];
+    }
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
     [self dismissKeyboard];
-    [self.textView setContentOffset:CGPointZero animated:NO];
+    [self.textView setContentOffset:CGPointZero animated:YES];
 }
 
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
@@ -154,9 +161,6 @@
                                                object:nil];
 }
 
-
-
-
 - (void) textViewSample {
     NSString *textFieldText = [NSString stringWithFormat:@"First \nSecond\nThird\nFourth\nFifth"];
     NSArray *lines = [textFieldText componentsSeparatedByString:@"\n"];
@@ -203,6 +207,16 @@
         [stringResult appendString:lineText];
     }
     NSLog(@"%@", stringResult);
+}
+
+#pragma mark - Helper Methods
+- (void) showAlertWithMessage:(NSString*)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
