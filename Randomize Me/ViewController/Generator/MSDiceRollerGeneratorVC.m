@@ -90,7 +90,6 @@ static int MSRollButtonHeight = 30;
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
         [self performSegueWithIdentifier:@"ShowDiceRollerResult" sender:nil];
-        NSLog(@"Result: %@", self.response.data);
     } else {
         [self showAlertWithMessage:[self.response parseError]];
     }

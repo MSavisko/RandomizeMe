@@ -10,8 +10,8 @@
 #import "MSRandomResponse.h"
 
 @interface ListRandomizer : NSObject
-@property (strong, nonatomic) NSMutableArray *inputList;
-@property (strong, nonatomic) NSMutableArray *outputList;
+@property (readonly, strong, nonatomic) NSMutableArray *inputList;
+@property (readonly, strong, nonatomic) NSMutableArray *outputList;
 
 - (instancetype) initWithList:(NSArray*)list;
 - (void) randomizeWithResponse:(MSRandomResponse*)response;

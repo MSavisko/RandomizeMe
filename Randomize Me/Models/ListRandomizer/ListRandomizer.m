@@ -35,7 +35,7 @@
 
 - (void) randomizeWithResponse:(MSRandomResponse*)response {
     NSArray *data = response.data;
-    NSMutableArray *randomizeList = self.inputList;
+    NSMutableArray *randomizeList = _inputList;
     
     for (int i = 0; i < randomizeList.count; i++) {
         NSString *newPosition = [NSString stringWithFormat:@"%@", data[i]];

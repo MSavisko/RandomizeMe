@@ -311,46 +311,6 @@
     return result;
 }
 
-
-- (NSString*) stringResult2 {
-    NSMutableArray *dictArray = [[NSMutableArray alloc]init];
-    
-    for (NSInteger i = 0; i < self.list.count; i++) {
-        NSString *currentPosition = [NSString stringWithFormat:@"%ld", (long)i];
-        NSString *text = [NSString stringWithFormat:@"%@", self.list[i]];
-        
-        
-        NSMutableDictionary *line = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                    @"current_position" : currentPosition,
-                                                                                    @"text" : text,
-                                                                                    @"new_position" : @"0"
-                                                                                    }];
-        
-        [dictArray addObject:line];
-    }
-    NSArray *data = self.response.data;
-    
-    for (int i = 0; i < self.list.count; i++) {
-        NSString *newPosition = [NSString stringWithFormat:@"%@", data[i]];
-        dictArray[i][@"new_position"] = newPosition;
-    }
-    
-    NSSortDescriptor *newPositionDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"new_position" ascending:YES];
-    
-    NSArray *descriptors = @[newPositionDescriptor];
-    
-    [dictArray sortUsingDescriptors:descriptors];
-    
-    NSMutableString * stringResult = [[NSMutableString alloc]init];
-    for (int i = 0; i < dictArray.count; i++) {
-        NSString *number = [NSString stringWithFormat:@"%d. ", i + 1];
-        NSString *lineText = [NSString stringWithFormat:@"%@\n", dictArray[i][@"text"]];
-        [stringResult appendString:number];
-        [stringResult appendString:lineText];
-    }
-    return stringResult;
-}
-
 - (NSString*) stringComplitionTime {
     return [self.response.completionTime substringToIndex:self.response.completionTime.length-1];
 }
@@ -361,13 +321,8 @@
     NSString *resultData = [self stringResult];
     
     NSString *parametrs = @"Parameters of generation:";
-    NSString *numberOfIntegers = [NSString stringWithFormat:@"Number of lists: %@", self.response.responseBody[@"result"][@"random"][@"n"]];
+    NSString *numberOfIntegers = [NSString stringWithFormat:@"Number of lines: %@", self.response.responseBody[@"result"][@"random"][@"n"]];
     
-    NSString *mutableReplacement = [NSString stringWithFormat:@"Unique integers: YES"];
-    NSString *replacement = [NSString stringWithFormat:@"%@", self.response.responseBody[@"result"][@"random"][@"replacement"]];
-    if ([replacement isEqualToString:@"1"]) {
-        mutableReplacement = @"Unique integers: NO";
-    }
     NSString *individualInformation = @"Individual information of generation:";
     NSString *completionTime = [NSString stringWithFormat:@"Completion time (UTC+0): %@", [self stringComplitionTime]];
     NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %ld", (long)self.response.serialNumber];

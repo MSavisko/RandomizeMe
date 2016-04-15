@@ -96,7 +96,6 @@ static int MSGenerateButtonHeight = 27;
     [self.response parseResponseFromData:responseObject];
     if (!self.response.error) {
         [self performSegueWithIdentifier:@"ShowStringsResult" sender:nil];
-        NSLog(@"Result: %@", self.response.data);
     } else {
         [self showAlertWithMessage:[self.response parseError]];
     }

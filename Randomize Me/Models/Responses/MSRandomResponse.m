@@ -42,11 +42,11 @@
         _responseBody = data;
         BOOL authenticity = [data[@"result"][@"authenticity"] boolValue];
         if (authenticity) {
-            NSLog(@"Authenticity: %@", data[@"result"][@"authenticity"]);
+            //NSLog(@"Authenticity: %@", data[@"result"][@"authenticity"]);
             return YES;
         }
         else {
-            NSLog(@"Authenticity: %@", data[@"result"][@"authenticity"]);
+            //NSLog(@"Authenticity: %@", data[@"result"][@"authenticity"]);
             return NO;
         }
     }
