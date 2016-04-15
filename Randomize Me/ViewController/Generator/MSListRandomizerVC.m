@@ -33,7 +33,7 @@
     [super viewDidLoad];
     [self hideKeyboardByTap];
     [self setKeyboardNotification];
-    [self setTextViewDelegate];
+    [self setTextView];
     //[self testSample];
     //[self textViewSample];
 }
@@ -70,10 +70,11 @@
     }
 }
 
-- (void) setTextViewDelegate {
+- (void) setTextView {
     self.textView.delegate = self;
+    self.textView.text = @"Enter your items in the field below, each on a separate line.\nItems can be numbers, names, email addresses, etc. A maximum of 10,000 items are allowed.";
+    self.textView.textColor = [UIColor lightGrayColor];
 }
-
 
 #pragma mark - SWRevealViewController Delegate
 - (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position {
@@ -83,8 +84,26 @@
     else {
         self.textView.editable = YES;
     }
-    
 }
+
+#pragma mark - UITextView Delegate
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if ([textView.text isEqualToString:@"Enter your items in the field below, each on a separate line.\nItems can be numbers, names, email addresses, etc. A maximum of 10,000 items are allowed."]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Enter your items in the field below, each on a separate line.\nItems can be numbers, names, email addresses, etc. A maximum of 10,000 items are allowed.";
+        textView.textColor = [UIColor lightGrayColor];
+    }
+    [textView resignFirstResponder];
+}
+
+
 
 #pragma mark - Keyboard Methods
 -(void) dismissKeyboard {
