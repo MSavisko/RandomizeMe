@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "List.h"
+#import "MSRandomResponse.h"
 
 @interface ListRandomizer : NSObject
 @property (strong, nonatomic) NSMutableArray *inputList;
 @property (strong, nonatomic) NSMutableArray *outputList;
-@property (strong, nonatomic) NSString *listDescription;
+
+- (instancetype) initWithList:(NSArray*)list;
+- (void) randomizeWithResponse:(MSRandomResponse*)response;
+- (NSString*) stringDescription;
 
 @end

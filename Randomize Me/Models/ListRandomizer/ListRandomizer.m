@@ -7,7 +7,6 @@
 //
 
 #import "ListRandomizer.h"
-#import "List.h"
 #import "MSRandomResponse.h"
 
 @implementation ListRandomizer

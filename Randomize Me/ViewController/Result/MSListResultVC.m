@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 
 #import "MBProgressHUD.h"
+#import "ListRandomizer.h"
 
 #import <Social/Social.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -23,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *copyingButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (strong, nonatomic) ListRandomizer *randomizer;
 
 @end
 
@@ -33,6 +35,7 @@
     [super viewDidLoad];
     [self hideKeyboardByTap];
     [self setupVkDelegate];
+    [self randomize];
     self.resultTextView.text = [self stringResult];
     self.timestampLabel.text = [self stringComplitionTime];
 }
@@ -296,8 +299,20 @@
     [alert show];
 }
 
+#pragma mark - Helper Method
+- (void) randomize {
+    self.randomizer = [[ListRandomizer alloc]initWithList:self.list];
+    [self.randomizer randomizeWithResponse:self.response];
+}
+
 #pragma mark - Presentation Data Method
 - (NSString*) stringResult {
+    NSString *result = [self.randomizer stringDescription];
+    return result;
+}
+
+
+- (NSString*) stringResult2 {
     NSMutableArray *dictArray = [[NSMutableArray alloc]init];
     
     for (NSInteger i = 0; i < self.list.count; i++) {
