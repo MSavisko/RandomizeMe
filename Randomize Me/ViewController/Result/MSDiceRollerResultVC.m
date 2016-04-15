@@ -291,7 +291,7 @@
     [alert show];
 }
 
-#pragma mark - Presentation Method
+#pragma mark - Presentation Image Method
 - (void) setDiceImage {
     self.roll = [[DiceRoller alloc]init];
     [self.roll rollWithResponse:self.response];
@@ -302,6 +302,7 @@
     }
 }
 
+#pragma mark - Presentation Data String Method
 - (NSString*) stringComplitionTime {
     return [self.response.completionTime substringToIndex:self.response.completionTime.length-1];
 }
