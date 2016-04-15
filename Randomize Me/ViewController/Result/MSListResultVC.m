@@ -357,7 +357,7 @@
     NSString *completionTime = [NSString stringWithFormat:@"Completion time (UTC+0): %@", [self stringComplitionTime]];
     NSString *serialNumber = [NSString stringWithFormat:@"Serial Number: %ld", (long)self.response.serialNumber];
     
-    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n\n%@\n%@\n\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfIntegers, individualInformation, completionTime, serialNumber];
+    NSString *result = [NSString stringWithFormat:@"%@\n\n%@\n%@\n%@\n%@\n\n%@\n%@\n%@", resultName, forResult, resultData, parametrs, numberOfIntegers, individualInformation, completionTime, serialNumber];
     
     return result;
 }

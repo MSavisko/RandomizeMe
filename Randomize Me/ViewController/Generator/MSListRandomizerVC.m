@@ -62,6 +62,9 @@
     else if (lines.count < 2) {
         [self showAlertWithMessage:@"Your list must contain at least two items!"];
     }
+    else if (lines.count > 9999) {
+        [self showAlertWithMessage:@"Your list must contain at less than 10000 items!"];
+    }
     [self randomizeWithList:lines];
 }
 
