@@ -29,6 +29,7 @@
 		9275F1811CC24648003BD7F9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275F1801CC24648003BD7F9 /* MessageUI.framework */; };
 		9275F1841CC2517E003BD7F9 /* MSDetailMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275F1831CC2517E003BD7F9 /* MSDetailMenuVC.m */; };
 		9275F1891CC2B7DC003BD7F9 /* LoteryQuickPick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275F1881CC2B7DC003BD7F9 /* LoteryQuickPick.m */; };
+		9275F18F1CC2C948003BD7F9 /* MSLoteryQuickPickVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275F18E1CC2C948003BD7F9 /* MSLoteryQuickPickVC.m */; };
 		928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */; };
 		928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */; };
 		928F4AE81CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */; };
@@ -94,6 +95,8 @@
 		9275F1831CC2517E003BD7F9 /* MSDetailMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDetailMenuVC.m; path = ViewController/AboutMenu/MSDetailMenuVC.m; sourceTree = "<group>"; };
 		9275F1871CC2B7DC003BD7F9 /* LoteryQuickPick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoteryQuickPick.h; path = Models/LoteryQuickPick/LoteryQuickPick.h; sourceTree = "<group>"; };
 		9275F1881CC2B7DC003BD7F9 /* LoteryQuickPick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoteryQuickPick.m; path = Models/LoteryQuickPick/LoteryQuickPick.m; sourceTree = "<group>"; };
+		9275F18D1CC2C948003BD7F9 /* MSLoteryQuickPickVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSLoteryQuickPickVC.h; path = ViewController/Generator/MSLoteryQuickPickVC.h; sourceTree = "<group>"; };
+		9275F18E1CC2C948003BD7F9 /* MSLoteryQuickPickVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSLoteryQuickPickVC.m; path = ViewController/Generator/MSLoteryQuickPickVC.m; sourceTree = "<group>"; };
 		928F4AE01CBE29530049BDE7 /* MSPasswordsGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsGeneratorVC.h; path = ViewController/Generator/MSPasswordsGeneratorVC.h; sourceTree = "<group>"; };
 		928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPasswordsGeneratorVC.m; path = ViewController/Generator/MSPasswordsGeneratorVC.m; sourceTree = "<group>"; };
 		928F4AE31CBE29C50049BDE7 /* MSPasswordsResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsResultVC.h; path = ViewController/Result/MSPasswordsResultVC.h; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				928F4AED1CBFBCA10049BDE7 /* MSCardShufflerGeneratorVC.m */,
 				928F4B111CC0F7570049BDE7 /* MSListRandomizerVC.h */,
 				928F4B121CC0F7570049BDE7 /* MSListRandomizerVC.m */,
+				9275F18D1CC2C948003BD7F9 /* MSLoteryQuickPickVC.h */,
+				9275F18E1CC2C948003BD7F9 /* MSLoteryQuickPickVC.m */,
 			);
 			name = Generator;
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 			files = (
 				926AF22A1CB51454006DEF8E /* MSDecimalGeneratorVC.m in Sources */,
 				928F4B0D1CC03FAC0049BDE7 /* DiceSet.m in Sources */,
+				9275F18F1CC2C948003BD7F9 /* MSLoteryQuickPickVC.m in Sources */,
 				928F4AEB1CBE8FD90049BDE7 /* MSDiceRollerResultVC.m in Sources */,
 				928F4AF11CBFBCD60049BDE7 /* MSCardShufflerResultVC.m in Sources */,
 				920CDFE91CBC386400971651 /* MSRandomDecimalRequest.m in Sources */,
