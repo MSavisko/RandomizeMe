@@ -33,8 +33,6 @@
     [super viewDidLoad];
     [self hideKeyboardByTap];
     [self setupVkDelegate];
-    //[self.trashButton setEnabled:NO];
-    //[self.trashButton setTintColor:[UIColor clearColor]];
     self.resultTextView.text = [self stringResult];
     self.timestampLabel.text = [self stringComplitionTime];
 }

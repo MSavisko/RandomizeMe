@@ -2115,7 +2115,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lottery menu color" translatesAutoresizingMaskIntoConstraints="NO" id="NQu-qb-sW7">
                                             <rect key="frame" x="18" y="2" width="40" height="40"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Lottery Pick" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNx-Ky-rK3">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Lottery Quick Pick" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNx-Ky-rK3">
                                             <rect key="frame" x="66" y="12" width="185" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2287,12 +2287,18 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suN-aM-DaX">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="uWI-yx-VA2"/>
-                                    <barButtonItem image="trash button" id="5nQ-I6-2Ww"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3Tb-DO-78v"/>
-                                    <barButtonItem image="save button" id="Qby-oY-fTe"/>
+                                    <barButtonItem image="save button" id="Qby-oY-fTe">
+                                        <connections>
+                                            <action selector="copyingButtonPressed:" destination="zb6-qs-Wpz" id="xb8-xA-4jD"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VBk-bv-RDP"/>
-                                    <barButtonItem image="info button" id="IXO-DI-bKJ"/>
+                                    <barButtonItem image="info button" id="IXO-DI-bKJ">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="zb6-qs-Wpz" id="IbG-O4-P1d"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="gGJ-JM-4pj"/>
                                 </items>
                             </toolbar>
@@ -2338,7 +2344,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Lottery Quick Pick" id="e3p-mp-Kax">
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="e25-hV-kVC"/>
-                        <barButtonItem key="rightBarButtonItem" image="share button" id="Vjp-ff-gMO"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="Vjp-ff-gMO">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="zb6-qs-Wpz" id="DWN-l7-bZO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="copyingButton" destination="Qby-oY-fTe" id="kaz-gZ-qx1"/>
@@ -2348,7 +2358,6 @@
                         <outlet property="pickerView" destination="C7Z-Ei-LSO" id="0h5-yT-Hck"/>
                         <outlet property="shareButton" destination="Vjp-ff-gMO" id="Wem-NQ-GhY"/>
                         <outlet property="ticketLabel" destination="HAE-vh-rPU" id="w5a-ft-vTh"/>
-                        <outlet property="trashButton" destination="5nQ-I6-2Ww" id="cLA-M4-VQv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HR-wz-qeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
