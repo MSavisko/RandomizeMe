@@ -20,7 +20,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    self.menuItems = @[@"integer", @"decimal", @"string", @"list", @"password", @"dice", @"lottery", @"card", @"verify", @"settings"];
+    self.menuItems = @[@"integer", @"decimal", @"string", @"list", @"password", @"dice", @"lottery", @"card", @"verify", @"about"];
 }
 
 - (void) didReceiveMemoryWarning {
