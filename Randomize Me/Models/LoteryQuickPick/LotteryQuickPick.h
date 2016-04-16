@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "MSRandomIntegerRequest.h"
+#import "MSRandomResponse.h"
 
 @interface LotteryQuickPick : NSObject
 @property (readonly, strong, nonatomic) NSString *name;
 
 - (instancetype) initWithName:(NSString*)name;
 - (MSRandomIntegerRequest*) request;
+- (NSString*) pickFromResponse:(MSRandomResponse*)response;
 
 @end

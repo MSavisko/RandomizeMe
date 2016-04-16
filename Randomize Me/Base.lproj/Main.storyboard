@@ -2287,18 +2287,49 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suN-aM-DaX">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="uWI-yx-VA2"/>
+                                    <barButtonItem image="trash button" id="5nQ-I6-2Ww"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3Tb-DO-78v"/>
+                                    <barButtonItem image="save button" id="Qby-oY-fTe"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VBk-bv-RDP"/>
                                     <barButtonItem image="info button" id="IXO-DI-bKJ"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="gGJ-JM-4pj"/>
                                 </items>
                             </toolbar>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7Z-Ei-LSO">
                                 <rect key="frame" x="0.0" y="64" width="600" height="216"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lottery ticket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAE-vh-rPU">
+                                <rect key="frame" x="150" y="288" width="300" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="HUP-Wb-zCM"/>
+                                    <constraint firstAttribute="height" constant="21" id="K75-QE-eZM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azW-W7-hPt">
+                                <rect key="frame" x="250" y="334" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yEQ-Nv-mmK"/>
+                                    <constraint firstAttribute="width" constant="100" id="ycF-3D-YiZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Pick ticket!"/>
+                                <connections>
+                                    <action selector="pickTicketPressed:" destination="zb6-qs-Wpz" eventType="touchUpInside" id="JqG-qg-Fob"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="HAE-vh-rPU" firstAttribute="centerX" secondItem="4Gd-Kb-wlJ" secondAttribute="centerX" id="4qW-eD-DID"/>
                             <constraint firstItem="dWB-VK-bon" firstAttribute="top" secondItem="suN-aM-DaX" secondAttribute="bottom" id="7La-GM-8hD"/>
+                            <constraint firstItem="azW-W7-hPt" firstAttribute="top" secondItem="HAE-vh-rPU" secondAttribute="bottom" constant="25" id="FB8-Jy-gvA"/>
                             <constraint firstAttribute="trailing" secondItem="C7Z-Ei-LSO" secondAttribute="trailing" id="LQE-Hq-zZP"/>
+                            <constraint firstItem="HAE-vh-rPU" firstAttribute="top" secondItem="C7Z-Ei-LSO" secondAttribute="bottom" constant="8" id="TBP-uE-gf8"/>
+                            <constraint firstItem="azW-W7-hPt" firstAttribute="centerX" secondItem="4Gd-Kb-wlJ" secondAttribute="centerX" id="b9v-WL-X3G"/>
                             <constraint firstItem="suN-aM-DaX" firstAttribute="leading" secondItem="4Gd-Kb-wlJ" secondAttribute="leading" id="efj-U4-8iJ"/>
                             <constraint firstItem="C7Z-Ei-LSO" firstAttribute="top" secondItem="BU9-qo-EnK" secondAttribute="bottom" id="kTE-dh-NgO"/>
                             <constraint firstItem="C7Z-Ei-LSO" firstAttribute="leading" secondItem="4Gd-Kb-wlJ" secondAttribute="leading" id="tic-0k-ywr"/>
@@ -2307,9 +2338,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Lottery Quick Pick" id="e3p-mp-Kax">
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="e25-hV-kVC"/>
+                        <barButtonItem key="rightBarButtonItem" image="share button" id="Vjp-ff-gMO"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="copyingButton" destination="Qby-oY-fTe" id="kaz-gZ-qx1"/>
+                        <outlet property="infoButton" destination="IXO-DI-bKJ" id="D2f-Te-OAP"/>
+                        <outlet property="menuButton" destination="e25-hV-kVC" id="Rak-Mk-fuR"/>
+                        <outlet property="pickTicketButton" destination="azW-W7-hPt" id="jNI-DO-lMz"/>
                         <outlet property="pickerView" destination="C7Z-Ei-LSO" id="0h5-yT-Hck"/>
+                        <outlet property="shareButton" destination="Vjp-ff-gMO" id="Wem-NQ-GhY"/>
+                        <outlet property="ticketLabel" destination="HAE-vh-rPU" id="w5a-ft-vTh"/>
+                        <outlet property="trashButton" destination="5nQ-I6-2Ww" id="cLA-M4-VQv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HR-wz-qeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
