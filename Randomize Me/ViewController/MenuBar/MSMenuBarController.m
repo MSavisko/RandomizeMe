@@ -10,7 +10,7 @@
 #import "SWRevealViewController.h"
 
 @interface MSMenuBarController ()
-@property (nonatomic, strong) NSArray *menuItems;
+@property (strong, nonatomic) NSArray *menuItems;
 @end
 
 

@@ -7,12 +7,15 @@
 //
 
 #import "MSAboutMenuVC.h"
+#import "MSDetailMenuVC.h"
 #import "SWRevealViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "MBProgressHUD.h"
 
 @interface MSAboutMenuVC () <MFMailComposeViewControllerDelegate>
-@property (nonatomic, strong) NSArray *menuItems;
+@property (strong, nonatomic) NSArray *menuItems;
+@property (strong, nonatomic) NSString *displayData;
+@property (strong, nonatomic) NSString *detailTitle;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
 
 @end
@@ -30,36 +33,34 @@
     [self setupMenuBar];
 }
 
-- (void) setupMenuBar {
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if (revealViewController)
-    {
-        [self.menuButtonItem setTarget: self.revealViewController];
-        [self.menuButtonItem setAction: @selector(revealToggle:)];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    }
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MSDetailMenuVC *resultVC = segue.destinationViewController;
+    resultVC.displayData = self.displayData;
+    resultVC.titleForView = self.detailTitle;
 }
 
 #pragma mark - Table View delegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.menuItems[indexPath.row]isEqualToString:@"feedback"]) {
         [self sendFeedback];
     }
     else if ([self.menuItems[indexPath.row]isEqualToString:@"license"]) {
-        //Segue with idenifier License
+        self.detailTitle = @"License";
+        self.displayData = [self licenses];
+        [self performSegueWithIdentifier:@"ShowDetailMenu" sender:nil];
     }
     else if ([self.menuItems[indexPath.row]isEqualToString:@"materials"]) {
         //Segue with identifier materials
+        self.detailTitle = @"Used materials";
+        self.displayData = @"Used materials text";
+        [self performSegueWithIdentifier:@"ShowDetailMenu" sender:nil];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
 #pragma mark - Mail View Controller Delegate
-- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:NULL];
     switch (result)
     {
@@ -130,6 +131,17 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     [self presentViewController:mc animated:YES completion:NULL];
 }
 
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.menuButtonItem setTarget: self.revealViewController];
+        [self.menuButtonItem setAction: @selector(revealToggle:)];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+}
+
 #pragma mark - MBProgressHUD Method
 - (void) showHudWithMessage:(NSString*)message {
     //Show
@@ -153,6 +165,28 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+#pragma mark - Presentation Data String Method
+- (NSString*) licenses {
+    NSString *networking = [NSString stringWithFormat:@"AFNetworking\n\nCopyright (c) 2011–2016 Alamofire Software Foundation (http://alamofire.org/)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n"];
+    
+    NSString *hudProgress = [NSString stringWithFormat:@"MBProgressHUD\n\nCopyright (c) 2009-2015 Matej Bukovinski\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n"];
+    
+    NSString *vk = [NSString stringWithFormat:@"Vk-ios-sdk\n\nThe MIT License (MIT)\nCopyright (c) 2015 VK.com\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n"];
+    
+    NSString *facebook = [NSString stringWithFormat:@"Facebook-ios-sdk\n\nCopyright (c) 2014-present, Facebook, Inc. All rights reserved.\nYou are hereby granted a non-exclusive, worldwide, royalty-free license to use, copy, modify, and distribute this software in source code or binary form for use in connection with the web services and APIs provided by Facebook.\nAs with any software that integrates with the Facebook platform, your use of this software is subject to the Facebook Developer Principles and Policies [http://developers.facebook.com/policy/]. This copyright notice shall be included in all copies or substantial portions of the software.\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n"];
+    
+    NSString *swreveal = [NSString stringWithFormat:@"SWRevealViewController\n\nCopyright (c) 2013 Joan Lluch <joan.lluch@sweetwilliamsl.com>\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\nEarly code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)"];
+    
+    NSMutableString *result = [[NSMutableString alloc]initWithString:networking];
+    [result appendString:hudProgress];
+    [result appendString:vk];
+    [result appendString:facebook];
+    [result appendString:swreveal];
+    
+    return result;
+    
 }
 
 @end

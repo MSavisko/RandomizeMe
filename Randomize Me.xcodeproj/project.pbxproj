@@ -27,6 +27,7 @@
 		926AF2431CBADD0E006DEF8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF2421CBADD0E006DEF8E /* Social.framework */; };
 		9275F17F1CC23496003BD7F9 /* MSAboutMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275F17E1CC23496003BD7F9 /* MSAboutMenuVC.m */; };
 		9275F1811CC24648003BD7F9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275F1801CC24648003BD7F9 /* MessageUI.framework */; };
+		9275F1841CC2517E003BD7F9 /* MSDetailMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275F1831CC2517E003BD7F9 /* MSDetailMenuVC.m */; };
 		928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */; };
 		928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */; };
 		928F4AE81CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */; };
@@ -88,6 +89,8 @@
 		9275F17D1CC23496003BD7F9 /* MSAboutMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSAboutMenuVC.h; path = ViewController/AboutMenu/MSAboutMenuVC.h; sourceTree = "<group>"; };
 		9275F17E1CC23496003BD7F9 /* MSAboutMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSAboutMenuVC.m; path = ViewController/AboutMenu/MSAboutMenuVC.m; sourceTree = "<group>"; };
 		9275F1801CC24648003BD7F9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9275F1821CC2517E003BD7F9 /* MSDetailMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSDetailMenuVC.h; path = ViewController/AboutMenu/MSDetailMenuVC.h; sourceTree = "<group>"; };
+		9275F1831CC2517E003BD7F9 /* MSDetailMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSDetailMenuVC.m; path = ViewController/AboutMenu/MSDetailMenuVC.m; sourceTree = "<group>"; };
 		928F4AE01CBE29530049BDE7 /* MSPasswordsGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsGeneratorVC.h; path = ViewController/Generator/MSPasswordsGeneratorVC.h; sourceTree = "<group>"; };
 		928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPasswordsGeneratorVC.m; path = ViewController/Generator/MSPasswordsGeneratorVC.m; sourceTree = "<group>"; };
 		928F4AE31CBE29C50049BDE7 /* MSPasswordsResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsResultVC.h; path = ViewController/Result/MSPasswordsResultVC.h; sourceTree = "<group>"; };
@@ -250,6 +253,8 @@
 			children = (
 				9275F17D1CC23496003BD7F9 /* MSAboutMenuVC.h */,
 				9275F17E1CC23496003BD7F9 /* MSAboutMenuVC.m */,
+				9275F1821CC2517E003BD7F9 /* MSDetailMenuVC.h */,
+				9275F1831CC2517E003BD7F9 /* MSDetailMenuVC.m */,
 			);
 			name = AboutMenu;
 			sourceTree = "<group>";
@@ -521,6 +526,7 @@
 				926AF2221CB512EE006DEF8E /* MSIntegerResultVC.m in Sources */,
 				92ED36CE1CAC5F3D00816AFD /* MSHTTPClient.m in Sources */,
 				926AF21E1CB5114B006DEF8E /* SWRevealViewController.m in Sources */,
+				9275F1841CC2517E003BD7F9 /* MSDetailMenuVC.m in Sources */,
 				926AF22F1CB825AF006DEF8E /* MSDecimalResultVC.m in Sources */,
 				920CDFEC1CBC3FCC00971651 /* MSRandomStringsRequest.m in Sources */,
 				928F4AFF1CC022450049BDE7 /* CardShuffler.m in Sources */,

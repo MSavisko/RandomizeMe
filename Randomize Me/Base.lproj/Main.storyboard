@@ -1869,11 +1869,57 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButtonItem" destination="Aem-pG-OpW" id="4TC-Xw-8uQ"/>
+                        <segue destination="o2h-Ma-oLt" kind="show" identifier="ShowDetailMenu" id="ZRG-UB-Qiy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SH-2b-1Db" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1160" y="802"/>
+        </scene>
+        <!--Detail MenuVC-->
+        <scene sceneID="095-XZ-TXf">
+            <objects>
+                <viewController id="o2h-Ma-oLt" customClass="MSDetailMenuVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iYn-c4-d4G"/>
+                        <viewControllerLayoutGuide type="bottom" id="3LX-v1-fEJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7bA-GB-knL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyk-vw-VaO">
+                                <rect key="frame" x="10" y="72" width="580" height="520"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3LX-v1-fEJ" firstAttribute="top" secondItem="eyk-vw-VaO" secondAttribute="bottom" constant="8" id="4e5-TY-91a"/>
+                            <constraint firstItem="eyk-vw-VaO" firstAttribute="leading" secondItem="7bA-GB-knL" secondAttribute="leading" constant="10" id="YpA-2r-pno"/>
+                            <constraint firstAttribute="trailing" secondItem="eyk-vw-VaO" secondAttribute="trailing" constant="10" id="d5i-J8-TJR"/>
+                            <constraint firstItem="eyk-vw-VaO" firstAttribute="top" secondItem="iYn-c4-d4G" secondAttribute="bottom" constant="8" id="mU0-8o-Z7h"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="S5K-3v-Ff5">
+                        <barButtonItem key="rightBarButtonItem" image="save button" id="fjO-ZS-dlD">
+                            <connections>
+                                <action selector="copyingButtonPressed:" destination="o2h-Ma-oLt" id="5JG-NE-D8A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="copyingButton" destination="fjO-ZS-dlD" id="aFu-gg-hYW"/>
+                        <outlet property="resultTextView" destination="eyk-vw-VaO" id="YbZ-oB-n4x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1um-nY-mdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2144" y="802"/>
         </scene>
         <!--Menu Bar-->
         <scene sceneID="UG7-25-Yi9">
