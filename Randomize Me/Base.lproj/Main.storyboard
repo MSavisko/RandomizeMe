@@ -2052,36 +2052,17 @@
                                     <segue destination="JIF-LI-vak" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="hQn-jh-yve"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="verify" id="hQx-ja-fq6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="about" id="hQx-ja-fq6">
                                 <rect key="frame" x="0.0" y="374" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hQx-ja-fq6" id="sHS-tV-QO2">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="verify menu color" translatesAutoresizingMaskIntoConstraints="NO" id="iqH-Zc-8vc">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="about menu color " translatesAutoresizingMaskIntoConstraints="NO" id="iqH-Zc-8vc">
                                             <rect key="frame" x="18" y="2" width="40" height="40"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Verify Generation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g15-Et-41P">
-                                            <rect key="frame" x="66" y="12" width="185" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="about" id="7qT-m7-dqX">
-                                <rect key="frame" x="0.0" y="418" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7qT-m7-dqX" id="iZK-zv-djy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="about menu color " translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-Jv-cHW">
-                                            <rect key="frame" x="18" y="2" width="40" height="40"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoD-0C-0JS">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g15-Et-41P">
                                             <rect key="frame" x="66" y="12" width="185" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2090,7 +2071,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="3Xx-P3-om5" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="olD-vZ-RSp"/>
+                                    <segue destination="3Xx-P3-om5" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="87I-FB-Vj7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2212,10 +2193,10 @@
             </objects>
             <point key="canvasLocation" x="340" y="-4665"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--About NC-->
         <scene sceneID="Tmi-2w-CbR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Xx-P3-om5" sceneMemberID="viewController">
+                <navigationController title="About NC" automaticallyAdjustsScrollViewInsets="NO" id="3Xx-P3-om5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rqw-Fy-U2l">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2251,7 +2232,6 @@
         <image name="share button" width="22" height="22"/>
         <image name="string menu color" width="29" height="29"/>
         <image name="trash button" width="22" height="22"/>
-        <image name="verify menu color" width="29" height="29"/>
         <image name="version_about" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
