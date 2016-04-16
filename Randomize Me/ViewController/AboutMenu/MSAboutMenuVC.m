@@ -39,6 +39,23 @@
     }
 }
 
+#pragma mark - Table View delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.menuItems[indexPath.row]isEqualToString:@"feedback"]) {
+       //Send Feedback
+    }
+    else if ([self.menuItems[indexPath.row]isEqualToString:@"license"]) {
+        //Segue with idenifier License
+    }
+    else if ([self.menuItems[indexPath.row]isEqualToString:@"materials"]) {
+        //Segue with identifier materials
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+
 #pragma mark - Table View data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
@@ -53,6 +70,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellIdentifier = [self.menuItems objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if ([cell.reuseIdentifier isEqualToString:@"version"]) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+      cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
     
     return cell;
 }
