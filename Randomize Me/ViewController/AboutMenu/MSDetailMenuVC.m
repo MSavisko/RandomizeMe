@@ -40,7 +40,7 @@
     [self hideCopyingHud];
 }
 
-#pragma mark - MBProgressHUD Method
+#pragma mark - MBProgressHUDMethod
 - (void) showCopyingHud {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeCustomView;
@@ -55,7 +55,7 @@
     });
 }
 
-#pragma mark - Setup Methods
+#pragma mark - SetupMethods
 - (void) setupMenuBar {
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController)

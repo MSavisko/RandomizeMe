@@ -101,7 +101,7 @@ static int MSGenerateButtonHeight = 40;
     }
 }
 
-#pragma mark - MSHTTPClient Delegate
+#pragma mark - MSHTTPClientDelegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     self.response = [[MSRandomResponse alloc]init];
@@ -118,7 +118,7 @@ static int MSGenerateButtonHeight = 40;
     [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
-#pragma mark - UITextFiled Delegate
+#pragma mark - UITextFiledDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)sender {
     self.activeField = sender;
 }
@@ -138,12 +138,7 @@ static int MSGenerateButtonHeight = 40;
     {
         if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
-                                                            message:@"This field accepts only numeric entries!"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            [self showAlertWithMessage:@"This field accepts only numeric entries!"];
             return NO;
         }
     }
@@ -174,7 +169,7 @@ static int MSGenerateButtonHeight = 40;
     return YES;
 }
 
-#pragma mark - Keyboard Methods
+#pragma mark - KeyboardMethods
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
 }
@@ -203,7 +198,7 @@ static int MSGenerateButtonHeight = 40;
     self.scrollView.scrollIndicatorInsets = contentInsets;
 }
 
-#pragma mark - Setup Methods
+#pragma mark - SetupMethods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -240,7 +235,7 @@ static int MSGenerateButtonHeight = 40;
                                                object:nil];
 }
 
-#pragma mark - Helper Methods
+#pragma mark - HelperMethods
 - (void) showAlertForTextFieldWithNumber:(NSInteger)number {
     NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"

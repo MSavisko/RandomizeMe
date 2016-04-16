@@ -40,7 +40,7 @@
     resultVC.titleForView = self.detailTitle;
 }
 
-#pragma mark - Table View delegate
+#pragma mark - TableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.menuItems[indexPath.row]isEqualToString:@"feedback"]) {
         [self sendFeedback];
@@ -59,7 +59,7 @@
     
 }
 
-#pragma mark - Mail View Controller Delegate
+#pragma mark - MailViewControllerDelegate
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:NULL];
     switch (result)
@@ -81,14 +81,12 @@
     }
 }
 
-#pragma mark - Table View Data source
+#pragma mark - TableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return self.menuItems.count;
 }
 
@@ -100,8 +98,6 @@
     } else {
       cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
-    
     return cell;
 }
 

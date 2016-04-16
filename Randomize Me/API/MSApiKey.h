@@ -10,7 +10,6 @@
 
 extern NSString *const MSRandomApiKey;
 extern NSString *const MSRandomHashedApiKey;
-extern NSString *const MSTextApiKey;
 
 @interface MSApiKey : NSObject
 
