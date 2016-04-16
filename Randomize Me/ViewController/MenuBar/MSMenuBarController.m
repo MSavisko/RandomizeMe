@@ -20,6 +20,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.menuItems = @[@"integer", @"decimal", @"string", @"list", @"password", @"dice", @"lottery", @"card", @"about"];
 }
 
