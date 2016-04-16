@@ -16,7 +16,32 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="YMq-ae-kSP">
+                                <rect key="frame" x="172" y="172" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="SQc-tr-2JB"/>
+                                    <constraint firstAttribute="height" constant="256" id="Zer-SK-XYp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Randomize Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDr-8m-Acn">
+                                <rect key="frame" x="238" y="438" width="125" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="Dfj-vo-YHm"/>
+                                    <constraint firstAttribute="height" constant="21" id="ISH-ka-Vsl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YMq-ae-kSP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="B48-4s-hr1"/>
+                            <constraint firstItem="YMq-ae-kSP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="VNE-nX-KeY"/>
+                            <constraint firstItem="hDr-8m-Acn" firstAttribute="top" secondItem="YMq-ae-kSP" secondAttribute="bottom" constant="10" id="bWp-I2-uaf"/>
+                            <constraint firstItem="hDr-8m-Acn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hSj-HN-7d9"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +49,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launchScreen" width="128" height="128"/>
+    </resources>
 </document>
