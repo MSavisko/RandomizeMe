@@ -1,31 +1,42 @@
 //
-//  MSMenuBarController.m
-//  
+//  MSAboutMenuVC.m
+//  Randomize Me
 //
-//  Created by Maksym Savisko on 4/4/16.
-//
+//  Created by Maksym Savisko on 4/16/16.
+//  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSMenuBarController.h"
+#import "MSAboutMenuVC.h"
 #import "SWRevealViewController.h"
 
-@interface MSMenuBarController ()
+@interface MSAboutMenuVC ()
 @property (nonatomic, strong) NSArray *menuItems;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+
 @end
 
-
-@implementation MSMenuBarController
-
+@implementation MSAboutMenuVC
 #pragma mark - UITableViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    self.menuItems = @[@"integer", @"decimal", @"string", @"list", @"password", @"dice", @"lottery", @"card", @"verify", @"about"];
+    self.menuItems = @[@"feedback", @"license", @"version", @"materials"];
 }
 
-- (void) didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setupMenuBar];
+}
+
+- (void) setupMenuBar {
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController)
+    {
+        [self.menuButtonItem setTarget: self.revealViewController];
+        [self.menuButtonItem setAction: @selector(revealToggle:)];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
 }
 
 #pragma mark - Table View data source
@@ -61,4 +72,3 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 @end
-

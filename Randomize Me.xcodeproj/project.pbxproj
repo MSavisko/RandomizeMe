@@ -25,6 +25,7 @@
 		926AF23C1CB98C85006DEF8E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF23B1CB98C85006DEF8E /* FBSDKLoginKit.framework */; };
 		926AF23E1CB98C95006DEF8E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF23D1CB98C95006DEF8E /* FBSDKShareKit.framework */; };
 		926AF2431CBADD0E006DEF8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF2421CBADD0E006DEF8E /* Social.framework */; };
+		9275F17F1CC23496003BD7F9 /* MSAboutMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275F17E1CC23496003BD7F9 /* MSAboutMenuVC.m */; };
 		928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */; };
 		928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */; };
 		928F4AE81CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */; };
@@ -83,6 +84,8 @@
 		926AF23B1CB98C85006DEF8E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		926AF23D1CB98C95006DEF8E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		926AF2421CBADD0E006DEF8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		9275F17D1CC23496003BD7F9 /* MSAboutMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSAboutMenuVC.h; path = ViewController/AboutMenu/MSAboutMenuVC.h; sourceTree = "<group>"; };
+		9275F17E1CC23496003BD7F9 /* MSAboutMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSAboutMenuVC.m; path = ViewController/AboutMenu/MSAboutMenuVC.m; sourceTree = "<group>"; };
 		928F4AE01CBE29530049BDE7 /* MSPasswordsGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsGeneratorVC.h; path = ViewController/Generator/MSPasswordsGeneratorVC.h; sourceTree = "<group>"; };
 		928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPasswordsGeneratorVC.m; path = ViewController/Generator/MSPasswordsGeneratorVC.m; sourceTree = "<group>"; };
 		928F4AE31CBE29C50049BDE7 /* MSPasswordsResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsResultVC.h; path = ViewController/Result/MSPasswordsResultVC.h; sourceTree = "<group>"; };
@@ -239,6 +242,15 @@
 			name = Facebook;
 			sourceTree = "<group>";
 		};
+		9275F17C1CC23474003BD7F9 /* AboutMenu */ = {
+			isa = PBXGroup;
+			children = (
+				9275F17D1CC23496003BD7F9 /* MSAboutMenuVC.h */,
+				9275F17E1CC23496003BD7F9 /* MSAboutMenuVC.m */,
+			);
+			name = AboutMenu;
+			sourceTree = "<group>";
+		};
 		928F4AF61CC0213B0049BDE7 /* CardShuffler */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +332,7 @@
 		92B7B53F1CA07AA6001BB572 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9275F17C1CC23474003BD7F9 /* AboutMenu */,
 				926AF2231CB5141F006DEF8E /* Generator */,
 				926AF21F1CB512E0006DEF8E /* Result */,
 				926AF2181CB510D3006DEF8E /* MenuBar */,
@@ -510,6 +523,7 @@
 				928F4B101CC040A20049BDE7 /* DiceRoller.m in Sources */,
 				928F4AFC1CC021D80049BDE7 /* Deck.m in Sources */,
 				928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */,
+				9275F17F1CC23496003BD7F9 /* MSAboutMenuVC.m in Sources */,
 				928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */,
 				928F4B1D1CC174400049BDE7 /* ListRandomizer.m in Sources */,
 				926AF21B1CB510E5006DEF8E /* MSMenuBarController.m in Sources */,

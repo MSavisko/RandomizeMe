@@ -1724,10 +1724,10 @@
             </objects>
             <point key="canvasLocation" x="340" y="4"/>
         </scene>
-        <!--Table View Controller-->
+        <!--About-->
         <scene sceneID="nJn-SJ-gh2">
             <objects>
-                <tableViewController id="o9j-HI-ir9" sceneMemberID="viewController">
+                <tableViewController id="o9j-HI-ir9" customClass="MSAboutMenuVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FlS-OV-dfN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1819,13 +1819,18 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvb-t4-XQl">
-                                            <rect key="frame" x="570" y="11" width="22" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvb-t4-XQl">
+                                            <rect key="frame" x="573.5" y="11" width="18.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Tvb-t4-XQl" secondAttribute="bottom" constant="3.5" id="7ca-UW-Xbo"/>
+                                        <constraint firstItem="Tvb-t4-XQl" firstAttribute="top" secondItem="Pjq-eF-fTG" secondAttribute="topMargin" constant="3" id="gqx-0C-wEg"/>
+                                        <constraint firstItem="Tvb-t4-XQl" firstAttribute="trailing" secondItem="Pjq-eF-fTG" secondAttribute="trailingMargin" id="gx6-1u-Jtp"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="materials" id="zhi-te-e1j">
@@ -1853,9 +1858,13 @@
                             <outlet property="delegate" destination="o9j-HI-ir9" id="wkT-qd-Snj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NSq-qX-U0F">
+                    <navigationItem key="navigationItem" title="About" id="NSq-qX-U0F">
+                        <barButtonItem key="backBarButtonItem" title=" " id="AKI-c9-au0"/>
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="Aem-pG-OpW"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButtonItem" destination="Aem-pG-OpW" id="4TC-Xw-8uQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SH-2b-1Db" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
