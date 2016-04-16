@@ -174,8 +174,7 @@ static int MSGenerateButtonHeight = 40;
     [self.view endEditing:YES];
 }
 
-- (void)keyboardDidShow:(NSNotification *)notification
-{
+- (void)keyboardDidShow:(NSNotification *)notification {
     NSDictionary* info = [notification userInfo];
     CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     kbRect = [self.view convertRect:kbRect fromView:nil];
@@ -191,8 +190,7 @@ static int MSGenerateButtonHeight = 40;
     }
 }
 
-- (void)keyboardWillBeHidden:(NSNotification *)notification
-{
+- (void)keyboardWillBeHidden:(NSNotification *)notification {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;

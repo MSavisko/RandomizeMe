@@ -84,7 +84,7 @@
     }
 }
 
-#pragma mark - MSHTTPClient Delegate
+#pragma mark - MSHTTPClientDelegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     self.response = [[MSRandomResponse alloc]init];
@@ -101,7 +101,7 @@
     [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
-#pragma mark - Setup Methods
+#pragma mark - SetupMethods
 - (void) setupMenuBar {
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController)
@@ -113,7 +113,7 @@
     }
 }
 
-#pragma mark - Alert Methods
+#pragma mark - AlertMethods
 - (void) showAlertForTextFieldWithNumber:(NSInteger)number {
     NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
@@ -133,7 +133,7 @@
     [alert show];
 }
 
-#pragma mark - Helper Methods
+#pragma mark - HelperMethods
 - (NSString*) allowedCharacters {
     NSMutableString *characters = [NSMutableString stringWithFormat:@""];
     if (self.spadesSwitch.isOn) {

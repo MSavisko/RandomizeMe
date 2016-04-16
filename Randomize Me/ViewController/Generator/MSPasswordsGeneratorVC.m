@@ -112,7 +112,7 @@ static int MSGenerateButtonHeight = 30;
     }
 }
 
-#pragma mark - MSHTTPClient Delegate
+#pragma mark - MSHTTPClientDelegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     self.response = [[MSRandomResponse alloc]init];
@@ -129,7 +129,7 @@ static int MSGenerateButtonHeight = 30;
     [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
-#pragma mark - UITextFiled Delegate
+#pragma mark - UITextFiledDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)sender {
     self.activeField = sender;
 }
@@ -180,7 +180,7 @@ static int MSGenerateButtonHeight = 30;
     return YES;
 }
 
-#pragma mark - Keyboard Methods
+#pragma mark - KeyboardMethods
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
 }
@@ -207,7 +207,7 @@ static int MSGenerateButtonHeight = 30;
     self.scrollView.scrollIndicatorInsets = contentInsets;
 }
 
-#pragma mark - Setup Methods
+#pragma mark - SetupMethods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -243,7 +243,7 @@ static int MSGenerateButtonHeight = 30;
                                                object:nil];
 }
 
-#pragma mark - Alert Methods
+#pragma mark - AlertMethods
 - (void) showAlertForTextFieldWithNumber:(NSInteger)number {
     NSString *message = [NSString stringWithFormat:@"This field accepts a maximum of %ld numbers!", (long)number];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
@@ -263,7 +263,7 @@ static int MSGenerateButtonHeight = 30;
     [alert show];
 }
 
-#pragma mark - Helper Methods
+#pragma mark - HelperMethods
 - (NSString*) allowedCharacters {
     NSString *characters = @"23456789abcdefghjkmnprstuxyzABCDEFGHJKMNPRSTUXYZ";
     return characters;

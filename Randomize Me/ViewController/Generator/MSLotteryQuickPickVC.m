@@ -103,7 +103,7 @@
     
 }
 
-#pragma mark - UIActionSheet Delegate
+#pragma mark - UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     //Share
     if (actionSheet.tag == 100) {
@@ -152,7 +152,7 @@
     }
 }
 
-#pragma mark - UIAlertView Delegate
+#pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 400) {
         [self shareWithFacebook];
@@ -162,7 +162,7 @@
     }
 }
 
-#pragma mark - VKSdkUI Delegate
+#pragma mark - VKSdkUIDelegate
 - (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
     [self presentViewController:controller animated:YES completion:nil];
 }
@@ -172,7 +172,7 @@
     [vc presentIn:self];
 }
 
-#pragma mark - VKSdk Delegate
+#pragma mark - VKSdkDelegate
 - (void)vkSdkUserAuthorizationFailed {
     [[[UIAlertView alloc] initWithTitle:nil message:@"Access denied" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     [self.navigationController popToViewController:self animated:YES];
@@ -188,7 +188,7 @@
     }
 }
 
-#pragma mark - MSHTTPClient Delegate
+#pragma mark - MSHTTPClientDelegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     self.response = [[MSRandomResponse alloc]init];
@@ -209,7 +209,7 @@
     [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
-#pragma mark PickerView DataSource
+#pragma mark PickerViewDataSource
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
@@ -222,12 +222,12 @@
     return self.loteryNames[row];
 }
 
-#pragma mark PickerView Delegate
+#pragma mark PickerViewDelegate
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.chosenLoteryName = self.loteryNames[row];
 }
 
-#pragma mark - Share Method
+#pragma mark - ShareMethod
 - (void) shareWithFacebook {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = [self stringResultForShare];
@@ -285,7 +285,7 @@
     }
 }
 
-#pragma mark - Setup Methods
+#pragma mark - SetupMethods
 - (void) setupMenuBar {
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController)
@@ -307,7 +307,7 @@
     [[VKSdk instance] setUiDelegate:self];
 }
 
-#pragma mark - MBProgressHUD Method
+#pragma mark - MBProgressHUDMethod
 - (void) showCopyingHud {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeCustomView;
@@ -322,7 +322,7 @@
     });
 }
 
-#pragma mark - Helper Methods
+#pragma mark - HelperMethods
 - (void) showAlertWithMessage:(NSString*)message {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
                                                     message:message
@@ -342,7 +342,7 @@
     [alert show];
 }
 
-#pragma mark - Presentation Data Method
+#pragma mark - PresentationDataMethod
 - (NSString*) stringResult {
     return [self.ticket pickFromResponse:self.response];
 }

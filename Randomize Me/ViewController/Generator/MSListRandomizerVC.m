@@ -1,4 +1,4 @@
-    //
+//
 //  MSListRandomizerVC.m
 //  Randomize Me
 //
@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *randomizeButton;
-
 @property (strong, nonnull) MSRandomIntegerRequest *request;
 @property (strong, nonatomic) MSRandomResponse *response;
 
@@ -54,7 +53,7 @@
 #pragma mark - IBAction
 - (IBAction)randomizeButtonPressed:(id)sender {
     NSArray *lines = [self.textView.text componentsSeparatedByString:@"\n"];
-    if ([self checkTextFIeld]) {
+    if ([self checkTextField]) {
         [self randomizeWithList:lines];
     }
 }
@@ -80,7 +79,7 @@
 }
 
 
-#pragma mark - Setup Methods
+#pragma mark - SetupMethods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -118,7 +117,7 @@
                                                object:nil];
 }
 
-#pragma mark - SWRevealViewController Delegate
+#pragma mark - SWRevealViewControllerDelegate
 - (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position {
     if (position == FrontViewPositionRight) {
         self.textView.editable = NO;
@@ -128,7 +127,7 @@
     }
 }
 
-#pragma mark - MSHTTPClient Delegate
+#pragma mark - MSHTTPClientDelegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     self.response = [[MSRandomResponse alloc]init];
@@ -145,7 +144,7 @@
     [self showAlertWithMessage:@"Could not connect to the generation server. Please check your Internet connection or try later!"];
 }
 
-#pragma mark - UITextView Delegate
+#pragma mark - UITextViewDelegate
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     if ([textView.text isEqualToString:@"Enter your items in the field below, each on a separate line.\nItems can be numbers, names, email addresses, etc. A maximum of 10,000 items are allowed."]) {
         textView.text = @"";
@@ -165,7 +164,7 @@
     [textView resignFirstResponder];
 }
 
-#pragma mark - Keyboard Methods
+#pragma mark - KeyboardMethods
 -(void) dismissKeyboard {
     [self.view endEditing:YES];
 }
@@ -185,7 +184,7 @@
     [self.doneButton setEnabled:NO];
 }
 
-#pragma mark - Helper Methods
+#pragma mark - HelperMethods
 - (void) showAlertWithMessage:(NSString*)message {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
                                                     message:message
@@ -203,7 +202,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
-- (BOOL) checkTextFIeld {
+- (BOOL) checkTextField {
     NSArray *lines = [self.textView.text componentsSeparatedByString:@"\n"];
     if ([lines.lastObject isEqualToString:@""]) {
         if (lines.count - 1 < 2) {
