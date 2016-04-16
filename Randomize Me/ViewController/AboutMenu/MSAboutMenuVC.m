@@ -50,9 +50,8 @@
         [self performSegueWithIdentifier:@"ShowDetailMenu" sender:nil];
     }
     else if ([self.menuItems[indexPath.row]isEqualToString:@"materials"]) {
-        //Segue with identifier materials
         self.detailTitle = @"Used materials";
-        self.displayData = @"Used materials text";
+        self.displayData = [self usedMaterials];
         [self performSegueWithIdentifier:@"ShowDetailMenu" sender:nil];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -187,6 +186,19 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return result;
     
+}
+
+- (NSString*) usedMaterials {
+    NSString *icons = [NSString stringWithFormat:@"Icons8\nhttps://icons8.com/\n\n\n"];
+    NSString *images = [NSString stringWithFormat:@"Flaticon\nhttp://www.flaticon.com/\n\n\n"];
+    NSString *cards = [NSString stringWithFormat:@"Vector playing cards\nhttps://code.google.com/archive/p/vector-playing-cards/\n\n\n"];
+    NSString *api = [NSString stringWithFormat:@"RandomOrg\nhttps://www.random.org/\n\n\n"];
+    NSMutableString *result = [[NSMutableString alloc]initWithString:icons];
+    [result appendString:images];
+    [result appendString:cards];
+    [result appendString:api];
+    
+    return result;
 }
 
 @end

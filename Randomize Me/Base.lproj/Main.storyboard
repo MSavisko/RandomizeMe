@@ -1888,8 +1888,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyk-vw-VaO">
-                                <rect key="frame" x="10" y="72" width="580" height="520"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyk-vw-VaO">
+                                <rect key="frame" x="10" y="84" width="580" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1899,10 +1899,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3LX-v1-fEJ" firstAttribute="top" secondItem="eyk-vw-VaO" secondAttribute="bottom" constant="8" id="4e5-TY-91a"/>
+                            <constraint firstItem="3LX-v1-fEJ" firstAttribute="top" secondItem="eyk-vw-VaO" secondAttribute="bottom" constant="20" id="4e5-TY-91a"/>
                             <constraint firstItem="eyk-vw-VaO" firstAttribute="leading" secondItem="7bA-GB-knL" secondAttribute="leading" constant="10" id="YpA-2r-pno"/>
                             <constraint firstAttribute="trailing" secondItem="eyk-vw-VaO" secondAttribute="trailing" constant="10" id="d5i-J8-TJR"/>
-                            <constraint firstItem="eyk-vw-VaO" firstAttribute="top" secondItem="iYn-c4-d4G" secondAttribute="bottom" constant="8" id="mU0-8o-Z7h"/>
+                            <constraint firstItem="eyk-vw-VaO" firstAttribute="top" secondItem="iYn-c4-d4G" secondAttribute="bottom" constant="20" id="mU0-8o-Z7h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="S5K-3v-Ff5">

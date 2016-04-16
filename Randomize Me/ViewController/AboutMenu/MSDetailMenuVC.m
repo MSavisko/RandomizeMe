@@ -29,6 +29,7 @@
     [super viewWillAppear:animated];
     [self setupMenuBar];
     [self.resultTextView setContentOffset:CGPointZero animated:NO];
+
 }
 
 #pragma mark - IBAction
