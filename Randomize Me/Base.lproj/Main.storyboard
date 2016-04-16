@@ -594,6 +594,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="clearButtonActive:" destination="Ret-Yv-CoS" eventType="editingChanged" id="iuw-TS-AEZ"/>
                                                             <action selector="editingChanged" destination="Ret-Yv-CoS" eventType="editingChanged" id="wYh-uP-2HV"/>
                                                         </connections>
                                                     </textField>
@@ -644,6 +645,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearButton" destination="2pJ-0U-S9j" id="6B0-7S-jvH"/>
                         <outlet property="menuButtonItem" destination="1g4-0A-i4F" id="Ndv-V8-g4s"/>
                         <outlet property="numberOfDice" destination="7Bb-fS-A0A" id="No2-L9-nVz"/>
                         <outlet property="rollDiceButton" destination="ivR-J9-heB" id="Wyj-GR-IQI"/>

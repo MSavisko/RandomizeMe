@@ -17,6 +17,7 @@
 @interface MSDiceRollerGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfDice;
 @property (weak, nonatomic) UITextField *activeField;
 @property (weak, nonatomic) IBOutlet UIButton *rollDiceButton;
@@ -35,6 +36,7 @@ static int MSRollButtonHeight = 30;
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
     [self.rollDiceButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -63,6 +65,7 @@ static int MSRollButtonHeight = 30;
 - (IBAction)clearButtonPressed:(id)sender {
     self.numberOfDice.text = @"";
     [self.rollDiceButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
@@ -82,6 +85,16 @@ static int MSRollButtonHeight = 30;
         [self.rollDiceButton setEnabled:NO];
     }
 }
+
+- (IBAction)clearButtonActive:(id)sender {
+    if ([self.numberOfDice.text length] != 0) {
+        [self.clearButton setEnabled:YES];
+    }
+    else {
+        [self.clearButton setEnabled:NO];
+    }
+}
+
 
 #pragma mark - MSHTTPClient Delegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
