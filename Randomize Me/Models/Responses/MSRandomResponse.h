@@ -21,7 +21,6 @@
 @property (readonly, nonatomic) BOOL error;
 
 - (void) parseResponseFromData:(NSDictionary*)data;
-- (BOOL) parseVerifyResponseFromData:(NSDictionary*)data;
 - (NSString*) parseError;
 
 @end

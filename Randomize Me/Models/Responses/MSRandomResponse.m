@@ -31,27 +31,6 @@
     }
 }
 
-- (BOOL) parseVerifyResponseFromData:(NSDictionary*)data {
-    if ([data valueForKey:@"error"]) {
-        _error = YES;
-        _responseBody = data;
-        return NO;
-    }
-    else {
-        _error = NO;
-        _responseBody = data;
-        BOOL authenticity = [data[@"result"][@"authenticity"] boolValue];
-        if (authenticity) {
-            //NSLog(@"Authenticity: %@", data[@"result"][@"authenticity"]);
-            return YES;
-        }
-        else {
-            //NSLog(@"Authenticity: %@", data[@"result"][@"authenticity"]);
-            return NO;
-        }
-    }
-}
-
 #pragma mark - Parse Error
 - (NSString*) parseError {
     if (self.error) {
