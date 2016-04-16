@@ -44,34 +44,4 @@
     return requestBody;
 }
 
-- (NSDictionary*) requestBodyWithSignature:(NSString*)signature
-                              atCompletionTime:(NSString*)completionTime
-                                        serial:(NSInteger)serialNumber
-                                  andDataArray:(NSArray*)array {
-    NSDictionary * uniqueParam = [[NSDictionary alloc]init];
-    uniqueParam = @{
-                    @"length" : [NSNumber numberWithInteger:self.length],
-                    @"characters" : self.characters,
-                    };
-    NSMutableDictionary *randomPartOfDict = [NSMutableDictionary
-                                             dictionaryWithDictionary: @{
-                                                                         @"method" : self.methodName,
-                                                                         @"hashedApiKey" : MSRandomHashedApiKey,
-                                                                         @"n" : [NSNumber numberWithInteger:self.number],
-                                                                         @"replacement" : [NSNumber numberWithBool:self.replacement],
-                                                                         @"data" : array,
-                                                                         @"completionTime" : completionTime,
-                                                                         @"serialNumber" : [NSNumber numberWithInteger:serialNumber],
-                                                                         }];
-    [randomPartOfDict addEntriesFromDictionary: uniqueParam];
-    NSDictionary * requestBody = @{
-                                   @"jsonrpc": @"2.0",
-                                   @"method": @"verifySignature",
-                                   @"params" : @{@"random" : randomPartOfDict, @"signature" : signature,},
-                                   @"id" : [NSNumber numberWithInteger:self.requestId],
-                                   };
-    
-    return requestBody;
-}
-
 @end

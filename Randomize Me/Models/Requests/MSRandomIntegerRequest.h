@@ -18,6 +18,4 @@
 
 - (NSDictionary*) requestBody;
 
-- (NSDictionary*) requestBodyWithSignature:(NSString*)signature atCompletionTime:(NSString*)completionTime serial:(NSInteger)serialNumber andDataArray:(NSArray*)array;
-
 @end
