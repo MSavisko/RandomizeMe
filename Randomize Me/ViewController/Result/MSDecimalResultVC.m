@@ -8,9 +8,7 @@
 
 #import "MSDecimalResultVC.h"
 #import "SWRevealViewController.h"
-
 #import "MBProgressHUD.h"
-
 #import <Social/Social.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
@@ -46,7 +44,7 @@
     [self.resultTextView setContentOffset:CGPointZero animated:NO]; //Because position of text view must be Zero
 }
 
-#pragma mark - Setup Methods
+#pragma mark - SetupMethods
 - (void) setupMenuBar {
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController)

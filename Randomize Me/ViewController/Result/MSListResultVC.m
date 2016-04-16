@@ -8,10 +8,8 @@
 
 #import "MSListResultVC.h"
 #import "SWRevealViewController.h"
-
 #import "MBProgressHUD.h"
 #import "ListRandomizer.h"
-
 #import <Social/Social.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
@@ -49,7 +47,7 @@
     [self.resultTextView setContentOffset:CGPointZero animated:NO];
 }
 
-#pragma mark - Setup Methods
+#pragma mark - SetupMethods
 - (void) setupMenuBar {
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController)
@@ -100,7 +98,7 @@
     [copyingActionSheet showInView:self.view];
 }
 
-#pragma mark - UIActionSheet Delegate
+#pragma mark - UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     //Because two action sheet
     //Share
@@ -153,7 +151,7 @@
     }
 }
 
-#pragma mark - UIAlertView Delegate
+#pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 400) {
         [self shareWithFacebook];
@@ -163,7 +161,7 @@
     }
 }
 
-#pragma mark - VKSdkUI Delegate
+#pragma mark - VKSdkUIDelegate
 - (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
     [self presentViewController:controller animated:YES completion:nil];
 }
@@ -173,7 +171,7 @@
     [vc presentIn:self];
 }
 
-#pragma mark - VKSdk Delegate
+#pragma mark - VKSdkDelegate
 - (void)vkSdkUserAuthorizationFailed {
     [[[UIAlertView alloc] initWithTitle:nil message:@"Access denied" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     [self.navigationController popToViewController:self animated:YES];
@@ -189,7 +187,7 @@
     }
 }
 
-#pragma mark - Keyboard Methods
+#pragma mark - KeyboardMethods
 - (void) hideKeyboardByTap {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -201,7 +199,7 @@
     [self.view endEditing:YES];
 }
 
-#pragma mark - Share Method
+#pragma mark - ShareMethod
 - (void) shareWithFacebook {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = [self stringResultForShare];
@@ -258,7 +256,7 @@
     }
 }
 
-#pragma mark - MBProgressHUD Method
+#pragma mark - MBProgressHUDMethod
 - (void) showCopyingHud {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeCustomView;
@@ -288,7 +286,7 @@
     });
 }
 
-#pragma mark - Alert Methods
+#pragma mark - AlertMethods
 - (void) showAlertWithMessage:(NSString*)message tag:(NSInteger)tag {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!"
                                                     message:message
@@ -299,7 +297,7 @@
     [alert show];
 }
 
-#pragma mark - Helper Method
+#pragma mark - HelperMethod
 - (void) randomize {
     self.randomizer = [[ListRandomizer alloc]initWithList:self.list];
     [self.randomizer randomizeWithResponse:self.response];
