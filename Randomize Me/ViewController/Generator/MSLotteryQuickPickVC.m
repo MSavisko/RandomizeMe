@@ -41,6 +41,8 @@
     [super viewDidLoad];
     [self setupPickerView];
     [self setupVkDelegate];
+    [self.shareButton setEnabled:NO];
+    [self.copyingButton setEnabled:NO];
     self.loteryNames = @[@"Keno", @"Megalot", @"National Lottery"];
     self.chosenLoteryName = @"Keno";
     self.ticketLabel.textColor = [UIColor lightGrayColor];
@@ -136,13 +138,16 @@
         }
         else if (buttonIndex == 2) { //Buy ticket
             if ([self.ticket.name isEqualToString:@"Keno"]) {
-                //Show safari with http://lottery.com.ua/ru/lottery/keno/play.htm
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://lottery.com.ua/ru/lottery/keno/play.htm"]];
+                //Show safari with
             }
             else if ([self.ticket.name isEqualToString:@"Megalot"]) {
                 //Show safari with http://msl.ua/uk/megalot
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://msl.ua/uk/megalot"]];
             }
             else {
                 //Show safari with http://lottery.com.ua/ru/lottery/sloto/play.htm
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://lottery.com.ua/ru/lottery/sloto/play.htm"]];
             }
             
         }
@@ -193,6 +198,8 @@
     if (!self.response.error) {
         self.ticketLabel.text = [self.ticket pickFromResponse:self.response];
         self.ticketLabel.textColor = [UIColor blackColor];
+        [self.shareButton setEnabled:YES];
+        [self.copyingButton setEnabled:YES];
     } else {
         [self showAlertWithMessage:[self.response parseError]];
     }
