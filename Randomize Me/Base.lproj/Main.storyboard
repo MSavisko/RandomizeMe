@@ -698,6 +698,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="clearButtonActive:" destination="etQ-4Q-RvU" eventType="editingChanged" id="Qlb-z9-FkZ"/>
                                                             <action selector="editingChanged" destination="etQ-4Q-RvU" eventType="editingChanged" id="8vw-iB-zUV"/>
                                                         </connections>
                                                     </textField>
@@ -720,6 +721,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="clearButtonActive:" destination="etQ-4Q-RvU" eventType="editingChanged" id="5ho-H2-51L"/>
                                                             <action selector="editingChanged" destination="etQ-4Q-RvU" eventType="editingChanged" id="PY6-a0-Bjq"/>
                                                         </connections>
                                                     </textField>
@@ -771,6 +773,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="charactersLength" destination="MPO-aH-YzC" id="xBx-Cv-yIG"/>
+                        <outlet property="clearButton" destination="0x0-bP-2Qi" id="pKY-Pp-Eg4"/>
                         <outlet property="generateButton" destination="SCt-jp-msM" id="y8c-ke-VGo"/>
                         <outlet property="menuButtonItem" destination="QfE-hY-oRw" id="Bz3-17-5dm"/>
                         <outlet property="numberOfPasswords" destination="oLY-Ya-1Tp" id="qBr-Ln-YK7"/>

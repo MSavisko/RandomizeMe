@@ -17,6 +17,7 @@
 @interface MSPasswordsGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfPasswords;
 @property (weak, nonatomic) IBOutlet UITextField *charactersLength;
 @property (weak, nonatomic) UITextField *activeField;
@@ -36,6 +37,7 @@ static int MSGenerateButtonHeight = 30;
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
     [self.generateButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -80,6 +82,7 @@ static int MSGenerateButtonHeight = 30;
     self.numberOfPasswords.text = @"";
     self.charactersLength.text = @"";
     [self.generateButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
@@ -97,6 +100,15 @@ static int MSGenerateButtonHeight = 30;
     }
     else {
         [self.generateButton setEnabled:NO];
+    }
+}
+
+- (IBAction)clearButtonActive:(id)sender {
+    if ([self.numberOfPasswords.text length] != 0 || [self.charactersLength.text length] != 0) {
+        [self.clearButton setEnabled:YES];
+    }
+    else {
+        [self.clearButton setEnabled:NO];
     }
 }
 
