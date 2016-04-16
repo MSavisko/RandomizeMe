@@ -39,6 +39,7 @@ static int MSGenerateButtonHeight = 40;
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
     [self.generateButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -70,6 +71,7 @@ static int MSGenerateButtonHeight = 40;
     self.maxValue.text = @"";
     [self.replacementSwitch setOn:NO animated:YES];
     [self.generateButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
@@ -87,6 +89,15 @@ static int MSGenerateButtonHeight = 40;
     }
     else {
         [self.generateButton setEnabled:NO];
+    }
+}
+
+- (IBAction)copyButtonActive:(id)sender {
+    if ([self.numberOfIntegers.text length] != 0 || [self.minValue.text length] != 0 || [self.maxValue.text length] != 0 || self.replacementSwitch.isOn) {
+        [self.clearButton setEnabled:YES];
+    }
+    else {
+        [self.clearButton setEnabled:NO];
     }
 }
 

@@ -72,6 +72,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="copyButtonActive:" destination="BYZ-38-t0r" eventType="editingChanged" id="9Z1-S4-WG3"/>
                                                             <action selector="editingChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="9r7-sJ-FaQ"/>
                                                         </connections>
                                                     </textField>
@@ -99,6 +100,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="copyButtonActive:" destination="BYZ-38-t0r" eventType="editingChanged" id="GOF-Bm-TdJ"/>
                                                             <action selector="editingChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="8mD-4f-2to"/>
                                                         </connections>
                                                     </textField>
@@ -108,11 +110,15 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="copyButtonActive:" destination="BYZ-38-t0r" eventType="editingChanged" id="bIp-zD-3x3"/>
                                                             <action selector="editingChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="4kH-lC-0LH"/>
                                                         </connections>
                                                     </textField>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-oB-hco">
                                                         <rect key="frame" x="184" y="113" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="copyButtonActive:" destination="BYZ-38-t0r" eventType="valueChanged" id="A6c-MU-YWX"/>
+                                                        </connections>
                                                     </switch>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9Z-aE-7PX">
                                                         <rect key="frame" x="84.5" y="153" width="80" height="27"/>
