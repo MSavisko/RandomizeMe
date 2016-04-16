@@ -287,6 +287,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearButton" destination="qIW-jj-GXf" id="j46-kY-Ry7"/>
                         <outlet property="doneButton" destination="Uow-7t-sWD" id="89Q-2X-Sdc"/>
                         <outlet property="menuButtonItem" destination="GSi-Mj-Ucf" id="uxR-0b-iDx"/>
                         <outlet property="randomizeButton" destination="8ad-bq-Qa2" id="Pfa-1s-hAF"/>

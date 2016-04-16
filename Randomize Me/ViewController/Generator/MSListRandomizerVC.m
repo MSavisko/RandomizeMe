@@ -17,6 +17,7 @@
 
 @interface MSListRandomizerVC () <UITextViewDelegate, MSHTTPClientDelegate, SWRevealViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
@@ -36,6 +37,7 @@
     [self setKeyboardNotification];
     [self setTextView];
     [self.doneButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -65,6 +67,7 @@
 - (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
     self.textView.text = @"Enter your items in the field below, each on a separate line.\nItems can be numbers, names, email addresses, etc. A maximum of 10,000 items are allowed.";
     self.textView.textColor = [UIColor lightGrayColor];
+    [self.clearButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
@@ -147,6 +150,7 @@
     if ([textView.text isEqualToString:@"Enter your items in the field below, each on a separate line.\nItems can be numbers, names, email addresses, etc. A maximum of 10,000 items are allowed."]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
+        [self.clearButton setEnabled:NO];
     }
     [textView becomeFirstResponder];
 }
@@ -155,7 +159,9 @@
     if ([textView.text isEqualToString:@""]) {
         textView.text = @"Enter your items in the field below, each on a separate line.\nItems can be numbers, names, email addresses, etc. A maximum of 10,000 items are allowed.";
         textView.textColor = [UIColor lightGrayColor];
+        [self.clearButton setEnabled:NO];
     }
+    [self.clearButton setEnabled:YES];
     [textView resignFirstResponder];
 }
 
