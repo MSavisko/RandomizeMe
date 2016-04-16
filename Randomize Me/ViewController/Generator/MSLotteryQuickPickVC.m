@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 @property (weak, nonatomic) IBOutlet UILabel *ticketLabel;
 @property (weak, nonatomic) IBOutlet UIButton *pickTicketButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *buyButton;
 @property (strong, nonatomic) NSString *chosenLoteryName;
 @property (strong, nonatomic) MSRandomResponse *response;
 @property (strong, nonatomic) LotteryQuickPick *ticket;
@@ -43,6 +44,7 @@
     [self setupVkDelegate];
     [self.shareButton setEnabled:NO];
     [self.copyingButton setEnabled:NO];
+    [self.buyButton setEnabled:NO];
     self.loteryNames = @[@"Keno", @"Megalot", @"National Lottery"];
     self.chosenLoteryName = @"Keno";
     self.ticketLabel.textColor = [UIColor lightGrayColor];
@@ -84,14 +86,25 @@
 
 - (IBAction)copyingButtonPressed:(id)sender {
     UIActionSheet *copyingActionSheet = [[UIActionSheet alloc]initWithTitle:nil
-                                                                   delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Result to clipboard", @"Copy All to clipboard", @"Buy ticket", nil];
+                                                                   delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Result to clipboard", @"Copy All to clipboard", nil];
     copyingActionSheet.tag = 200;
     [copyingActionSheet showInView:self.view];
+}
+- (IBAction)buyButtonPressed:(id)sender {
+    if ([self.ticket.name isEqualToString:@"Keno"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://lottery.com.ua/ru/lottery/keno/play.htm"]];
+    }
+    else if ([self.ticket.name isEqualToString:@"Megalot"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://msl.ua/uk/megalot"]];
+    }
+    else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://lottery.com.ua/ru/lottery/sloto/play.htm"]];
+    }
+    
 }
 
 #pragma mark - UIActionSheet Delegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    //Because two action sheet
     //Share
     if (actionSheet.tag == 100) {
         if (buttonIndex == 0) { //Facebook
@@ -135,21 +148,6 @@
                 pasteboard.string = [self stringResultForShare];
                 [self hideCopyingHud];
             });
-        }
-        else if (buttonIndex == 2) { //Buy ticket
-            if ([self.ticket.name isEqualToString:@"Keno"]) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://lottery.com.ua/ru/lottery/keno/play.htm"]];
-                //Show safari with
-            }
-            else if ([self.ticket.name isEqualToString:@"Megalot"]) {
-                //Show safari with http://msl.ua/uk/megalot
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://msl.ua/uk/megalot"]];
-            }
-            else {
-                //Show safari with http://lottery.com.ua/ru/lottery/sloto/play.htm
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://lottery.com.ua/ru/lottery/sloto/play.htm"]];
-            }
-            
         }
     }
 }
@@ -200,6 +198,7 @@
         self.ticketLabel.textColor = [UIColor blackColor];
         [self.shareButton setEnabled:YES];
         [self.copyingButton setEnabled:YES];
+        [self.buyButton setEnabled:YES];
     } else {
         [self showAlertWithMessage:[self.response parseError]];
     }
