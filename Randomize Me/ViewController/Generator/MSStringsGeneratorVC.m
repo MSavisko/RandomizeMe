@@ -17,6 +17,7 @@
 @interface MSStringsGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfStrings;
 @property (weak, nonatomic) IBOutlet UITextField *charactersLength;
 @property (weak, nonatomic) UITextField *activeField;
@@ -40,6 +41,7 @@ static int MSGenerateButtonHeight = 27;
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
     [self.generateButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -69,6 +71,7 @@ static int MSGenerateButtonHeight = 27;
     [self.lowercaseSwitch setOn:NO animated:YES];
     [self.uppercaseSwitch setOn:NO animated:YES];
     [self.generateButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
@@ -88,6 +91,17 @@ static int MSGenerateButtonHeight = 27;
         [self.generateButton setEnabled:NO];
     }
 }
+
+- (IBAction)clearButtonActive:(id)sender {
+    if ([self.charactersLength.text length] != 0 || [self.numberOfStrings.text length] != 0 ||  self.lowercaseSwitch.isOn || self.uppercaseSwitch.isOn || !self.digitsSwitch.isOn) {
+        [self.clearButton setEnabled:YES];
+    }
+    else {
+        [self.clearButton setEnabled:NO];
+    }
+}
+
+
 
 #pragma mark - MSHTTPClient Delegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {

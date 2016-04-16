@@ -820,6 +820,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="clearButtonActive:" destination="gQo-VO-eJd" eventType="editingChanged" id="da8-yf-Oyv"/>
                                                             <action selector="editingChanged" destination="gQo-VO-eJd" eventType="editingChanged" id="Itj-nh-1jP"/>
                                                         </connections>
                                                     </textField>
@@ -837,9 +838,15 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q2C-dp-PGf">
                                                         <rect key="frame" x="172" y="82" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="clearButtonActive:" destination="gQo-VO-eJd" eventType="valueChanged" id="QR6-fY-WjO"/>
+                                                        </connections>
                                                     </switch>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-WN-fZK">
                                                         <rect key="frame" x="172" y="43" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="clearButtonActive:" destination="gQo-VO-eJd" eventType="valueChanged" id="C7a-le-N75"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Uppercase (A-Z)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRu-br-cUg">
                                                         <rect key="frame" x="8" y="48" width="128" height="21"/>
@@ -861,6 +868,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MTJ-DJ-BT6">
                                                         <rect key="frame" x="172" y="7" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="clearButtonActive:" destination="gQo-VO-eJd" eventType="valueChanged" id="uLG-Wv-WNn"/>
+                                                        </connections>
                                                     </switch>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MH9-kI-3Xc">
                                                         <rect key="frame" x="165" y="122" width="63" height="30"/>
@@ -868,6 +878,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="clearButtonActive:" destination="gQo-VO-eJd" eventType="editingChanged" id="QbE-2X-sqe"/>
                                                             <action selector="editingChanged" destination="gQo-VO-eJd" eventType="editingChanged" id="HKK-E4-sBi"/>
                                                         </connections>
                                                     </textField>
@@ -927,6 +938,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="charactersLength" destination="MH9-kI-3Xc" id="oP3-xk-ZP6"/>
+                        <outlet property="clearButton" destination="be9-AM-hgi" id="Jat-B0-WpG"/>
                         <outlet property="digitsSwitch" destination="q2C-dp-PGf" id="Yqc-b0-BlA"/>
                         <outlet property="generateButton" destination="NDp-4k-SB5" id="xT2-fP-wPj"/>
                         <outlet property="lowercaseSwitch" destination="MTJ-DJ-BT6" id="Vg6-Ui-iaf"/>
