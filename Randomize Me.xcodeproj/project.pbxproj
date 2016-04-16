@@ -26,6 +26,7 @@
 		926AF23E1CB98C95006DEF8E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF23D1CB98C95006DEF8E /* FBSDKShareKit.framework */; };
 		926AF2431CBADD0E006DEF8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AF2421CBADD0E006DEF8E /* Social.framework */; };
 		9275F17F1CC23496003BD7F9 /* MSAboutMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275F17E1CC23496003BD7F9 /* MSAboutMenuVC.m */; };
+		9275F1811CC24648003BD7F9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275F1801CC24648003BD7F9 /* MessageUI.framework */; };
 		928F4AE21CBE29530049BDE7 /* MSPasswordsGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */; };
 		928F4AE51CBE29C50049BDE7 /* MSPasswordsResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE41CBE29C50049BDE7 /* MSPasswordsResultVC.m */; };
 		928F4AE81CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 928F4AE71CBE7FD40049BDE7 /* MSDiceRollerGeneratorVC.m */; };
@@ -86,6 +87,7 @@
 		926AF2421CBADD0E006DEF8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9275F17D1CC23496003BD7F9 /* MSAboutMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSAboutMenuVC.h; path = ViewController/AboutMenu/MSAboutMenuVC.h; sourceTree = "<group>"; };
 		9275F17E1CC23496003BD7F9 /* MSAboutMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSAboutMenuVC.m; path = ViewController/AboutMenu/MSAboutMenuVC.m; sourceTree = "<group>"; };
+		9275F1801CC24648003BD7F9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		928F4AE01CBE29530049BDE7 /* MSPasswordsGeneratorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsGeneratorVC.h; path = ViewController/Generator/MSPasswordsGeneratorVC.h; sourceTree = "<group>"; };
 		928F4AE11CBE29530049BDE7 /* MSPasswordsGeneratorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPasswordsGeneratorVC.m; path = ViewController/Generator/MSPasswordsGeneratorVC.m; sourceTree = "<group>"; };
 		928F4AE31CBE29C50049BDE7 /* MSPasswordsResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPasswordsResultVC.h; path = ViewController/Result/MSPasswordsResultVC.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9275F1811CC24648003BD7F9 /* MessageUI.framework in Frameworks */,
 				926AF2431CBADD0E006DEF8E /* Social.framework in Frameworks */,
 				926AF23A1CB98C66006DEF8E /* FBSDKCoreKit.framework in Frameworks */,
 				926AF23E1CB98C95006DEF8E /* FBSDKShareKit.framework in Frameworks */,
@@ -366,6 +369,7 @@
 		AE5F3AE4A692621CB21AD601 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9275F1801CC24648003BD7F9 /* MessageUI.framework */,
 				926AF2421CBADD0E006DEF8E /* Social.framework */,
 				926AF2381CB98C1D006DEF8E /* Facebook */,
 				E4A78DE2EA6F0405467FF221 /* libPods-Randomize Me.a */,

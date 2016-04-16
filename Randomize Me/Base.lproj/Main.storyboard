@@ -1819,7 +1819,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvb-t4-XQl">
-                                            <rect key="frame" x="573.5" y="11" width="18.5" height="21"/>
+                                            <rect key="frame" x="573" y="11" width="18.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -1827,9 +1827,15 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="Tvb-t4-XQl" secondAttribute="bottom" constant="3.5" id="7ca-UW-Xbo"/>
+                                        <constraint firstItem="Tvb-t4-XQl" firstAttribute="trailing" secondItem="Pjq-eF-fTG" secondAttribute="trailingMargin" id="I4u-dO-ODM"/>
                                         <constraint firstItem="Tvb-t4-XQl" firstAttribute="top" secondItem="Pjq-eF-fTG" secondAttribute="topMargin" constant="3" id="gqx-0C-wEg"/>
                                         <constraint firstItem="Tvb-t4-XQl" firstAttribute="trailing" secondItem="Pjq-eF-fTG" secondAttribute="trailingMargin" id="gx6-1u-Jtp"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="gx6-1u-Jtp"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="materials" id="zhi-te-e1j">
