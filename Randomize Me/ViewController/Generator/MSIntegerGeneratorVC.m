@@ -92,7 +92,7 @@ static int MSGenerateButtonHeight = 40;
     }
 }
 
-- (IBAction)copyButtonActive:(id)sender {
+- (IBAction)clearButtonActive:(id)sender {
     if ([self.numberOfIntegers.text length] != 0 || [self.minValue.text length] != 0 || [self.maxValue.text length] != 0 || self.replacementSwitch.isOn) {
         [self.clearButton setEnabled:YES];
     }

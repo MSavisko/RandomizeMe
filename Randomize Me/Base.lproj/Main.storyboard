@@ -72,7 +72,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
-                                                            <action selector="copyButtonActive:" destination="BYZ-38-t0r" eventType="editingChanged" id="9Z1-S4-WG3"/>
+                                                            <action selector="clearButtonActive:" destination="BYZ-38-t0r" eventType="editingChanged" id="gQ2-I5-07b"/>
                                                             <action selector="editingChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="9r7-sJ-FaQ"/>
                                                         </connections>
                                                     </textField>
@@ -100,7 +100,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
-                                                            <action selector="copyButtonActive:" destination="BYZ-38-t0r" eventType="editingChanged" id="GOF-Bm-TdJ"/>
+                                                            <action selector="clearButtonActive:" destination="BYZ-38-t0r" eventType="editingChanged" id="Foe-aO-Ie6"/>
                                                             <action selector="editingChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="8mD-4f-2to"/>
                                                         </connections>
                                                     </textField>
@@ -110,14 +110,14 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
-                                                            <action selector="copyButtonActive:" destination="BYZ-38-t0r" eventType="editingChanged" id="bIp-zD-3x3"/>
+                                                            <action selector="clearButtonActive:" destination="BYZ-38-t0r" eventType="editingChanged" id="kSM-Zn-6RG"/>
                                                             <action selector="editingChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="4kH-lC-0LH"/>
                                                         </connections>
                                                     </textField>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-oB-hco">
                                                         <rect key="frame" x="184" y="113" width="51" height="31"/>
                                                         <connections>
-                                                            <action selector="copyButtonActive:" destination="BYZ-38-t0r" eventType="valueChanged" id="A6c-MU-YWX"/>
+                                                            <action selector="clearButtonActive:" destination="BYZ-38-t0r" eventType="valueChanged" id="69M-kB-AfG"/>
                                                         </connections>
                                                     </switch>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9Z-aE-7PX">
@@ -991,6 +991,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="clearButtonActive:" destination="ceK-Q3-dMD" eventType="editingChanged" id="muh-Vr-a7k"/>
                                                             <action selector="editingChanged" destination="ceK-Q3-dMD" eventType="editingChanged" id="xta-76-OwR"/>
                                                         </connections>
                                                     </textField>
@@ -1000,6 +1001,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="clearButtonActive:" destination="ceK-Q3-dMD" eventType="editingChanged" id="HFF-Gz-PjV"/>
                                                             <action selector="editingChanged" destination="ceK-Q3-dMD" eventType="editingChanged" id="5JQ-sV-O4V"/>
                                                         </connections>
                                                     </textField>
@@ -1059,6 +1061,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearButton" destination="csH-Zi-MDO" id="RB1-PE-j2J"/>
                         <outlet property="decimalPlaces" destination="0aQ-xF-Sci" id="9xC-Wq-jki"/>
                         <outlet property="generateButton" destination="RTp-vI-ZZv" id="KjE-MW-k42"/>
                         <outlet property="menuButtonItem" destination="2RK-CA-D4e" id="jE3-Hj-cV9"/>
@@ -1897,7 +1900,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyk-vw-VaO">
                                 <rect key="frame" x="10" y="84" width="580" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>

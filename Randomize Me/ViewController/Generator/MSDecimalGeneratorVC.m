@@ -16,6 +16,7 @@
 
 @interface MSDecimalGeneratorVC () <UITextFieldDelegate, MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (weak, nonatomic) IBOutlet UIButton *generateButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfDecimals;
 @property (weak, nonatomic) IBOutlet UITextField *decimalPlaces;
@@ -36,6 +37,7 @@ static int MSGenerateButtonHeight = 30;
     [self setTextFieldDelegate];
     [self setKeyboardNotification];
     [self.generateButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -63,6 +65,7 @@ static int MSGenerateButtonHeight = 30;
     self.numberOfDecimals.text = @"";
     self.decimalPlaces.text = @"";
     [self.generateButton setEnabled:NO];
+    [self.clearButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
@@ -80,6 +83,15 @@ static int MSGenerateButtonHeight = 30;
     }
     else {
         [self.generateButton setEnabled:NO];
+    }
+}
+
+- (IBAction)clearButtonActive:(id)sender {
+    if ([self.numberOfDecimals.text length] != 0 || [self.decimalPlaces.text length] != 0) {
+        [self.clearButton setEnabled:YES];
+    }
+    else {
+        [self.clearButton setEnabled:NO];
     }
 }
 
