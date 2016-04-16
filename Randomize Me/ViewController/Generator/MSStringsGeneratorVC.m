@@ -101,8 +101,6 @@ static int MSGenerateButtonHeight = 27;
     }
 }
 
-
-
 #pragma mark - MSHTTPClient Delegate
 - (void) MSHTTPClient:(MSHTTPClient *)sharedHTTPClient didSucceedWithResponse:(id)responseObject {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];

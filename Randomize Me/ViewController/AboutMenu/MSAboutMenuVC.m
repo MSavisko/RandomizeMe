@@ -103,7 +103,7 @@
 
 //**Because of warning in 8.1
 //**"Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
-#pragma mark - Table View Cell Data source
+#pragma mark - TableViewCellDataSource
 - (CGFloat)tableView:(UITableView *)tableView
 estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
@@ -114,7 +114,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
 }
 
-#pragma mark - Helper Method
+#pragma mark - HelperMethod
 - (void) sendFeedback {
     NSString *emailTitle = @"Feedback for Randomize Me";
     NSString *messageBody = @"";
@@ -138,7 +138,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-#pragma mark - MBProgressHUD Method
+#pragma mark - MBProgressHUDMethod
 - (void) showHudWithMessage:(NSString*)message {
     //Show
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -153,7 +153,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     });
 }
 
-#pragma mark - Alert Methods
+#pragma mark - AlertMethods
 - (void) showFeedbackAlert {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Feedback!"
                                                     message:@"Sorry. Could not send feedback.\nTry again later."
@@ -163,7 +163,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     [alert show];
 }
 
-#pragma mark - Presentation Data String Method
+#pragma mark - PresentationDataStringMethod
 - (NSString*) licenses {
     NSString *networking = [NSString stringWithFormat:@"AFNetworking\n\nCopyright (c) 2011–2016 Alamofire Software Foundation (http://alamofire.org/)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n"];
     
