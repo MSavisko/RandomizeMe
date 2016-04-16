@@ -6,11 +6,11 @@
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "LoteryQuickPick.h"
+#import "LotteryQuickPick.h"
 #import "MSRandomIntegerRequest.h"
 #import "MSRandomResponse.h"
 
-@implementation LoteryQuickPick
+@implementation LotteryQuickPick
 
 
 - (instancetype) initWithName:(NSString*)name {

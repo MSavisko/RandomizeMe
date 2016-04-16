@@ -2272,10 +2272,10 @@
             </objects>
             <point key="canvasLocation" x="340" y="-3853"/>
         </scene>
-        <!--Lotery Quick Pick-->
+        <!--Lottery Quick Pick-->
         <scene sceneID="8vS-0B-S38">
             <objects>
-                <viewController title="Lotery Quick Pick" id="zb6-qs-Wpz" customClass="MSLoteryQuickPickVC" sceneMemberID="viewController">
+                <viewController title="Lottery Quick Pick" id="zb6-qs-Wpz" customClass="MSLotteryQuickPickVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BU9-qo-EnK"/>
                         <viewControllerLayoutGuide type="bottom" id="dWB-VK-bon"/>
@@ -2305,10 +2305,12 @@
                             <constraint firstAttribute="trailing" secondItem="suN-aM-DaX" secondAttribute="trailing" id="yIn-sf-Qw1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Lotery Quick Pick" id="e3p-mp-Kax">
+                    <navigationItem key="navigationItem" title="Lottery Quick Pick" id="e3p-mp-Kax">
                         <barButtonItem key="leftBarButtonItem" image="menu filled" id="e25-hV-kVC"/>
-                        <barButtonItem key="rightBarButtonItem" image="clear button" id="7kg-z5-BZC"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="pickerView" destination="C7Z-Ei-LSO" id="0h5-yT-Hck"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HR-wz-qeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2350,10 +2352,10 @@
             </objects>
             <point key="canvasLocation" x="340" y="802"/>
         </scene>
-        <!--Lotery NC-->
+        <!--Lottery NC-->
         <scene sceneID="vlv-lC-zjy">
             <objects>
-                <navigationController title="Lotery NC" automaticallyAdjustsScrollViewInsets="NO" id="F4l-Ex-AwB" sceneMemberID="viewController">
+                <navigationController title="Lottery NC" automaticallyAdjustsScrollViewInsets="NO" id="F4l-Ex-AwB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Kq-qF-NWf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

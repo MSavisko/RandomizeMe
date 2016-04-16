@@ -1,13 +1,13 @@
 //
-//  MSLoteryTicketGenerator.m
+//  MSLoteryTicketGenerator.h
 //  Randomize Me
 //
 //  Created by Maksym Savisko on 4/16/16.
 //  Copyright © 2016 Maksym Savisko. All rights reserved.
 //
 
-#import "MSLoteryQuickPickVC.h"
+#import <UIKit/UIKit.h>
 
-@implementation MSLoteryQuickPickVC
+@interface MSLotteryQuickPickVC : UIViewController
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MSRandomIntegerRequest.h"
 
-@interface LoteryQuickPick : NSObject
+@interface LotteryQuickPick : NSObject
 @property (readonly, strong, nonatomic) NSString *name;
 
 - (instancetype) initWithName:(NSString*)name;
