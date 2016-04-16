@@ -17,6 +17,7 @@
 @interface MSCardShufflerGeneratorVC () <MSHTTPClientDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButtonItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearButton;
 @property (weak, nonatomic) IBOutlet UISwitch *spadesSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *heartsSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *diamondsSwitch;
@@ -34,6 +35,7 @@
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
+    [self.clearButton setEnabled:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -61,6 +63,7 @@
     [self.diamondsSwitch setOn:YES animated:YES];
     [self.clubsSwitch setOn:YES animated:YES];
     [self.jokersSwitch setOn:NO animated:YES];
+    [self.clearButton setEnabled:NO];
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
@@ -70,6 +73,15 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (IBAction)clearButtonActive:(id)sender {
+    if (!self.spadesSwitch.isOn || !self.heartsSwitch.isOn || !self.diamondsSwitch.isOn || !self.clubsSwitch.isOn || self.jokersSwitch.isOn) {
+        [self.clearButton setEnabled:YES];
+    }
+    else {
+        [self.clearButton setEnabled:NO];
+    }
 }
 
 #pragma mark - MSHTTPClient Delegate

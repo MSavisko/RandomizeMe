@@ -443,9 +443,15 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QXQ-Vs-TX8">
                                                         <rect key="frame" x="163" y="42" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="clearButtonActive:" destination="rfP-PK-k5z" eventType="valueChanged" id="zRm-7R-meq"/>
+                                                        </connections>
                                                     </switch>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hvb-Z9-EqT">
                                                         <rect key="frame" x="163" y="81" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="clearButtonActive:" destination="rfP-PK-k5z" eventType="valueChanged" id="lJL-CV-C9d"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diamonds ♦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voT-mh-xBb">
                                                         <rect key="frame" x="8" y="86" width="110" height="21"/>
@@ -461,6 +467,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TcO-bJ-L6i">
                                                         <rect key="frame" x="163" y="116" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="clearButtonActive:" destination="rfP-PK-k5z" eventType="valueChanged" id="oNz-t5-ROE"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jokers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5b-e4-3xE">
                                                         <rect key="frame" x="8" y="165" width="51" height="21"/>
@@ -470,9 +479,15 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rvg-hO-TMw">
                                                         <rect key="frame" x="163" y="160" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="clearButtonActive:" destination="rfP-PK-k5z" eventType="valueChanged" id="WaA-1m-5qb"/>
+                                                        </connections>
                                                     </switch>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m0r-ki-rEG">
                                                         <rect key="frame" x="163" y="3" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="clearButtonActive:" destination="rfP-PK-k5z" eventType="valueChanged" id="2QU-Nj-fiJ"/>
+                                                        </connections>
                                                     </switch>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ph1-Qn-kNw">
                                                         <rect key="frame" x="80" y="192" width="60" height="30"/>
@@ -528,6 +543,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearButton" destination="KRe-r6-DE4" id="0Hr-6W-Iv3"/>
                         <outlet property="clubsSwitch" destination="TcO-bJ-L6i" id="8tM-m4-BoA"/>
                         <outlet property="diamondsSwitch" destination="Hvb-Z9-EqT" id="jSR-1F-b8l"/>
                         <outlet property="drawButton" destination="ph1-Qn-kNw" id="hRc-5x-gx8"/>
